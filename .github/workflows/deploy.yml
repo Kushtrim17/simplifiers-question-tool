@@ -25,7 +25,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: "https://kushtrim17.github.io/simplifiers-question-tool/"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
