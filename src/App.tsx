@@ -19,10 +19,6 @@ import { NoCategoriesYet } from "./components/QuestionsBuilder/components/NoQues
 function App() {
   const [questionnaire, setQuestionnaire] = useState<Category[]>([]);
 
-  const handleTabChanged = () => {
-    console.log("Tab changed");
-  };
-
   const handleQuestionnaireUpdate = () => {
     const questionsFromLocalStorage = loadQuestionnaireFromLocalStorage();
     setQuestionnaire(questionsFromLocalStorage);
@@ -72,16 +68,12 @@ function App() {
         <h2 className="text-md pt-2">Create, edit and view questions</h2>
       </div>
 
-      <Tabs defaultValue="account" className="pt-5 w-full">
+      <Tabs defaultValue="builder" className="pt-5 w-full">
         <TabsList className="float-end">
-          <TabsTrigger value="account" onClick={handleTabChanged}>
-            Question Builder
-          </TabsTrigger>
-          <TabsTrigger value="password" onClick={handleTabChanged}>
-            JSON result
-          </TabsTrigger>
+          <TabsTrigger value="builder">Question Builder</TabsTrigger>
+          <TabsTrigger value="viewer">JSON result</TabsTrigger>
         </TabsList>
-        <TabsContent value="account" className="pt-10">
+        <TabsContent value="builder" className="pt-10">
           <When
             isTrue={questionnaire.length > 0}
             fallback={<NoCategoriesYet onClick={handleAddFirstCategory} />}
@@ -103,8 +95,8 @@ function App() {
             />
           </When>
         </TabsContent>
-        <TabsContent value="password" className="pt-10">
-          <QuestionsPreviewer />
+        <TabsContent value="viewer" className="pt-10">
+          <QuestionsPreviewer questionnaire={questionnaire} />
         </TabsContent>
       </Tabs>
     </div>
