@@ -1,105 +1,70 @@
-import { v4 as uuidv4 } from "uuid";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "./App.css";
 import { QuestionsBuilder } from "./components/QuestionsBuilder/QuestionsBuilder";
 import { Category } from "./components/QuestionsBuilder/types";
-
-const questionnaire: Category[] = [
-  {
-    id: "1",
-    level: 1,
-    orderNumber: 1,
-    name: "Category 1",
-    subCategories: [
-      {
-        id: "11",
-        level: 2,
-        orderNumber: 1,
-        name: "Category 1 Level 2",
-        subCategories: [
-          {
-            id: "111",
-            level: 3,
-            orderNumber: 1,
-            name: "Category 1 Level 3",
-            subCategories: [
-              {
-                id: "1111",
-                level: 4,
-                orderNumber: 1,
-                name: "Category 1 Level 4",
-                questions: [
-                  {
-                    id: uuidv4(),
-                    title: "Question 1",
-                    description: "This is a multiple choice question",
-                    answer: "Option 1",
-                    options: ["Option 1", "Option 2", "Option 3"],
-                  },
-                  {
-                    id: uuidv4(),
-                    title: "Question 2",
-                    description: "This is a multiple choice question2",
-                    answer: "Option 2",
-                    options: ["Option 1", "Option 2", "Option 3"],
-                  },
-                ],
-              },
-            ],
-            questions: [
-              {
-                id: uuidv4(),
-                title: "Question 1",
-                description: "This is a multiple choice question",
-                answer: "Option 1",
-                options: ["Option 1", "Option 2", "Option 3"],
-              },
-              {
-                id: uuidv4(),
-                title: "Question 2",
-                description: "This is a multiple choice question2",
-                answer: "Option 2",
-                options: ["Option 1", "Option 2", "Option 3"],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "12",
-        level: 2,
-        orderNumber: 3,
-        name: "Category 2 Level 1",
-      },
-      {
-        id: "13",
-        level: 2,
-        orderNumber: 3,
-        name: "Category 3 Level 1",
-      },
-    ],
-  },
-  {
-    id: "2",
-    orderNumber: 2,
-    level: 1,
-    name: "Category 2",
-  },
-  {
-    id: "3",
-    orderNumber: 3,
-    level: 1,
-    name: "Category 3",
-  },
-  {
-    id: "4",
-    orderNumber: 4,
-    level: 1,
-    name: "Category 4",
-  },
-];
+import { useEffect, useState } from "react";
+import {
+  addChildCategory,
+  addRootCategory,
+  addSiblingCategory,
+  deleteCategory,
+  loadQuestionnaireFromLocalStorage,
+  saveQuestionnaireToLocalStorage,
+  updateCategoryById,
+} from "./components/QuestionsBuilder/questions";
+import { QuestionsPreviewer } from "./components/QuestionsPreviewer/QuestionsPreviewer";
+import { When } from "./components/QuestionsBuilder/components/When";
+import { NoCategoriesYet } from "./components/QuestionsBuilder/components/NoQuestionsYet";
 
 function App() {
+  const [questionnaire, setQuestionnaire] = useState<Category[]>([]);
+
+  const handleTabChanged = () => {
+    console.log("Tab changed");
+  };
+
+  const handleQuestionnaireUpdate = () => {
+    const questionsFromLocalStorage = loadQuestionnaireFromLocalStorage();
+    setQuestionnaire(questionsFromLocalStorage);
+  };
+
+  const handleAddFirstCategory = () => {
+    const updatedQuestions = addRootCategory(questionnaire);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnEdit = (category: Category) => {
+    const updatedQuestions = updateCategoryById(questionnaire, category);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnAddChildCategory = (parentId: string) => {
+    const updatedQuestions = addChildCategory(questionnaire, parentId);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnAddSiblingCategory = (siblingId: string) => {
+    const updatedQuestions = addSiblingCategory(questionnaire, siblingId);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnDelete = (categoryId: string) => {
+    const updatedQuestions = deleteCategory(questionnaire, categoryId);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnAddQuestion = () => {};
+
+  useEffect(() => {
+    const questionsFromLocalStorage = loadQuestionnaireFromLocalStorage();
+    setQuestionnaire(questionsFromLocalStorage);
+  }, []);
+
   return (
     <div className="container">
       <div className="header">
@@ -109,14 +74,37 @@ function App() {
 
       <Tabs defaultValue="account" className="pt-5 w-full">
         <TabsList className="float-end">
-          <TabsTrigger value="account">Question Builder</TabsTrigger>
-          <TabsTrigger value="password">JSON result</TabsTrigger>
+          <TabsTrigger value="account" onClick={handleTabChanged}>
+            Question Builder
+          </TabsTrigger>
+          <TabsTrigger value="password" onClick={handleTabChanged}>
+            JSON result
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="account" className="pt-10">
-          <QuestionsBuilder questions={questionnaire} />
+          <When
+            isTrue={questionnaire.length > 0}
+            fallback={<NoCategoriesYet onClick={handleAddFirstCategory} />}
+          >
+            <QuestionsBuilder
+              questions={questionnaire}
+              onUpdate={handleQuestionnaireUpdate}
+              handleOnEdit={(category: Category) => handleOnEdit(category)}
+              handleOnAddChildCategory={(parentId: string) =>
+                handleOnAddChildCategory(parentId)
+              }
+              handleOnAddSiblingCategory={(siblingId: string) =>
+                handleOnAddSiblingCategory(siblingId)
+              }
+              handleOnDelete={(categoryId: string) =>
+                handleOnDelete(categoryId)
+              }
+              handleOnAddQuestion={handleOnAddQuestion}
+            />
+          </When>
         </TabsContent>
         <TabsContent value="password" className="pt-10">
-          We will be able to see the JSON result here
+          <QuestionsPreviewer />
         </TabsContent>
       </Tabs>
     </div>

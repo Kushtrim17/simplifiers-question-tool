@@ -1,75 +1,42 @@
-import { useEffect, useState } from "react";
 import { Category } from "./types";
 import { CategoryItem } from "./components/CategoryItem";
-import {
-  addChildCategory,
-  addSiblingCategory,
-  updateCategoryById,
-} from "./questionts";
 import { QuestionItem } from "./components/QuestionItem";
 
 type Props = {
   questions: Category[];
+  onUpdate: () => void;
+  handleOnEdit: (category: Category) => void;
+  handleOnAddChildCategory: (parentId: string) => void;
+  handleOnAddSiblingCategory: (siblingId: string) => void;
+  handleOnDelete: (categoryId: string) => void;
+  handleOnAddQuestion: () => void;
 };
 export function QuestionsBuilder(props: Props) {
-  const { questions } = props;
-  const [questionnaire, setQuestionnaire] = useState<Category[]>([]);
-
-  useEffect(() => {
-    setQuestionnaire(questions);
-  }, [questions]);
-
-  const handleUpdateCategory = (
-    id: string,
-    updatedCategory: Partial<Category>
-  ) => {
-    const updatedQuestionnaire = updateCategoryById(
-      questionnaire,
-      id,
-      updatedCategory
-    );
-
-    setQuestionnaire(updatedQuestionnaire);
-  };
-
-  const handleAddSiblingCategory = (
-    categoryId: string,
-    newCategory: Category
-  ) => {
-    const updatedQuestionnaire = addSiblingCategory(
-      questionnaire,
-      categoryId,
-      newCategory
-    );
-
-    setQuestionnaire(updatedQuestionnaire);
-  };
-
-  const handleAddChildCategory = (parentId: string, newCategory: Category) => {
-    const updatedQuestionnaire = addChildCategory(
-      questionnaire,
-      parentId,
-      newCategory
-    );
-
-    setQuestionnaire(updatedQuestionnaire);
-  };
+  const {
+    questions = [],
+    onUpdate,
+    handleOnAddChildCategory,
+    handleOnAddQuestion,
+    handleOnAddSiblingCategory,
+    handleOnDelete,
+    handleOnEdit,
+  } = props;
 
   return (
     <div>
-      {questionnaire.map((category) => (
+      {questions.map((category) => (
         <div key={category.id}>
           <CategoryItem
             category={category}
-            onEdit={(updatedCategory) =>
-              handleUpdateCategory(category.id, updatedCategory)
+            onEdit={handleOnEdit}
+            onAddSibling={(siblingId: string) =>
+              handleOnAddSiblingCategory(siblingId)
             }
-            onAddSibling={(newCategory) =>
-              handleAddSiblingCategory(category.id, newCategory)
+            onAddChild={(parentId: string) =>
+              handleOnAddChildCategory(parentId)
             }
-            onAddChild={(newCategory) =>
-              handleAddChildCategory(category.id, newCategory)
-            }
+            onDelete={() => handleOnDelete(category.id)}
+            onAddQuestion={() => handleOnAddQuestion()}
           />
           <div className="mt-4">
             {category?.questions?.map((q) => (
@@ -83,7 +50,15 @@ export function QuestionsBuilder(props: Props) {
           </div>
 
           {category.subCategories && (
-            <QuestionsBuilder questions={category.subCategories} />
+            <QuestionsBuilder
+              questions={category.subCategories}
+              onUpdate={onUpdate}
+              handleOnEdit={handleOnEdit}
+              handleOnAddChildCategory={handleOnAddChildCategory}
+              handleOnAddSiblingCategory={handleOnAddSiblingCategory}
+              handleOnDelete={handleOnDelete}
+              handleOnAddQuestion={handleOnAddQuestion}
+            />
           )}
         </div>
       ))}

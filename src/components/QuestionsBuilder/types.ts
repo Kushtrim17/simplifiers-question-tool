@@ -8,6 +8,7 @@ export type Question = {
 
 export type Category = {
   id: string;
+  parentId?: string;
   orderNumber: number;
   level: number;
   name: string;

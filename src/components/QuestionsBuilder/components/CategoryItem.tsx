@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from "uuid";
-import { IoEllipsisVerticalSharp } from "react-icons/io5";
+// import { debounce } from "lodash";
+import { IoEllipsisVerticalSharp, IoTrashBinOutline } from "react-icons/io5";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,6 +8,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Category } from "../types";
 import { useState } from "react";
 import { When } from "./When";
@@ -28,15 +39,98 @@ function CategoryName(props: CategoryProps) {
   );
 }
 
+type ActionMenuProps = {
+  isEditMode: boolean;
+  toggleEditMode: () => void;
+  handleAddSiblingCategory: () => void;
+  handleAddChildCategory: () => void;
+  handleAddQuestion: () => void;
+};
+
+function ActionMenu(props: ActionMenuProps) {
+  const {
+    isEditMode,
+    toggleEditMode,
+    handleAddSiblingCategory,
+    handleAddChildCategory,
+    handleAddQuestion,
+  } = props;
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="pr-2">
+        <IoEllipsisVerticalSharp size={20} />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={toggleEditMode}>
+          {isEditMode ? (
+            <span className="mr-2">Read</span>
+          ) : (
+            <span className="mr-2">Edit</span>
+          )}
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleAddSiblingCategory}>
+          Add sibling category
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleAddChildCategory}>
+          Add subcategory
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleAddQuestion}>
+          Add question
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+type DeleteProps = {
+  onDelete: () => void;
+};
+
+function DeleteButton(props: DeleteProps) {
+  const { onDelete } = props;
+
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger>
+        <IoTrashBinOutline size={24} />
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            All of the category data will be permanently deleted, including sub
+            categories and questions
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction onClick={onDelete}>Yes</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+
 type Props = {
   category: Category;
   onEdit: (updatedCategory: Category) => void;
-  onAddSibling: (newCategory: Category) => void;
-  onAddChild: (newCategory: Category) => void;
+  onAddSibling: (siblingId: string) => void;
+  onAddChild: (parentId: string) => void;
+  onDelete: () => void;
+  onAddQuestion: () => void;
 };
 
 export function CategoryItem(props: Props) {
-  const { category, onEdit, onAddSibling } = props;
+  const {
+    category,
+    onEdit,
+    onAddSibling,
+    onAddChild,
+    onDelete,
+    onAddQuestion,
+  } = props;
   const [isEditMode, setIsEditMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category.name);
 
@@ -53,56 +147,25 @@ export function CategoryItem(props: Props) {
   };
 
   const handleAddSiblingCategory = () => {
-    const newCategory: Category = {
-      id: uuidv4(),
-      level: category.level,
-      orderNumber: category.orderNumber + 1,
-      name: "New Category",
-    };
-
-    onAddSibling(newCategory);
+    onAddSibling(category.id);
   };
 
   const handleAddChildCategory = () => {
-    const newCategory: Category = {
-      id: uuidv4(),
-      level: category.level + 1,
-      // TODO: figure the category number properly
-      orderNumber: 1,
-      name: "New sub category",
-    };
-
-    props.onAddChild(newCategory);
+    onAddChild(category.id);
   };
 
   return (
-    <div>
-      <div
-        className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex items-center`}
-      >
-        <DropdownMenu>
-          <DropdownMenuTrigger className="pr-2">
-            <IoEllipsisVerticalSharp size={20} />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={toggleEditMode}>
-              {isEditMode ? (
-                <span className="mr-2">Read</span>
-              ) : (
-                <span className="mr-2">Edit</span>
-              )}
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleAddSiblingCategory}>
-              Add sibling category
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleAddChildCategory}>
-              Add subcategory
-            </DropdownMenuItem>
-            <DropdownMenuItem>Add question</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+    <div
+      className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex justify-between items-center group inline-block relative`}
+    >
+      <div className="flex flex-row">
+        <ActionMenu
+          isEditMode={isEditMode}
+          toggleEditMode={toggleEditMode}
+          handleAddSiblingCategory={handleAddSiblingCategory}
+          handleAddChildCategory={handleAddChildCategory}
+          handleAddQuestion={onAddQuestion}
+        />
         <When
           isTrue={isEditMode}
           fallback={<CategoryName label={categoryName} />}
@@ -115,6 +178,9 @@ export function CategoryItem(props: Props) {
             onChange={(e) => handleUpdateCategoryName(e.currentTarget.value)}
           />
         </When>
+      </div>
+      <div className="hidden group-hover:block">
+        <DeleteButton onDelete={onDelete} />
       </div>
     </div>
   );
