@@ -1,5 +1,10 @@
 // import { debounce } from "lodash";
-import { IoEllipsisVerticalSharp, IoTrashBinOutline } from "react-icons/io5";
+import {
+  IoEllipsisVerticalSharp,
+  IoTrashBinOutline,
+  IoPencilSharp,
+  IoCheckmarkSharp,
+} from "react-icons/io5";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,22 +25,31 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Category } from "../types";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { When } from "./When";
 import { Input } from "@/components/ui/input";
 import { marginClasses } from "../consts";
 
 type CategoryProps = {
   label: string;
+  handleOnEditClicked: () => void;
 };
 
 function CategoryName(props: CategoryProps) {
-  const { label } = props;
+  const { label, handleOnEditClicked } = props;
 
   return (
-    <h2 className="text-xl font-semibold text-gray-800 hover:text-gray-900">
-      {label}
-    </h2>
+    <>
+      <h2 className="text-xl font-semibold text-gray-800 hover:text-gray-900 pt-1">
+        {label}
+      </h2>
+      <div
+        className="ml-5 cursor-pointer border border-gray-200 rounded-lg p-3 h-[40px] mb-[-5px]"
+        onClick={handleOnEditClicked}
+      >
+        <IoPencilSharp size={15} />
+      </div>
+    </>
   );
 }
 
@@ -65,11 +79,7 @@ function ActionMenu(props: ActionMenuProps) {
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={toggleEditMode}>
-          {isEditMode ? (
-            <span className="mr-2">Read</span>
-          ) : (
-            <span className="mr-2">Edit</span>
-          )}
+          <span className="mr-2">{isEditMode ? "Read" : "Edit"}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={handleAddSiblingCategory}>
           Add sibling category
@@ -133,9 +143,17 @@ export function CategoryItem(props: Props) {
   } = props;
   const [isEditMode, setIsEditMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category.name);
+  const inputRef = useRef<HTMLInputElement>(null); // Create a ref for the input element
 
   const marginClass =
     marginClasses[Math.min(category.level - 1, marginClasses.length - 1)];
+
+  useEffect(() => {
+    // Focus on the input element when entering edit mode
+    if (isEditMode && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEditMode]); // Run effect whenever isEditMode changes
 
   const toggleEditMode = () => {
     setIsEditMode((prev) => !prev);
@@ -156,9 +174,9 @@ export function CategoryItem(props: Props) {
 
   return (
     <div
-      className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex justify-between items-center group inline-block relative`}
+      className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex justify-between items-center group relative`}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row w-[800px]">
         <ActionMenu
           isEditMode={isEditMode}
           toggleEditMode={toggleEditMode}
@@ -168,15 +186,27 @@ export function CategoryItem(props: Props) {
         />
         <When
           isTrue={isEditMode}
-          fallback={<CategoryName label={categoryName} />}
+          fallback={
+            <CategoryName
+              label={categoryName}
+              handleOnEditClicked={toggleEditMode}
+            />
+          }
         >
           <Input
             type="text"
             placeholder="Category"
-            width={100}
+            width={300}
             value={categoryName}
             onChange={(e) => handleUpdateCategoryName(e.currentTarget.value)}
+            ref={inputRef}
           />
+          <div
+            className="ml-5 cursor-pointer border border-gray-200 rounded-lg p-4 h-[40px]"
+            onClick={toggleEditMode}
+          >
+            <IoCheckmarkSharp size={15} />
+          </div>
         </When>
       </div>
       <div className="hidden group-hover:block">

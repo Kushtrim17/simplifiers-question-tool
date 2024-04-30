@@ -1,9 +1,12 @@
+export type ExternalLink = { label: string; url: string };
+
 export type Question = {
   id: string;
   title: string;
+  orderNumber: number;
   description: string;
-  answer: string;
-  options: string[];
+  type: "boolean" | "voucher" | "freeText";
+  externalLinks?: ExternalLink[];
 };
 
 export type Category = {

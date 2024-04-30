@@ -109,8 +109,7 @@ export function updateCategoryById(
 
 export function addQuestionToCategory(
   allCategories: Category[],
-  categoryId: string,
-  newQuestion: Question
+  categoryId: string
 ) {
   const categories = [...allCategories];
 
@@ -120,14 +119,24 @@ export function addQuestionToCategory(
         category.questions = [];
       }
 
+      const orderNumber = category?.questions?.length + 1 || 1;
+
+      const newQuestion: Question = {
+        id: uuIdv4(),
+        title: `Question ${category.name} and ${category.level} level`,
+        orderNumber,
+        description: "Question description",
+        type: "boolean",
+        externalLinks: [],
+      };
+
       category.questions.push(newQuestion);
     }
 
     if (category.subCategories) {
       category.subCategories = addQuestionToCategory(
         category.subCategories,
-        categoryId,
-        newQuestion
+        categoryId
       );
     }
 
@@ -156,6 +165,27 @@ export function updateQuestion(
       category.subCategories = updateQuestion(
         category.subCategories,
         updatedQuestion
+      );
+    }
+
+    return category;
+  });
+}
+
+export function deleteQuestion(allCategories: Category[], questionId: string) {
+  const categories = [...allCategories];
+
+  return categories.map((category) => {
+    if (category.questions) {
+      category.questions = category.questions.filter(
+        (question) => question.id !== questionId
+      );
+    }
+
+    if (category.subCategories) {
+      category.subCategories = deleteQuestion(
+        category.subCategories,
+        questionId
       );
     }
 

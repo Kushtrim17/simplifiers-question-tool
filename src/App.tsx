@@ -1,16 +1,19 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "./App.css";
 import { QuestionsBuilder } from "./components/QuestionsBuilder/QuestionsBuilder";
-import { Category } from "./components/QuestionsBuilder/types";
+import { Category, Question } from "./components/QuestionsBuilder/types";
 import { useEffect, useState } from "react";
 import {
   addChildCategory,
+  addQuestionToCategory,
   addRootCategory,
   addSiblingCategory,
   deleteCategory,
+  deleteQuestion,
   loadQuestionnaireFromLocalStorage,
   saveQuestionnaireToLocalStorage,
   updateCategoryById,
+  updateQuestion,
 } from "./components/QuestionsBuilder/questions";
 import { QuestionsPreviewer } from "./components/QuestionsPreviewer/QuestionsPreviewer";
 import { When } from "./components/QuestionsBuilder/components/When";
@@ -54,7 +57,23 @@ function App() {
     handleQuestionnaireUpdate();
   };
 
-  const handleOnAddQuestion = () => {};
+  const handleOnAddQuestion = (categoryId: string) => {
+    const updatedQuestions = addQuestionToCategory(questionnaire, categoryId);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnEditQuestion = (updatedQuestion: Question) => {
+    const updatedQuestions = updateQuestion(questionnaire, updatedQuestion);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
+
+  const handleOnDeleteQuestion = (questionId: string) => {
+    const updatedQuestions = deleteQuestion(questionnaire, questionId);
+    saveQuestionnaireToLocalStorage(updatedQuestions);
+    handleQuestionnaireUpdate();
+  };
 
   useEffect(() => {
     const questionsFromLocalStorage = loadQuestionnaireFromLocalStorage();
@@ -80,18 +99,13 @@ function App() {
           >
             <QuestionsBuilder
               questions={questionnaire}
-              onUpdate={handleQuestionnaireUpdate}
-              handleOnEdit={(category: Category) => handleOnEdit(category)}
-              handleOnAddChildCategory={(parentId: string) =>
-                handleOnAddChildCategory(parentId)
-              }
-              handleOnAddSiblingCategory={(siblingId: string) =>
-                handleOnAddSiblingCategory(siblingId)
-              }
-              handleOnDelete={(categoryId: string) =>
-                handleOnDelete(categoryId)
-              }
-              handleOnAddQuestion={handleOnAddQuestion}
+              onEdit={handleOnEdit}
+              onAddChildCategory={handleOnAddChildCategory}
+              onAddSiblingCategory={handleOnAddSiblingCategory}
+              onDelete={handleOnDelete}
+              onAddQuestion={handleOnAddQuestion}
+              onEditQuestion={handleOnEditQuestion}
+              onDeleteQuestion={handleOnDeleteQuestion}
             />
           </When>
         </TabsContent>

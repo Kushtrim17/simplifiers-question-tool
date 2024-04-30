@@ -1,25 +1,27 @@
-import { Category } from "./types";
+import { Category, Question } from "./types";
 import { CategoryItem } from "./components/CategoryItem";
-import { QuestionItem } from "./components/QuestionItem";
+import { QuestionItem } from "./components/Questions/QuestionItem";
 
 type Props = {
   questions: Category[];
-  onUpdate: () => void;
-  handleOnEdit: (category: Category) => void;
-  handleOnAddChildCategory: (parentId: string) => void;
-  handleOnAddSiblingCategory: (siblingId: string) => void;
-  handleOnDelete: (categoryId: string) => void;
-  handleOnAddQuestion: () => void;
+  onEdit: (category: Category) => void;
+  onAddChildCategory: (parentId: string) => void;
+  onAddSiblingCategory: (siblingId: string) => void;
+  onDelete: (categoryId: string) => void;
+  onAddQuestion: (categoryId: string) => void;
+  onEditQuestion: (updatedQuestion: Question) => void;
+  onDeleteQuestion: (questionId: string) => void;
 };
 export function QuestionsBuilder(props: Props) {
   const {
     questions = [],
-    onUpdate,
-    handleOnAddChildCategory,
-    handleOnAddQuestion,
-    handleOnAddSiblingCategory,
-    handleOnDelete,
-    handleOnEdit,
+    onAddChildCategory,
+    onAddSiblingCategory,
+    onDelete,
+    onEdit,
+    onAddQuestion,
+    onEditQuestion,
+    onDeleteQuestion,
   } = props;
 
   return (
@@ -28,36 +30,40 @@ export function QuestionsBuilder(props: Props) {
         <div key={category.id}>
           <CategoryItem
             category={category}
-            onEdit={handleOnEdit}
+            onEdit={onEdit}
             onAddSibling={(siblingId: string) =>
-              handleOnAddSiblingCategory(siblingId)
+              onAddSiblingCategory(siblingId)
             }
-            onAddChild={(parentId: string) =>
-              handleOnAddChildCategory(parentId)
-            }
-            onDelete={() => handleOnDelete(category.id)}
-            onAddQuestion={() => handleOnAddQuestion()}
+            onAddChild={(parentId: string) => onAddChildCategory(parentId)}
+            onDelete={() => onDelete(category.id)}
+            onAddQuestion={() => onAddQuestion(category.id)}
           />
           <div className="mt-4">
             {category?.questions?.map((q) => (
-              <QuestionItem
-                key={q.id}
-                categoryLevel={category.level}
-                question={q}
-                onEdit={() => console.log("question edited")}
-              />
+              <>
+                <QuestionItem
+                  key={q.id}
+                  categoryLevel={category.level}
+                  question={q}
+                  onEdit={onEditQuestion}
+                  onDelete={(questionId: string) =>
+                    onDeleteQuestion(questionId)
+                  }
+                />
+              </>
             ))}
           </div>
 
           {category.subCategories && (
             <QuestionsBuilder
               questions={category.subCategories}
-              onUpdate={onUpdate}
-              handleOnEdit={handleOnEdit}
-              handleOnAddChildCategory={handleOnAddChildCategory}
-              handleOnAddSiblingCategory={handleOnAddSiblingCategory}
-              handleOnDelete={handleOnDelete}
-              handleOnAddQuestion={handleOnAddQuestion}
+              onEdit={onEdit}
+              onAddChildCategory={onAddChildCategory}
+              onAddSiblingCategory={onAddSiblingCategory}
+              onDelete={onDelete}
+              onAddQuestion={onAddQuestion}
+              onEditQuestion={onEditQuestion}
+              onDeleteQuestion={onDeleteQuestion}
             />
           )}
         </div>
