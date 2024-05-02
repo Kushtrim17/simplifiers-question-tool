@@ -20,8 +20,9 @@ export type Category = {
   level: number;
   name: string;
   subCategories?: Category[];
-  questions: Question[];
+  // an array of category ids that this category depends on
   dependsOnCategories: string[];
+  questions: Question[];
 };
 
 export type Structure = {
@@ -33,3 +34,13 @@ export const STARTING_STRUCTURE: Structure = {
   lastUpdated: new Date().toISOString(),
   categories: [],
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function isStructureType(obj: any): obj is Structure {
+  return (
+    typeof obj === "object" &&
+    obj !== null &&
+    typeof obj.lastUpdated === "string" &&
+    Array.isArray(obj.categories)
+  );
+}

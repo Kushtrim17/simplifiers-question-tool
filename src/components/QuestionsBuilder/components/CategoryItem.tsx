@@ -1,4 +1,4 @@
-// import { debounce } from "lodash";
+import { useRef, useState, useEffect } from "react";
 import {
   IoEllipsisVerticalSharp,
   IoTrashBinOutline,
@@ -24,11 +24,11 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Category } from "../types";
-import { useRef, useState, useEffect } from "react";
-import { When } from "./When";
+import { When } from "@/components/ui/When/When";
 import { Input } from "@/components/ui/input";
-import { marginClasses } from "../consts";
+import { Caption } from "@/components/ui/Typography";
+import { Category } from "../types";
+import { marginClasses } from "../../../consts";
 
 type CategoryProps = {
   label: string;
@@ -40,9 +40,7 @@ function CategoryName(props: CategoryProps) {
 
   return (
     <>
-      <h2 className="text-xl font-semibold text-gray-800 hover:text-gray-900 pt-1">
-        {label}
-      </h2>
+      <Caption>{label}</Caption>
       <div
         className="ml-5 cursor-pointer border border-gray-200 rounded-lg p-3 h-[40px] mb-[-5px]"
         onClick={handleOnEditClicked}

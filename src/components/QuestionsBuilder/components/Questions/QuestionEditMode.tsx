@@ -1,4 +1,4 @@
-import { Small } from "@/components/ui/Typography/Small";
+import { Small } from "@/components/ui/Typography";
 import { Question } from "../../types";
 import { Input } from "@/components/ui/input";
 import { useEffect, useRef, useState } from "react";

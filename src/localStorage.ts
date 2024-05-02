@@ -8,7 +8,7 @@ const STORAGE_KEY = "structure";
 // Serialize the data and store in local storage
 export function saveQuestionnaireToLocalStorage(structure: Structure): void {
   const serializedQuestionnaire = JSON.stringify({
-    structure,
+    ...structure,
     lastUpdated: new Date().toISOString(),
   });
   localStorage.setItem(STORAGE_KEY, serializedQuestionnaire);
@@ -20,5 +20,6 @@ export function loadQuestionnaireFromLocalStorage(): Structure {
   if (serializedQuestionnaire) {
     return JSON.parse(serializedQuestionnaire);
   }
+
   return STARTING_STRUCTURE;
 }

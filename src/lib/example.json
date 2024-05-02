@@ -1,0 +1,111 @@
+{
+  "lastUpdated": "2024-05-02T12:07:35.518Z",
+  "categories": [
+    {
+      "id": "ef990ed7-1ea6-4b71-ae75-0f1cf7345aa5",
+      "level": 1,
+      "orderNumber": 1,
+      "name": "New root category 1",
+      "questions": [
+        {
+          "id": "5ee2851d-13fd-4dda-ad25-79fa05af7fe2",
+          "title": "Question New root category 1 and 1 level",
+          "orderNumber": 1,
+          "description": "Question description",
+          "type": "boolean",
+          "externalLinks": [],
+          "dependsOnQuestions": []
+        }
+      ],
+      "dependsOnCategories": [],
+      "subCategories": [
+        {
+          "id": "47393a00-7f40-4f5b-b700-7904dd50a35d",
+          "parentId": "ef990ed7-1ea6-4b71-ae75-0f1cf7345aa5",
+          "level": 2,
+          "orderNumber": 1,
+          "name": "Child 1 category level 2",
+          "questions": [
+            {
+              "id": "1181fff7-2bb1-4912-84e8-def6ff0923aa",
+              "title": "Question Child 1 category level 2 and 2 level",
+              "orderNumber": 1,
+              "description": "Question description",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": []
+            }
+          ],
+          "dependsOnCategories": []
+        }
+      ]
+    },
+    {
+      "id": "3179321b-c5d7-411a-b4fa-b91fc768374d",
+      "level": 1,
+      "orderNumber": 2,
+      "name": "New root category 2",
+      "questions": [
+        {
+          "id": "eb8a8168-c911-4197-b798-4cd31753253e",
+          "title": "Question New root category 2 and 1 level",
+          "orderNumber": 1,
+          "description": "Question description",
+          "type": "boolean",
+          "externalLinks": [],
+          "dependsOnQuestions": []
+        }
+      ],
+      "dependsOnCategories": []
+    },
+    {
+      "id": "ccd6209f-c381-4556-8a50-eb745278927c",
+      "level": 1,
+      "orderNumber": 3,
+      "name": "New root category 3",
+      "questions": [],
+      "dependsOnCategories": [],
+      "subCategories": [
+        {
+          "id": "382ba25b-96bc-4286-a4f7-63ad45838281",
+          "parentId": "ccd6209f-c381-4556-8a50-eb745278927c",
+          "level": 2,
+          "orderNumber": 1,
+          "name": "Child 1 category level 2",
+          "questions": [],
+          "dependsOnCategories": [],
+          "subCategories": [
+            {
+              "id": "bdd4cd5b-5d89-4bb8-a3f6-08bfc16075c5",
+              "parentId": "382ba25b-96bc-4286-a4f7-63ad45838281",
+              "level": 3,
+              "orderNumber": 1,
+              "name": "Child 1 category level 3",
+              "questions": [
+                {
+                  "id": "b24848b1-ded9-400b-83cc-8e97fe87ebfb",
+                  "title": "Question Child 1 category level 3 and 3 level",
+                  "orderNumber": 1,
+                  "description": "Question description",
+                  "type": "boolean",
+                  "externalLinks": [],
+                  "dependsOnQuestions": []
+                },
+                {
+                  "id": "5a54008e-c0ad-4236-9a37-d990105fa0e5",
+                  "title": "Question Child 1 category level 3 and 3 level",
+                  "orderNumber": 2,
+                  "description": "Question description",
+                  "type": "boolean",
+                  "externalLinks": [],
+                  "dependsOnQuestions": []
+                }
+              ],
+              "dependsOnCategories": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,9 +1,9 @@
-import { marginClasses } from "../../consts";
+import { marginClasses } from "../../../../consts";
 import { Question } from "../../types";
 import { useState } from "react";
 import { QuestionEditMode } from "./QuestionEditMode";
 import { Container } from "./Container";
-import { Caption } from "@/components/ui/Typography/Caption";
+import { Caption } from "@/components/ui/Typography";
 
 type Props = {
   categoryLevel: number;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Small } from "@/components/ui/Typography/Small";
+import { Small } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,

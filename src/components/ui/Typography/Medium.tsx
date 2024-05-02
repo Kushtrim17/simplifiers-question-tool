@@ -1,13 +1,16 @@
 type Props = {
   children: React.ReactNode;
+  className?: string;
 };
 
 export function Medium(props: Props) {
-  const { children } = props;
+  const { children, className } = props;
 
-  return (
-    <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-      {children}
-    </h4>
-  );
+  const getClassName = () => {
+    return className
+      ? `scroll-m-20 text-xl font-semibold tracking-tight ${className}`
+      : "scroll-m-20 text-xl font-semibold tracking-tight";
+  };
+
+  return <h4 className={getClassName()}>{children}</h4>;
 }

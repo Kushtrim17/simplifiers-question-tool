@@ -14,7 +14,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { When } from "../When";
+import { When } from "../../../ui/When/When";
 
 type DeleteProps = {
   onDelete: () => void;
