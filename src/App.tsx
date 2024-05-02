@@ -1,7 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "./App.css";
 import { QuestionsBuilder } from "./components/QuestionsBuilder/QuestionsBuilder";
-import { Category, Question } from "./components/QuestionsBuilder/types";
+import {
+  Category,
+  Question,
+  STARTING_STRUCTURE,
+  Structure,
+} from "./components/QuestionsBuilder/types";
 import { useEffect, useState } from "react";
 import {
   addChildCategory,
@@ -10,74 +15,110 @@ import {
   addSiblingCategory,
   deleteCategory,
   deleteQuestion,
-  loadQuestionnaireFromLocalStorage,
-  saveQuestionnaireToLocalStorage,
   updateCategoryById,
   updateQuestion,
 } from "./components/QuestionsBuilder/questions";
 import { QuestionsPreviewer } from "./components/QuestionsPreviewer/QuestionsPreviewer";
 import { When } from "./components/QuestionsBuilder/components/When";
 import { NoCategoriesYet } from "./components/QuestionsBuilder/components/NoQuestionsYet";
+import { AppDateUtils } from "./lib/dateUtils";
+import {
+  loadQuestionnaireFromLocalStorage,
+  saveQuestionnaireToLocalStorage,
+} from "./localStorage";
 
 function App() {
-  const [questionnaire, setQuestionnaire] = useState<Category[]>([]);
+  const [structure, setStructure] = useState<Structure>(STARTING_STRUCTURE);
 
   const handleQuestionnaireUpdate = () => {
-    const questionsFromLocalStorage = loadQuestionnaireFromLocalStorage();
-    setQuestionnaire(questionsFromLocalStorage);
+    const structureFromLocalStorage = loadQuestionnaireFromLocalStorage();
+    setStructure(structureFromLocalStorage);
   };
 
   const handleAddFirstCategory = () => {
-    const updatedQuestions = addRootCategory(questionnaire);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = addRootCategory(structure.categories);
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnEdit = (category: Category) => {
-    const updatedQuestions = updateCategoryById(questionnaire, category);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = updateCategoryById(structure.categories, category);
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnAddChildCategory = (parentId: string) => {
-    const updatedQuestions = addChildCategory(questionnaire, parentId);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = addChildCategory(structure.categories, parentId);
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnAddSiblingCategory = (siblingId: string) => {
-    const updatedQuestions = addSiblingCategory(questionnaire, siblingId);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = addSiblingCategory(
+      structure.categories,
+      siblingId
+    );
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnDelete = (categoryId: string) => {
-    const updatedQuestions = deleteCategory(questionnaire, categoryId);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = deleteCategory(structure.categories, categoryId);
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnAddQuestion = (categoryId: string) => {
-    const updatedQuestions = addQuestionToCategory(questionnaire, categoryId);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = addQuestionToCategory(
+      structure.categories,
+      categoryId
+    );
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnEditQuestion = (updatedQuestion: Question) => {
-    const updatedQuestions = updateQuestion(questionnaire, updatedQuestion);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = updateQuestion(
+      structure.categories,
+      updatedQuestion
+    );
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   const handleOnDeleteQuestion = (questionId: string) => {
-    const updatedQuestions = deleteQuestion(questionnaire, questionId);
-    saveQuestionnaireToLocalStorage(updatedQuestions);
+    const updatedQuestions = deleteQuestion(structure.categories, questionId);
+    saveQuestionnaireToLocalStorage({
+      ...structure,
+      categories: updatedQuestions,
+    });
     handleQuestionnaireUpdate();
   };
 
   useEffect(() => {
-    const questionsFromLocalStorage = loadQuestionnaireFromLocalStorage();
-    setQuestionnaire(questionsFromLocalStorage);
+    const structureFromLocalStorage = loadQuestionnaireFromLocalStorage();
+    saveQuestionnaireToLocalStorage(structureFromLocalStorage);
   }, []);
 
   return (
@@ -85,6 +126,9 @@ function App() {
       <div className="header">
         <h1 className="text-4xl font-bold">Question Builder</h1>
         <h2 className="text-md pt-2">Create, edit and view questions</h2>
+        <h2 className="text-sm pt-2 opacity-70">
+          Last updated: {AppDateUtils.getFormattedDate(structure.lastUpdated)}
+        </h2>
       </div>
 
       <Tabs defaultValue="builder" className="pt-5 w-full">
@@ -92,13 +136,13 @@ function App() {
           <TabsTrigger value="builder">Question Builder</TabsTrigger>
           <TabsTrigger value="viewer">JSON result</TabsTrigger>
         </TabsList>
-        <TabsContent value="builder" className="pt-10">
+        <TabsContent value="builder" className="pt-10 mb-20">
           <When
-            isTrue={questionnaire.length > 0}
+            isTrue={structure.categories.length > 0}
             fallback={<NoCategoriesYet onClick={handleAddFirstCategory} />}
           >
             <QuestionsBuilder
-              questions={questionnaire}
+              questions={structure.categories}
               onEdit={handleOnEdit}
               onAddChildCategory={handleOnAddChildCategory}
               onAddSiblingCategory={handleOnAddSiblingCategory}
@@ -110,7 +154,7 @@ function App() {
           </When>
         </TabsContent>
         <TabsContent value="viewer" className="pt-10">
-          <QuestionsPreviewer questionnaire={questionnaire} />
+          <QuestionsPreviewer questionnaire={structure.categories} />
         </TabsContent>
       </Tabs>
     </div>

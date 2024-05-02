@@ -7,6 +7,8 @@ export function addRootCategory(allCategories: Category[]) {
     level: 1,
     orderNumber: allCategories.length + 1,
     name: `New root category ${allCategories.length + 1}`,
+    questions: [],
+    dependsOnCategories: [],
   };
 
   return [...allCategories, category];
@@ -26,6 +28,8 @@ export function addChildCategory(allCategories: Category[], parentId: string) {
         level: category.level + 1,
         orderNumber,
         name: `Child ${orderNumber} category level ${category.level + 1}`,
+        questions: [],
+        dependsOnCategories: [],
       };
 
       if (category.subCategories) {
@@ -128,6 +132,7 @@ export function addQuestionToCategory(
         description: "Question description",
         type: "boolean",
         externalLinks: [],
+        dependsOnQuestions: [],
       };
 
       category.questions.push(newQuestion);
@@ -211,21 +216,4 @@ function getCategory(
   }
 
   return null;
-}
-
-// Serialize the data and store in local storage
-export function saveQuestionnaireToLocalStorage(
-  questionnaire: Category[]
-): void {
-  const serializedQuestionnaire = JSON.stringify(questionnaire);
-  localStorage.setItem("questionnaire", serializedQuestionnaire);
-}
-
-// Retrieve the data from local storage and deserialize
-export function loadQuestionnaireFromLocalStorage(): Category[] {
-  const serializedQuestionnaire = localStorage.getItem("questionnaire");
-  if (serializedQuestionnaire) {
-    return JSON.parse(serializedQuestionnaire);
-  }
-  return []; // If no data found in local storage
 }

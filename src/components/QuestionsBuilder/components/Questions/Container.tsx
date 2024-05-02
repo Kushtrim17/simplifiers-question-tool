@@ -14,6 +14,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { When } from "../When";
 
 type DeleteProps = {
   onDelete: () => void;
@@ -62,11 +63,9 @@ export function Container(props: Props) {
         className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex justify-between items-center group relative`}
       >
         <div className="absolute top-2 right-[80px]" onClick={onToggleEditMode}>
-          {isEditMode ? (
+          <When isTrue={isEditMode} fallback={<IoChevronUpSharp size={24} />}>
             <IoChevronDownSharp size={24} />
-          ) : (
-            <IoChevronUpSharp size={24} />
-          )}
+          </When>
         </div>
         <div className="absolute top-2 right-5">
           <DeleteButton onDelete={onDelete} />
