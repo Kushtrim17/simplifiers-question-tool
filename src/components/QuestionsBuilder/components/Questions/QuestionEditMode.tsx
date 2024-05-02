@@ -22,12 +22,6 @@ export function QuestionEditMode(props: Props) {
   const [currentQuestion, setCurrentQuestion] = useState(question);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
-
   const handleOnAddExternalLink = (label: string, url: string) => {
     console.log(`adding label ${label} and url ${url}`);
   };
@@ -36,10 +30,26 @@ export function QuestionEditMode(props: Props) {
     onQuestionUpdate(currentQuestion);
   };
 
+  const handleQuestionTypeChange = (
+    newType: "boolean" | "voucher" | "freeText"
+  ) => {
+    setCurrentQuestion({ ...currentQuestion, type: newType });
+    onQuestionUpdate({
+      ...currentQuestion,
+      type: newType,
+    });
+  };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <div className="w-full flex flex-col mr-40">
       <div className="flex flex-col">
-        <Small>Question</Small>
+        <Small>{question.orderNumber} Question</Small>
         <Input
           ref={inputRef}
           value={currentQuestion.title}
@@ -71,7 +81,7 @@ export function QuestionEditMode(props: Props) {
         <Select
           defaultValue={currentQuestion.type}
           onValueChange={(value: "boolean" | "voucher" | "freeText") =>
-            setCurrentQuestion({ ...currentQuestion, type: value })
+            handleQuestionTypeChange(value)
           }
           onOpenChange={(isOpen) => !isOpen && handleUpdate()}
         >

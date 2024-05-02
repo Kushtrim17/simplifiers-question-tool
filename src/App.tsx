@@ -40,15 +40,19 @@ function App() {
     return DateUtils.getFormattedDate(structure.lastUpdated);
   };
 
+  const saveUpdatedStructure = (updatedStructure: Structure) => {
+    saveQuestionnaireToLocalStorage(updatedStructure);
+    fetchStructureFromLocalStorage();
+  };
+
   const hasAtLeastOneRootCategory = structure?.categories?.length > 0;
 
   const handleOnAddFirstCategory = () => {
     const updatedCategories = addRootCategory(structure.categories);
-    saveQuestionnaireToLocalStorage({
+    saveUpdatedStructure({
       ...structure,
       categories: updatedCategories,
     });
-    fetchStructureFromLocalStorage();
   };
 
   const handleOnUploadStructure = (structure: Structure) => {
@@ -57,75 +61,38 @@ function App() {
   };
 
   const handleOnEditCategory = (category: Category) => {
-    const updatedQuestions = updateCategoryById(structure.categories, category);
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = updateCategoryById(structure.categories, category);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   const handleOnAddChildCategory = (parentId: string) => {
-    const updatedQuestions = addChildCategory(structure.categories, parentId);
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = addChildCategory(structure.categories, parentId);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   const handleOnAddSiblingCategory = (siblingId: string) => {
-    const updatedQuestions = addSiblingCategory(
-      structure.categories,
-      siblingId
-    );
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = addSiblingCategory(structure.categories, siblingId);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   const handleOnDeleteCategory = (categoryId: string) => {
-    const updatedQuestions = deleteCategory(structure.categories, categoryId);
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = deleteCategory(structure.categories, categoryId);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   const handleOnAddQuestion = (categoryId: string) => {
-    const updatedQuestions = addQuestionToCategory(
-      structure.categories,
-      categoryId
-    );
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = addQuestionToCategory(structure.categories, categoryId);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   const handleOnEditQuestion = (updatedQuestion: Question) => {
-    const updatedQuestions = updateQuestion(
-      structure.categories,
-      updatedQuestion
-    );
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = updateQuestion(structure.categories, updatedQuestion);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   const handleOnDeleteQuestion = (questionId: string) => {
-    const updatedQuestions = deleteQuestion(structure.categories, questionId);
-    saveQuestionnaireToLocalStorage({
-      ...structure,
-      categories: updatedQuestions,
-    });
-    fetchStructureFromLocalStorage();
+    const categories = deleteQuestion(structure.categories, questionId);
+    saveUpdatedStructure({ ...structure, categories });
   };
 
   useEffect(() => {

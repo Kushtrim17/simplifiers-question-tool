@@ -49,7 +49,7 @@ export function QuestionsPreviewer(props: Props) {
             target="_blank"
             onClick={copyToClipboard}
           >
-            Send to developers
+            Send by email
           </a>
         </div>
       </CardHeader>

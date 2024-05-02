@@ -51,16 +51,24 @@ type Props = {
   children: React.ReactNode;
   onDelete: () => void;
   onToggleEditMode: () => void;
+  onContainerClick?: () => void;
 };
 
 export function Container(props: Props) {
-  const { marginClass, isEditMode, children, onDelete, onToggleEditMode } =
-    props;
+  const {
+    marginClass,
+    isEditMode,
+    children,
+    onDelete,
+    onToggleEditMode,
+    onContainerClick,
+  } = props;
 
   return (
     <>
       <div
         className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex justify-between items-center group relative`}
+        onClick={onContainerClick}
       >
         <div className="absolute top-2 right-[80px]" onClick={onToggleEditMode}>
           <When isTrue={isEditMode} fallback={<IoChevronUpSharp size={24} />}>

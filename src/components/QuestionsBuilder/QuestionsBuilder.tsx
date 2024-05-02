@@ -1,6 +1,6 @@
 import { Category, Question } from "./types";
 import { CategoryItem } from "./components/CategoryItem";
-import { QuestionItem } from "./components/Questions/QuestionItem";
+import { marginClasses } from "@/constants";
 
 type Props = {
   categories: Category[];
@@ -24,10 +24,18 @@ export function QuestionsBuilder(props: Props) {
     onDeleteQuestion,
   } = props;
 
+  const getMarginClass = (level: number) =>
+    marginClasses[Math.min(level - 1, marginClasses.length - 1)];
+
   return (
     <div>
       {categories.map((category) => (
-        <div key={category.id}>
+        <div
+          key={category.id}
+          className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${getMarginClass(
+            category.level
+          )}`}
+        >
           <CategoryItem
             category={category}
             onEdit={onEditCategory}
@@ -37,18 +45,9 @@ export function QuestionsBuilder(props: Props) {
             onAddChild={(parentId: string) => onAddChildCategory(parentId)}
             onDelete={() => onDeleteCategory(category.id)}
             onAddQuestion={() => onAddQuestion(category.id)}
+            onEditQuestion={onEditQuestion}
+            onDeleteQuestion={onDeleteQuestion}
           />
-          <div className="mt-4">
-            {category?.questions?.map((q) => (
-              <QuestionItem
-                key={q.id}
-                categoryLevel={category.level}
-                question={q}
-                onEdit={onEditQuestion}
-                onDelete={(questionId: string) => onDeleteQuestion(questionId)}
-              />
-            ))}
-          </div>
 
           {category.subCategories && (
             <QuestionsBuilder

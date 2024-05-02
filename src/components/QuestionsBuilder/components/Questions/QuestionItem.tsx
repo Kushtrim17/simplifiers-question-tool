@@ -1,4 +1,4 @@
-import { marginClasses } from "../../../../consts";
+import { marginClasses } from "../../../../constants";
 import { Question } from "../../types";
 import { useState } from "react";
 import { QuestionEditMode } from "./QuestionEditMode";
@@ -16,7 +16,7 @@ export function QuestionItem(props: Props) {
   const [isEditMode, setIsEditMode] = useState(false);
   const { question, categoryLevel, onDelete, onEdit } = props;
   const marginClass =
-    marginClasses[Math.min(categoryLevel + 1, marginClasses.length - 1)];
+    marginClasses[Math.min(categoryLevel, marginClasses.length - 1)];
 
   const toggleEditMode = () => {
     setIsEditMode(!isEditMode);
@@ -41,8 +41,9 @@ export function QuestionItem(props: Props) {
       isEditMode={isEditMode}
       onDelete={() => onDelete(question.id)}
       onToggleEditMode={toggleEditMode}
+      onContainerClick={toggleEditMode}
     >
-      <Caption>
+      <Caption className="text-slate-700">
         {question.orderNumber}. {question.title}
       </Caption>
     </Container>
