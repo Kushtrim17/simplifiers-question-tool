@@ -342,13 +342,7 @@ describe("Add question to category", () => {
       },
     ];
 
-    const updatedCategory = addQuestionToCategory(categories, "1", {
-      id: uuIdv4(),
-      title: "New Question",
-      description: "Question description",
-      answer: "",
-      options: [],
-    });
+    const updatedCategory = addQuestionToCategory(categories, "1");
 
     expect(updatedCategory[0].questions?.length).toBe(1);
   });
@@ -381,13 +375,7 @@ describe("Add question to category", () => {
       },
     ];
 
-    const updatedCategory = addQuestionToCategory(categories, "2", {
-      id: uuIdv4(),
-      title: "New Question",
-      description: "Question description",
-      answer: "",
-      options: [],
-    });
+    const updatedCategory = addQuestionToCategory(categories, "2");
 
     const secondLevel = updatedCategory[0].subCategories?.[0];
     expect(secondLevel?.questions?.length).toBe(1);
@@ -420,9 +408,10 @@ describe("Add question to category", () => {
               {
                 id: "1",
                 title: "Question",
+                orderNumber: 1,
                 description: "Question description",
-                answer: "",
-                options: [],
+                externalLinks: [],
+                type: "boolean",
               },
             ],
           },
@@ -433,9 +422,10 @@ describe("Add question to category", () => {
     const updatedCategory = updateQuestion(categories, {
       id: "1",
       title: "Updated Question",
+      orderNumber: 1,
       description: "Question description",
-      answer: "",
-      options: [],
+      externalLinks: [],
+      type: "boolean",
     });
 
     const secondLevel = updatedCategory[0].subCategories?.[0];

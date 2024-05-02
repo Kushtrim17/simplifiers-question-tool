@@ -18,3 +18,8 @@ export type Category = {
   subCategories?: Category[];
   questions?: Question[];
 };
+
+export type Structure = {
+  lastUpdated: string;
+  categories: Category[];
+};
