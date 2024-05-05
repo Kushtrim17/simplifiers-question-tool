@@ -8,6 +8,7 @@ import {
   deleteCategory,
   updateCategoryById,
   updateQuestion,
+  updateQuestionOrderInCategory,
 } from "./questions";
 import { Category } from "./types";
 
@@ -490,5 +491,87 @@ describe("Add question to category", () => {
     const secondLevel = updatedCategory[0].subCategories?.[0];
     expect(secondLevel?.questions?.length).toBe(1);
     expect(secondLevel?.questions?.[0].title).toBe("Updated Question");
+  });
+});
+
+describe("Change question order", () => {
+  const categories: Category[] = [
+    {
+      id: "1",
+      orderNumber: 1,
+      level: 1,
+      name: "First Category",
+      questions: [],
+      dependsOnCategories: [],
+      subCategories: [
+        {
+          id: "2",
+          parentId: "1",
+          orderNumber: 1,
+          level: 2,
+          name: "Sub Category 1",
+          dependsOnCategories: [],
+          subCategories: [
+            {
+              id: "3",
+              parentId: "2",
+              orderNumber: 1,
+              level: 3,
+              name: "Sub Category 1",
+              questions: [],
+              dependsOnCategories: [],
+            },
+          ],
+          questions: [
+            {
+              id: "1",
+              title: "Question 1",
+              orderNumber: 1,
+              description: "Question description",
+              externalLinks: [],
+              type: "boolean",
+              dependsOnQuestions: [],
+            },
+            {
+              id: "2",
+              title: "Question 2",
+              orderNumber: 2,
+              description: "Question 2 description",
+              externalLinks: [],
+              type: "boolean",
+              dependsOnQuestions: [],
+            },
+            {
+              id: "3",
+              title: "Question 3",
+              orderNumber: 3,
+              description: "Question 3 description",
+              externalLinks: [],
+              type: "boolean",
+              dependsOnQuestions: [],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
+  test("Change question order", () => {
+    const categoryId = "1";
+    const questionId = "2";
+    const newOrderNumber = 1;
+
+    const updateQuestionOrder = updateQuestionOrderInCategory(
+      categories,
+      categoryId,
+      questionId,
+      newOrderNumber
+    );
+
+    const secondLevel = updateQuestionOrder[0].subCategories?.[0];
+    expect(secondLevel?.questions?.length).toBe(3);
+    expect(secondLevel?.questions?.[0].orderNumber).toBe(1);
+    expect(secondLevel?.questions?.[1].orderNumber).toBe(2);
+    expect(secondLevel?.questions?.[2].orderNumber).toBe(3);
   });
 });

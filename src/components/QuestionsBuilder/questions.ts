@@ -149,6 +149,79 @@ export function addQuestionToCategory(
   });
 }
 
+export function updateQuestionOrderInCategory(
+  categories: Category[],
+  categoryId: string,
+  questionId: string,
+  newOrderNumber: number
+) {
+  return categories.map((category) => {
+    if (category.id === categoryId) {
+      if (!category.questions) {
+        return category;
+      }
+
+      const questions = [...category.questions];
+      const questionIndex = questions.findIndex(
+        (question) => question.id === questionId
+      );
+      if (questionIndex === -1) {
+        return category;
+      }
+
+      const [question] = questions.splice(questionIndex, 1);
+      questions.splice(newOrderNumber - 1, 0, question);
+
+      category.questions = questions.map((question, index) => ({
+        ...question,
+        orderNumber: index + 1,
+      }));
+    }
+
+    if (category.subCategories) {
+      category.subCategories = updateQuestionOrderInCategory(
+        category.subCategories,
+        categoryId,
+        questionId,
+        newOrderNumber
+      );
+    }
+
+    return category;
+  });
+}
+
+export function addQuestionDependency(
+  categories: Category[],
+  questionId: string,
+  dependencyId: string
+) {
+  return categories.map((category) => {
+    if (category.questions) {
+      category.questions = category.questions.map((question) => {
+        if (question.id === questionId) {
+          return {
+            ...question,
+            dependsOnQuestions: [...question.dependsOnQuestions, dependencyId],
+          };
+        }
+
+        return question;
+      });
+    }
+
+    if (category.subCategories) {
+      category.subCategories = addQuestionDependency(
+        category.subCategories,
+        questionId,
+        dependencyId
+      );
+    }
+
+    return category;
+  });
+}
+
 export function updateQuestion(
   allCategories: Category[],
   updatedQuestion: Question

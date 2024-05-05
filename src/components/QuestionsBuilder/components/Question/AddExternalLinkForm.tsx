@@ -13,18 +13,48 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { badgeVariants } from "@/components/ui/badge";
+import { IoClose } from "react-icons/io5";
+import { Question } from "../../types";
 
 type Props = {
+  question: Question;
   onAdd: (label: string, url: string) => void;
+  onRemove: (label: string, url: string) => void;
 };
 
 export function AddExternalLinkForm(props: Props) {
   const [link, setLink] = useState({ label: "", url: "" });
-  const { onAdd } = props;
+  const { onAdd, onRemove, question } = props;
+
+  const handleAddLink = () => {
+    onAdd(link.label, link.url);
+    setLink({ label: "", url: "" });
+  };
 
   return (
     <>
       <Small>External links</Small>
+      <div className="mt-4 flex flex-row">
+        {question.externalLinks.map((link) => (
+          <div key={link.url} className="flex flex-row mr-4 group">
+            <a
+              href={link.url}
+              target="_blank"
+              className={`${badgeVariants({
+                variant: "outline",
+              })} h-[40px] min-w-[100px] justify-center items-center`}
+            >
+              {link.label}
+            </a>
+            <IoClose
+              size={20}
+              className="mt-2"
+              onClick={() => onRemove(link.label, link.url)}
+            />
+          </div>
+        ))}
+      </div>
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline" className="mt-5 mb-5">
@@ -66,7 +96,7 @@ export function AddExternalLinkForm(props: Props) {
           </div>
           <DialogFooter>
             <DialogClose asChild>
-              <Button type="submit" onClick={() => onAdd(link.label, link.url)}>
+              <Button type="submit" onClick={handleAddLink}>
                 Add
               </Button>
             </DialogClose>

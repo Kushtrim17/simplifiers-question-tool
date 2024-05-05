@@ -1,7 +1,7 @@
 import { Caption } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button";
-import { UploadJSON } from "./UploadJSON";
-import { Structure } from "../types";
+import { UploadJSON } from "../UploadJSON";
+import { Structure } from "../../types";
 
 type Props = {
   onAddFirstCategory: () => void;

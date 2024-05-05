@@ -10,6 +10,7 @@ import {
 } from "@/components/QuestionsBuilder/types";
 import {
   addChildCategory,
+  addQuestionDependency,
   addQuestionToCategory,
   addRootCategory,
   addSiblingCategory,
@@ -17,10 +18,11 @@ import {
   deleteQuestion,
   updateCategoryById,
   updateQuestion,
+  updateQuestionOrderInCategory,
 } from "@/components/QuestionsBuilder/questions";
 import { QuestionsPreviewer } from "@/components/QuestionsPreviewer/QuestionsPreviewer";
 import { When } from "@/components/ui/When/When";
-import { NoCategoriesYet } from "@/components/QuestionsBuilder/components/NoQuestionsYet";
+import { NoCategoriesYet } from "@/components/QuestionsBuilder/components/Category/NoCategoriesYet";
 import { Large, Medium, Small } from "@/components/ui/Typography";
 import { DateUtils } from "@/lib/dateUtils";
 import {
@@ -95,6 +97,32 @@ function App() {
     saveUpdatedStructure({ ...structure, categories });
   };
 
+  const handleOnChangeQuestionOrder = (
+    categoryId: string,
+    questionId: string,
+    newQuestionOrder: number
+  ) => {
+    const categories = updateQuestionOrderInCategory(
+      structure.categories,
+      categoryId,
+      questionId,
+      newQuestionOrder
+    );
+    saveUpdatedStructure({ ...structure, categories });
+  };
+
+  const handleOnAddQuestionDependency = (
+    questionId: string,
+    dependencyId: string
+  ) => {
+    const categories = addQuestionDependency(
+      structure.categories,
+      questionId,
+      dependencyId
+    );
+    saveUpdatedStructure({ ...structure, categories });
+  };
+
   useEffect(() => {
     fetchStructureFromLocalStorage();
   }, []);
@@ -135,6 +163,8 @@ function App() {
               onAddQuestion={handleOnAddQuestion}
               onEditQuestion={handleOnEditQuestion}
               onDeleteQuestion={handleOnDeleteQuestion}
+              onChangeQuestionOrder={handleOnChangeQuestionOrder}
+              onAddQuestionDependency={handleOnAddQuestionDependency}
             />
           </When>
         </TabsContent>

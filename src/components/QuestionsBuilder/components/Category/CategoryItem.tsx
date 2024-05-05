@@ -28,15 +28,15 @@ import {
 import { When } from "@/components/ui/When/When";
 import { Input } from "@/components/ui/input";
 import { Caption } from "@/components/ui/Typography";
-import { Category, Question } from "../types";
-import { QuestionItem } from "./Questions/QuestionItem";
+import { Category, Question } from "../../types";
+import { QuestionItem } from "../Question/QuestionItem";
 
 type CategoryProps = {
   label: string;
   handleOnEditClicked: () => void;
 };
 
-function CategoryName(props: CategoryProps) {
+function ReadOnlyCategory(props: CategoryProps) {
   const { label, handleOnEditClicked } = props;
 
   return (
@@ -131,6 +131,8 @@ type Props = {
   onAddQuestion: () => void;
   onEditQuestion: (updatedQuestion: Question) => void;
   onDeleteQuestion: (questionId: string) => void;
+  onChangeQuestionOrder: (questionId: string, newOrderNumber: number) => void;
+  onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
 };
 
 export function CategoryItem(props: Props) {
@@ -143,8 +145,10 @@ export function CategoryItem(props: Props) {
     onAddQuestion,
     onEditQuestion,
     onDeleteQuestion,
+    onChangeQuestionOrder,
+    onAddQuestionDependency,
   } = props;
-  const [isCategoryCollapsed, setIsCategoryCollapsed] = useState(true);
+  const [isCategoryCollapsed, setIsCategoryCollapsed] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category.name);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -200,7 +204,7 @@ export function CategoryItem(props: Props) {
           <When
             isTrue={isEditMode}
             fallback={
-              <CategoryName
+              <ReadOnlyCategory
                 label={categoryName}
                 handleOnEditClicked={toggleEditMode}
               />
@@ -232,8 +236,16 @@ export function CategoryItem(props: Props) {
             key={q.id}
             categoryLevel={category.level}
             question={q}
+            isFirstQuestion={q.orderNumber === 1}
+            isLastQuestion={q.orderNumber === category.questions.length}
             onEdit={onEditQuestion}
             onDelete={(questionId: string) => onDeleteQuestion(questionId)}
+            onMoveUp={() => onChangeQuestionOrder(q.id, q.orderNumber - 1)}
+            onMoveDown={() => onChangeQuestionOrder(q.id, q.orderNumber + 1)}
+            allQuestions={category.questions.filter(
+              (question) => question.id !== q.id
+            )}
+            onAddQuestionDependency={onAddQuestionDependency}
           />
         ))}
       </div>

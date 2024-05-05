@@ -8,13 +8,30 @@ import { Caption } from "@/components/ui/Typography";
 type Props = {
   categoryLevel: number;
   question: Question;
+  isFirstQuestion: boolean;
+  isLastQuestion: boolean;
+  allQuestions: Question[];
   onEdit: (updatedQuestion: Question) => void;
   onDelete: (questionId: string) => void;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
+  onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
 };
 
 export function QuestionItem(props: Props) {
   const [isEditMode, setIsEditMode] = useState(false);
-  const { question, categoryLevel, onDelete, onEdit } = props;
+  const {
+    question,
+    categoryLevel,
+    isFirstQuestion,
+    isLastQuestion,
+    onDelete,
+    allQuestions,
+    onEdit,
+    onMoveDown,
+    onMoveUp,
+    onAddQuestionDependency,
+  } = props;
   const marginClass =
     marginClasses[Math.min(categoryLevel, marginClasses.length - 1)];
 
@@ -29,8 +46,17 @@ export function QuestionItem(props: Props) {
         isEditMode={isEditMode}
         onDelete={() => onDelete(question.id)}
         onToggleEditMode={toggleEditMode}
+        canMoveUp={!isFirstQuestion}
+        canMoveDown={!isLastQuestion}
+        onMoveDown={onMoveDown}
+        onMoveUp={onMoveUp}
       >
-        <QuestionEditMode question={question} onQuestionUpdate={onEdit} />
+        <QuestionEditMode
+          question={question}
+          onQuestionUpdate={onEdit}
+          allQuestions={allQuestions}
+          onAddQuestionDependency={onAddQuestionDependency}
+        />
       </Container>
     );
   }
@@ -39,9 +65,12 @@ export function QuestionItem(props: Props) {
     <Container
       marginClass={marginClass}
       isEditMode={isEditMode}
+      canMoveUp={!isFirstQuestion}
+      canMoveDown={!isLastQuestion}
       onDelete={() => onDelete(question.id)}
       onToggleEditMode={toggleEditMode}
-      onContainerClick={toggleEditMode}
+      onMoveDown={onMoveDown}
+      onMoveUp={onMoveUp}
     >
       <Caption className="text-slate-700">
         {question.orderNumber}. {question.title}

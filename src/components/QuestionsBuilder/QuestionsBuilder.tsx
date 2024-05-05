@@ -1,5 +1,5 @@
 import { Category, Question } from "./types";
-import { CategoryItem } from "./components/CategoryItem";
+import { CategoryItem } from "./components/Category/CategoryItem";
 import { marginClasses } from "@/constants";
 
 type Props = {
@@ -11,6 +11,12 @@ type Props = {
   onAddQuestion: (categoryId: string) => void;
   onEditQuestion: (updatedQuestion: Question) => void;
   onDeleteQuestion: (questionId: string) => void;
+  onChangeQuestionOrder: (
+    categoryId: string,
+    questionId: string,
+    newOrderNumber: number
+  ) => void;
+  onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
 };
 export function QuestionsBuilder(props: Props) {
   const {
@@ -22,6 +28,8 @@ export function QuestionsBuilder(props: Props) {
     onAddQuestion,
     onEditQuestion,
     onDeleteQuestion,
+    onChangeQuestionOrder,
+    onAddQuestionDependency,
   } = props;
 
   const getMarginClass = (level: number) =>
@@ -39,14 +47,17 @@ export function QuestionsBuilder(props: Props) {
           <CategoryItem
             category={category}
             onEdit={onEditCategory}
-            onAddSibling={(siblingId: string) =>
-              onAddSiblingCategory(siblingId)
-            }
-            onAddChild={(parentId: string) => onAddChildCategory(parentId)}
+            onAddSibling={onAddSiblingCategory}
+            onAddChild={onAddChildCategory}
             onDelete={() => onDeleteCategory(category.id)}
             onAddQuestion={() => onAddQuestion(category.id)}
             onEditQuestion={onEditQuestion}
             onDeleteQuestion={onDeleteQuestion}
+            onChangeQuestionOrder={(
+              questionId: string,
+              newOrderNumber: number
+            ) => onChangeQuestionOrder(category.id, questionId, newOrderNumber)}
+            onAddQuestionDependency={onAddQuestionDependency}
           />
 
           {category.subCategories && (
@@ -59,6 +70,8 @@ export function QuestionsBuilder(props: Props) {
               onAddQuestion={onAddQuestion}
               onEditQuestion={onEditQuestion}
               onDeleteQuestion={onDeleteQuestion}
+              onChangeQuestionOrder={onChangeQuestionOrder}
+              onAddQuestionDependency={onAddQuestionDependency}
             />
           )}
         </div>
