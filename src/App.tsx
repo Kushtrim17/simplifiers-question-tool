@@ -16,6 +16,7 @@ import {
   addSiblingCategory,
   deleteCategory,
   deleteQuestion,
+  removeQuestionDependency,
   updateCategoryById,
   updateQuestion,
   updateQuestionOrderInCategory,
@@ -123,6 +124,18 @@ function App() {
     saveUpdatedStructure({ ...structure, categories });
   };
 
+  const handleOnRemoveQuestionDependency = (
+    questionId: string,
+    dependencyId: string
+  ) => {
+    const categories = removeQuestionDependency(
+      structure.categories,
+      questionId,
+      dependencyId
+    );
+    saveUpdatedStructure({ ...structure, categories });
+  };
+
   useEffect(() => {
     fetchStructureFromLocalStorage();
   }, []);
@@ -165,6 +178,7 @@ function App() {
               onDeleteQuestion={handleOnDeleteQuestion}
               onChangeQuestionOrder={handleOnChangeQuestionOrder}
               onAddQuestionDependency={handleOnAddQuestionDependency}
+              onRemoveQuestionDependency={handleOnRemoveQuestionDependency}
             />
           </When>
         </TabsContent>

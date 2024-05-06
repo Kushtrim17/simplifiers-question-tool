@@ -17,6 +17,10 @@ type Props = {
     newOrderNumber: number
   ) => void;
   onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onRemoveQuestionDependency: (
+    questionId: string,
+    dependencyId: string
+  ) => void;
 };
 export function QuestionsBuilder(props: Props) {
   const {
@@ -30,6 +34,7 @@ export function QuestionsBuilder(props: Props) {
     onDeleteQuestion,
     onChangeQuestionOrder,
     onAddQuestionDependency,
+    onRemoveQuestionDependency,
   } = props;
 
   const getMarginClass = (level: number) =>
@@ -58,6 +63,7 @@ export function QuestionsBuilder(props: Props) {
               newOrderNumber: number
             ) => onChangeQuestionOrder(category.id, questionId, newOrderNumber)}
             onAddQuestionDependency={onAddQuestionDependency}
+            onRemoveQuestionDependency={onRemoveQuestionDependency}
           />
 
           {category.subCategories && (
@@ -72,6 +78,7 @@ export function QuestionsBuilder(props: Props) {
               onDeleteQuestion={onDeleteQuestion}
               onChangeQuestionOrder={onChangeQuestionOrder}
               onAddQuestionDependency={onAddQuestionDependency}
+              onRemoveQuestionDependency={onRemoveQuestionDependency}
             />
           )}
         </div>

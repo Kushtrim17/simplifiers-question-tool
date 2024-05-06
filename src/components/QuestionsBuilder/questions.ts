@@ -222,6 +222,39 @@ export function addQuestionDependency(
   });
 }
 
+export function removeQuestionDependency(
+  categories: Category[],
+  questionId: string,
+  dependencyId: string
+) {
+  return categories.map((category) => {
+    if (category.questions) {
+      category.questions = category.questions.map((question) => {
+        if (question.id === questionId) {
+          return {
+            ...question,
+            dependsOnQuestions: question.dependsOnQuestions.filter(
+              (id) => id !== dependencyId
+            ),
+          };
+        }
+
+        return question;
+      });
+    }
+
+    if (category.subCategories) {
+      category.subCategories = removeQuestionDependency(
+        category.subCategories,
+        questionId,
+        dependencyId
+      );
+    }
+
+    return category;
+  });
+}
+
 export function updateQuestion(
   allCategories: Category[],
   updatedQuestion: Question

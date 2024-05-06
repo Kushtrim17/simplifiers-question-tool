@@ -17,11 +17,20 @@ type Props = {
   allQuestions: Question[];
   onQuestionUpdate: (updatedQuestion: Question) => void;
   onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onRemoveQuestionDependency: (
+    questionId: string,
+    dependencyId: string
+  ) => void;
 };
 
 export function QuestionEditMode(props: Props) {
-  const { question, allQuestions, onQuestionUpdate, onAddQuestionDependency } =
-    props;
+  const {
+    question,
+    allQuestions,
+    onQuestionUpdate,
+    onAddQuestionDependency,
+    onRemoveQuestionDependency,
+  } = props;
   const [currentQuestion, setCurrentQuestion] = useState(question);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -55,9 +64,41 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
-  const getQuestionName = (questionId: string) => {
-    const foundQuestion = allQuestions.find((q) => q.id === questionId);
-    return foundQuestion?.title || "";
+  const removePreviousDependencies = () => {
+    const dependencies = question.dependsOnQuestions;
+    if (dependencies.length === 0) {
+      return;
+    }
+
+    dependencies.forEach((dependency) => {
+      onRemoveQuestionDependency(question.id, dependency);
+    });
+  };
+
+  const handleOnDependencyChange = (dependencyId: string) => {
+    removePreviousDependencies();
+
+    if (dependencyId === "no") {
+      return;
+    }
+
+    return onAddQuestionDependency(question.id, dependencyId);
+  };
+
+  const getQuestionDependency = () => {
+    const dependency = question.dependsOnQuestions;
+
+    if (dependency.length === 0) {
+      return "no";
+    }
+
+    const dependencyId = dependency[0];
+    const foundQuestion = allQuestions.find((q) => q.id === dependencyId);
+    if (!foundQuestion) {
+      return "no";
+    }
+
+    return foundQuestion.id;
   };
 
   useEffect(() => {
@@ -124,24 +165,9 @@ export function QuestionEditMode(props: Props) {
         />
 
         <Small className="font-extrabold">Depends on questions</Small>
-        <div className="mt-2">
-          {question.dependsOnQuestions.map((questionId) => (
-            <div key={questionId} className="mt-2">
-              <Small>{getQuestionName(questionId)}</Small>
-              <button
-                onClick={() => console.log("test")}
-                className="text-blue-500 underline ml-2"
-              >
-                <span className="italic">Remove</span>
-              </button>
-            </div>
-          ))}
-        </div>
         <Select
-          defaultValue="no"
-          onValueChange={(id: string) =>
-            onAddQuestionDependency(question.id, id)
-          }
+          defaultValue={getQuestionDependency()}
+          onValueChange={handleOnDependencyChange}
           onOpenChange={(isOpen) => !isOpen && handleUpdate()}
         >
           <SelectTrigger className="mt-5 mb-5">

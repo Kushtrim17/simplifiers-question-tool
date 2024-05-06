@@ -16,6 +16,10 @@ type Props = {
   onMoveUp: () => void;
   onMoveDown: () => void;
   onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onRemoveQuestionDependency: (
+    questionId: string,
+    dependencyId: string
+  ) => void;
 };
 
 export function QuestionItem(props: Props) {
@@ -31,6 +35,7 @@ export function QuestionItem(props: Props) {
     onMoveDown,
     onMoveUp,
     onAddQuestionDependency,
+    onRemoveQuestionDependency,
   } = props;
   const marginClass =
     marginClasses[Math.min(categoryLevel, marginClasses.length - 1)];
@@ -56,6 +61,7 @@ export function QuestionItem(props: Props) {
           onQuestionUpdate={onEdit}
           allQuestions={allQuestions}
           onAddQuestionDependency={onAddQuestionDependency}
+          onRemoveQuestionDependency={onRemoveQuestionDependency}
         />
       </Container>
     );

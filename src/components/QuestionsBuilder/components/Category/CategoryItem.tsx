@@ -133,6 +133,10 @@ type Props = {
   onDeleteQuestion: (questionId: string) => void;
   onChangeQuestionOrder: (questionId: string, newOrderNumber: number) => void;
   onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onRemoveQuestionDependency: (
+    questionId: string,
+    dependencyId: string
+  ) => void;
 };
 
 export function CategoryItem(props: Props) {
@@ -147,6 +151,7 @@ export function CategoryItem(props: Props) {
     onDeleteQuestion,
     onChangeQuestionOrder,
     onAddQuestionDependency,
+    onRemoveQuestionDependency,
   } = props;
   const [isCategoryCollapsed, setIsCategoryCollapsed] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -246,6 +251,7 @@ export function CategoryItem(props: Props) {
               (question) => question.id !== q.id
             )}
             onAddQuestionDependency={onAddQuestionDependency}
+            onRemoveQuestionDependency={onRemoveQuestionDependency}
           />
         ))}
       </div>
