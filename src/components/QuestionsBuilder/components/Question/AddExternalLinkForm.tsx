@@ -34,7 +34,7 @@ export function AddExternalLinkForm(props: Props) {
 
   return (
     <>
-      <Small>External links</Small>
+      <Small className="font-extrabold">External links</Small>
       <div className="mt-4 flex flex-row">
         {question.externalLinks.map((link) => (
           <div key={link.url} className="flex flex-row mr-4 group">

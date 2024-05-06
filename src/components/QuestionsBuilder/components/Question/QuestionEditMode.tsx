@@ -69,7 +69,9 @@ export function QuestionEditMode(props: Props) {
   return (
     <div className="w-full flex flex-col mr-40">
       <div className="flex flex-col">
-        <Small>{question.orderNumber} Question</Small>
+        <Small className="font-extrabold">
+          {question.orderNumber} Question
+        </Small>
         <Input
           ref={inputRef}
           value={currentQuestion.title}
@@ -83,7 +85,7 @@ export function QuestionEditMode(props: Props) {
           className="mt-2 mb-5"
         />
 
-        <Small>Description</Small>
+        <Small className="font-extrabold">Description</Small>
         <Textarea
           value={currentQuestion.description}
           onChange={(e) =>
@@ -97,7 +99,7 @@ export function QuestionEditMode(props: Props) {
           cols={130}
         />
 
-        <Small>Question Type</Small>
+        <Small className="font-extrabold">Question Type</Small>
         <Select
           defaultValue={currentQuestion.type}
           onValueChange={(value: "boolean" | "voucher" | "freeText") =>
@@ -121,7 +123,7 @@ export function QuestionEditMode(props: Props) {
           onRemove={handleOnRemoveExternalLink}
         />
 
-        <Small>Depends on questions</Small>
+        <Small className="font-extrabold">Depends on questions</Small>
         <div className="mt-2">
           {question.dependsOnQuestions.map((questionId) => (
             <div key={questionId} className="mt-2">
