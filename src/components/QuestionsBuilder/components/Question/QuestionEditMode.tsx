@@ -1,4 +1,4 @@
-import { Small } from "@/components/ui/Typography";
+import { Medium, Small } from "@/components/ui/Typography";
 import { Question } from "../../types";
 import { Input } from "@/components/ui/input";
 import { useEffect, useRef, useState } from "react";
@@ -10,7 +10,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { AddExternalLinkForm } from "./AddExternalLinkForm";
+import { Separator } from "@/components/ui/separator";
 
 type Props = {
   question: Question;
@@ -110,9 +118,9 @@ export function QuestionEditMode(props: Props) {
   return (
     <div className="w-full flex flex-col mr-40">
       <div className="flex flex-col">
-        <Small className="font-extrabold">
+        <Medium className="font-extrabold">
           {question.orderNumber} Question
-        </Small>
+        </Medium>
         <Input
           ref={inputRef}
           value={currentQuestion.title}
@@ -182,6 +190,75 @@ export function QuestionEditMode(props: Props) {
             ))}
           </SelectContent>
         </Select>
+        <Separator className="mt-5 mb-5" />
+        <Medium className="font-extrabold mb-4">Accounting help</Medium>
+        <Small className="font-extrabold mb-2">Accounting help title</Small>
+        <Input
+          type="text"
+          placeholder="Title"
+          className="mb-4"
+          width={300}
+          value={question.accounts?.title || ""}
+          onChange={(e) => console.log(e.currentTarget.value)}
+        />
+
+        <Small className="font-extrabold mb-4">
+          Accounting help description
+        </Small>
+        <Textarea
+          value={question.accounts?.description || ""}
+          onChange={(e) => console.log(`here ${e.currentTarget.value}`)}
+          onBlur={() => console.log("on blur here")}
+          className="mt-2 mb-5 min-h-[100px]"
+          cols={40}
+        />
+
+        <Small className="font-extrabold mb-1">Credit account range</Small>
+        <Small className="mb-4 opacity-70">
+          (Starting range - Ending Range)
+        </Small>
+        <InputOTP maxLength={8}>
+          <InputOTPGroup>
+            <InputOTPSlot index={0} />
+            <InputOTPSlot index={1} />
+            <InputOTPSlot index={2} />
+            <InputOTPSlot index={3} />
+          </InputOTPGroup>
+          <InputOTPSeparator />
+          <InputOTPGroup>
+            <InputOTPSlot index={4} />
+            <InputOTPSlot index={5} />
+            <InputOTPSlot index={6} />
+            <InputOTPSlot index={7} />
+          </InputOTPGroup>
+        </InputOTP>
+
+        <Small className="font-extrabold mt-4 mb-1">Debit account range</Small>
+        <Small className="mb-4 opacity-70">
+          (Starting range - Ending Range)
+        </Small>
+        <InputOTP
+          maxLength={8}
+          pattern={REGEXP_ONLY_DIGITS}
+          value="11112233"
+          onChange={(newValue: string) =>
+            console.log(`this is the new value ${newValue}`)
+          }
+        >
+          <InputOTPGroup>
+            <InputOTPSlot index={0} />
+            <InputOTPSlot index={1} />
+            <InputOTPSlot index={2} />
+            <InputOTPSlot index={3} />
+          </InputOTPGroup>
+          <InputOTPSeparator />
+          <InputOTPGroup>
+            <InputOTPSlot index={4} />
+            <InputOTPSlot index={5} />
+            <InputOTPSlot index={6} />
+            <InputOTPSlot index={7} />
+          </InputOTPGroup>
+        </InputOTP>
       </div>
     </div>
   );

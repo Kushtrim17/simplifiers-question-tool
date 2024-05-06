@@ -4,7 +4,6 @@ import {
   IoTrashBinOutline,
   IoPencilSharp,
   IoCheckmarkSharp,
-  IoChevronUpSharp,
 } from "react-icons/io5";
 import {
   DropdownMenu,
@@ -43,7 +42,7 @@ function ReadOnlyCategory(props: CategoryProps) {
     <>
       <Caption>{label}</Caption>
       <div
-        className="ml-5 cursor-pointer border border-gray-200 rounded-lg p-3 h-[40px] mb-[-5px]"
+        className="cursor-pointer border border-gray-200 rounded-lg w-[30px] h-[32px] flex justify-center items-center ml-2"
         onClick={handleOnEditClicked}
       >
         <IoPencilSharp size={15} />
@@ -153,7 +152,6 @@ export function CategoryItem(props: Props) {
     onAddQuestionDependency,
     onRemoveQuestionDependency,
   } = props;
-  const [isCategoryCollapsed, setIsCategoryCollapsed] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category.name);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -181,19 +179,6 @@ export function CategoryItem(props: Props) {
   const handleAddChildCategory = () => {
     onAddChild(category.id);
   };
-
-  if (isCategoryCollapsed) {
-    return (
-      <div className="flex flex-row">
-        <Caption>{categoryName}</Caption>
-        <IoChevronUpSharp
-          size={20}
-          onClick={() => setIsCategoryCollapsed(false)}
-          className="cursor-pointer ml-2 mt-1"
-        />
-      </div>
-    );
-  }
 
   return (
     <div>

@@ -2,6 +2,13 @@ export type ExternalLink = { label: string; url: string };
 
 export type QuestionType = "boolean" | "voucher" | "freeText";
 
+export type Accounts = {
+  title: string;
+  description: string;
+  creditRange: number[];
+  debitRange: number[];
+};
+
 export type Question = {
   id: string;
   title: string;
@@ -11,6 +18,7 @@ export type Question = {
   externalLinks: ExternalLink[];
   // an array of question ids that this question depends on
   dependsOnQuestions: string[];
+  accounts?: Accounts;
 };
 
 export type Category = {
@@ -23,6 +31,7 @@ export type Category = {
   // an array of category ids that this category depends on
   dependsOnCategories: string[];
   questions: Question[];
+  accounts?: Accounts;
 };
 
 export type Structure = {

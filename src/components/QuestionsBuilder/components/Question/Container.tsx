@@ -77,10 +77,10 @@ export function Container(props: Props) {
   return (
     <>
       <div
-        className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${marginClass} flex justify-between group relative`}
+        className={`cursor-pointer border border-gray-400 rounded-lg p-4 mb-2 ${marginClass} flex justify-between group relative`}
         onClick={onContainerClick}
       >
-        <div className="flex-2 flex flex-col p-1 w-[40px]">
+        <div className="flex-2 flex flex-col items-center justify-center p-1 w-[40px] max-h-[40px]">
           <When isTrue={canMoveUp}>
             <IoArrowUpSharp size={20} onClick={onMoveUp} />
           </When>

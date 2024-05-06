@@ -75,8 +75,8 @@ export function AddExternalLinkForm(props: Props) {
               </Label>
               <Input
                 id="label"
-                defaultValue={link.label}
-                value={link.label}
+                defaultValue={link.label || ""}
+                value={link.label || ""}
                 onChange={(e) => setLink({ ...link, label: e.target.value })}
                 className="col-span-3"
               />
@@ -87,8 +87,8 @@ export function AddExternalLinkForm(props: Props) {
               </Label>
               <Input
                 id="url"
-                defaultValue={link.url}
-                value={link.url}
+                defaultValue={link.url || ""}
+                value={link.url || ""}
                 onChange={(e) => setLink({ ...link, url: e.target.value })}
                 className="col-span-3"
               />
