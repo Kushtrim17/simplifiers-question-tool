@@ -25,7 +25,7 @@ export function UploadJSON(props: Props) {
   const [json, setJSON] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleUpload = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleUpload = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!isValidJSON(json)) {
       setErrorMessage("The JSON structure is not valid");
       return e.preventDefault();
@@ -66,7 +66,12 @@ export function UploadJSON(props: Props) {
 
         <DialogFooter>
           <DialogClose asChild>
-            <Button type="submit" onClick={(e) => handleUpload(e)}>
+            <Button
+              type="submit"
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                handleUpload(e)
+              }
+            >
               Upload
             </Button>
           </DialogClose>
