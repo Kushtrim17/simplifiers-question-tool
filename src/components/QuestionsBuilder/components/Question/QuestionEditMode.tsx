@@ -125,40 +125,72 @@ export function QuestionEditMode(props: Props) {
     return question.accounts?.debitRange.join("");
   };
 
+  const getRangeFromValue = (value: string) => {
+    const rangeStartString = value
+      .split("")
+      .map(Number)
+      .slice(0, 4)
+      .map(Number)
+      .join("");
+    const rangeStart = Number(rangeStartString);
+
+    const rangeEndString = value
+      .split("")
+      .map(Number)
+      .slice(4, 8)
+      .map(Number)
+      .join("");
+    const rangeEnd = Number(rangeEndString);
+
+    const range = [];
+    if (rangeStart > 0) {
+      range.push(rangeStart);
+    }
+
+    if (rangeEnd > 0) {
+      range.push(rangeEnd);
+    }
+
+    return range;
+  };
+
   const handleCreditRangeChange = (newValue: string) => {
-    const newCreditRange = newValue.split("").map(Number);
+    const range = getRangeFromValue(newValue);
+
     onQuestionUpdate({
       ...question,
       accounts:
         question.accounts == null
           ? {
               title: "",
-              description: "",
-              creditRange: newCreditRange,
+              creditDescription: "",
+              debitDescription: "",
+              creditRange: range,
               debitRange: [],
             }
           : {
               ...question.accounts,
-              creditRange: newCreditRange,
+              creditRange: range,
             },
     });
   };
 
   const handleDebitRangeChange = (newValue: string) => {
-    const newDebitRange = newValue.split("").map(Number);
+    const range = getRangeFromValue(newValue);
     onQuestionUpdate({
       ...question,
       accounts:
         question.accounts == null
           ? {
               title: "",
-              description: "",
+              creditDescription: "",
+              debitDescription: "",
               creditRange: [],
-              debitRange: newDebitRange,
+              debitRange: range,
             }
           : {
               ...question.accounts,
-              debitRange: newDebitRange,
+              debitRange: range,
             },
     });
   };
@@ -178,6 +210,7 @@ export function QuestionEditMode(props: Props) {
         <Input
           ref={inputRef}
           value={currentQuestion.title}
+          placeholder="Enter question title"
           onChange={(e) =>
             setCurrentQuestion({
               ...currentQuestion,
@@ -191,6 +224,7 @@ export function QuestionEditMode(props: Props) {
         <Small className="font-extrabold">Description</Small>
         <Textarea
           value={currentQuestion.description}
+          placeholder="Enter question explanation"
           onChange={(e) =>
             setCurrentQuestion({
               ...currentQuestion,
@@ -277,6 +311,7 @@ export function QuestionEditMode(props: Props) {
         </Small>
         <Textarea
           value={question.accounts?.creditDescription || ""}
+          placeholder="Add the credit accounts help text here..."
           onChange={(e) =>
             onQuestionUpdate({
               ...question,
@@ -304,6 +339,7 @@ export function QuestionEditMode(props: Props) {
         </Small>
         <Textarea
           value={question.accounts?.debitDescription || ""}
+          placeholder="Add the debit accounts help text here..."
           onChange={(e) =>
             onQuestionUpdate({
               ...question,
