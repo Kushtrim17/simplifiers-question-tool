@@ -109,6 +109,60 @@ export function QuestionEditMode(props: Props) {
     return foundQuestion.id;
   };
 
+  const getCreditRange = () => {
+    if (question.accounts?.creditRange.length === 0) {
+      return "";
+    }
+
+    return question.accounts?.creditRange.join("");
+  };
+
+  const getDebitRange = () => {
+    if (question.accounts?.debitRange.length === 0) {
+      return "";
+    }
+
+    return question.accounts?.debitRange.join("");
+  };
+
+  const handleCreditRangeChange = (newValue: string) => {
+    const newCreditRange = newValue.split("").map(Number);
+    onQuestionUpdate({
+      ...question,
+      accounts:
+        question.accounts == null
+          ? {
+              title: "",
+              description: "",
+              creditRange: newCreditRange,
+              debitRange: [],
+            }
+          : {
+              ...question.accounts,
+              creditRange: newCreditRange,
+            },
+    });
+  };
+
+  const handleDebitRangeChange = (newValue: string) => {
+    const newDebitRange = newValue.split("").map(Number);
+    onQuestionUpdate({
+      ...question,
+      accounts:
+        question.accounts == null
+          ? {
+              title: "",
+              description: "",
+              creditRange: [],
+              debitRange: newDebitRange,
+            }
+          : {
+              ...question.accounts,
+              debitRange: newDebitRange,
+            },
+    });
+  };
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -199,7 +253,20 @@ export function QuestionEditMode(props: Props) {
           className="mb-4"
           width={300}
           value={question.accounts?.title || ""}
-          onChange={(e) => console.log(e.currentTarget.value)}
+          onChange={(e) =>
+            onQuestionUpdate({
+              ...question,
+              accounts:
+                question?.accounts == null
+                  ? {
+                      title: e.currentTarget.value,
+                      description: "",
+                      creditRange: [],
+                      debitRange: [],
+                    }
+                  : { ...question.accounts, title: e.currentTarget.value },
+            })
+          }
         />
 
         <Small className="font-extrabold mb-4">
@@ -207,7 +274,23 @@ export function QuestionEditMode(props: Props) {
         </Small>
         <Textarea
           value={question.accounts?.description || ""}
-          onChange={(e) => console.log(`here ${e.currentTarget.value}`)}
+          onChange={(e) =>
+            onQuestionUpdate({
+              ...question,
+              accounts:
+                question?.accounts == null
+                  ? {
+                      title: "",
+                      description: e.currentTarget.value,
+                      creditRange: [],
+                      debitRange: [],
+                    }
+                  : {
+                      ...question.accounts,
+                      description: e.currentTarget.value,
+                    },
+            })
+          }
           onBlur={() => console.log("on blur here")}
           className="mt-2 mb-5 min-h-[100px]"
           cols={40}
@@ -217,7 +300,12 @@ export function QuestionEditMode(props: Props) {
         <Small className="mb-4 opacity-70">
           (Starting range - Ending Range)
         </Small>
-        <InputOTP maxLength={8}>
+        <InputOTP
+          maxLength={8}
+          pattern={REGEXP_ONLY_DIGITS}
+          value={getCreditRange()}
+          onChange={(newValue: string) => handleCreditRangeChange(newValue)}
+        >
           <InputOTPGroup>
             <InputOTPSlot index={0} />
             <InputOTPSlot index={1} />
@@ -240,10 +328,8 @@ export function QuestionEditMode(props: Props) {
         <InputOTP
           maxLength={8}
           pattern={REGEXP_ONLY_DIGITS}
-          value="11112233"
-          onChange={(newValue: string) =>
-            console.log(`this is the new value ${newValue}`)
-          }
+          value={getDebitRange()}
+          onChange={(newValue: string) => handleDebitRangeChange(newValue)}
         >
           <InputOTPGroup>
             <InputOTPSlot index={0} />
