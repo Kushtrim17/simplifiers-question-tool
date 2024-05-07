@@ -245,7 +245,9 @@ export function QuestionEditMode(props: Props) {
           </SelectContent>
         </Select>
         <Separator className="mt-5 mb-5" />
+
         <Medium className="font-extrabold mb-4">Accounting help</Medium>
+
         <Small className="font-extrabold mb-2">Accounting help title</Small>
         <Input
           type="text"
@@ -260,7 +262,8 @@ export function QuestionEditMode(props: Props) {
                 question?.accounts == null
                   ? {
                       title: e.currentTarget.value,
-                      description: "",
+                      creditDescription: "",
+                      debitDescription: "",
                       creditRange: [],
                       debitRange: [],
                     }
@@ -270,10 +273,10 @@ export function QuestionEditMode(props: Props) {
         />
 
         <Small className="font-extrabold mb-4">
-          Accounting help description
+          Accounting credit help description
         </Small>
         <Textarea
-          value={question.accounts?.description || ""}
+          value={question.accounts?.creditDescription || ""}
           onChange={(e) =>
             onQuestionUpdate({
               ...question,
@@ -281,17 +284,44 @@ export function QuestionEditMode(props: Props) {
                 question?.accounts == null
                   ? {
                       title: "",
-                      description: e.currentTarget.value,
+                      creditDescription: e.currentTarget.value,
+                      debitDescription: "",
                       creditRange: [],
                       debitRange: [],
                     }
                   : {
                       ...question.accounts,
-                      description: e.currentTarget.value,
+                      creditDescription: e.currentTarget.value,
                     },
             })
           }
-          onBlur={() => console.log("on blur here")}
+          className="mt-2 mb-5 min-h-[100px]"
+          cols={40}
+        />
+
+        <Small className="font-extrabold mb-4">
+          Accounting debit help description
+        </Small>
+        <Textarea
+          value={question.accounts?.debitDescription || ""}
+          onChange={(e) =>
+            onQuestionUpdate({
+              ...question,
+              accounts:
+                question?.accounts == null
+                  ? {
+                      title: "",
+                      creditDescription: "",
+                      debitDescription: e.currentTarget.value,
+                      creditRange: [],
+                      debitRange: [],
+                    }
+                  : {
+                      ...question.accounts,
+                      debitDescription: e.currentTarget.value,
+                    },
+            })
+          }
           className="mt-2 mb-5 min-h-[100px]"
           cols={40}
         />

@@ -4,7 +4,8 @@ export type QuestionType = "boolean" | "voucher" | "freeText";
 
 export type Accounts = {
   title: string;
-  description: string;
+  creditDescription: string;
+  debitDescription: string;
   creditRange: number[];
   debitRange: number[];
 };
