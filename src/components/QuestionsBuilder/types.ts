@@ -2,12 +2,18 @@ export type ExternalLink = { label: string; url: string };
 
 export type QuestionType = "boolean" | "voucher" | "freeText";
 
+export type DependsOnQuestion = {
+  questionId: string;
+  answer: boolean | string;
+};
+
 export type Accounts = {
   title: string;
   creditDescription: string;
   debitDescription: string;
   creditRange: number[];
   debitRange: number[];
+  triggerAnswer?: boolean | string;
 };
 
 export type Question = {
@@ -18,7 +24,7 @@ export type Question = {
   type: QuestionType;
   externalLinks: ExternalLink[];
   // an array of question ids that this question depends on
-  dependsOnQuestions: string[];
+  dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;
 };
 

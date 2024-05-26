@@ -1,30 +1,22 @@
-import { Medium, Small } from "@/components/ui/Typography";
+import { Medium } from "@/components/ui/Typography";
 import { Question } from "../../types";
-import { Input } from "@/components/ui/input";
 import { useEffect, useRef, useState } from "react";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@/components/ui/input-otp";
-import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { AddExternalLinkForm } from "./AddExternalLinkForm";
 import { Separator } from "@/components/ui/separator";
+import { QuestionTypeSelector } from "./QuestionTypeSelector";
+import { QuestionDependencySelector } from "./QuestionDependencySelector";
+import { QuestionBasicInfo } from "./QuestionBasicInfo";
+import { AccountingHelp } from "./AccountingHelp";
 
 type Props = {
   question: Question;
   allQuestions: Question[];
   onQuestionUpdate: (updatedQuestion: Question) => void;
-  onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onAddQuestionDependency: (
+    questionId: string,
+    dependencyId: string,
+    answer: string | boolean
+  ) => void;
   onRemoveQuestionDependency: (
     questionId: string,
     dependencyId: string
@@ -79,50 +71,21 @@ export function QuestionEditMode(props: Props) {
     }
 
     dependencies.forEach((dependency) => {
-      onRemoveQuestionDependency(question.id, dependency);
+      onRemoveQuestionDependency(question.id, dependency.questionId);
     });
   };
 
-  const handleOnDependencyChange = (dependencyId: string) => {
+  const handleOnDependencyChange = (
+    dependencyId: string,
+    answer: string | boolean
+  ) => {
     removePreviousDependencies();
 
     if (dependencyId === "no") {
       return;
     }
 
-    return onAddQuestionDependency(question.id, dependencyId);
-  };
-
-  const getQuestionDependency = () => {
-    const dependency = question.dependsOnQuestions;
-
-    if (dependency.length === 0) {
-      return "no";
-    }
-
-    const dependencyId = dependency[0];
-    const foundQuestion = allQuestions.find((q) => q.id === dependencyId);
-    if (!foundQuestion) {
-      return "no";
-    }
-
-    return foundQuestion.id;
-  };
-
-  const getCreditRange = () => {
-    if (question.accounts?.creditRange.length === 0) {
-      return "";
-    }
-
-    return question.accounts?.creditRange.join("");
-  };
-
-  const getDebitRange = () => {
-    if (question.accounts?.debitRange.length === 0) {
-      return "";
-    }
-
-    return question.accounts?.debitRange.join("");
+    return onAddQuestionDependency(question.id, dependencyId, answer);
   };
 
   const getRangeFromValue = (value: string) => {
@@ -156,43 +119,44 @@ export function QuestionEditMode(props: Props) {
 
   const handleCreditRangeChange = (newValue: string) => {
     const range = getRangeFromValue(newValue);
+    const initialAccount = {
+      title: "",
+      creditDescription: "",
+      debitDescription: "",
+      creditRange: range,
+      debitRange: [],
+    };
 
-    onQuestionUpdate({
-      ...question,
-      accounts:
-        question.accounts == null
-          ? {
-              title: "",
-              creditDescription: "",
-              debitDescription: "",
-              creditRange: range,
-              debitRange: [],
-            }
-          : {
-              ...question.accounts,
-              creditRange: range,
-            },
-    });
+    const accounts =
+      question.accounts == null
+        ? initialAccount
+        : {
+            ...question.accounts,
+            creditRange: range,
+          };
+
+    onQuestionUpdate({ ...question, accounts });
   };
 
   const handleDebitRangeChange = (newValue: string) => {
     const range = getRangeFromValue(newValue);
-    onQuestionUpdate({
-      ...question,
-      accounts:
-        question.accounts == null
-          ? {
-              title: "",
-              creditDescription: "",
-              debitDescription: "",
-              creditRange: [],
-              debitRange: range,
-            }
-          : {
-              ...question.accounts,
-              debitRange: range,
-            },
-    });
+    const initialAccount = {
+      title: "",
+      creditDescription: "",
+      debitDescription: "",
+      creditRange: [],
+      debitRange: range,
+    };
+
+    const accounts =
+      question.accounts == null
+        ? initialAccount
+        : {
+            ...question.accounts,
+            debitRange: range,
+          };
+
+    onQuestionUpdate({ ...question, accounts });
   };
 
   useEffect(() => {
@@ -203,215 +167,41 @@ export function QuestionEditMode(props: Props) {
 
   return (
     <div className="w-full flex flex-col mr-40">
-      <div className="flex flex-col">
-        <Medium className="font-extrabold">
-          {question.orderNumber} Question
-        </Medium>
-        <Input
-          ref={inputRef}
-          value={currentQuestion.title}
-          placeholder="Enter question title"
-          onChange={(e) =>
-            setCurrentQuestion({
-              ...currentQuestion,
-              title: e.currentTarget.value,
-            })
-          }
-          onBlur={handleUpdate}
-          className="mt-2 mb-5"
-        />
+      <Medium className="font-extrabold">
+        {question.orderNumber} Question
+      </Medium>
 
-        <Small className="font-extrabold">Description</Small>
-        <Textarea
-          value={currentQuestion.description}
-          placeholder="Enter question explanation"
-          onChange={(e) =>
-            setCurrentQuestion({
-              ...currentQuestion,
-              description: e.currentTarget.value,
-            })
-          }
-          onBlur={handleUpdate}
-          className="mt-2 mb-5 min-h-[300px]"
-          cols={130}
-        />
+      <QuestionBasicInfo
+        question={currentQuestion}
+        onQuestionUpdate={setCurrentQuestion}
+        handleSave={handleUpdate}
+      />
 
-        <Small className="font-extrabold">Question Type</Small>
-        <Select
-          defaultValue={currentQuestion.type}
-          onValueChange={(value: "boolean" | "voucher" | "freeText") =>
-            handleQuestionTypeChange(value)
-          }
-          onOpenChange={(isOpen) => !isOpen && handleUpdate()}
-        >
-          <SelectTrigger className="mt-5 mb-5">
-            <SelectValue placeholder="Select question type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="boolean">Yes or No</SelectItem>
-            <SelectItem value="voucher">Voucher</SelectItem>
-            <SelectItem value="freeText">Free text</SelectItem>
-          </SelectContent>
-        </Select>
+      <QuestionTypeSelector
+        question={currentQuestion}
+        onQuestionTypeChange={handleQuestionTypeChange}
+      />
 
-        <AddExternalLinkForm
-          question={question}
-          onAdd={handleOnAddExternalLink}
-          onRemove={handleOnRemoveExternalLink}
-        />
+      <AddExternalLinkForm
+        question={question}
+        onAdd={handleOnAddExternalLink}
+        onRemove={handleOnRemoveExternalLink}
+      />
 
-        <Small className="font-extrabold">Depends on questions</Small>
-        <Select
-          defaultValue={getQuestionDependency()}
-          onValueChange={handleOnDependencyChange}
-          onOpenChange={(isOpen) => !isOpen && handleUpdate()}
-        >
-          <SelectTrigger className="mt-5 mb-5">
-            <SelectValue placeholder="Select question type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="no">No dependency</SelectItem>
-            {allQuestions.map((q) => (
-              <SelectItem key={q.id} value={q.id}>
-                {q.title}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <Separator className="mt-5 mb-5" />
+      <QuestionDependencySelector
+        question={question}
+        allQuestions={allQuestions}
+        onDependencyChange={handleOnDependencyChange}
+      />
 
-        <Medium className="font-extrabold mb-4">Accounting help</Medium>
+      <Separator className="mt-5 mb-5" />
 
-        <Small className="font-extrabold mb-2">Accounting help title</Small>
-        <Input
-          type="text"
-          placeholder="Title"
-          className="mb-4"
-          width={300}
-          value={question.accounts?.title || ""}
-          onChange={(e) =>
-            onQuestionUpdate({
-              ...question,
-              accounts:
-                question?.accounts == null
-                  ? {
-                      title: e.currentTarget.value,
-                      creditDescription: "",
-                      debitDescription: "",
-                      creditRange: [],
-                      debitRange: [],
-                    }
-                  : { ...question.accounts, title: e.currentTarget.value },
-            })
-          }
-        />
-
-        <Small className="font-extrabold mb-4">
-          Accounting credit help description
-        </Small>
-        <Textarea
-          value={question.accounts?.creditDescription || ""}
-          placeholder="Add the credit accounts help text here..."
-          onChange={(e) =>
-            onQuestionUpdate({
-              ...question,
-              accounts:
-                question?.accounts == null
-                  ? {
-                      title: "",
-                      creditDescription: e.currentTarget.value,
-                      debitDescription: "",
-                      creditRange: [],
-                      debitRange: [],
-                    }
-                  : {
-                      ...question.accounts,
-                      creditDescription: e.currentTarget.value,
-                    },
-            })
-          }
-          className="mt-2 mb-5 min-h-[100px]"
-          cols={40}
-        />
-
-        <Small className="font-extrabold mb-4">
-          Accounting debit help description
-        </Small>
-        <Textarea
-          value={question.accounts?.debitDescription || ""}
-          placeholder="Add the debit accounts help text here..."
-          onChange={(e) =>
-            onQuestionUpdate({
-              ...question,
-              accounts:
-                question?.accounts == null
-                  ? {
-                      title: "",
-                      creditDescription: "",
-                      debitDescription: e.currentTarget.value,
-                      creditRange: [],
-                      debitRange: [],
-                    }
-                  : {
-                      ...question.accounts,
-                      debitDescription: e.currentTarget.value,
-                    },
-            })
-          }
-          className="mt-2 mb-5 min-h-[100px]"
-          cols={40}
-        />
-
-        <Small className="font-extrabold mb-1">Credit account range</Small>
-        <Small className="mb-4 opacity-70">
-          (Starting range - Ending Range)
-        </Small>
-        <InputOTP
-          maxLength={8}
-          pattern={REGEXP_ONLY_DIGITS}
-          value={getCreditRange()}
-          onChange={(newValue: string) => handleCreditRangeChange(newValue)}
-        >
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-            <InputOTPSlot index={3} />
-          </InputOTPGroup>
-          <InputOTPSeparator />
-          <InputOTPGroup>
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-            <InputOTPSlot index={6} />
-            <InputOTPSlot index={7} />
-          </InputOTPGroup>
-        </InputOTP>
-
-        <Small className="font-extrabold mt-4 mb-1">Debit account range</Small>
-        <Small className="mb-4 opacity-70">
-          (Starting range - Ending Range)
-        </Small>
-        <InputOTP
-          maxLength={8}
-          pattern={REGEXP_ONLY_DIGITS}
-          value={getDebitRange()}
-          onChange={(newValue: string) => handleDebitRangeChange(newValue)}
-        >
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-            <InputOTPSlot index={3} />
-          </InputOTPGroup>
-          <InputOTPSeparator />
-          <InputOTPGroup>
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-            <InputOTPSlot index={6} />
-            <InputOTPSlot index={7} />
-          </InputOTPGroup>
-        </InputOTP>
-      </div>
+      <AccountingHelp
+        question={question}
+        onQuestionUpdate={onQuestionUpdate}
+        onCreditRangeChange={handleCreditRangeChange}
+        onDebitRangeChange={handleDebitRangeChange}
+      />
     </div>
   );
 }

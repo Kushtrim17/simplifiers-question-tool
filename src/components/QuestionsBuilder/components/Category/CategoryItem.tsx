@@ -131,7 +131,11 @@ type Props = {
   onEditQuestion: (updatedQuestion: Question) => void;
   onDeleteQuestion: (questionId: string) => void;
   onChangeQuestionOrder: (questionId: string, newOrderNumber: number) => void;
-  onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onAddQuestionDependency: (
+    questionId: string,
+    dependencyId: string,
+    answer: string | boolean
+  ) => void;
   onRemoveQuestionDependency: (
     questionId: string,
     dependencyId: string

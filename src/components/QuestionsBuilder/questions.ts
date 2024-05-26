@@ -194,7 +194,8 @@ export function updateQuestionOrderInCategory(
 export function addQuestionDependency(
   categories: Category[],
   questionId: string,
-  dependencyId: string
+  dependencyId: string,
+  answer: string | boolean
 ) {
   return categories.map((category) => {
     if (category.questions) {
@@ -202,7 +203,10 @@ export function addQuestionDependency(
         if (question.id === questionId) {
           return {
             ...question,
-            dependsOnQuestions: [...question.dependsOnQuestions, dependencyId],
+            dependsOnQuestions: [
+              ...question.dependsOnQuestions,
+              { questionId: dependencyId, answer },
+            ],
           };
         }
 
@@ -214,13 +218,55 @@ export function addQuestionDependency(
       category.subCategories = addQuestionDependency(
         category.subCategories,
         questionId,
-        dependencyId
+        dependencyId,
+        answer
       );
     }
 
     return category;
   });
 }
+
+// export function updateQuestionDependency(
+//   categories: Category[],
+//   questionId: string,
+//   dependencyId: string,
+//   answer: boolean
+// ) {
+//   return categories.map((category) => {
+//     if (category.questions) {
+//       category.questions = category.questions.map((question) => {
+//         if (question.id === questionId) {
+//           return {
+//             ...question,
+//             dependsOnQuestions: question.dependsOnQuestions.map(
+//               (dependency) => {
+//                 if (dependency.questionId === dependencyId) {
+//                   return { ...dependency, answer };
+//                 }
+
+//                 return dependency;
+//               }
+//             ),
+//           };
+//         }
+
+//         return question;
+//       });
+//     }
+
+//     if (category.subCategories) {
+//       category.subCategories = updateQuestionDependency(
+//         category.subCategories,
+//         questionId,
+//         dependencyId,
+//         answer
+//       );
+//     }
+
+//     return category;
+//   });
+// }
 
 export function removeQuestionDependency(
   categories: Category[],
@@ -234,7 +280,7 @@ export function removeQuestionDependency(
           return {
             ...question,
             dependsOnQuestions: question.dependsOnQuestions.filter(
-              (id) => id !== dependencyId
+              (dependency) => dependency.questionId !== dependencyId
             ),
           };
         }

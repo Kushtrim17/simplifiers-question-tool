@@ -15,7 +15,11 @@ type Props = {
   onDelete: (questionId: string) => void;
   onMoveUp: () => void;
   onMoveDown: () => void;
-  onAddQuestionDependency: (questionId: string, dependencyId: string) => void;
+  onAddQuestionDependency: (
+    questionId: string,
+    dependencyId: string,
+    answer: string | boolean
+  ) => void;
   onRemoveQuestionDependency: (
     questionId: string,
     dependencyId: string

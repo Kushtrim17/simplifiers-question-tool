@@ -114,12 +114,14 @@ function App() {
 
   const handleOnAddQuestionDependency = (
     questionId: string,
-    dependencyId: string
+    dependencyId: string,
+    answer: string | boolean
   ) => {
     const categories = addQuestionDependency(
       structure.categories,
       questionId,
-      dependencyId
+      dependencyId,
+      answer
     );
     saveUpdatedStructure({ ...structure, categories });
   };
