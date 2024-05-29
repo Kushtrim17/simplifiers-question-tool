@@ -223,7 +223,7 @@ export function AccountingHelp(props: Props) {
           <SelectValue placeholder="Select answer trigger" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="no">No dependency</SelectItem>
+          <SelectItem value="no">No trigger</SelectItem>
           {getAnswerOptions().map((d) => (
             <SelectItem key={d.toString()} value={d.toString()}>
               {d.toString()}
