@@ -29,6 +29,14 @@ export function QuestionDependencySelector(props: Props) {
       return "no";
     }
 
+    if (question.dependsOnQuestions[0]?.answer === true) {
+      return "True";
+    }
+
+    if (question.dependsOnQuestions[0]?.answer === false) {
+      return "False";
+    }
+
     return question.dependsOnQuestions[0]?.answer?.toString();
   };
 
