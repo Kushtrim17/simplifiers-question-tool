@@ -11,8 +11,8 @@ export type Accounts = {
   title: string;
   creditDescription: string;
   debitDescription: string;
-  creditRange: number[];
-  debitRange: number[];
+  creditRange: (number[] | null[])[];
+  debitRange: (number[] | null[])[];
   triggerAnswer?: boolean | string;
 };
 

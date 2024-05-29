@@ -16,12 +16,49 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { IoTrashBinOutline } from "react-icons/io5";
+
+type RangeInputProps = {
+  range: string | undefined;
+  onRangeChange: (newValue: string) => void;
+};
+const RangeInput = (props: RangeInputProps) => {
+  const { range, onRangeChange } = props;
+
+  return (
+    <InputOTP
+      maxLength={8}
+      pattern={REGEXP_ONLY_DIGITS}
+      value={range}
+      onChange={onRangeChange}
+    >
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+        <InputOTPSlot index={3} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+        <InputOTPSlot index={6} />
+        <InputOTPSlot index={7} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+};
 
 type Props = {
   question: Question;
   onQuestionUpdate: (question: Question) => void;
-  onCreditRangeChange: (newValue: string) => void;
-  onDebitRangeChange: (newValue: string) => void;
+  onCreditRangeChange: (index: number, newValue: string) => void;
+  onCreditRangeRemove: (index: number) => void;
+  onCreditRangeAdd: () => void;
+  onDebitRangeChange: (index: number, newValue: string) => void;
+  onDebitRangeRemove: (index: number) => void;
+  onDebitRangeAdd: () => void;
 };
 
 export function AccountingHelp(props: Props) {
@@ -29,23 +66,53 @@ export function AccountingHelp(props: Props) {
     question,
     onQuestionUpdate,
     onCreditRangeChange,
+    onCreditRangeRemove,
+    onCreditRangeAdd,
     onDebitRangeChange,
+    onDebitRangeAdd,
+    onDebitRangeRemove,
   } = props;
 
-  const getCreditRange = () => {
-    if (question.accounts?.creditRange.length === 0) {
-      return "";
+  const getCreditRanges = () => {
+    if (question.accounts?.creditRange?.length === 0) {
+      return [];
     }
 
-    return question.accounts?.creditRange.join("");
+    const ranges = question.accounts?.creditRange || [];
+    if (ranges.length === 2 && !Array.isArray(ranges[0])) {
+      onQuestionUpdate({
+        ...question,
+        accounts: {
+          ...question.accounts,
+          creditRange: [ranges],
+        },
+      });
+
+      return [ranges];
+    }
+
+    return ranges;
   };
 
-  const getDebitRange = () => {
-    if (question.accounts?.debitRange.length === 0) {
-      return "";
+  const getDebitRanges = () => {
+    if (question.accounts?.debitRange?.length === 0) {
+      return [];
     }
 
-    return question.accounts?.debitRange.join("");
+    const ranges = question.accounts?.debitRange || [];
+    if (ranges.length === 2 && !Array.isArray(ranges[0])) {
+      onQuestionUpdate({
+        ...question,
+        accounts: {
+          ...question.accounts,
+          debitRange: [ranges],
+        },
+      });
+
+      return [ranges];
+    }
+
+    return ranges;
   };
 
   const handleUpdateTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,17 +225,6 @@ export function AccountingHelp(props: Props) {
       />
 
       <Small className="font-extrabold mb-4">
-        Accounting credit help description
-      </Small>
-      <Textarea
-        value={question.accounts?.creditDescription || ""}
-        placeholder="Add the credit accounts help text here..."
-        onChange={handleUpdateCreditDescription}
-        className="mt-2 mb-5 min-h-[100px]"
-        cols={40}
-      />
-
-      <Small className="font-extrabold mb-4">
         Accounting debit help description
       </Small>
       <Textarea
@@ -179,51 +235,66 @@ export function AccountingHelp(props: Props) {
         cols={40}
       />
 
-      <Small className="font-extrabold mb-1">Credit account range</Small>
-      <Small className="mb-4 opacity-70">(Starting range - Ending Range)</Small>
-      <InputOTP
-        maxLength={8}
-        pattern={REGEXP_ONLY_DIGITS}
-        value={getCreditRange()}
-        onChange={(newValue: string) => onCreditRangeChange(newValue)}
-      >
-        <InputOTPGroup>
-          <InputOTPSlot index={0} />
-          <InputOTPSlot index={1} />
-          <InputOTPSlot index={2} />
-          <InputOTPSlot index={3} />
-        </InputOTPGroup>
-        <InputOTPSeparator />
-        <InputOTPGroup>
-          <InputOTPSlot index={4} />
-          <InputOTPSlot index={5} />
-          <InputOTPSlot index={6} />
-          <InputOTPSlot index={7} />
-        </InputOTPGroup>
-      </InputOTP>
+      <Small className="font-extrabold mb-4">
+        Accounting credit help description
+      </Small>
+      <Textarea
+        value={question.accounts?.creditDescription || ""}
+        placeholder="Add the credit accounts help text here..."
+        onChange={handleUpdateCreditDescription}
+        className="mt-2 mb-5 min-h-[100px]"
+        cols={40}
+      />
 
       <Small className="font-extrabold mt-4 mb-1">Debit account range</Small>
       <Small className="mb-4 opacity-70">(Starting range - Ending Range)</Small>
-      <InputOTP
-        maxLength={8}
-        pattern={REGEXP_ONLY_DIGITS}
-        value={getDebitRange()}
-        onChange={(newValue: string) => onDebitRangeChange(newValue)}
+      {getDebitRanges().map((range, index) => (
+        <div key={index} className="mb-2 flex">
+          <RangeInput
+            range={range?.join("")}
+            onRangeChange={(newValue: string) =>
+              onDebitRangeChange(index, newValue)
+            }
+          />
+          <IoTrashBinOutline
+            className="mt-2 ml-2"
+            size={24}
+            onClick={() => onDebitRangeRemove(index)}
+          />
+        </div>
+      ))}
+      <Button
+        variant="secondary"
+        className="mt-2 w-[120px]"
+        onClick={onDebitRangeAdd}
       >
-        <InputOTPGroup>
-          <InputOTPSlot index={0} />
-          <InputOTPSlot index={1} />
-          <InputOTPSlot index={2} />
-          <InputOTPSlot index={3} />
-        </InputOTPGroup>
-        <InputOTPSeparator />
-        <InputOTPGroup>
-          <InputOTPSlot index={4} />
-          <InputOTPSlot index={5} />
-          <InputOTPSlot index={6} />
-          <InputOTPSlot index={7} />
-        </InputOTPGroup>
-      </InputOTP>
+        Add new range
+      </Button>
+
+      <Small className="font-extrabold mt-4 mb-1">Credit account range</Small>
+      <Small className="mb-4 opacity-70">(Starting range - Ending Range)</Small>
+      {getCreditRanges().map((range, index) => (
+        <div key={index} className="mb-2 flex">
+          <RangeInput
+            range={range?.join("")}
+            onRangeChange={(newValue: string) =>
+              onCreditRangeChange(index, newValue)
+            }
+          />
+          <IoTrashBinOutline
+            className="mt-2 ml-2"
+            size={24}
+            onClick={() => onCreditRangeRemove(index)}
+          />
+        </div>
+      ))}
+      <Button
+        variant="secondary"
+        className="mt-2 w-[120px]"
+        onClick={onCreditRangeAdd}
+      >
+        Add new range
+      </Button>
     </>
   );
 }

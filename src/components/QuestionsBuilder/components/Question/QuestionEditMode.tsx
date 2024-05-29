@@ -117,13 +117,23 @@ export function QuestionEditMode(props: Props) {
     return range;
   };
 
-  const handleCreditRangeChange = (newValue: string) => {
+  const updateRange = (
+    allRanges: (number[] | null[])[],
+    index: number,
+    newRange: number[]
+  ) => {
+    const ranges = [...allRanges];
+    ranges[index] = newRange;
+    return ranges;
+  };
+
+  const handleCreditRangeChange = (index: number, newValue: string) => {
     const range = getRangeFromValue(newValue);
     const initialAccount = {
       title: "",
       creditDescription: "",
       debitDescription: "",
-      creditRange: range,
+      creditRange: [range],
       debitRange: [],
     };
 
@@ -132,20 +142,59 @@ export function QuestionEditMode(props: Props) {
         ? initialAccount
         : {
             ...question.accounts,
-            creditRange: range,
+            creditRange: updateRange(
+              question.accounts.creditRange,
+              index,
+              range
+            ),
           };
 
     onQuestionUpdate({ ...question, accounts });
   };
 
-  const handleDebitRangeChange = (newValue: string) => {
+  const handleCreditChangeRemove = (index: number) => {
+    if (question?.accounts?.creditRange == null) {
+      return;
+    }
+
+    const accounts = {
+      ...question.accounts,
+      creditRange: question?.accounts?.creditRange.filter(
+        (_, i) => i !== index
+      ),
+    };
+
+    onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleAddCreditRange = () => {
+    let accounts;
+    if (question?.accounts == null) {
+      accounts = {
+        title: "",
+        creditDescription: "",
+        debitDescription: "",
+        creditRange: [[null, null]],
+        debitRange: [],
+      };
+    } else {
+      accounts = {
+        ...question.accounts,
+        creditRange: [...(question.accounts?.creditRange || []), [null, null]],
+      };
+    }
+
+    onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleDebitRangeChange = (index: number, newValue: string) => {
     const range = getRangeFromValue(newValue);
     const initialAccount = {
       title: "",
       creditDescription: "",
       debitDescription: "",
       creditRange: [],
-      debitRange: range,
+      debitRange: [range],
     };
 
     const accounts =
@@ -153,8 +202,41 @@ export function QuestionEditMode(props: Props) {
         ? initialAccount
         : {
             ...question.accounts,
-            debitRange: range,
+            debitRange: updateRange(question.accounts.debitRange, index, range),
           };
+
+    onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleDebitChangeRemove = (index: number) => {
+    if (question?.accounts?.debitRange == null) {
+      return;
+    }
+
+    const accounts = {
+      ...question.accounts,
+      debitRange: question?.accounts?.debitRange.filter((_, i) => i !== index),
+    };
+
+    onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleAddDebitRange = () => {
+    let accounts;
+    if (question?.accounts == null) {
+      accounts = {
+        title: "",
+        creditDescription: "",
+        debitDescription: "",
+        creditRange: [],
+        debitRange: [[null, null]],
+      };
+    } else {
+      accounts = {
+        ...question.accounts,
+        debitRange: [...(question.accounts?.debitRange || []), [null, null]],
+      };
+    }
 
     onQuestionUpdate({ ...question, accounts });
   };
@@ -200,7 +282,11 @@ export function QuestionEditMode(props: Props) {
         question={question}
         onQuestionUpdate={onQuestionUpdate}
         onCreditRangeChange={handleCreditRangeChange}
+        onCreditRangeRemove={handleCreditChangeRemove}
+        onCreditRangeAdd={handleAddCreditRange}
         onDebitRangeChange={handleDebitRangeChange}
+        onDebitRangeRemove={handleDebitChangeRemove}
+        onDebitRangeAdd={handleAddDebitRange}
       />
     </div>
   );
