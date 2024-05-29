@@ -74,17 +74,28 @@ export function AccountingHelp(props: Props) {
   } = props;
 
   const getCreditRanges = () => {
-    if (question.accounts?.creditRange?.length === 0) {
+    const { accounts } = question || {};
+
+    if (
+      !accounts ||
+      !accounts.creditRange ||
+      accounts.creditRange.length === 0
+    ) {
       return [];
     }
 
-    const ranges = question.accounts?.creditRange || [];
-    if (ranges.length === 2 && !Array.isArray(ranges[0])) {
+    const ranges = accounts.creditRange;
+
+    if (
+      ranges.length === 2 &&
+      !Array.isArray(ranges[0]) &&
+      !Array.isArray(ranges[1])
+    ) {
       onQuestionUpdate({
         ...question,
         accounts: {
-          ...question.accounts,
-          creditRange: [ranges],
+          ...accounts,
+          creditRange: [[ranges[0], ranges[1]]],
         },
       });
 
@@ -95,17 +106,24 @@ export function AccountingHelp(props: Props) {
   };
 
   const getDebitRanges = () => {
-    if (question.accounts?.debitRange?.length === 0) {
+    const { accounts } = question || {};
+
+    if (!accounts || !accounts.debitRange || accounts.debitRange.length === 0) {
       return [];
     }
 
-    const ranges = question.accounts?.debitRange || [];
-    if (ranges.length === 2 && !Array.isArray(ranges[0])) {
+    const ranges = accounts.debitRange;
+
+    if (
+      ranges.length === 2 &&
+      !Array.isArray(ranges[0]) &&
+      !Array.isArray(ranges[1])
+    ) {
       onQuestionUpdate({
         ...question,
         accounts: {
-          ...question.accounts,
-          debitRange: [ranges],
+          ...accounts,
+          debitRange: [[ranges[0], ranges[1]]],
         },
       });
 
