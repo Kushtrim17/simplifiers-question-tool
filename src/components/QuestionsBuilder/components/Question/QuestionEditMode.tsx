@@ -133,6 +133,8 @@ export function QuestionEditMode(props: Props) {
       title: "",
       creditDescription: "",
       debitDescription: "",
+      description: "",
+      helperDescriptions: [],
       creditRange: [range],
       debitRange: [],
     };
@@ -174,6 +176,7 @@ export function QuestionEditMode(props: Props) {
         title: "",
         creditDescription: "",
         debitDescription: "",
+        helperDescriptions: [],
         creditRange: [[null, null]],
         debitRange: [],
       };
@@ -193,6 +196,8 @@ export function QuestionEditMode(props: Props) {
       title: "",
       creditDescription: "",
       debitDescription: "",
+      description: "",
+      helperDescriptions: [],
       creditRange: [],
       debitRange: [range],
     };
@@ -228,6 +233,7 @@ export function QuestionEditMode(props: Props) {
         title: "",
         creditDescription: "",
         debitDescription: "",
+        helperDescriptions: [],
         creditRange: [],
         debitRange: [[null, null]],
       };

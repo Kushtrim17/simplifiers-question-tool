@@ -18,6 +18,7 @@ import {
   deleteQuestion,
   removeQuestionDependency,
   updateCategoryById,
+  updateCategoryOrder,
   updateQuestion,
   updateQuestionOrderInCategory,
 } from "@/components/QuestionsBuilder/questions";
@@ -80,6 +81,19 @@ function App() {
 
   const handleOnDeleteCategory = (categoryId: string) => {
     const categories = deleteCategory(structure.categories, categoryId);
+    saveUpdatedStructure({ ...structure, categories });
+  };
+
+  const handleOnChangeCategoryOrder = (
+    categoryId: string,
+    newOrderNumber: number
+  ) => {
+    const categories = updateCategoryOrder(
+      structure.categories,
+      structure.categories,
+      categoryId,
+      newOrderNumber
+    );
     saveUpdatedStructure({ ...structure, categories });
   };
 
@@ -175,6 +189,7 @@ function App() {
               onAddChildCategory={handleOnAddChildCategory}
               onAddSiblingCategory={handleOnAddSiblingCategory}
               onDeleteCategory={handleOnDeleteCategory}
+              onChangeCategoryOrder={handleOnChangeCategoryOrder}
               onAddQuestion={handleOnAddQuestion}
               onEditQuestion={handleOnEditQuestion}
               onDeleteQuestion={handleOnDeleteQuestion}

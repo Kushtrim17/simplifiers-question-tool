@@ -4,6 +4,8 @@ import {
   IoTrashBinOutline,
   IoPencilSharp,
   IoCheckmarkSharp,
+  IoArrowUpSharp,
+  IoArrowDownSharp,
 } from "react-icons/io5";
 import {
   DropdownMenu,
@@ -123,10 +125,13 @@ function DeleteButton(props: DeleteProps) {
 
 type Props = {
   category: Category;
+  isFirstChild: boolean;
+  isLastChild: boolean;
   onEdit: (updatedCategory: Category) => void;
   onAddSibling: (siblingId: string) => void;
   onAddChild: (parentId: string) => void;
   onDelete: () => void;
+  onChangeCategoryOrder: (newOrderNumber: number) => void;
   onAddQuestion: () => void;
   onEditQuestion: (updatedQuestion: Question) => void;
   onDeleteQuestion: (questionId: string) => void;
@@ -145,10 +150,13 @@ type Props = {
 export function CategoryItem(props: Props) {
   const {
     category,
+    isFirstChild,
+    isLastChild,
     onEdit,
     onAddSibling,
     onAddChild,
     onDelete,
+    onChangeCategoryOrder,
     onAddQuestion,
     onEditQuestion,
     onDeleteQuestion,
@@ -188,6 +196,20 @@ export function CategoryItem(props: Props) {
     <div>
       <div className="flex justify-between items-center group relative">
         <div className="flex flex-row w-[800px]">
+          <div className="flex-2 flex flex-col items-center justify-center p-1 w-[40px] max-h-[40px]">
+            <When isTrue={!isFirstChild}>
+              <IoArrowUpSharp
+                size={20}
+                onClick={() => onChangeCategoryOrder(category.orderNumber - 1)}
+              />
+            </When>
+            <When isTrue={!isLastChild}>
+              <IoArrowDownSharp
+                size={20}
+                onClick={() => onChangeCategoryOrder(category.orderNumber + 1)}
+              />
+            </When>
+          </div>
           <ActionMenu
             isEditMode={isEditMode}
             toggleEditMode={toggleEditMode}

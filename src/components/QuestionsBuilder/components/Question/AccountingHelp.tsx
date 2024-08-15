@@ -6,9 +6,9 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { Textarea } from "@/components/ui/textarea";
+// import { Textarea } from "@/components/ui/textarea";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
-import { Question } from "../../types";
+import { AccountsHelper, Question } from "../../types";
 import {
   Select,
   SelectContent,
@@ -18,6 +18,9 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { IoTrashBinOutline } from "react-icons/io5";
+import { Separator } from "@/components/ui/separator";
+import { RichTextEditor } from "./components/RichTextEditor";
+// import { RichTextEditor } from "./components/RichTextEditor";
 
 type RangeInputProps = {
   range: string | undefined;
@@ -140,44 +143,12 @@ export function AccountingHelp(props: Props) {
             title: e.currentTarget.value,
             creditDescription: "",
             debitDescription: "",
+            description: "",
+            helperDescriptions: [],
             creditRange: [],
             debitRange: [],
           }
         : { ...question.accounts, title: e.currentTarget.value };
-
-    onQuestionUpdate({ ...question, accounts });
-  };
-
-  const handleUpdateCreditDescription = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    const accounts =
-      question?.accounts == null
-        ? {
-            title: "",
-            creditDescription: e.currentTarget.value,
-            debitDescription: "",
-            creditRange: [],
-            debitRange: [],
-          }
-        : { ...question.accounts, creditDescription: e.currentTarget.value };
-
-    onQuestionUpdate({ ...question, accounts });
-  };
-
-  const handleUpdateDebitDescription = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    const accounts =
-      question?.accounts == null
-        ? {
-            title: "",
-            creditDescription: "",
-            debitDescription: e.currentTarget.value,
-            creditRange: [],
-            debitRange: [],
-          }
-        : { ...question.accounts, debitDescription: e.currentTarget.value };
 
     onQuestionUpdate({ ...question, accounts });
   };
@@ -197,6 +168,8 @@ export function AccountingHelp(props: Props) {
             title: "",
             creditDescription: "",
             debitDescription: "",
+            description: "",
+            helperDescriptions: [],
             creditRange: [],
             debitRange: [],
             triggerAnswer: answer,
@@ -204,6 +177,92 @@ export function AccountingHelp(props: Props) {
         : { ...question.accounts, triggerAnswer: answer };
 
     onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleAddHelperDescription = () => {
+    const newHelperDescription = {
+      description: "",
+      debitNote: "",
+      creditNote: "",
+    };
+
+    const accounts =
+      question?.accounts == null
+        ? {
+            title: "",
+            creditDescription: "",
+            debitDescription: "",
+            helperDescriptions: [newHelperDescription],
+            creditRange: [],
+            debitRange: [],
+          }
+        : question.accounts;
+
+    if (accounts.helperDescriptions == null) {
+      accounts.helperDescriptions = [newHelperDescription];
+    } else {
+      accounts.helperDescriptions.push(newHelperDescription);
+    }
+
+    console.log({
+      accounts,
+    });
+
+    onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleUpdateHelperDescription = (
+    index: number,
+    key: keyof AccountsHelper,
+    newValue: string
+  ) => {
+    if (question.accounts?.helperDescriptions == null) {
+      return;
+    }
+
+    const descriptionHelper = question.accounts?.helperDescriptions[index];
+
+    if (descriptionHelper == null) {
+      return;
+    }
+
+    descriptionHelper[key] = newValue;
+
+    const descriptionsUpdated = question.accounts.helperDescriptions.map(
+      (description, i) => {
+        if (i === index) {
+          return descriptionHelper;
+        }
+
+        return description;
+      }
+    );
+
+    onQuestionUpdate({
+      ...question,
+      accounts: {
+        ...question.accounts,
+        helperDescriptions: descriptionsUpdated,
+      },
+    });
+  };
+
+  const handleDeleteDescription = (index: number) => {
+    if (question.accounts?.helperDescriptions == null) {
+      return;
+    }
+
+    const descriptionsUpdated = question.accounts.helperDescriptions.filter(
+      (_, i) => i !== index
+    );
+
+    onQuestionUpdate({
+      ...question,
+      accounts: {
+        ...question.accounts,
+        helperDescriptions: descriptionsUpdated,
+      },
+    });
   };
 
   return (
@@ -236,33 +295,73 @@ export function AccountingHelp(props: Props) {
       <Input
         type="text"
         placeholder="Title"
-        className="mb-4"
+        className="mb-10"
         width={300}
         value={question.accounts?.title || ""}
         onChange={handleUpdateTitle}
       />
 
-      <Small className="font-extrabold mb-4">
-        Accounting debit help description
-      </Small>
-      <Textarea
-        value={question.accounts?.debitDescription || ""}
-        placeholder="Add the debit accounts help text here..."
-        onChange={handleUpdateDebitDescription}
-        className="mt-2 mb-5 min-h-[100px]"
-        cols={40}
-      />
+      <Medium className="font-extrabold mb-4">
+        Accounting helper descriptions
+      </Medium>
+      {question.accounts?.helperDescriptions?.map((helper, index) => (
+        <>
+          <Input
+            key={`${index}-subTitle`}
+            type="text"
+            placeholder={`Subtitle ${index + 1}`}
+            className="mb-4"
+            width={300}
+            value={helper.description || ""}
+            onChange={(e) =>
+              handleUpdateHelperDescription(
+                index,
+                "description",
+                e.target.value
+              )
+            }
+          />
+          <RichTextEditor
+            key={`${index}-credit`}
+            title="Credit helper text"
+            value={helper.creditNote || ""}
+            onChange={(value) =>
+              handleUpdateHelperDescription(index, "creditNote", value)
+            }
+          />
+          <RichTextEditor
+            key={`${index}-debit`}
+            title="Debit helper text"
+            value={helper.debitNote || ""}
+            onChange={(value) =>
+              handleUpdateHelperDescription(index, "debitNote", value)
+            }
+          />
 
-      <Small className="font-extrabold mb-4">
-        Accounting credit help description
-      </Small>
-      <Textarea
-        value={question.accounts?.creditDescription || ""}
-        placeholder="Add the credit accounts help text here..."
-        onChange={handleUpdateCreditDescription}
-        className="mt-2 mb-5 min-h-[100px]"
-        cols={40}
-      />
+          <div className="flex justify-center" key={`${index}-delete`}>
+            <Button
+              // key={`${index}-delete`}
+              variant="destructive"
+              className="mt-2 mb-4 max-w-[200px]"
+              onClick={() => handleDeleteDescription(index)}
+            >
+              Delete
+            </Button>
+          </div>
+          {question.accounts?.helperDescriptions &&
+            question.accounts?.helperDescriptions?.length - 1 !== index && (
+              <Separator className="mb-2" />
+            )}
+        </>
+      ))}
+
+      <Button
+        variant="secondary"
+        className="mt-2 mb-4"
+        onClick={handleAddHelperDescription}
+      >
+        Add new helper description
+      </Button>
 
       <Small className="font-extrabold mt-4 mb-1">Debit account range</Small>
       <Small className="mb-4 opacity-70">(Starting range - Ending Range)</Small>

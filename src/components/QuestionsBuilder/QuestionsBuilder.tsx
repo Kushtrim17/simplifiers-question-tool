@@ -8,6 +8,7 @@ type Props = {
   onAddChildCategory: (parentId: string) => void;
   onAddSiblingCategory: (siblingId: string) => void;
   onDeleteCategory: (categoryId: string) => void;
+  onChangeCategoryOrder: (categoryId: string, newOrderNumber: number) => void;
   onAddQuestion: (categoryId: string) => void;
   onEditQuestion: (updatedQuestion: Question) => void;
   onDeleteQuestion: (questionId: string) => void;
@@ -33,6 +34,7 @@ export function QuestionsBuilder(props: Props) {
     onAddSiblingCategory,
     onDeleteCategory,
     onEditCategory,
+    onChangeCategoryOrder,
     onAddQuestion,
     onEditQuestion,
     onDeleteQuestion,
@@ -50,15 +52,20 @@ export function QuestionsBuilder(props: Props) {
         <div
           key={category.id}
           className={`cursor-pointer border border-transparent hover:border-gray-200 rounded-lg p-4 ${getMarginClass(
-            category.level
+            category?.level
           )}`}
         >
           <CategoryItem
             category={category}
+            isFirstChild={category.orderNumber === 1}
+            isLastChild={category.orderNumber === categories.length}
             onEdit={onEditCategory}
             onAddSibling={onAddSiblingCategory}
             onAddChild={onAddChildCategory}
             onDelete={() => onDeleteCategory(category.id)}
+            onChangeCategoryOrder={(newOrderNumber: number) =>
+              onChangeCategoryOrder(category.id, newOrderNumber)
+            }
             onAddQuestion={() => onAddQuestion(category.id)}
             onEditQuestion={onEditQuestion}
             onDeleteQuestion={onDeleteQuestion}
@@ -77,6 +84,7 @@ export function QuestionsBuilder(props: Props) {
               onAddChildCategory={onAddChildCategory}
               onAddSiblingCategory={onAddSiblingCategory}
               onDeleteCategory={onDeleteCategory}
+              onChangeCategoryOrder={onChangeCategoryOrder}
               onAddQuestion={onAddQuestion}
               onEditQuestion={onEditQuestion}
               onDeleteQuestion={onDeleteQuestion}

@@ -111,6 +111,65 @@ export function updateCategoryById(
   });
 }
 
+export function updateCategoryOrder(
+  allCategories: Category[],
+  allSubCategories: Category[],
+  categoryId: string,
+  newOrderNumber: number
+) {
+  return allSubCategories.map((category: Category) => {
+    if (category.id === categoryId) {
+      if (category?.parentId == null) {
+        // it is a root category we should update the order number of all root categories
+        return category;
+      }
+
+      const parentCategory = getCategory(allCategories, category.parentId);
+      if (parentCategory == null) {
+        return category;
+      }
+
+      const categoryIndex = parentCategory.subCategories?.findIndex(
+        (category) => category.id === categoryId
+      );
+
+      if (
+        parentCategory.subCategories == null ||
+        categoryIndex == null ||
+        categoryIndex === -1
+      ) {
+        return category;
+      }
+
+      const [updatedCategory] = parentCategory.subCategories.splice(
+        categoryIndex,
+        1
+      );
+
+      parentCategory.subCategories?.splice(
+        newOrderNumber - 1,
+        0,
+        updatedCategory
+      );
+
+      parentCategory.subCategories = parentCategory.subCategories?.map(
+        (category, index) => ({ ...category, orderNumber: index + 1 })
+      );
+    }
+
+    if (category.subCategories) {
+      category.subCategories = updateCategoryOrder(
+        allCategories,
+        category.subCategories,
+        categoryId,
+        newOrderNumber
+      );
+    }
+
+    return category;
+  });
+}
+
 export function addQuestionToCategory(
   allCategories: Category[],
   categoryId: string

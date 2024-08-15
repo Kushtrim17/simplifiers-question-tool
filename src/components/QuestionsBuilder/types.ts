@@ -2,6 +2,12 @@ export type ExternalLink = { label: string; url: string };
 
 export type QuestionType = "boolean" | "voucher" | "freeText";
 
+export type AccountsHelper = {
+  description?: string;
+  debitNote?: string;
+  creditNote?: string;
+};
+
 export type DependsOnQuestion = {
   questionId: string;
   answer: boolean | string;
@@ -9,8 +15,11 @@ export type DependsOnQuestion = {
 
 export type Accounts = {
   title: string;
+  //TODO: remove this
   creditDescription: string;
+  //TODO: remove this
   debitDescription: string;
+  helperDescriptions: AccountsHelper[];
   creditRange: (number[] | null[])[];
   debitRange: (number[] | null[])[];
   triggerAnswer?: boolean | string;
