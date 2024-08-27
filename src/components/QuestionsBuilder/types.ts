@@ -28,6 +28,7 @@ export type Accounts = {
 export type Question = {
   id: string;
   title: string;
+  shortTitle: string;
   orderNumber: number;
   description: string;
   type: QuestionType;

@@ -29,6 +29,19 @@ export function QuestionBasicInfo(props: Props) {
         onBlur={handleSave}
         className="mt-2 mb-5"
       />
+      <Small className="font-extrabold">Short title</Small>
+      <Input
+        value={question.shortTitle}
+        placeholder="Enter question short title"
+        onChange={(e) =>
+          onQuestionUpdate({
+            ...question,
+            shortTitle: e.currentTarget.value,
+          })
+        }
+        onBlur={handleSave}
+        className="mt-2 mb-5"
+        />
 
       <Small className="font-extrabold">Description</Small>
       <Textarea
