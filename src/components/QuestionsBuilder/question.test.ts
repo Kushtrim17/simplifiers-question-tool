@@ -466,6 +466,7 @@ describe("Add question to category", () => {
               {
                 id: "1",
                 title: "Question",
+                shortTitle: "Question short",
                 orderNumber: 1,
                 description: "Question description",
                 externalLinks: [],
@@ -481,6 +482,7 @@ describe("Add question to category", () => {
     const updatedCategory = updateQuestion(categories, {
       id: "1",
       title: "Updated Question",
+      shortTitle: "Updated Question",
       orderNumber: 1,
       description: "Question description",
       externalLinks: [],
@@ -526,6 +528,7 @@ describe("Change question order", () => {
             {
               id: "1",
               title: "Question 1",
+              shortTitle: "1",
               orderNumber: 1,
               description: "Question description",
               externalLinks: [],
@@ -535,6 +538,7 @@ describe("Change question order", () => {
             {
               id: "2",
               title: "Question 2",
+              shortTitle: "2",
               orderNumber: 2,
               description: "Question 2 description",
               externalLinks: [],
@@ -544,6 +548,7 @@ describe("Change question order", () => {
             {
               id: "3",
               title: "Question 3",
+              shortTitle: "3",
               orderNumber: 3,
               description: "Question 3 description",
               externalLinks: [],
