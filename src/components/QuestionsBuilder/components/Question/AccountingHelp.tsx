@@ -170,9 +170,12 @@ export function AccountingHelp(props: Props) {
             helperDescriptions: [],
             creditRange: [],
             debitRange: [],
-            triggerAnswer: answer,
+            triggerAnswer: answer === "null" ? null : answer,
           }
-        : { ...question.accounts, triggerAnswer: answer };
+        : {
+            ...question.accounts,
+            triggerAnswer: answer === "null" ? null : answer,
+          };
 
     onQuestionUpdate({ ...question, accounts });
   };
@@ -280,7 +283,7 @@ export function AccountingHelp(props: Props) {
           <SelectValue placeholder="Select answer trigger" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="no">No trigger</SelectItem>
+          <SelectItem value="null">No trigger</SelectItem>
           {getAnswerOptions().map((d) => (
             <SelectItem key={d.toString()} value={d.toString()}>
               {d.toString()}

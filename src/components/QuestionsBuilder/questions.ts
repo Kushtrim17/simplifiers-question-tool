@@ -187,6 +187,7 @@ export function addQuestionToCategory(
       const newQuestion: Question = {
         id: uuIdv4(),
         title: `Question ${category.name} and ${category.level} level`,
+        shortTitle: "",
         orderNumber,
         description: "Question description",
         type: "boolean",
