@@ -10,7 +10,7 @@ export type AccountsHelper = {
 
 export type DependsOnQuestion = {
   questionId: string;
-  answer: boolean | string;
+  answer: boolean;
 };
 
 export type Accounts = {
@@ -22,7 +22,7 @@ export type Accounts = {
   helperDescriptions: AccountsHelper[];
   creditRange: (number[] | null[])[];
   debitRange: (number[] | null[])[];
-  triggerAnswer?: boolean | string | null;
+  triggerAnswer?: boolean;
 };
 
 export type Question = {

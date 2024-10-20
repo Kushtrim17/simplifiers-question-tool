@@ -29,15 +29,8 @@ export function QuestionDependencySelector(props: Props) {
       return "no";
     }
 
-    if (question.dependsOnQuestions[0]?.answer === true) {
-      return "True";
-    }
-
-    if (question.dependsOnQuestions[0]?.answer === false) {
-      return "False";
-    }
-
-    return question.dependsOnQuestions[0]?.answer?.toString();
+    const dependencyQuestion = question.dependsOnQuestions[0];
+    return dependencyQuestion?.answer === true ? "Yes" : "No";
   };
 
   const getDependencyQuestionAnswerOptions = () => {
@@ -54,7 +47,7 @@ export function QuestionDependencySelector(props: Props) {
     }
 
     if (dependencyQuestion.type === "boolean") {
-      return ["True", "False"];
+      return ["Yes", "No"];
     }
 
     return [];

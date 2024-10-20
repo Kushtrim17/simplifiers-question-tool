@@ -154,13 +154,34 @@ export function AccountingHelp(props: Props) {
 
   const getAnswerOptions = () => {
     if (question.type === "boolean") {
-      return ["True", "False"];
+      return ["Yes", "No"];
     }
 
     return [];
   };
 
+  const getDefaultValue = () => {
+    console.log({
+      trigger: question.accounts?.triggerAnswer,
+    });
+
+    if (!question.accounts?.triggerAnswer) {
+      return "null";
+    }
+
+    return question.accounts?.triggerAnswer ? "Yes" : "No";
+  };
+
   const handleOnAnswerTriggerChange = (answer: string) => {
+    console.log({ answer });
+    const getAnswer = () => {
+      if (answer === "null") {
+        return undefined;
+      }
+
+      return answer === "Yes";
+    };
+
     const accounts =
       question?.accounts == null
         ? {
@@ -170,11 +191,11 @@ export function AccountingHelp(props: Props) {
             helperDescriptions: [],
             creditRange: [],
             debitRange: [],
-            triggerAnswer: answer === "null" ? null : answer,
+            triggerAnswer: getAnswer(),
           }
         : {
             ...question.accounts,
-            triggerAnswer: answer === "null" ? null : answer,
+            triggerAnswer: getAnswer(),
           };
 
     onQuestionUpdate({ ...question, accounts });
@@ -275,7 +296,7 @@ export function AccountingHelp(props: Props) {
       </Small>
 
       <Select
-        defaultValue={question?.accounts?.triggerAnswer?.toString() || ""}
+        defaultValue={getDefaultValue()}
         onValueChange={handleOnAnswerTriggerChange}
         onOpenChange={(isOpen) => !isOpen}
       >

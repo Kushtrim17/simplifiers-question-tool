@@ -255,7 +255,7 @@ export function addQuestionDependency(
   categories: Category[],
   questionId: string,
   dependencyId: string,
-  answer: string | boolean
+  answer: boolean
 ) {
   return categories.map((category) => {
     if (category.questions) {
