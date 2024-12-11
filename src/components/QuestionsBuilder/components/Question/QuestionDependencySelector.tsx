@@ -12,7 +12,7 @@ import { When } from "@/components/ui/When/When";
 type Props = {
   question: Question;
   allQuestions: Question[];
-  onDependencyChange: (questionId: string, answer: string | boolean) => void;
+  onDependencyChange: (questionId: string, answer: boolean | string) => void;
 };
 export function QuestionDependencySelector(props: Props) {
   const { question, allQuestions, onDependencyChange } = props;
@@ -58,13 +58,8 @@ export function QuestionDependencySelector(props: Props) {
     onDependencyChange(questionId, defaultAnswer);
   };
 
-  const handleOnAnswerDependencyChange = (answer: string) => {
-    const answerWithCorrectType =
-      question.type === "boolean" ? answer.toLowerCase() === "true" : answer;
-    onDependencyChange(
-      question.dependsOnQuestions[0].questionId,
-      answerWithCorrectType
-    );
+  const handleOnAnswerDependencyChange = (answer: boolean | string) => {
+    onDependencyChange(question.dependsOnQuestions[0].questionId, answer);
   };
 
   return (

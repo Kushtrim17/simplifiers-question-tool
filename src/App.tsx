@@ -129,7 +129,7 @@ function App() {
   const handleOnAddQuestionDependency = (
     questionId: string,
     dependencyId: string,
-    answer: string | boolean
+    answer: boolean | string
   ) => {
     const categories = addQuestionDependency(
       structure.categories,

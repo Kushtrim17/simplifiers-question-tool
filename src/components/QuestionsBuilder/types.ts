@@ -10,7 +10,7 @@ export type AccountsHelper = {
 
 export type DependsOnQuestion = {
   questionId: string;
-  answer: boolean;
+  answer: boolean | string;
 };
 
 export type Accounts = {

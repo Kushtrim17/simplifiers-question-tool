@@ -161,10 +161,6 @@ export function AccountingHelp(props: Props) {
   };
 
   const getDefaultValue = () => {
-    console.log({
-      trigger: question.accounts?.triggerAnswer,
-    });
-
     if (!question.accounts?.triggerAnswer) {
       return "null";
     }
@@ -173,7 +169,6 @@ export function AccountingHelp(props: Props) {
   };
 
   const handleOnAnswerTriggerChange = (answer: string) => {
-    console.log({ answer });
     const getAnswer = () => {
       if (answer === "null") {
         return undefined;

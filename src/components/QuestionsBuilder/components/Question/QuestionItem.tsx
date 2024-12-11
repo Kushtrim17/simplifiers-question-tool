@@ -18,7 +18,7 @@ type Props = {
   onAddQuestionDependency: (
     questionId: string,
     dependencyId: string,
-    answer: string | boolean
+    answer: boolean | string
   ) => void;
   onRemoveQuestionDependency: (
     questionId: string,
