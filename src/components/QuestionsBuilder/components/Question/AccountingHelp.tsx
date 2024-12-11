@@ -174,7 +174,11 @@ export function AccountingHelp(props: Props) {
         return undefined;
       }
 
-      return answer === "Yes";
+      if (answer === "Yes") {
+        return "True";
+      }
+
+      return "False";
     };
 
     const accounts =
