@@ -22,7 +22,7 @@ export type Accounts = {
   helperDescriptions: AccountsHelper[];
   creditRange: (number[] | null[])[];
   debitRange: (number[] | null[])[];
-  triggerAnswer?: string;
+  triggerAnswer?: string | null;
 };
 
 export type Question = {

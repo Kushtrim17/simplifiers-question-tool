@@ -19,7 +19,7 @@ export function QuestionDependencySelector(props: Props) {
 
   const getQuestionDependency = () => {
     if (question.dependsOnQuestions.length === 0) {
-      return "no";
+      return "-";
     }
     return question.dependsOnQuestions[0].questionId;
   };
@@ -30,7 +30,7 @@ export function QuestionDependencySelector(props: Props) {
     }
 
     const dependencyQuestion = question.dependsOnQuestions[0];
-    return dependencyQuestion?.answer === true ? "Yes" : "No";
+    return dependencyQuestion?.answer.toString() || "no";
   };
 
   const getDependencyQuestionAnswerOptions = () => {
@@ -47,19 +47,22 @@ export function QuestionDependencySelector(props: Props) {
     }
 
     if (dependencyQuestion.type === "boolean") {
-      return ["Yes", "No"];
+      return ["yes", "no"];
     }
 
     return [];
   };
 
   const handleOnQuestionDependencyChange = (questionId: string) => {
-    const defaultAnswer = question.type === "boolean" ? true : "";
+    const defaultAnswer = question.type === "boolean" ? "yes" : "";
     onDependencyChange(questionId, defaultAnswer);
   };
 
   const handleOnAnswerDependencyChange = (answer: boolean | string) => {
-    onDependencyChange(question.dependsOnQuestions[0].questionId, answer);
+    onDependencyChange(
+      question.dependsOnQuestions[0].questionId,
+      answer.toString().toLowerCase()
+    );
   };
 
   return (
@@ -74,7 +77,7 @@ export function QuestionDependencySelector(props: Props) {
           <SelectValue placeholder="Select question type" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="no">No dependency</SelectItem>
+          <SelectItem value="-">No dependency</SelectItem>
           {allQuestions.map((q) => (
             <SelectItem key={q.id} value={q.id}>
               {q.title}
@@ -94,10 +97,10 @@ export function QuestionDependencySelector(props: Props) {
             <SelectValue placeholder="Select question type" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="no">No dependency</SelectItem>
+            {/* <SelectItem value="no">No dependency</SelectItem> */}
             {getDependencyQuestionAnswerOptions().map((d) => (
-              <SelectItem key={d.toString()} value={d.toString()}>
-                {d.toString()}
+              <SelectItem key={d.toString()} value={d.toString().toLowerCase()}>
+                {d.charAt(0).toUpperCase() + d.slice(1)}
               </SelectItem>
             ))}
           </SelectContent>

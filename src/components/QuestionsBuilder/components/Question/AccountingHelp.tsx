@@ -154,7 +154,7 @@ export function AccountingHelp(props: Props) {
 
   const getAnswerOptions = () => {
     if (question.type === "boolean") {
-      return ["Yes", "No"];
+      return ["yes", "no"];
     }
 
     return [];
@@ -165,20 +165,20 @@ export function AccountingHelp(props: Props) {
       return "null";
     }
 
-    return question.accounts?.triggerAnswer ? "Yes" : "No";
+    return question.accounts?.triggerAnswer ? "yes" : "no";
   };
 
   const handleOnAnswerTriggerChange = (answer: string) => {
     const getAnswer = () => {
       if (answer === "null") {
-        return undefined;
+        return null;
       }
 
-      if (answer === "Yes") {
-        return "True";
-      }
+      console.log({
+        theTest: answer,
+      });
 
-      return "False";
+      return answer.toLowerCase();
     };
 
     const accounts =
@@ -224,10 +224,6 @@ export function AccountingHelp(props: Props) {
     } else {
       accounts.helperDescriptions.push(newHelperDescription);
     }
-
-    console.log({
-      accounts,
-    });
 
     onQuestionUpdate({ ...question, accounts });
   };
@@ -306,7 +302,7 @@ export function AccountingHelp(props: Props) {
           <SelectItem value="null">No trigger</SelectItem>
           {getAnswerOptions().map((d) => (
             <SelectItem key={d.toString()} value={d.toString()}>
-              {d.toString()}
+              {d.charAt(0).toUpperCase() + d.slice(1)}
             </SelectItem>
           ))}
         </SelectContent>

@@ -257,6 +257,9 @@ export function addQuestionDependency(
   dependencyId: string,
   answer: boolean | string
 ) {
+  console.log({
+    answer,
+  });
   return categories.map((category) => {
     if (category.questions) {
       category.questions = category.questions.map((question) => {
@@ -367,6 +370,9 @@ export function updateQuestion(
 ) {
   const categories = [...allCategories];
 
+  console.log({
+    updatedQuestion,
+  });
   return categories.map((category) => {
     if (category.questions) {
       category.questions = category.questions.map((question) => {

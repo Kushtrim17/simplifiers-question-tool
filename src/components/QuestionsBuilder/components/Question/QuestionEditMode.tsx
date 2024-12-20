@@ -81,7 +81,7 @@ export function QuestionEditMode(props: Props) {
   ) => {
     removePreviousDependencies();
 
-    if (dependencyId === "no") {
+    if (dependencyId.length < 3) {
       return;
     }
 
