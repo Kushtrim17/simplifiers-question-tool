@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { v4 as uuIdv4 } from "uuid";
 import {
   addChildCategory,
@@ -471,6 +470,7 @@ describe("Add question to category", () => {
                 description: "Question description",
                 externalLinks: [],
                 type: "boolean",
+                scope: "accounts",
                 dependsOnQuestions: [],
               },
             ],
@@ -487,6 +487,7 @@ describe("Add question to category", () => {
       description: "Question description",
       externalLinks: [],
       type: "boolean",
+      scope: "accounts",
       dependsOnQuestions: [],
     });
 
@@ -533,6 +534,7 @@ describe("Change question order", () => {
               description: "Question description",
               externalLinks: [],
               type: "boolean",
+              scope: "accounts",
               dependsOnQuestions: [],
             },
             {
@@ -543,6 +545,7 @@ describe("Change question order", () => {
               description: "Question 2 description",
               externalLinks: [],
               type: "boolean",
+              scope: "accounts",
               dependsOnQuestions: [],
             },
             {
@@ -553,6 +556,7 @@ describe("Change question order", () => {
               description: "Question 3 description",
               externalLinks: [],
               type: "boolean",
+              scope: "accounts",
               dependsOnQuestions: [],
             },
           ],

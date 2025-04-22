@@ -25,6 +25,8 @@ export type Accounts = {
   triggerAnswer?: string | null;
 };
 
+type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
+
 export type Question = {
   id: string;
   title: string;
@@ -32,6 +34,7 @@ export type Question = {
   orderNumber: number;
   description: string;
   type: QuestionType;
+  scope: QuestionScope;
   externalLinks: ExternalLink[];
   // an array of question ids that this question depends on
   dependsOnQuestions: DependsOnQuestion[];

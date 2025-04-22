@@ -7,6 +7,7 @@ import { QuestionTypeSelector } from "./QuestionTypeSelector";
 import { QuestionDependencySelector } from "./QuestionDependencySelector";
 import { QuestionBasicInfo } from "./QuestionBasicInfo";
 import { AccountingHelp } from "./AccountingHelp";
+import { QuestionScopeSelector } from "./QuestionScopeSelector";
 
 type Props = {
   question: Question;
@@ -61,6 +62,16 @@ export function QuestionEditMode(props: Props) {
     onQuestionUpdate({
       ...currentQuestion,
       type: newType,
+    });
+  };
+
+  const handleQuestionScopeChange = (
+    newScope: "accounts" | "notes" | "tax" | "managementReport"
+  ) => {
+    setCurrentQuestion({ ...currentQuestion, scope: newScope });
+    onQuestionUpdate({
+      ...currentQuestion,
+      scope: newScope,
     });
   };
 
@@ -268,6 +279,11 @@ export function QuestionEditMode(props: Props) {
       <QuestionTypeSelector
         question={currentQuestion}
         onQuestionTypeChange={handleQuestionTypeChange}
+      />
+
+      <QuestionScopeSelector
+        question={currentQuestion}
+        onQuestionScopeChange={handleQuestionScopeChange}
       />
 
       <AddExternalLinkForm

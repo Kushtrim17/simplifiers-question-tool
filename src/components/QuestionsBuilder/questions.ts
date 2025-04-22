@@ -191,6 +191,7 @@ export function addQuestionToCategory(
         orderNumber,
         description: "Question description",
         type: "boolean",
+        scope: "accounts",
         externalLinks: [],
         dependsOnQuestions: [],
       };
