@@ -1,5 +1,10 @@
 import { Medium } from "@/components/ui/Typography";
-import { Question } from "../../types";
+import {
+  DocumentReference,
+  NoteOption,
+  Question,
+  ValueReference,
+} from "../../types";
 import { useEffect, useRef, useState } from "react";
 import { AddExternalLinkForm } from "./AddExternalLinkForm";
 import { Separator } from "@/components/ui/separator";
@@ -8,6 +13,9 @@ import { QuestionDependencySelector } from "./QuestionDependencySelector";
 import { QuestionBasicInfo } from "./QuestionBasicInfo";
 import { AccountingHelp } from "./AccountingHelp";
 import { QuestionScopeSelector } from "./QuestionScopeSelector";
+import { NoteSelector } from "./NoteSelector";
+import { ValueReferenceSelector } from "./ValueReferenceSelector";
+import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
 
 type Props = {
   question: Question;
@@ -68,10 +76,63 @@ export function QuestionEditMode(props: Props) {
   const handleQuestionScopeChange = (
     newScope: "accounts" | "notes" | "tax" | "managementReport"
   ) => {
-    setCurrentQuestion({ ...currentQuestion, scope: newScope });
     onQuestionUpdate({
       ...currentQuestion,
       scope: newScope,
+    });
+
+    if (currentQuestion.scope === "notes" && newScope !== "notes") {
+      // we reset the noteOptions since the scope is not notes anymore
+      setCurrentQuestion({
+        ...currentQuestion,
+        scope: newScope,
+        noteOptions: [],
+      });
+    } else {
+      setCurrentQuestion({ ...currentQuestion, scope: newScope });
+    }
+  };
+
+  const handleUpdateNoteOptions = (newNoteOptions: NoteOption[]) => {
+    setCurrentQuestion({ ...currentQuestion, noteOptions: newNoteOptions });
+    onQuestionUpdate({
+      ...currentQuestion,
+      noteOptions: newNoteOptions,
+    });
+  };
+
+  const handleOnUpdateValueReference = (
+    newValueReference: ValueReference | null
+  ) => {
+    if (newValueReference == null) {
+      onQuestionUpdate({
+        ...currentQuestion,
+        valueReference: undefined,
+      });
+
+      setCurrentQuestion({
+        ...currentQuestion,
+        valueReference: undefined,
+      });
+    } else {
+      onQuestionUpdate({
+        ...currentQuestion,
+        valueReference: newValueReference,
+      });
+
+      setCurrentQuestion({
+        ...currentQuestion,
+        valueReference: newValueReference,
+      });
+    }
+  };
+
+  const handleOnDocumentReferenceChanged = (
+    updatedDocumentReference: DocumentReference
+  ) => {
+    onQuestionUpdate({
+      ...currentQuestion,
+      documentReferences: updatedDocumentReference,
     });
   };
 
@@ -285,6 +346,34 @@ export function QuestionEditMode(props: Props) {
         question={currentQuestion}
         onQuestionScopeChange={handleQuestionScopeChange}
       />
+
+      {currentQuestion.scope === "notes" && (
+        <NoteSelector
+          question={currentQuestion}
+          onQuestionNoteOptionsChanged={handleUpdateNoteOptions}
+        />
+      )}
+
+      {currentQuestion.scope != null &&
+        currentQuestion.scope !== "accounts" && (
+          <ValueReferenceSelector
+            question={currentQuestion}
+            onQuestionValueReferenceChanged={handleOnUpdateValueReference}
+          />
+        )}
+
+      <Separator className="mt-5 mb-5" />
+
+      {currentQuestion.scope != null &&
+        currentQuestion.scope === "managementReport" && (
+          <>
+            <DocumentReferenceSelector
+              question={currentQuestion}
+              onDocumentReferenceChanged={handleOnDocumentReferenceChanged}
+            />
+            <Separator className="mt-5 mb-5" />
+          </>
+        )}
 
       <AddExternalLinkForm
         question={question}

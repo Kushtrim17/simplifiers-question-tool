@@ -27,6 +27,23 @@ export type Accounts = {
 
 type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
 
+export type NoteOption = {
+  id: string;
+  label: string;
+};
+
+export type ValueReference = {
+  cellId: string; // 'managementReport.resultsDisposition.toDispose.3.value'
+  triggerAnswer: string; // 'yes'
+};
+
+export type DocumentReference = {
+  tableId: string; // 'managementReport'
+  type: "row" | "column" | "";
+  id: string; // '3'
+  triggerAnswer: "yes" | "no" | ""; // 'yes'
+};
+
 export type Question = {
   id: string;
   title: string;
@@ -36,9 +53,12 @@ export type Question = {
   type: QuestionType;
   scope: QuestionScope;
   externalLinks: ExternalLink[];
+  valueReference?: ValueReference;
   // an array of question ids that this question depends on
   dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;
+  noteOptions?: NoteOption[];
+  documentReferences?: DocumentReference;
 };
 
 export type Category = {

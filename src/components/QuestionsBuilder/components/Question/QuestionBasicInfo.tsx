@@ -41,7 +41,7 @@ export function QuestionBasicInfo(props: Props) {
         }
         onBlur={handleSave}
         className="mt-2 mb-5"
-        />
+      />
 
       <Small className="font-extrabold">Description</Small>
       <Textarea
