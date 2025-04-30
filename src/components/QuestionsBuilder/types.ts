@@ -29,7 +29,7 @@ type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
 
 export type NoteOption = {
   id: string;
-  label: string;
+  name: string;
 };
 
 export type ValueReference = {
@@ -53,12 +53,12 @@ export type Question = {
   type: QuestionType;
   scope: QuestionScope;
   externalLinks: ExternalLink[];
-  valueReference?: ValueReference;
   // an array of question ids that this question depends on
   dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;
+  valueReference?: ValueReference;
   noteOptions?: NoteOption[];
-  documentReferences?: DocumentReference;
+  documentReference?: DocumentReference;
 };
 
 export type Category = {

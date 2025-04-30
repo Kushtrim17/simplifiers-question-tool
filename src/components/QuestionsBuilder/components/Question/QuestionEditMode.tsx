@@ -132,7 +132,7 @@ export function QuestionEditMode(props: Props) {
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
-      documentReferences: updatedDocumentReference,
+      documentReference: updatedDocumentReference,
     });
   };
 

@@ -21,18 +21,14 @@ export const DocumentReferenceSelector = (props: Props) => {
 
   const [documentReference, setDocumentReference] = useState<DocumentReference>(
     {
-      tableId: question.documentReferences?.tableId || "",
-      type: question.documentReferences?.type || "",
-      id: question.documentReferences?.id || "",
-      triggerAnswer: question.documentReferences?.triggerAnswer || "",
+      tableId: question.documentReference?.tableId || "",
+      type: question.documentReference?.type || "",
+      id: question.documentReference?.id || "",
+      triggerAnswer: question.documentReference?.triggerAnswer || "",
     }
   );
 
   const handleSave = (updatedDocumentReference: DocumentReference) => {
-    console.log("----------------");
-    console.log(documentReference);
-    console.log("----------------");
-
     onDocumentReferenceChanged({
       tableId: updatedDocumentReference.tableId,
       type: updatedDocumentReference.type,

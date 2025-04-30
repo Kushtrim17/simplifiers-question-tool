@@ -67,7 +67,7 @@ export function NoteSelector(props: Props) {
                   variant: "outline",
                 })} h-[40px] min-w-[100px] justify-center items-center`}
               >
-                {note.label}
+                {note.name}
               </a>
               <IoClose
                 size={20}
@@ -102,7 +102,7 @@ export function NoteSelector(props: Props) {
                       : handleOnAddNoteOption(FIRST_NOTE.id)
                   }
                 >
-                  {FIRST_NOTE.label}
+                  {FIRST_NOTE.name}
                 </DropdownMenuCheckboxItem>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
@@ -123,7 +123,7 @@ export function NoteSelector(props: Props) {
                         : handleOnAddNoteOption(note.id)
                     }
                   >
-                    {note.label}
+                    {note.name}
                   </DropdownMenuCheckboxItem>
                 ))}
               </DropdownMenuSubContent>
@@ -144,7 +144,7 @@ export function NoteSelector(props: Props) {
                         : handleOnAddNoteOption(note.id)
                     }
                   >
-                    {note.label}
+                    {note.name}
                   </DropdownMenuCheckboxItem>
                 ))}
               </DropdownMenuSubContent>
@@ -165,7 +165,7 @@ export function NoteSelector(props: Props) {
                         : handleOnAddNoteOption(note.id)
                     }
                   >
-                    {note.label}
+                    {note.name}
                   </DropdownMenuCheckboxItem>
                 ))}
               </DropdownMenuSubContent>
