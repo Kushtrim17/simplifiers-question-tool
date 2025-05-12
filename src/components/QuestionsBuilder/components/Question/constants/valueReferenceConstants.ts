@@ -1,3 +1,5 @@
+import AgoyTaxDocumentValues from './agoyTaxDocumentValues.json';
+
 type ValueReference = {
   id: string;
   label: string;
@@ -717,3 +719,8 @@ export const INCOME_STATEMENT_REFERENCES: ValueReferences = {
     { id: "incomeStatement.section.table.AretsResultat.8999", label: "8999" },
   ],
 };
+
+// Representation of the endpoint specifically for tax document /agoy-document/{clientId}/{documentId}/values/
+export const TAX_DOCUMENT_REFERENCES: ValueReferences = {
+  values: AgoyTaxDocumentValues,
+}
