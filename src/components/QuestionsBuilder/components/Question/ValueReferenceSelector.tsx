@@ -17,7 +17,8 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   BALANCE_SHEET_REFERENCES,
-  INCOME_STATEMENT_REFERENCES, TAX_DOCUMENT_REFERENCES,
+  INCOME_STATEMENT_REFERENCES,
+  TAX_DOCUMENT_REFERENCES,
 } from "./constants/valueReferenceConstants";
 import {
   Select,
@@ -127,7 +128,6 @@ export function ValueReferenceSelector(props: Props) {
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent>
-
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger>
                         <span>Values</span>
@@ -152,7 +152,6 @@ export function ValueReferenceSelector(props: Props) {
                         ))}
                       </DropdownMenuSubContent>
                     </DropdownMenuSub>
-
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
