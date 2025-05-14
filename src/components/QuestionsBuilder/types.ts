@@ -59,6 +59,10 @@ export type Question = {
   valueReference?: ValueReference;
   noteOptions?: NoteOption[];
   documentReference?: DocumentReference;
+  numberFieldMetaData?: {
+    title?: string;
+    description?: string;
+  }
 };
 
 export type Category = {
@@ -86,6 +90,7 @@ export const STARTING_STRUCTURE: Structure = {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function isStructureType(obj: any): obj is Structure {
+  console.log(typeof obj === "object", obj !== null, typeof obj.lastUpdated === "string", Array.isArray(obj.categories))
   return (
     typeof obj === "object" &&
     obj !== null &&
