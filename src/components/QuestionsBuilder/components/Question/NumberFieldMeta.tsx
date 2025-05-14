@@ -1,6 +1,6 @@
+import { Input } from "@/components/ui/input.tsx";
 import { Small } from "@/components/ui/Typography";
 import { Question } from "../../types";
-import {Input} from "@/components/ui/input.tsx";
 
 type Props = {
    question: Question;
