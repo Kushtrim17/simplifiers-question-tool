@@ -1,0 +1,2495 @@
+{
+  "type": "2024",
+  "lastUpdated": "2025-05-14T11:05:58.246Z",
+  "categories": [
+    {
+      "id": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+      "parentCategoryId": null,
+      "orderNumber": 1,
+      "level": 1,
+      "name": "TILLGÅNGAR",
+      "questions": [],
+      "subCategories": [
+        {
+          "id": "c364a0df-e45f-4c57-b184-d247f70b921e",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 1,
+          "level": 2,
+          "name": "Immateriella anläggningstillgångar",
+          "questions": [
+            {
+              "id": "9844e593-60ca-47ca-8701-bb11b482fb9d",
+              "title": "Har företaget immateriella anläggningstillgångar? ",
+              "shortTitle": "Immateriella anläggningstillgångar?",
+              "orderNumber": 1,
+              "description": "Inom redovisning är immateriella tillgångar sådana som har värde för företaget utan att vara synliga. Det kan till exempel handla om goodwill, patent, utgifter för utvecklingsarbete, datorprogram, appar och affärsmodeller. En immateriell tillgång kan även finnas på ett fysiskt föremål, som videofilmer på en DVD eller musik på en CD-skiva.\n\nÄr du osäker på om immateriella anläggningstillgångar finns i företaget, kan du titta i bokföringen om det har funnits poster under året på konton som börjar med 10XX. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om immateriella anläggningstillgångar",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/immateriella-tillgangar"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "",
+                    "creditNote": ""
+                  },
+                  {
+                    "description": "",
+                    "debitNote": "<br>",
+                    "creditNote": "<br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": {
+                "id": "78abf68b-3706-4ca7-b8d3-0911209694fd",
+                "answer": "yes"
+              }
+            },
+            {
+              "id": "e4d1887f-1213-4669-aef0-ed38894bfdb2",
+              "title": "Finns alla immateriella tillgångar i anläggningsregistret fortfarande kvar i företaget?",
+              "shortTitle": "Utrangering",
+              "orderNumber": 2,
+              "description": "Om någon av de immateriella tillgångarna inte längre finns kvar i företaget, eftersom den inte längre beräknas ha något värde, så ska tillgången utrangeras (görs som en avskrivning).\n\nHar du ett program för anläggningsregister så får du hjälp med utrangering där, annars hanterar du det manuellt här så att tillgångens värde sätts till 0. \n",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "9844e593-60ca-47ca-8701-bb11b482fb9d",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid utrangering av immateriell tillgång (görs som en avskrivning): ",
+                "creditRange": [
+                  [
+                    1028,
+                    1070
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7810,
+                    7810
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "Bokföringsförslag vid utrangering av immateriell tillgång (görs som en avskrivning): ",
+                    "debitNote": "<b>Debet: 7810</b> - Avskrivningar av immateriella anläggningstillgångar",
+                    "creditNote": "<b>Kredit: </b>motsvarande konto för ackumulerade avskrivningar inom kontointervallet 1028-1070<br>"
+                  },
+                  {
+                    "description": "",
+                    "debitNote": "",
+                    "creditNote": "<br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": {
+                "id": "b5eb3812-4b83-4b2c-ad78-953d25a6ca2e",
+                "answer": "no"
+              }
+            },
+            {
+              "id": "20e20176-4848-448a-990d-e6aeef25315b",
+              "title": "Har någon immateriell anläggningstillgång tappat i värde?",
+              "shortTitle": "Nedskrivning",
+              "orderNumber": 3,
+              "description": "Om värdeminskningen på en tillgång har varit större än avskrivningarna som gjorts under året, och värdeminskningen inte bara antas vara tillfällig, så bör tillgången skrivas ner så att den har ett korrekt värde i bokföringen.\n\nHar du Fortnox program för anläggningsregister så finns en funktion för nedskrivning, där du också kan ange hur mycket tillgången ska skrivas ner. Har du inte ett program för anläggningsregister så bokför du nedskrivningen manuellt. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om nedskrivning",
+                  "url": "https://support.fortnox.se/tillgangar/uppskrivning-eller-nedskrivning-av-tillgang?pk_vid=89133168541922241710757636795150"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "9844e593-60ca-47ca-8701-bb11b482fb9d",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid nedskrivning av immateriell tillgång ",
+                "creditRange": [
+                  [
+                    1028,
+                    1070
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7710,
+                    7710
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b>konto <i>7710 -&nbsp; Nedskrivningar av immateriella anläggningstillgångar</i><br><span id=\"docs-internal-guid-a86cbd37-7fff-faed-64e6-7dac39acb165\"><div><span style=\"font-size: 9pt; font-family: Roboto, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-style: italic; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; vertical-align: baseline; white-space-collapse: preserve;\"><br></span></div></span>",
+                    "creditNote": "<b>Kredit: </b>Lämpligt konto som heter något med ackumulerade nedskrivningar inom kontointervallet 1028-1070. Till exempel ska konto <i>1048 - Ackumulerade nedskrivningar på licenser</i> användas för licenser.<br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": {
+                "id": "e6ce6939-b027-4fcc-b4f7-d796f46ed942",
+                "answer": "yes"
+              }
+            },
+            {
+              "id": "87590830-d12e-4346-99fb-79813af51596",
+              "title": "Har årets alla avskrivningar gjorts? ",
+              "shortTitle": "Avskrivning",
+              "orderNumber": 4,
+              "description": "Vissa typer av immateriella tillgångar såsom patent, upphovsrätt eller datorprogram kan skrivas av. \n\nOm inte alla avskrivningar är gjorda, gå till anläggningsregistret och utför alla avskrivningarna för räkenskapsåret, eller bokför dem manuellt här om företaget inte har program för anläggningsregister. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om avskrivningar",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/avskrivningar"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "9844e593-60ca-47ca-8701-bb11b482fb9d",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid avskrivning av immateriell tillgång",
+                "creditRange": [
+                  [
+                    1028,
+                    1070
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7810,
+                    7810
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: 7810 </b>- Avskrivningar av immateriella anläggningstillgångar<br>",
+                    "creditNote": "<b>Kredit: </b>Motsvarande konto för ackumulerade avskrivningar inom kontointervallet 1028-1070<br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": {
+                "id": "1324d0b5-6617-4b30-8fbc-d4dfc12c7f74",
+                "answer": "no"
+              }
+            },
+            {
+              "id": "4a2c201f-76d9-4629-84de-f98d056d4bad",
+              "title": "Är det samma anskaffningsvärde på tillgångarna i balansräkningen som det är i anläggningsregistret? ",
+              "shortTitle": "Anskaffningsvärde",
+              "orderNumber": 5,
+              "description": "Tips på hur du kan kontrollera detta: \nSkriv ut balansräkningen och en tillgångslista från anläggningsregistret. Stäm av så att totalsumman för tillgångstypen är samma som i balansräkningen (konton som börjar med 10XX) . Om beloppen inte stämmer kan det exempelvis finnas tillgångar som inte är upplagda i anläggningsregistret.\n\nKontrollera även att ackumulerade avskrivningar i balansräkningen (konton som börjar på 10XX och heter något med ackumulerade) har samma värde som ackumelarade avskrivningar i  tillgångslistan i anläggningsregistret (om detta sköts i ett program). ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "9844e593-60ca-47ca-8701-bb11b482fb9d",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "9e0327bb-6cad-43e3-9f04-d7bc048c3077",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 2,
+          "level": 2,
+          "name": "Materiella anläggningstillgångar",
+          "questions": [
+            {
+              "id": "f758365e-e158-4667-b8b7-27c824f5d4d4",
+              "title": "Har företaget materiella anläggningstillgångar? ",
+              "shortTitle": "Materiella anläggningstillgångar?",
+              "orderNumber": 1,
+              "description": "Till skillnad från immateriella tillgångar som inte är synliga, så kallas fysiska tillgångar som till exempel maskiner, inventarier, byggnader och mark för materiella tillgångar.\n\nÄr du osäker på om materiella anläggningstillgångar finns i företaget, kan du titta i bokföringen om det har funnits poster under året på konton som börjar med 11XX eller 12XX. Konton som börjar med 11XX används för byggnader och mark, konton som börjar med 12XX används för maskiner och inventarier. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om anläggningstillgångar",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/anlaggningstillgangar"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "69ae89ba-e5d1-4059-aa6f-9063c50d83e1",
+              "title": "Finns alla materiella tillgångar i anläggningsregistret fortfarande kvar i företaget? ",
+              "shortTitle": "Utrangering",
+              "orderNumber": 2,
+              "description": "Om någon av de materiella tillgångarna inte längre finns kvar i verksamheten, för att den exempelvis har skrotats eller blivit förstörd, så ska tillgången utrangeras.\n\nHar du ett program för anläggningsregister så får du hjälp med utrangering där, annars hanterar du det manuellt här så att tillgångens värde sätts till 0. \n",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "f758365e-e158-4667-b8b7-27c824f5d4d4",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid utrangering av materiell tillgång (görs som en avskrivning): ",
+                "creditRange": [
+                  [
+                    1219,
+                    1259
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7830,
+                    7839
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet:</b> 7830-7839 beroende på vad det är för typ av tillgång, t ex <i>7835 - Avskrivningar på datorer</i><br>",
+                    "creditNote": "<b>Kredit</b>: Lämpligt konto som heter något med ackumulerade avskrivningar inom kontointervall 1219-1259, t ex konto <i>1259 - Ackumulerade avskrivningar på datorer</i><br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "6c697988-fb0e-48ca-8453-947adf5c1e37",
+              "title": "Har någon materiell anläggningstillgång tappat i värde?",
+              "shortTitle": "Nedskrivning",
+              "orderNumber": 3,
+              "description": "Om värdeminskningen på en tillgång har varit större än avskrivningarna som gjorts under året, och värdeminskningen inte bara antas vara tillfällig, så bör tillgången skrivas ner så att den har ett korrekt värde i bokföringen.\n\nHar du ett program för anläggningsregister så får du hjälp med nedskrivning där, annars hanterar du det med en manuell verifikation så att tillgången får rätt värde. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om nedskrivning",
+                  "url": "https://support.fortnox.se/tillgangar/uppskrivning-eller-nedskrivning-av-tillgang?pk_vid=89133168541922241710757636795150"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "f758365e-e158-4667-b8b7-27c824f5d4d4",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid nedskrivning av materiell tillgång",
+                "creditRange": [
+                  [
+                    1218,
+                    1259
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7730,
+                    7730
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b>Konto <i>7730 -&nbsp; Nedskrivningar av maskiner och inventarier</i><br>",
+                    "creditNote": "<b>Kredit: </b>Lämpligt konto som heter något med ackumulerade nedskrivningar inom kontointervall 1218-1259, t ex <i>1228 - Ackumulerade nedskrivningar på inventarier och verktyg</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "ebf2f1e5-62b3-450a-a074-af6204d91801",
+              "title": "Har årets alla avskrivningar gjorts? ",
+              "shortTitle": "Avskrivning",
+              "orderNumber": 4,
+              "description": "Avskrivningar sker vanligtvis på anläggningstillgångar med en begränsad ekonomisk livslängd såsom fastigheter, fordon eller maskiner. Mark får dock inte skrivas av. \n\nOm fler avskrivningar ska göras, gå till anläggningsregistret och utför alla avskrivningarna för räkenskapsåret, eller bokför dem manuellt om företaget inte har ett program för anläggningsregister. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om avskrivningar",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/avskrivningar"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "f758365e-e158-4667-b8b7-27c824f5d4d4",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid avskrivning av materiell tillgång",
+                "creditRange": [
+                  [
+                    1219,
+                    1259
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7830,
+                    7839
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b>7830-7839 beroende på vad det är för typ av tillgång, t ex <i>7835 - Avskrivningar på datorer</i><br>",
+                    "creditNote": "<b>Kredit: </b>Lämpligt konto som heter något med ackumulerade avskrivningar 1219-1259, t ex konto <i>1259 - Ackumulerade avskrivningar på datorer</i><br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "b4f66fea-f49a-49a4-8360-85ac9d9c74af",
+              "title": "Är det samma anskaffningsvärde på tillgångarna i balansräkningen som det är i anläggningsregistret? ",
+              "shortTitle": "Anskaffningsvärde",
+              "orderNumber": 5,
+              "description": "Tips på hur du kan kontrollera detta: \nSkriv ut balansräkningen och en tillgångslista från anläggningsregistret. Stäm av så att totalsumman för tillgångstypen är samma som i balansräkningen (konton som börjar med 11XX och 12XX) . Om beloppen inte stämmer kan det exempelvis finnas tillgångar som inte är upplagda i anläggningsregistret.\n\nKontrollera även att ackumulerade avskrivningar i balansräkningen (konton som börjar på 11XX eller 12XX och heter något med ackumulerade) har samma värde som ackumulerade avskrivningar i tillgångslistan i anläggningsregistret (om detta sköts i ett program). ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om anskaffningsvärde",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/anskaffningsvarde"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "f758365e-e158-4667-b8b7-27c824f5d4d4",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "8984534e-6bfb-475b-85c1-c873e3f07ef0",
+              "title": "Finns det tillgångar bokförda som förbrukningsinventarier på konto 5400-5412 eller 5490-5493, som borde ha bokförts som tillgångar istället? ",
+              "shortTitle": "Förbrukningsinv. som är tillgång",
+              "orderNumber": 6,
+              "description": "För att räknas som en tillgång ska värdet vara högre än ett halvt prisbasbelopp (28 650 år 2024) och livslängden beräknas vara längre än 3 år. Bokför i så fall om tillgången och utför även eventuella avskrivningar för året.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om förbrukningsinventarier",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/forbrukningsinventarier"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "f758365e-e158-4667-b8b7-27c824f5d4d4",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid flytt från förbrukningsinventarier till tillgång",
+                "creditRange": [
+                  [
+                    5400,
+                    5412
+                  ],
+                  [
+                    5490,
+                    5493
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    1100,
+                    1299
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b>Lämpligt konto under 11XX-12XX, beroende på vad det är för typ av tillgång<br>",
+                    "creditNote": "<b>Kredit: </b>Kontot där tillgången är bokförd: 5400-5412 eller 5490-5493<br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "ccbc7641-77c4-4765-b71a-7c3eb3cff0ef",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 3,
+          "level": 2,
+          "name": "Finansiella anläggningstillgångar",
+          "questions": [
+            {
+              "id": "c114b3d7-bbf6-4bf9-bb96-6f36189059a6",
+              "title": "Har företaget lånat ut pengar till styrelseledamot, vd, delägare eller närstående? ",
+              "shortTitle": "Lån till delägare/närstående",
+              "orderNumber": 1,
+              "description": "I så fall bör en upplysning om detta göras i en not. Storlek , lånevilkor, räntesats, räkenskapsår, återbetalda belopp och vilken anknytning personen har till företaget ska finnas med. ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid lån till närstående eller dylikt",
+                "creditRange": [
+                  [
+                    1930,
+                    1930
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    1685,
+                    1685
+                  ],
+                  [
+                    1360,
+                    1360
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><br>Kortfristig del: <i>1685 - Kortfristiga fordringar hos delägare eller närstående</i>&nbsp;<div>Långfristig del: 1360 - <i>Lån till delägare eller närstående, långfristig del</i></div>",
+                    "creditNote": "<b>Kredit: </b><br><i>1930 - Bank</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": {
+                "id": "fefd9507-5cd8-4f41-9250-9262304f4aea",
+                "answer": "yes"
+              }
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "e88a7a15-5a51-4784-8476-f3509bebf566",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 4,
+          "level": 2,
+          "name": "Lager, produkter i arbete och pågående arbeten",
+          "questions": [
+            {
+              "id": "df71a4e3-97a3-4fb9-ab18-466640cf2251",
+              "title": "Har företaget ett varulager? ",
+              "shortTitle": "Varulager?",
+              "orderNumber": 1,
+              "description": "Varulagret hanteras i bokföringen på konto 1410-1469 samt 1490-1493. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om varulager ",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/varulager"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "feb49206-fbcc-4fb4-b9e3-1df635dbc069",
+              "title": "Har inventering av varulagret gjorts?",
+              "shortTitle": "Inventering",
+              "orderNumber": 2,
+              "description": "Skattelagstiftningen kräver att lagret inventeras minst en gång om året, för att kontrollera och bekräfta att bokföringen är korrekt. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om inventering",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/inventering"
+                },
+                {
+                  "label": "Våra bästa tips för en lyckad inventering",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/driva-foretag/guide-inventering"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "df71a4e3-97a3-4fb9-ab18-466640cf2251",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "a8bd6002-ee07-45d1-b3eb-82aecd01d08d",
+              "title": "Är inventeringslistor i original signerade och arkiverade i den form de har tagits ut? ",
+              "shortTitle": "Inventeringslistor",
+              "orderNumber": 3,
+              "description": "",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "df71a4e3-97a3-4fb9-ab18-466640cf2251",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "cb11c32f-919a-476b-abae-5de8a61b536b",
+              "title": "Är lagervärdet korrigerat utifrån resultatet av inventeringen? ",
+              "shortTitle": "Korrigera varulager",
+              "orderNumber": 4,
+              "description": "Har du ett lagerprogram så sköter du korrigeringen där, annars löser du det via en verifikation, så att det är samma värde på lagervärdelistan som bokfört på konto 1410 - Lager av råvaror.",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "df71a4e3-97a3-4fb9-ab18-466640cf2251",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag för resultat efter inventering",
+                "creditRange": [
+                  [
+                    1410,
+                    1410
+                  ],
+                  [
+                    4910,
+                    4910
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    4910,
+                    4910
+                  ],
+                  [
+                    1410,
+                    1410
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "När lagret har minskat i värde",
+                    "debitNote": "<b>Debet: </b><i>4910 - Förändring av lager av råvaror</i><br>",
+                    "creditNote": "<b>Kredit: </b><i>1410 - Lager av råvaror</i>"
+                  },
+                  {
+                    "description": "När lagret har ökat i värde",
+                    "debitNote": "<b>Debet: </b><i>1410 - Lager av råvaror</i><br>",
+                    "creditNote": "<b>Kredit: </b><i>4910 - Förändring av lager av råvaror</i><br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "d1908d90-687f-4837-b9e6-7e7d3871a8dd",
+              "title": "Är 3% inkurans av varulagret bokfört?",
+              "shortTitle": "Inkurans",
+              "orderNumber": 5,
+              "description": "Lagervärdet får reduceras med hänsyn till inkurans. Inkurans betyder helt enkelt svinn, att en vara är svårsåld på grund av att den är defekt, övertalig eller modemässigt föråldrad. Inkurans är alltså en värdeminskning av företags varulager. Företag har möjlighet att göra en generell nedskrivning, ett inkuransavdrag, och värdera lagret till 97 % av anskaffningsvärdet. Inkuransavdrag får dock inte användas vid till exempel värdering av fastigheter, värdepapper och elcertifikat.\n\nInkuransen räknas fram genom att värdet på 1410 - Lager och råvaror multipliceras med 0,03 (3%). Gör justeringen i lagerprogrammet, om du har ett sådant, bokför annars inkuransen manuellt.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om inkurans",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/inkurans"
+                },
+                {
+                  "label": "Läs mer om inkuransavdrag",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/inkuransavdrag"
+                }
+              ],
+              "dependsOnQuestions": [
+                {
+                  "questionId": "df71a4e3-97a3-4fb9-ab18-466640cf2251",
+                  "answer": "yes"
+                }
+              ],
+              "accounts": {
+                "title": "Bokföringsförslag vid inkuransavdrag",
+                "creditRange": [
+                  [
+                    1410,
+                    1410
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    4910,
+                    4910
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet</b>: <i>4910 - Förändring av lager av råvaror</i><br>",
+                    "creditNote": "<b>Kredit:<i>&nbsp;</i></b><i>1410 - Lager av råvaror</i><br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "eb431983-d453-40ee-8417-fe2c61dc8e59",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 5,
+          "level": 2,
+          "name": "Kundfordringar",
+          "questions": [
+            {
+              "id": "6f2f3a52-ff61-45e7-99d9-9d2853a591eb",
+              "title": "Är det samma totalbelopp på kundreskontralistan per årets sista datum, som utgående balans på konto 1510 - kundfordringar i balansräkningen för året?",
+              "shortTitle": "Kundreskontralistan",
+              "orderNumber": 1,
+              "description": "Beloppet motsvarar summan av skickade fakturor som inte är betalda under bokföringsåret.\n\nOm listorna inte stämmer överens så har förmodligen något bokförts manuellt på konto 1510 - Kundfordringar. Korrigera så att huvudboken stämmer överens med kundreskontralistan.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om reskontra",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/reskontra"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "50d82470-3105-40b5-8d89-1e9b2520a852",
+              "title": "Finns det några kundfordringar som det är osäkert om ni kommer att få full betalning för, så att de bör skrivas ner till ett lägre värde? ",
+              "shortTitle": "Nedskrivningar",
+              "orderNumber": 2,
+              "description": "Gå igenom kundreskontralistan och se om det finns kundfordringar som bör skrivas ner. Läs mer om befarade och konstaterade kundförluster.\n\nObservera att konto 1510 - Kundfordringar enbart bör hanteras av programmet. Kontot ska alltså aldrig användas på en manuell verifikation.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om befarade och konstaterade kundförluster",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/konstaterad-kundforlust"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid nedskrivning av kundfordringar",
+                "creditRange": [
+                  [
+                    1519,
+                    1519
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    6351,
+                    6351
+                  ],
+                  [
+                    6352,
+                    6352
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><br><i>6351 - konstaterade förluster på kundfordringar </i><br>ELLER <br><i>6352 - befarade förluster på kundfordringar </i><br><br>Läs mer om hur momsen ska hanteras under länken ovan.",
+                    "creditNote": "<b>Kredit: </b><br><i>1519 - Nedskrivning av kundfordringar</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "966a6957-0cf2-4b77-b026-158703dca894",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 6,
+          "level": 2,
+          "name": "Övriga kortfristiga fordringar",
+          "questions": [
+            {
+              "id": "55e6139c-6a08-47e1-8581-31d04dcc9678",
+              "title": "Finns det några skattefordringar bokförda på konto 1640? ",
+              "shortTitle": "Skattefordringar",
+              "orderNumber": 1,
+              "description": "Om ett företag har betalat in för mycket preliminärskatt så får bolaget en skattefordran. När årets skatt är bokförd och värdet på 2510 - Skatteskulder är positivt, har bolaget en skattefordran, som kommer betalas ut av Skatteverket. Skattefordran räknas som en kortfristig fordran även om den ska betalas senare än efter 12 månader. ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "3ef0a7d7-51a6-4ffb-bb56-863f3eb95925",
+              "title": "Finns det några fordringar som är i annan valuta än SEK? ",
+              "shortTitle": "Annan valuta",
+              "orderNumber": 2,
+              "description": "Om fordringar finns i annan valuta så ska de räknas om till SEK enligt växelkursen på bokföringsårets sista dag. ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid omräkning av annan valuta",
+                "creditRange": [
+                  [
+                    1500,
+                    1699
+                  ],
+                  [
+                    3960,
+                    3960
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7960,
+                    7960
+                  ],
+                  [
+                    1500,
+                    1699
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "Vid valutakursförlust",
+                    "debitNote": "<b>Debet: </b><i>7960 - Valutakursförluster på fordringar och skulder av rörelsekaraktär</i><br><span id=\"docs-internal-guid-e8f1d258-7fff-a9e1-01f7-8916659f2f66\"><div><span style=\"font-size: 9pt; font-family: Roboto, sans-serif; color: rgb(0, 0, 0); font-style: italic; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; vertical-align: baseline; white-space-collapse: preserve;\"><br></span></div></span>",
+                    "creditNote": "<b>Kredit:</b> Det fordringskonto som är i en annan valuta, inom kontointervall 15XX-16XX<br>"
+                  },
+                  {
+                    "description": "Vid valutakursvinst",
+                    "debitNote": "<b>Debet: </b>Det fordringskonto som är i en annan valuta, inom kontointervall 15XX-16XX<br>",
+                    "creditNote": "<b>Kredit:</b> <i>3960 - Valutakursvinster på fordringar och skulder av rörelsekaraktär</i>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "9c8dbbdb-56d1-439d-881a-7f92c4fc8192",
+              "title": "Finns det några fordringar som förfaller senare än 12 månader framåt?",
+              "shortTitle": "Långfristiga fordringar",
+              "orderNumber": 3,
+              "description": "Dessa ska i så fall bokas om till långfristiga fordringar.\n\nKortfristiga fordringar är de fordringar som förfaller inom ett år, medan de fordringar som förfaller senare än ett år räknas som långfristiga fordringar. Kortfristiga fordringar redovisas under omsättningstillgångar i företagets balansräkning. Här ingår till exempel kundfordringar. Långfristiga fordringar redovisas istället som anläggningstillgångar.",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag när kortfristig fordran ska bokas om till långfristig",
+                "creditRange": [
+                  [
+                    1600,
+                    1699
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    1380,
+                    1380
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b>Långfristig del: <i>1380 - Andra långfristiga fordringar</i><br>",
+                    "creditNote": "<b>Kredit:</b> Kortfristig del: 16XX<br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "4dbaacd2-cae4-44f6-ac78-53cd7d137f54",
+              "title": "Finns det andra fordringar än kundfordringar som ska skrivas ner?",
+              "shortTitle": "Övriga nedskrivningar",
+              "orderNumber": 4,
+              "description": "Det kan t ex vara lån till anställda, utlägg för kunder, kontokort med mera som företaget inte räknar med att få tillbaka. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om nedskrivning",
+                  "url": "https://support.fortnox.se/tillgangar/uppskrivning-eller-nedskrivning-av-tillgang?pk_vid=89133168541922241710758017795150"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag när fordran ska skrivas ner",
+                "creditRange": [
+                  [
+                    1610,
+                    1610
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    5000,
+                    7999
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b>Det kostnadskonto som fordringen avser inom kontointervall&nbsp; 50XX-7999. I vårt exempel gällde det parkeringspengar och ska läggas på konto <i>5800 - resekostnader</i>.<br>",
+                    "creditNote": "<b>Kredit: </b>Kontot som beloppet ligger på idag, t ex <i>1610 - Kortfristiga fordringar till anställd</i>, om den anställde har betalat något privat med företagskortet, och företaget inte tror att dessa pengar kommer återbetalas.<br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "8b90b541-16ff-4df7-a429-9d38cc880129",
+              "title": "Är skattekontot avstämt? ",
+              "shortTitle": "Skattekonto",
+              "orderNumber": 5,
+              "description": "Tips på hur du kan stämma av skattekontot: \nTa fram saldot på bokföringskonto 1630 - Avräkning för skatter och avgifter. Jämför med beloppet på skattekontot hos Skatteverket. Dessa belopp ska vara samma.\n\nOm det är mer pengar på skattekontot än i bokföringen, kontrollera om det inkommit intäktsränta, om det finns en momsfordran o dyl. Bokför enligt skattekontoutdraget.\n\nOm det är mindre pengar på skattekontot än i bokföringen, kontrollera om det finns skatteavgifter som inte är bokförda, t ex om en momsrapport har skickats in för sent. Det kan också vara räntekostnader som har uppstått. \n\nTips! \nI Fortnox går det att koppla bokföringen direkt till skattekontot så att detta sker automatiskt fortsättningsvis. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om skattekonto",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/skattekonto"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "a960627b-0960-4853-aa5f-e74bfe410af4",
+              "title": "Är momsfordran avstämd mot momsrapporten och momsen rapporterad till Skatteverket?",
+              "shortTitle": "Momsfordran",
+              "orderNumber": 6,
+              "description": "Om beloppet för ingående moms är större än beloppet för utgående moms, så uppstår en momsfordran. Beloppet kommer återbetalas av Skatteverket och hamna på skattekontot. Ta ut momsrapporten och stäm av mot balansräkningen, konto 1650 - Momsfordran. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om momsdeklaration",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/skatter-och-moms/moms-och-momsdeklaration"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "cf8146b5-4f4d-43e5-a507-443e1d98b160",
+              "title": "Finns det några leasingavtal, t ex för leasingbil? ",
+              "shortTitle": "Leasing",
+              "orderNumber": 7,
+              "description": "Leasing faktureras oftast i förskott, så säkerställ att fakturan är periodiserad. \n\nVid leasing ska i vissa fall även en förhöjd leasingavgift betalas på första fakturan. Denna avgift ska periodiseras parallellt med leasingavtalet. Säkerställ också att detta är hanterat.  \n\nKontrollera också så att momsreglerna vid leasing har följts. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om leasing",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/leasingbil"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid leasingbil, se länk ovan.",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "",
+                    "creditNote": ""
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "a631fd33-81c8-4c1d-9671-e9b489612f12",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 7,
+          "level": 2,
+          "name": "Förutbetalda kostnader och upplupna intäkter",
+          "questions": [
+            {
+              "id": "ea403d5a-3483-4d0a-a705-be78fe23c180",
+              "title": "Finns det förutbetalda kostnader? ",
+              "shortTitle": "Förutbetalda kostnader",
+              "orderNumber": 1,
+              "description": "Förutbetalda kostnader uppstår när ditt företag har betalat eller fått en faktura på året som du gör bokslut för, men fakturan gäller kommande år. Exempel är lokalhyra, licenser, försäkringar och liknande som betalas i förskott. Detta kan hanteras direkt på leverantörsfakturan när den läggs upp, via periodiseringsfunktionen i Fortnox. \n\nHar periodisering inte gjorts, så räknar du vid bokslutet ut hur stor del av fakturan som gäller nästa år och bokar om det beloppet till ett tillfälligt konto. Beloppet ska nämligen inte påverka resultatet vid årets bokslut. \n\nObservera att när bokslutet är klart behöver verifikationen sedan läggas in igen med omvänt tecken, så att värdena hamnar på rätt bokföringsår. Du skapar då en ny verifikation på årets första dag, där du använder samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om periodiseringar",
+                  "url": "https://support.fortnox.se/periodisering/periodiseringar"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag om periodisering inte har gjorts på leverantörsfaktura",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Exempel för programvaror:&nbsp;</b><div><b>Debet</b>: <i>1790 - Övriga förutbetalda kostnader och upplupna intäkter&nbsp;</i></div><div><b>Kredit</b>: <i>5420 - programvaror&nbsp;</i></div><div><br></div><div><b>Exempel för lokalhyra:&nbsp;</b></div><div><b>Debet</b>:<i> 1710 - Förutbetalda hyreskostnader&nbsp;</i></div><div><b>Kredit</b>: <i>5010 - Lokalhyra</i></div>",
+                    "creditNote": "<b>Exempel för försäkringar: </b><br><b>Debet</b>: <i>1790 - Övriga förutbetalda kostnader och upplupna intäkter&nbsp;</i><div><b>Kredit</b>: <i>6320 - Företagsförsäkringar</i><br></div>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "d07b53e8-6de6-432f-97be-3c3891c49ec2",
+              "title": "Finns det intäkter som är fakturerade i förskott (även kallat upplupna intäkter)?",
+              "shortTitle": "Upplupna intäkter",
+              "orderNumber": 2,
+              "description": "Det kan till exempel gälla varor som har levererats, eller tjänster som utförts, på året som du gör bokslut för, men fakturering och betalning sker kommande år. Ett exempel är tjänster som utförs löpande, men betalas i efterskott, eller hyres- och avtalsintäkter. Detta kan hanteras direkt på kundfakturan när den läggs upp, via periodiseringsfunktionen i Fortnox. \n\nHar periodisering inte gjorts, så räknar du vid bokslutet ut hur stor del av fakturan som gäller nästa år och bokar om det beloppet till ett tillfälligt konto. Beloppet ska nämligen inte påverka resultatet vid årets bokslut. \n\nObservera att när bokslutet är klart behöver verifikationen sedan läggas in igen med omvänt tecken, så att värdena hamnar på rätt bokföringsår. Du skapar då en ny verifikation på årets första dag, där du använder samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om hur du bokför upplupna intäkter",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/upplupna-intakter"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag för upplupna intäkter, se länk ovan",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "be8cda09-bcc2-4e23-a80d-b7b6de0bd55e",
+              "title": "Är förutbetalda kostnader och upplupna intäkter som lades på ett tillfälligt konto under föregående års bokslut överflyttade till det här året? ",
+              "shortTitle": "Förutbetalt och upplupet fg år",
+              "orderNumber": 3,
+              "description": "Förmodligen hittar du denna verifikation direkt efter förra årets bokslutsdatum. Om den inte finns, behöver du göra en verifikation som är omvänd mot den som gjordes under föregående års bokslut, så att beloppen hamnar på rätt bokföringsår. Du använder alltså samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "9863ae02-22aa-41c4-98cc-fa80560cc1f5",
+              "title": "Har periodiseringsfunktionen i Fortnox använts under året på kund- och/eller leverantörsfakturor? ",
+              "shortTitle": "Periodiseringsrapport",
+              "orderNumber": 4,
+              "description": "I så fall bör rapporten Periodiseringar stämmas av mot utgående balansen på era periodiseringskonton i balansräkningens, tex 1710 - Förutbetalda hyreskostnader och 1790 - Övriga förutbetalda kostnader och upplupna intäkter.\n\nTips på hur du kan göra detta: \nJämför totalbeloppet från periodiseringsrapporten per årets sista datum med de utgående beloppen på konto 1710 - förutbetalda hyreskostnader och 1790 - övriga förutbetalda kostnader och upplupna intäkter i balansräkningen för året. Är det samma belopp? Om beloppen inte stämmer överens så har förmodligen något bokförts manuellt på dessa konton. Korrigera i så fall så att huvudboken stämmer överens med periodiseringsrapporten.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer i felsökningsguide - differens mellan huvudbok och periodiseringsrapport",
+                  "url": "https://support.fortnox.se/felsokning-bokforing/felsokningsguide-differens-mellan-huvudbok-och-periodiseringsrapport?pk_vid=89133168541922241710417263755c4a"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "61a9166f-2868-4f8b-816e-4af97350d402",
+          "parentCategoryId": "a6927845-99e4-4dec-8ad1-5b6b22898887",
+          "orderNumber": 8,
+          "level": 2,
+          "name": "Kassa och bank",
+          "questions": [
+            {
+              "id": "2f983262-dc96-4c46-9f94-4d8844815457",
+              "title": "Om det finns konton i utländsk valuta, har valutajustering bokförts?",
+              "shortTitle": "Valutajustering",
+              "orderNumber": 1,
+              "description": "Kassa och bankmedel i utländsk valuta ska värderas till kursen den sista dagen i räkenskapsåret. Om företaget exempelvis har konton i EUR, eller USD så behöver dessa konton räknas om till SEK och valutajusteringen bokföras. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om valuta",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/valuta"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid valutajustering",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [
+                  {
+                    "description": "Vid valutakursförlust",
+                    "debitNote": "<b>Debet: </b><i>7960 - Valutakursförluster på fordringar och skulder av rörelsekaraktär</i>",
+                    "creditNote": "<b>Kredit:</b> Det konto som är i en annan valuta, inom kontointervall 1920-1980<br>"
+                  },
+                  {
+                    "description": "Vid valutakursvinst",
+                    "debitNote": "<b>Debet: </b>Det konto som är i en annan valuta, inom kontointervall 1920-1980<br>",
+                    "creditNote": "<b>Kredit: </b><i>3960 - Valutakursvinster på fordringar och skulder av rörelsekaraktär</i><br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "e95da229-3f29-4a17-b1ba-021625d01fa0",
+              "title": "Är kontantkassan räknad och finns i så fall ett underskrivet kassaintyg? Stämmer kassan överens med beloppet på konto 1910 - Kassa?",
+              "shortTitle": "Kassa",
+              "orderNumber": 2,
+              "description": "Question description",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "9af5d18a-e967-45da-8e27-ef77af06ddc1",
+              "title": "Har bolaget utnyttjat checkräkningskredit?",
+              "shortTitle": "Checkräkningskredit",
+              "orderNumber": 3,
+              "description": "Om konto 1940-1980 har minussaldon så innebär det att krediten har utnyttjats. Vid bokslutet ska beloppen då bokas om till konto 2330 - Checkräkningskredit eller 2480 - Checkräkningskredit, kortfristig, beroende på om skulden beräknas vara lång- eller kortfristig. Det ses som en långsiktig skuld när återbetalningsplanen är över ett år. \n\nEn utnyttjad checkkredit räknas som ett lån, däremot räknas inte en outnyttjad checkräkningskredit som likvida medel.\n\nOm krediten består av både en kort- och en långfristig del ska en not lämnas om detta. \n",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid utnyttjad checkräkningskredit",
+                "creditRange": [
+                  [
+                    2330,
+                    2330
+                  ],
+                  [
+                    2480,
+                    2480
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    1940,
+                    1940
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet</b>:&nbsp;<div>Exempelvis <i>1940 - Övriga bankkonton</i><br></div>",
+                    "creditNote": "<b>Kredit</b>:&nbsp;<div><i>2330 - Checkräkningskredit (avser långfristig)&nbsp;</i></div><div>eller&nbsp;</div><div><i>2480 - Checkräkningskredit, kortfristig</i><br></div>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "2502d35a-8e46-4b88-9c1f-20816b3b0fab",
+              "title": "Har företaget tagit emot pengar för en annans räkning, t ex som fastighetsmäklare eller advokat?",
+              "shortTitle": "För annans räkning",
+              "orderNumber": 4,
+              "description": "Detta ska i så fall redovisas i bokföringen.",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag om företaget har tagit emot pengar för annans räkning",
+                "creditRange": [
+                  [
+                    2830,
+                    2830
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    1990,
+                    1990
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet:</b> <i>1990 - Redovisningsmedel</i><br>",
+                    "creditNote": "<b>Kredit:</b>&nbsp; <i>2830 - Avräkning för annans räkning</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        }
+      ],
+      "dependsOnCategories": []
+    },
+    {
+      "id": "6a89503e-3be1-4030-8661-80ca2ab3a2b0",
+      "parentCategoryId": null,
+      "orderNumber": 4,
+      "level": 1,
+      "name": "NOTE QUESTIONS",
+      "questions": [],
+      "subCategories": [
+        {
+          "id": "bd79f4ca-9588-4d0e-bfe6-be58d865ce23",
+          "parentCategoryId": "6a89503e-3be1-4030-8661-80ca2ab3a2b0",
+          "orderNumber": 1,
+          "level": 2,
+          "name": "Test questions",
+          "questions": [
+            {
+              "id": "26f55eab-eec1-4089-bed6-4dd981819eab",
+              "title": "First note question",
+              "shortTitle": "First note",
+              "orderNumber": 1,
+              "description": "This is going to be the first note question right here ...",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "notes",
+              "valueReference": {
+                "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
+                "triggerAnswer": "yes"
+              },
+              "documentReference": null,
+              "noteOptions": [
+                {
+                  "id": "id(notes.note1.number)",
+                  "name": "Redovisningsprinciper"
+                },
+                {
+                  "id": "id(notes.note36.number)",
+                  "name": "Goodwill"
+                },
+                {
+                  "id": "notes.note49.number",
+                  "name": "Exceptionella intäkter och kostnader"
+                }
+              ],
+              "answer": {
+                "id": "81a9c3ee-1bd8-4ee3-bb65-dcaac3c0e696",
+                "answer": "yes"
+              }
+            },
+            {
+              "id": "46fe18f4-fa32-4188-b54c-b37ace7b0b5a",
+              "title": "Second Note question",
+              "shortTitle": "Second note",
+              "orderNumber": 2,
+              "description": "Question description",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "notes",
+              "valueReference": {
+                "cellId": "incomeStatement.section.table.RorelseresultatAbstract.RorelsensIntakterLagerforandringarMmAbstract.Nettoomsattning.3042",
+                "triggerAnswer": "yes"
+              },
+              "documentReference": null,
+              "noteOptions": [
+                {
+                  "id": "id(notes.note59.number)",
+                  "name": "Lån till delägare eller närstående"
+                },
+                {
+                  "id": "id(notes.note42.number)",
+                  "name": "Förbättringsutgifter på annans fastighet"
+                }
+              ],
+              "answer": {
+                "id": "a71633e7-c1fa-4482-bb35-e79c548466b4",
+                "answer": "no"
+              }
+            },
+            {
+              "id": "54d67d75-1a0f-42ee-b8ac-66a4721ac120",
+              "title": "Third note question",
+              "shortTitle": "Third note",
+              "orderNumber": 3,
+              "description": "Question description",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "notes",
+              "valueReference": {
+                "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
+                "triggerAnswer": "yes"
+              },
+              "documentReference": null,
+              "noteOptions": [
+                {
+                  "id": "id(notes.note96.number)",
+                  "name": "Ekonomiska arrangemang som inte redovisas i balansräkningen"
+                },
+                {
+                  "id": "id(notes.note42.number)",
+                  "name": "Förbättringsutgifter på annans fastighet"
+                }
+              ],
+              "answer": {
+                "id": "3f986b23-20b3-45a2-9f3a-2e8588e2c5d9",
+                "answer": "no"
+              }
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        }
+      ],
+      "dependsOnCategories": []
+    },
+    {
+      "id": "e8a7f5ce-3ecc-4614-b9f2-91c642782b7a",
+      "parentCategoryId": null,
+      "orderNumber": 10,
+      "level": 1,
+      "name": "SKULDER",
+      "questions": [],
+      "subCategories": [
+        {
+          "id": "60c981a0-b0b9-4969-ae3a-6eb8ad781339",
+          "parentCategoryId": "e8a7f5ce-3ecc-4614-b9f2-91c642782b7a",
+          "orderNumber": 1,
+          "level": 2,
+          "name": "Obeskattade reserver",
+          "questions": [
+            {
+              "id": "7801e9af-e684-4bf4-a258-54a2b3d9ee14",
+              "title": "Finns periodiseringsfonder bokförda i företaget, och ska i så fall några avsättningar återföras?",
+              "shortTitle": "Periodiseringsfond",
+              "orderNumber": 1,
+              "description": "Finns periodiseringsfonder bokförda i företaget, och ska i så fall några avsättningar återföras?\n\nPeriodiseringsfond innebär att du kan skjuta upp en del av vinstskatten till senare år. Det ger företag möjlighet att använda perioderingsfonder till att utjämna sina resultat mellan olika år och därmed få en jämnare beskattning. Juridiska personer (som aktiebolag) får avsätta upp till 25 % av det skattemässiga resultatet.\n\nNär periodiseringfond återförs kommer det skattepliktiga resultatet öka. \n",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": {
+                "id": "efd1acf1-640e-4d4b-a429-140a59f5c419",
+                "answer": "yes"
+              }
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "464c722d-2e10-4624-8d86-2fefd6f9d5be",
+          "parentCategoryId": "e8a7f5ce-3ecc-4614-b9f2-91c642782b7a",
+          "orderNumber": 2,
+          "level": 2,
+          "name": "Lång- och kortfristiga skulder",
+          "questions": [
+            {
+              "id": "efcb61c5-0388-4931-964a-cf07aecd35b2",
+              "title": "Finns det långfristiga skulder i företaget? ",
+              "shortTitle": "Långfristiga skulder",
+              "orderNumber": 1,
+              "description": "Upplysning om dessa behöver i så fall lämnas i not. \n\nDet som skiljer kortfristiga skulder från långfristiga skulder är löptiden, alltså inom vilken tid skulderna måste betalas. De kortfristiga skulderna måste betalas inom ett år, och alla de skulder som förfaller först efter ett år räknas som långfristiga skulder. Långfristiga skulder kan till exempel vara checkräkningskredit, banklån, obligationer och kontokrediter. Om företaget har skulder som ska betalas senare än fem år efter balansdagen ska det lämnas en upplysning i not om summan av dessa. \n",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "612cac7e-c298-4756-80f7-1c2f5bf82483",
+              "title": "Har lån med lång löptid delats upp i en kortfristig och en långfristig del?",
+              "shortTitle": "Kort- och långfristig del av lån",
+              "orderNumber": 2,
+              "description": "Kortfristiga skulder är skulder inom ett företag som måste betalas inom ett år. Den kortfristiga delen är den som kommer att amorteras under det kommande året, resterande del räknas som långfristig skuld. Vid bokslutet bokar du bort den kortfristiga delen. \n\nNär bokslutet är klart så ska du vända verifikationen där du bokade bort den kortfristiga skulden. Du skapar då en ny verifikation på årets första dag, där du använder samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. \n\nObservera att om en tillgång, avsättning eller skuld tas upp i fler än en post i balansräkningen, så ska det lyftas i noten som tillhör föregående fråga\n",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag om den kortfristiga delen av lånet ska bokas bort i bokslutet",
+                "creditRange": [
+                  [
+                    2417,
+                    2417
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    2350,
+                    2350
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><i>2350 - Andra långfristiga skulder till kreditinstitut</i><br>",
+                    "creditNote": "<b>Kredit</b>: <i>2417 - Kortfristig del av långfristiga skulder till kreditinstitut</i>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "fb2c0295-b43b-48e4-aa9e-7be90c29d63a",
+              "title": "Finns det några skulder som är i annan valuta än SEK? ",
+              "shortTitle": "Annan valuta",
+              "orderNumber": 3,
+              "description": "Skulder i annan valuta ska räknas om till SEK enligt växelkursen på den sista dagen i räkenskapsåret. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om valuta",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/valuta"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid valutakursförlust/-vinst",
+                "creditRange": [
+                  [
+                    2300,
+                    2499
+                  ],
+                  [
+                    3960,
+                    3960
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7960,
+                    7960
+                  ],
+                  [
+                    2300,
+                    2499
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "Vid valutakursförlust",
+                    "debitNote": "<b>Debet: </b><i>7960 - Valutakursförluster på fordringar och skulder av rörelsekaraktär</i>",
+                    "creditNote": "<b>Kredit: </b>Det skuldkonto som är i en annan valuta, inom kontointervall 23XX-24XX<br>"
+                  },
+                  {
+                    "description": "Vid valutakursvinst",
+                    "debitNote": "<b>Debet: </b>Det skuldkonto som är i en annan valuta, inom kontointervall 23XX-24XX<br>",
+                    "creditNote": "<b>Kredit: </b><i>3960 - Valutakursvinster på fordringar och skulder av rörelsekaraktär</i><br><span id=\"docs-internal-guid-f6da639a-7fff-d8a7-ff72-6dc77db2e096\"><div><span style=\"font-size: 9pt; font-family: Roboto, sans-serif; color: rgb(0, 0, 0); font-style: italic; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; vertical-align: baseline; white-space-collapse: preserve;\"><br></span></div></span>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "64a4b36d-627d-4187-b79e-bf0cfd10d365",
+              "title": "Är det samma totalbelopp på leverantörsreskontralistan per årets sista datum, som utgående balans på konto 2440 - Leverantörsskulder i balansräkningen för året?",
+              "shortTitle": "Leverantörsreskontralistan",
+              "orderNumber": 4,
+              "description": "Beloppet motsvarar summan av mottagna leverantörsfakturor som inte är betalda under bokföringsåret.\n\nOm beloppen inte stämmer överens så har förmodligen något bokförts manuellt på konto 2440 - Leverantörsskulder. Korrigera så huvudboken stämmer överens med leverantörsreskontralistan.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om reskontra",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/reskontra"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "15f02039-1ab2-4d42-b933-9b1c0d83cfe2",
+          "parentCategoryId": "e8a7f5ce-3ecc-4614-b9f2-91c642782b7a",
+          "orderNumber": 3,
+          "level": 2,
+          "name": "Skatteskulder",
+          "questions": [
+            {
+              "id": "0e89264a-7fcb-4a80-b7b3-941c712be81d",
+              "title": "Är årets inkomstskatt (bolagsskatt) beräknad och bokförd? ",
+              "shortTitle": "Inkomstskatt (bolagsskatt)",
+              "orderNumber": 1,
+              "description": "Inkomstskatten (bolagsskatten) för året bokförs som en skatteskuld eller skattefordran och regleras mot den preliminärskatt som företaget har betalat under året. Har företaget betalat för lite preliminärskatt så blir det en skatteskuld.\n\nEtt aktiebolag betalar 20,6 % på överskottet, enklast är att använda ett skatteprogram för att räkna ut skatt på årets resultat. När skatten är beräknad så ska den bokföras. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om bolagsskatt",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/bolagsskatt"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag om bolaget har en skatteskuld",
+                "creditRange": [
+                  [
+                    2510,
+                    2510
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    8910,
+                    8910
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><i>8910 - Skatt som belastar årets resultat</i><br>",
+                    "creditNote": "<b>Kredit:</b> <i>2510 - Skatteskulder</i><br>"
+                  }
+                ],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "a4b0bafc-ff97-4a4c-9b4b-269895103c79",
+              "title": "Är skatteskulden avstämd mot huvudboken, konto 2510 - Skatteskulder? ",
+              "shortTitle": "Skatteskulden avstämd?",
+              "orderNumber": 2,
+              "description": "Aktuell skatteskuld består av innevarande samt tidigare räkenskapsårs skatteskulder. Det som finns bokfört på konto 2510 - Skatteskulder är alltså föregående års skatteskuld, samt årets skatteskuld. Uppgift om föregående års skattskuld/skattefordran finns i Skatteverkets dokument Slutlig skatt.",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "33a906ff-f41e-44dd-bd57-38bd94a4a86f",
+              "title": "Är företagets preliminärskatt avstämd?",
+              "shortTitle": "Preliminärskatt",
+              "orderNumber": 3,
+              "description": "Hos Skatteverket finns underlag där det står hur mycket preliminärskatt företaget ska betala. Stämmer detta underlag mot det som är bokfört på konto 2518 - Betald F-skatt alternativt 2510 - Skatteskulder (beroende på hur företaget valt att redovisa preliminärskatten)? ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om preliminärskatt",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/preliminarskatt-i-aktiebolag"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "e52f27e3-2a5c-4673-b6f7-008952a86ef8",
+              "title": "Äger bolaget en fastighet och har i så fall fastighetsskatten bokförts? ",
+              "shortTitle": "Fastighetsskatt",
+              "orderNumber": 4,
+              "description": "Vid en taxering uppskattas och fastställs värdet på en tillgång, till exempel en fastighet. I skattesammanhang betyder det att man belägger tillgången med skatt eller en avgift, till exempel fastighetsskatt och fastighetsavgift. Fastighetsskatten betalas i samband med den slutliga skatten. ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid fastighetsskatt",
+                "creditRange": [
+                  [
+                    2513,
+                    2513
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    5191,
+                    5191
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet:</b> 5191 - Fastighetsskatt<br>",
+                    "creditNote": "<b>Kredit: </b><i>2513 - Beräknad fastighetsskatt</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "256743a8-825c-457b-b7a8-67cbd651f03c",
+              "title": "Är särskild löneskatt bokförd?",
+              "shortTitle": "Särskild löneskatt",
+              "orderNumber": 5,
+              "description": "Särskild löneskatt (även kallad enbart löneskatt) ersätter vanlig skatt på lön som annars betalas i form av egenavgifter eller arbetsgivaravgifter. Tanken bakom särskild löneskatt är att inkomst och annan ersättning för arbete och företagande ska beskattas. Man skiljer mellan särskild löneskatt på pensionskostnader och särskild löneskatt på vissa förvärvsinkomster. Särskild löneskatt på vissa förvärvsinkomster betalas på vissa ersättningar och inkomster som inte inkluderas i sociala avgifter. Särskild löneskatt på pensionskostnader betalas av arbetsgivare som erbjuder tjänstepension till sina arbetstagare samt av enskilda näringsidkare som gör avdrag för pensionssparande i näringsverksamheten. Skattesatsen för särskild löneskatt på pensionskostnader och särskild löneskatt på vissa förvärvsinkomster är 24,26 %.\n\nSärskild löneskatt beräknas genom att totalsumman för pensioner på konto 7410-7412 i resultaträkningen multipliceras med 24,26% och betalas tillsammans med den slutliga skatten. Observera att om den slutliga skatten för föregående år ännu inte är inbetald till Skatteverket, så kommer även föregående års särskilda löneskatt att vara bokfört på konto 2514 - Beräknad särskild löneskatt på pensionskostnader. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs med om bokföring av särskild löneskatt",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/sarskild-loneskatt"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid särskild löneskatt",
+                "creditRange": [
+                  [
+                    2514,
+                    2514
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7530,
+                    7530
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><i style=\"\">7530 - Särskild löneskatt</i><br>",
+                    "creditNote": "<b>Kredit: </b><i>2514 - Beräknad särskild löneskatt på pensionskostnader</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "41a673cf-6c80-4a98-949b-2bb316bbdffc",
+          "parentCategoryId": "e8a7f5ce-3ecc-4614-b9f2-91c642782b7a",
+          "orderNumber": 4,
+          "level": 2,
+          "name": "Övriga kortfristiga skulder",
+          "questions": [
+            {
+              "id": "dfc11800-4bca-41cf-9d54-bea1e8c3b0cc",
+              "title": "Är momskontot avstämt mot Skatteverkets momsdeklarationer och är momsrapporterna gjorda i Fortnox? ",
+              "shortTitle": "Moms avstämd",
+              "orderNumber": 1,
+              "description": "Redovisar företaget moms varje månad så bör de två senaste två månadernas momsdeklarationerna stämmas av.\n\nTips på hur du kan göra detta: \nSe om något finns bokfört på momskontona 2610-2649, i så fall är momsrapporten inte gjord än och behöver göras innan året stängs. Tänk på att leverantörs- och kundreskontra, samt banken, behöver vara avstämda innan momsen görs. Om momsrapporten är gjord så finns den bokförd på konto 2650 - Redovisningskonto för moms eller 1650 - Momsfordran.",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om moms",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/moms"
+                },
+                {
+                  "label": "Läs mer om att bokföra moms",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/moms"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "dd5e46be-168c-434c-9a3c-aaa5b7e4d26a",
+              "title": "Finns en momsskuld som ska betalas till Skatteverket?",
+              "shortTitle": "Momsskuld",
+              "orderNumber": 2,
+              "description": "Om beloppet för ingående moms är mindre än beloppet för utgående moms, så uppstår en momsskuld som ska betalas till Skatteverket. Om momsrapporten är gjord för månaden så ska momsskulden vara bokförd på konto 2650 - Redovisningskonto för moms.\n\nTips på hur du kan göra detta: \nTa ut momsrapporten och stäm av mot balansräkningen, momsredovisningskontot 2650 - Redovisningskonto för moms. Redovisar du moms varje månad bör du stämma av de senaste två månadernas momsdeklarationer.  ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om att bokföra moms",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/moms"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "135d7f82-95ec-4401-aba6-bbb99f0b6667",
+              "title": "Är det samma belopp på månadens arbetsgivardeklaration som det är i utgående balans på balansräkningens konto 2710-Personalskatt och 2730-Lagstadgade sociala avgifter?",
+              "shortTitle": "Arbetsgivardeklaration (personalskatt, soc.avg.)",
+              "orderNumber": 3,
+              "description": "Stäm av att rätt belopp är deklarerade hos Skatteverket.",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        },
+        {
+          "id": "76a5b00d-a6b3-4145-8eae-465f46eb399b",
+          "parentCategoryId": "e8a7f5ce-3ecc-4614-b9f2-91c642782b7a",
+          "orderNumber": 5,
+          "level": 2,
+          "name": "Upplupna kostnader och förutbetalda intäkter",
+          "questions": [
+            {
+              "id": "b19d592a-ef30-4e82-b228-31b45fc38e85",
+              "title": "Finns det några leverantörsfakturor som kommer betalas under nästa bokföringsår, men där hela eller del av kostnaden tillhör det här bokföringsåret? Det kan t ex gälla konsultkostnader som inte har blivit fakturerade än, men där kostnaden tillhör räkenskapsåret.",
+              "shortTitle": "Upplupen kostnad",
+              "orderNumber": 1,
+              "description": "När ett företag har mottagit och förbrukat en vara eller tjänst, men inte fått en faktura eller inte betalat för den före bokslutsdagen, blir det en upplupen kostnad. Det är en kostnad som hör till bokslutsåret och som måste redovisas som en interimsskuld för den aktuella perioden. Det betraktas alltså som en skuld till någon och kan handla om alltifrån upplupna kostnader för bokslut, upplupna provisionskostnader, semesterlöner för personal, upplupna räntekostnader och så vidare. Upplupna kostnader kan även vara levererade tjänster och varor som planeras att faktureras vid ett senare bokföringsår, till exempel telefonsamtal och elförbrukning som betalas i efterskott.\n\nDessa händelser ska påverka resultatet under detta årsbokslut. En periodisering görs därför med en manuell verifikation tills bokslutet är färdigt. \n\nNär bokslutet är klart behöver verifikationen sedan läggas in igen med omvänt tecken, så att värdena hamnar på rätt bokföringsår. Du skapar då en ny verifikation på årets första dag, där du använder samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. \n",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om hur upplupna kostnader bokförs",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/upplupna-kostnader"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid upplupna kostnader",
+                "creditRange": [
+                  [
+                    2990,
+                    2990
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    6550,
+                    6550
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet</b>: <i>6550 - Konsultarvoden</i><br>",
+                    "creditNote": "<b>Kredit</b>: <i>2990 - Övriga upplupna kostnader och förutbetalda intäkter</i>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "1c9a2c91-fda4-4688-b838-cb64829cf186",
+              "title": "Finns det några upplupna löner i företaget, till exempel kompskuld, bonus eller provisioner? ",
+              "shortTitle": "Upplupna löner",
+              "orderNumber": 2,
+              "description": "Lönen för bokföringsårets sista månad räknas också som en upplupen kostnad om företaget betalar ut den inarbetade lönen månaden efter. Denna lön ska alltså bokföras som en upplupen kostnad eftersom den ska ingå i årets resultat, trots att den betalas ut kommande år. \n\nOm det finns upplupna löner bokför du dessa som en upplupen kostnad. Även de tillhörande sociala avgifterna ska bokföras.\n\nTips på hur du räknar fram de sociala avgifterna: \nMultiplicera den upplupna lönen, såsom kompskuld, bonus och provision, med 31,42%. Observera att på konto 2941- Beräknade upplupna lagstadgade sociala avgifter kan även sociala avgifter för semesterlöneskulden vara bokförda. ",
+              "type": "boolean",
+              "externalLinks": [
+                {
+                  "label": "Läs mer om upplupna kostnader",
+                  "url": "https://www.fortnox.se/fortnox-foretagsguide/ekonomisk-ordlista/upplupen-kostnad"
+                }
+              ],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid upplupna löner ",
+                "creditRange": [
+                  [
+                    2910,
+                    2910
+                  ],
+                  [
+                    2941,
+                    2941
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    7010,
+                    7010
+                  ],
+                  [
+                    7210,
+                    7210
+                  ],
+                  [
+                    7510,
+                    7510
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><i>7010 - Löner till kollektivanställda / 7210-löner till tjänstemän</i><br>",
+                    "creditNote": "<b>Kredit:</b> <i>2910 - Upplupna löner</i><br>"
+                  },
+                  {
+                    "description": "Bokföringsförslag för arbetsgivaravgift för upplupna löner",
+                    "debitNote": "<b>Debet: </b><i>7510 - Arbetsgivaravgifter</i><br>",
+                    "creditNote": "<b>Kredit: </b><i>2941 -&nbsp; Beräknade upplupna lagstadgade sociala avgifter</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "8e4edd8a-29f5-4a2b-8389-54ca73bdfcdb",
+              "title": "Har semesterlöneskulden bokförts korrekt?",
+              "shortTitle": "Semesterskuld",
+              "orderNumber": 3,
+              "description": "Semesterskulden är den totala semesterlönen som de anställda har tjänat in. Semesterlöneskulden ska bokföras som en upplupen kostnad. \n\nFöretaget redovisar de anställdas intjänade men inte uttagna semesterdagar som semesterskuld bland upplupna kostnader och förutbetalda intäkter. Även arbetsgivaravgifter ska räknas med. Semesterlönen beräknas individuellt för varje anställd.\n\nTips på hur du kan göra detta: \nTa ut en semesterskuldlista från löneprogrammet. Stäm av så att upplupna semesterlöner på konto 2920 - Upplupna semesterlöner stämmer överens med semesterskuldlistan. Om värdena inte stämmer överens bokför du mellanskillnaden så att utgående balans på konto 2920 - Upplupna semesterlöner är densamma som värdet på semesterskuldlistan. \n\nÄven arbetsgivaravgiften för semesterlöneskulden ska bokföras. \n\nTips på hur du räknar fram arbetsgivaravgiften (de sociala avgifterna): \nMultiplicera din bokning för semesterlöneskulden med 31,42%. Observera att på konto 2941- Beräknade upplupna lagstadgade sociala avgifter kan även sociala avgifter för upplupna löner vara bokförda (se tidigare fråga). ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag ",
+                "creditRange": [
+                  [
+                    2920,
+                    2920
+                  ],
+                  [
+                    7090,
+                    7090
+                  ],
+                  [
+                    2941,
+                    2941
+                  ],
+                  [
+                    7519,
+                    7519
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    2920,
+                    2920
+                  ],
+                  [
+                    7090,
+                    7090
+                  ],
+                  [
+                    2941,
+                    2941
+                  ],
+                  [
+                    7519,
+                    7519
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Bokföringsförslag för semesterskuld:&nbsp;</b><div><br><i>2920 - Upplupna semesterlöner</i>, debet eller kredit beroende på om skulden ska öka eller minska&nbsp;</div><div><br>Motkonto <i>7090 - Förändring av semesterlöneskuld</i></div>",
+                    "creditNote": "<b>Bokföringsförslag för arbetsgivaravgift för semesterskuld:&nbsp;</b><div><i><br>2941 - Beräknade upplupna lagstadgade sociala avgifter</i>, debet eller kredit beroende på om skulden ska öka eller minska</div><div><br>Motkonto <i>7519 - Arbetsgivaravgifter för semester‐ och löneskulder</i></div>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "5320560f-0156-441f-b67a-ef96d736250e",
+              "title": "Har det ställts ut några kundfakturor under detta räkenskapsår som avser tjänster som kommer att levereras först nästa år? ",
+              "shortTitle": "Förutbetald intäkt",
+              "orderNumber": 4,
+              "description": "Exempel på sådana förutbetalda intäkter är hyresintäkter, prenumerationer eller abonnemang som betalas i förskott. I så fall ska intäkten hamna på nästa år. \n\nPeriodisering kan göras i Fortnox när fakturan skapas. Om periodisering inte gjorts under året så hanteras det istället med en manuell verifikation. \n\nObservera att när bokslutet är klart behöver verifikationen sedan läggas in igen med omvänt tecken, så att värdena hamnar på rätt bokföringsår. Du skapar då en ny verifikation på årets första dag, där du använder samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. \nption",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "Bokföringsförslag vid förutbetald intäkt",
+                "creditRange": [
+                  [
+                    2970,
+                    2970
+                  ]
+                ],
+                "debitRange": [
+                  [
+                    3911,
+                    3911
+                  ]
+                ],
+                "helperDescriptions": [
+                  {
+                    "description": "",
+                    "debitNote": "<b>Debet: </b><i>3911 - Hyresintäkter</i> (exempelvis, konto väljs utifrån typ av intäkt)<br>",
+                    "creditNote": "<b>Kredit: </b><i>2970 - Förutbetalda intäkter</i><br>"
+                  }
+                ],
+                "triggerAnswer": "yes"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            },
+            {
+              "id": "7987540a-125c-4ed9-9c3e-dc46d82d5491",
+              "title": "Är upplupna kostnader och förutbetalda intäkter som lades på ett tillfälligt konto under föregående års bokslut justerade på det här året? ",
+              "shortTitle": "Förutbetalt och upplupet fg år",
+              "orderNumber": 5,
+              "description": "Förmodligen hittar du denna verifikation direkt efter förra årets bokslutsdatum. Om den inte finns, behöver du göra en verifikation som är omvänd mot den som gjordes under föregående års bokslut, så att beloppen hamnar på rätt bokföringsår. Du använder alltså samma konton och belopp, men det som tidigare låg i debet ska nu ligga i kredit och vice versa. ",
+              "type": "boolean",
+              "externalLinks": [],
+              "dependsOnQuestions": [],
+              "accounts": {
+                "title": "",
+                "creditRange": [],
+                "debitRange": [
+                  [
+                    null,
+                    null
+                  ]
+                ],
+                "helperDescriptions": [],
+                "triggerAnswer": "no"
+              },
+              "scope": "accounts",
+              "valueReference": null,
+              "documentReference": null,
+              "noteOptions": [],
+              "answer": null
+            }
+          ],
+          "subCategories": [],
+          "dependsOnCategories": []
+        }
+      ],
+      "dependsOnCategories": []
+    },
+    {
+      "id": "10cedc2b-12d3-4b78-8f0f-12dd65f8e629",
+      "parentCategoryId": null,
+      "orderNumber": 16,
+      "level": 1,
+      "name": "EGET KAPITAL",
+      "questions": [
+        {
+          "id": "ba205ade-9bd9-432c-ad77-e503b691afad",
+          "title": "Har en omföring gjorts av föregående års resultat till balanserad vinst eller förlust, så att föregående års resultat inte ligger kvar på konto 2099 - Årets resultat? ",
+          "shortTitle": "Föregående års resultat",
+          "orderNumber": 1,
+          "description": "Om inte, gör en omföring av föregående års resultat. ",
+          "type": "boolean",
+          "externalLinks": [
+            {
+              "label": "Läs mer här om hur resultatet bokförs.",
+              "url": "https://www.fortnox.se/fortnox-foretagsguide/bokforingstips/resultat-i-aktiebolag"
+            }
+          ],
+          "dependsOnQuestions": [],
+          "accounts": {
+            "title": "Bokföringsförslag vid omföring av föregående års resultat",
+            "creditRange": [
+              [
+                2091,
+                2091
+              ],
+              [
+                2099,
+                2099
+              ]
+            ],
+            "debitRange": [
+              [
+                2099,
+                2099
+              ],
+              [
+                2091,
+                2091
+              ]
+            ],
+            "helperDescriptions": [
+              {
+                "description": "Vid vinst föregående år",
+                "debitNote": "<b>Debet: </b><i>2099 - Årets resultat</i><br>",
+                "creditNote": "<b>Kredit:</b> <i>2091 - Balanserad vinst eller förlust</i><br>"
+              },
+              {
+                "description": "Vid förlust föregående år",
+                "debitNote": "<b>Debet: </b><i>2091 - Balanserad vinst eller förlust</i><br>",
+                "creditNote": "<b>Kredit:<i> </i></b><i>2099 - Årets resultat</i><br>"
+              }
+            ],
+            "triggerAnswer": "no"
+          },
+          "scope": "accounts",
+          "valueReference": null,
+          "documentReference": null,
+          "noteOptions": [],
+          "answer": null
+        },
+        {
+          "id": "0c1cef22-cf10-460a-aaf3-6d7bd1d256cb",
+          "title": "Är årets vinst eller förlust bokförd?",
+          "shortTitle": "Årets resultat",
+          "orderNumber": 2,
+          "description": "När ett räkenskapsår stängs redovisar företaget ett resultat. Om företaget har högre intäkter än kostnader har företaget gått med vinst, och om kostnaderna är högre än intäkterna har företaget gått med förlust. Resultatet överförs till det egna kapitalet i balansräkningen.\n\nEtt resultat med vinst bokförs med ett konto i kontogrupp 89XX (debet) i resultaträkningen och som en ökning av det egna kapitalet i balansräkningen, genom ett motkonto i kontogrupp 20XX (kredit). \n\nEtt resultat med förlust bokförs som en kreditpost i resultaträkningen, med ett konto i kontogrupp 89XX (kredit), och som en minskning av det egna kapitalet i balansräkningen, genom ett motkonto i kontogrupp 20XX (debet). \n\nObservera att kontot 2099 - Årets resultat endast bör ha årets värden.",
+          "type": "boolean",
+          "externalLinks": [],
+          "dependsOnQuestions": [],
+          "accounts": {
+            "title": "Bokföringsförslag vid omföring av av årets resultat",
+            "creditRange": [
+              [
+                2099,
+                2099
+              ],
+              [
+                8999,
+                8999
+              ]
+            ],
+            "debitRange": [
+              [
+                8999,
+                8999
+              ],
+              [
+                2099,
+                2099
+              ]
+            ],
+            "helperDescriptions": [
+              {
+                "description": "Vid vinst",
+                "debitNote": "<b>Debet: </b><i>8999 - Årets resultat</i><br>",
+                "creditNote": "<b>Kredit:</b> <i>2099 - Årets resultat</i><br>"
+              },
+              {
+                "description": "Vid förlust",
+                "debitNote": "<b>Debet: </b><i>2099 - Årets resultat</i><br>",
+                "creditNote": "<b>Kredit: </b><i>8999 - Årets resultat</i><br>"
+              }
+            ],
+            "triggerAnswer": "no"
+          },
+          "scope": "accounts",
+          "valueReference": null,
+          "documentReference": null,
+          "noteOptions": [],
+          "answer": null
+        },
+        {
+          "id": "a2a486e3-136d-40d6-bb8a-4b72e154fb1a",
+          "title": "Har eventuell utdelning bokförts? ",
+          "shortTitle": "Vinstutdelning",
+          "orderNumber": 3,
+          "description": "Ett aktiebolag som går med vinst har vid den årliga bolagsstämman, eller vid en extra bolagsstämma, möjlighet att besluta om att dela ut en del av vinsten till aktieägarna – så kallad utdelning. Utdelningens storlek bestäms på stämman och fördelas normalt sett i proportion till hur många aktier varje ägare har.",
+          "type": "boolean",
+          "externalLinks": [],
+          "dependsOnQuestions": [],
+          "accounts": {
+            "title": "För bokföringsförslag, se länken ovan. ",
+            "creditRange": [],
+            "debitRange": [],
+            "helperDescriptions": [],
+            "triggerAnswer": "no"
+          },
+          "scope": "accounts",
+          "valueReference": null,
+          "documentReference": null,
+          "noteOptions": [],
+          "answer": null
+        }
+      ],
+      "subCategories": [],
+      "dependsOnCategories": []
+    },
+    {
+      "id": "fb3efb2b-7376-48ed-9064-b50e24a3a990",
+      "level": 1,
+      "orderNumber": 5,
+      "name": "Skatt",
+      "questions": [
+        {
+          "id": "4b7aa2c4-a567-490e-929a-ec9a6746a2bf",
+          "shortTitle": "Pensionskostnader (work in progress)",
+          "title": "Finns pensionskostnader i bolaget?",
+          "orderNumber": 1,
+          "description": "Har företaget premie för tjänstepensionsförsäkring, överföring till pensionsstiftelse, avsättning enligt tryggandelagen, utbetalda pensioner som inte betalas ut enligt lag eller p.g.a. tjänstepensionsförsäkring, t.ex. direktpension?\n\nSkatt ska betalas med 24,26 % av det beskattningsbara underlaget.\n",
+          "type": "numberField",
+          "scope": "tax",
+          "externalLinks": [],
+          "dependsOnQuestions": [],
+          "valueReference": {
+            "cellId": "particularSalaryTax.otherPensionCommitments.otherPensionInsurancesSum",
+            "triggerAnswer": "yes"
+          },
+          "accounts": {
+            "title": "Ange det belopp på totala pensionskostnader (detta belopp kommer användas för att beräkna hur mycket skatt som ska betalas)",
+            "creditDescription": "",
+            "debitDescription": "",
+            "helperDescriptions": [],
+            "creditRange": [],
+            "debitRange": [],
+            "triggerAnswer": "yes"
+          },
+          "numberFieldMetaData": {
+            "title": "Hajde idemo",
+            "description": "Some desccccc"
+          }
+        },
+        {
+          "id": "9d5cf7cd-7515-4e26-b6f7-1d34d51cd683",
+          "shortTitle": "Avsättning periodiseringsfonder (Work In progress)",
+          "title": "Finns några periodiseringsfonder bokförda i bolaget vid räkenskapsårets ingång?",
+          "orderNumber": 2,
+          "description": "Periodiseringsfond innebär att du kan skjuta upp en del av vinstskatten till senare år. Det ger företag möjlighet att använda perioderingsfonder till att utjämna sina resultat mellan olika år och därmed få en jämnare beskattning. Juridiska personer (som aktiebolag) får avsätta upp till 25 % av det skattemässiga resultatet. När periodiseringfond återförs kommer det skattepliktiga resultatet öka.\n\nPeriodiseringsfonder bokförs vanligtvis på konto 2110-2139.",
+          "type": "boolean",
+          "scope": "tax",
+          "externalLinks": [],
+          "dependsOnQuestions": []
+        },
+        {
+          "id": "dd3fb769-76d1-484a-9cb1-1e2b3fed7e55",
+          "shortTitle": "Tvingande återföring",
+          "title": "Ska återföring av tvingande återföring ske?",
+          "orderNumber": 3,
+          "description": "Tvingande återföringen av periodiseringsfond:  Senast det sjunde året efter att fonderna har avsatts måste periodiseringsfonden återföras. Det innebär att den ursprungliga vinsten, som blivit periodiserad, tas upp som inkomst under det år återföringen görs.\n\nFrivillig återföring av periodiseringsfond: Företaget kan återföra periodiseringsfonder som gjorts tidigare år. Det är alltid den periodiseringsfonden som är äldst som återförs först. ",
+          "type": "boolean",
+          "scope": "accounts",
+          "externalLinks": [],
+          "dependsOnQuestions": [],
+          "accounts": {
+            "title": "Bokföringsförslag för återföring",
+            "creditDescription": "",
+            "debitDescription": "",
+            "helperDescriptions": [],
+            "creditRange": [
+              [
+                2110,
+                2110
+              ]
+            ],
+            "debitRange": [
+              [
+                8819,
+                8819
+              ]
+            ],
+            "triggerAnswer": "yes"
+          }
+        },
+        {
+          "id": "aa12cd19-c844-4b46-8180-83ce2f4da974",
+          "shortTitle": "Short title Periodiseringsfonder (work in progress)",
+          "title": "Ska frivillig  återföring av periodiseringsfond ske?",
+          "orderNumber": 4,
+          "description": "Finns några periodiseringsfonder bokförda i bolaget vid räkenskapsårets ingång?",
+          "type": "boolean",
+          "scope": "tax",
+          "externalLinks": [],
+          "dependsOnQuestions": [],
+          "accounts": {
+            "title": "Bokföringsförslag frivillig återföring",
+            "creditDescription": "",
+            "debitDescription": "",
+            "helperDescriptions": [],
+            "creditRange": [
+              [
+                2110,
+                2110
+              ]
+            ],
+            "debitRange": [
+              [
+                8819,
+                8819
+              ]
+            ],
+            "triggerAnswer": "yes"
+          }
+        },
+        {
+          "id": "fa6947cd-001c-410d-b252-16d71e2c6921",
+          "shortTitle": "Avsättning p-fond",
+          "title": "Ska avsättning till periodiseringsfond genomföras?",
+          "orderNumber": 5,
+          "description": "Finns några periodiseringsfonder bokförda i bolaget vid räkenskapsårets ingång?",
+          "type": "boolean",
+          "scope": "tax",
+          "externalLinks": [],
+          "dependsOnQuestions": []
+        }
+      ]
+    }
+  ]
+}
