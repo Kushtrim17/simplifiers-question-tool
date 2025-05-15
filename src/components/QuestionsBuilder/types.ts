@@ -59,6 +59,10 @@ export type Question = {
   valueReference?: ValueReference;
   noteOptions?: NoteOption[];
   documentReference?: DocumentReference;
+  numberFieldMetaData?: {
+    title?: string;
+    description?: string;
+  }
 };
 
 export type Category = {

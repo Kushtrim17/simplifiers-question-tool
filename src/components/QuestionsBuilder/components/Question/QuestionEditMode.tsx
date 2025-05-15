@@ -16,6 +16,7 @@ import { QuestionScopeSelector } from "./QuestionScopeSelector";
 import { NoteSelector } from "./NoteSelector";
 import { ValueReferenceSelector } from "./ValueReferenceSelector";
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
+import { NumberFieldMeta } from "@/components/QuestionsBuilder/components/Question/NumberFieldMeta.tsx";
 
 type Props = {
   question: Question;
@@ -389,16 +390,27 @@ export function QuestionEditMode(props: Props) {
 
       <Separator className="mt-5 mb-5" />
 
-      <AccountingHelp
-        question={question}
-        onQuestionUpdate={onQuestionUpdate}
-        onCreditRangeChange={handleCreditRangeChange}
-        onCreditRangeRemove={handleCreditChangeRemove}
-        onCreditRangeAdd={handleAddCreditRange}
-        onDebitRangeChange={handleDebitRangeChange}
-        onDebitRangeRemove={handleDebitChangeRemove}
-        onDebitRangeAdd={handleAddDebitRange}
-      />
+      {question.type !== 'numberField' && (
+        <AccountingHelp
+          question={question}
+          onQuestionUpdate={onQuestionUpdate}
+          onCreditRangeChange={handleCreditRangeChange}
+          onCreditRangeRemove={handleCreditChangeRemove}
+          onCreditRangeAdd={handleAddCreditRange}
+          onDebitRangeChange={handleDebitRangeChange}
+          onDebitRangeRemove={handleDebitChangeRemove}
+          onDebitRangeAdd={handleAddDebitRange}
+        />
+      )}
+
+      {question.type === 'numberField' && (
+         <NumberFieldMeta
+            question={currentQuestion}
+            onQuestionUpdate={setCurrentQuestion}
+            handleSave={handleUpdate}
+         />
+      )}
+
     </div>
   );
 }
