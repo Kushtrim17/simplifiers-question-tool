@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input.tsx";
 import { Small } from "@/components/ui/Typography";
 import { Question } from "../../types";
+import {Textarea} from "@/components/ui/textarea.tsx";
 
 type Props = {
    question: Question;
@@ -9,22 +10,22 @@ type Props = {
 };
 
 
-export function NumberFieldMeta(props: Props) {
+export function TaxForm(props: Props) {
    const { question, onQuestionUpdate, handleSave } = props;
 
   return (
      <>
-        <Small className="font-extrabold">Number field meta data</Small>
+        <Small className="font-extrabold">Tax meta data</Small>
         <br/>
         <Small className="font-extrabold">Title</Small>
         <Input
-           value={question?.numberFieldMetaData?.title}
-           placeholder="Enter number field title"
+           value={question?.taxForm?.title}
+           placeholder="Enter tax field title"
            onChange={(e) =>
               onQuestionUpdate({
                  ...question,
-                 numberFieldMetaData: {
-                    ...question.numberFieldMetaData,
+                 taxForm: {
+                    ...question.taxForm,
                     title: e.currentTarget.value,
                  },
               })
@@ -32,21 +33,23 @@ export function NumberFieldMeta(props: Props) {
            onBlur={handleSave}
            className="mt-2 mb-5"
         />
+
         <Small className="font-extrabold">description</Small>
-        <Input
-           value={question.numberFieldMetaData?.description}
-           placeholder="Enter number field description"
+        <Textarea
+           value={question.taxForm?.description}
+           placeholder="Enter tax field description"
            onChange={(e) =>
               onQuestionUpdate({
                  ...question,
-                 numberFieldMetaData: {
-                    ...question.numberFieldMetaData,
+                 taxForm: {
+                    ...question.taxForm,
                     description: e.currentTarget.value,
                  },
               })
            }
            onBlur={handleSave}
-           className="mt-2 mb-5"
+           className="mt-2 mb-5 min-h-[300px]"
+           cols={130}
         />
      </>
   );

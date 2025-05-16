@@ -16,7 +16,7 @@ import { QuestionScopeSelector } from "./QuestionScopeSelector";
 import { NoteSelector } from "./NoteSelector";
 import { ValueReferenceSelector } from "./ValueReferenceSelector";
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
-import { NumberFieldMeta } from "@/components/QuestionsBuilder/components/Question/NumberFieldMeta.tsx";
+import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm.tsx";
 
 type Props = {
   question: Question;
@@ -390,7 +390,7 @@ export function QuestionEditMode(props: Props) {
 
       <Separator className="mt-5 mb-5" />
 
-      {question.type !== 'numberField' && (
+      {question.scope === 'accounts' && (
         <AccountingHelp
           question={question}
           onQuestionUpdate={onQuestionUpdate}
@@ -403,8 +403,8 @@ export function QuestionEditMode(props: Props) {
         />
       )}
 
-      {question.type === 'numberField' && (
-         <NumberFieldMeta
+      {question.scope === 'tax' && (
+         <TaxForm
             question={currentQuestion}
             onQuestionUpdate={setCurrentQuestion}
             handleSave={handleUpdate}

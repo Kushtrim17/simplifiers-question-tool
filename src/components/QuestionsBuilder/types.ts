@@ -1,6 +1,6 @@
 export type ExternalLink = { label: string; url: string };
 
-export type QuestionType = "boolean" | "voucher" | "freeText" | "numberField";
+export type QuestionType = "boolean" | "freeText";
 
 export type AccountsHelper = {
   description?: string;
@@ -59,7 +59,7 @@ export type Question = {
   valueReference?: ValueReference;
   noteOptions?: NoteOption[];
   documentReference?: DocumentReference;
-  numberFieldMetaData?: {
+  taxForm?: {
     title?: string;
     description?: string;
   }
@@ -72,8 +72,6 @@ export type Category = {
   level: number;
   name: string;
   subCategories?: Category[];
-  // an array of category ids that this category depends on
-  dependsOnCategories: string[];
   questions: Question[];
   accounts?: Accounts;
 };
