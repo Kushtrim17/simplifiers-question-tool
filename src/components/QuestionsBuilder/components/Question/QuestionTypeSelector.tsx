@@ -29,9 +29,7 @@ export function QuestionTypeSelector(props: Props) {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="boolean">Yes or No</SelectItem>
-          <SelectItem value="voucher">Voucher</SelectItem>
           <SelectItem value="freeText">Free text</SelectItem>
-          <SelectItem value="numberField">Number field</SelectItem>
         </SelectContent>
       </Select>
     </>

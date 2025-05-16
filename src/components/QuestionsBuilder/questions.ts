@@ -8,7 +8,6 @@ export function addRootCategory(allCategories: Category[]) {
     orderNumber: allCategories.length + 1,
     name: `New root category ${allCategories.length + 1}`,
     questions: [],
-    dependsOnCategories: [],
   };
 
   return [...allCategories, category];
@@ -29,7 +28,6 @@ export function addChildCategory(allCategories: Category[], parentId: string) {
         orderNumber,
         name: `Child ${orderNumber} category level ${category.level + 1}`,
         questions: [],
-        dependsOnCategories: [],
       };
 
       if (category.subCategories) {

@@ -17,7 +17,6 @@
           "dependsOnQuestions": []
         }
       ],
-      "dependsOnCategories": [],
       "subCategories": [
         {
           "id": "47393a00-7f40-4f5b-b700-7904dd50a35d",
@@ -35,8 +34,7 @@
               "externalLinks": [],
               "dependsOnQuestions": []
             }
-          ],
-          "dependsOnCategories": []
+          ]
         }
       ]
     },
@@ -55,8 +53,7 @@
           "externalLinks": [],
           "dependsOnQuestions": []
         }
-      ],
-      "dependsOnCategories": []
+      ]
     },
     {
       "id": "ccd6209f-c381-4556-8a50-eb745278927c",
@@ -64,7 +61,6 @@
       "orderNumber": 3,
       "name": "New root category 3",
       "questions": [],
-      "dependsOnCategories": [],
       "subCategories": [
         {
           "id": "382ba25b-96bc-4286-a4f7-63ad45838281",
@@ -73,7 +69,6 @@
           "orderNumber": 1,
           "name": "Child 1 category level 2",
           "questions": [],
-          "dependsOnCategories": [],
           "subCategories": [
             {
               "id": "bdd4cd5b-5d89-4bb8-a3f6-08bfc16075c5",
@@ -100,8 +95,7 @@
                   "externalLinks": [],
                   "dependsOnQuestions": []
                 }
-              ],
-              "dependsOnCategories": []
+              ]
             }
           ]
         }
