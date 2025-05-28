@@ -1,6 +1,6 @@
 export type ExternalLink = { label: string; url: string };
 
-export type QuestionType = "boolean" | "freeText";
+export type QuestionType = "boolean" | "voucher" | "freeText";
 
 export type AccountsHelper = {
   description?: string;
@@ -56,7 +56,7 @@ export type Question = {
   // an array of question ids that this question depends on
   dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;
-  valueReference?: ValueReference;
+  valueReferences?: ValueReference[];
   noteOptions?: NoteOption[];
   documentReference?: DocumentReference;
   taxForm?: {

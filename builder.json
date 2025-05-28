@@ -50,7 +50,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": {
@@ -101,7 +101,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": {
@@ -152,7 +152,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": {
@@ -203,7 +203,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": {
@@ -233,7 +233,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -271,7 +271,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -314,7 +314,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -362,7 +362,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -410,7 +410,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -442,7 +442,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -494,7 +494,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -547,7 +547,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": {
@@ -588,7 +588,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -624,7 +624,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -651,7 +651,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -707,7 +707,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -759,7 +759,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -797,7 +797,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -844,7 +844,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -877,7 +877,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -928,7 +928,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -966,7 +966,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1009,7 +1009,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1036,7 +1036,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1063,7 +1063,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1096,7 +1096,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1140,7 +1140,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1167,7 +1167,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1189,7 +1189,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1216,7 +1216,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1265,7 +1265,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1287,7 +1287,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1329,7 +1329,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1367,7 +1367,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1411,10 +1411,10 @@
                 "triggerAnswer": "no"
               },
               "scope": "notes",
-              "valueReference": {
+              "valueReferences": [{
                 "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
                 "triggerAnswer": "yes"
-              },
+              }],
               "documentReference": null,
               "noteOptions": [
                 {
@@ -1452,10 +1452,10 @@
                 "triggerAnswer": "no"
               },
               "scope": "notes",
-              "valueReference": {
+              "valueReferences": [{
                 "cellId": "incomeStatement.section.table.RorelseresultatAbstract.RorelsensIntakterLagerforandringarMmAbstract.Nettoomsattning.3042",
                 "triggerAnswer": "yes"
-              },
+              }],
               "documentReference": null,
               "noteOptions": [
                 {
@@ -1489,10 +1489,10 @@
                 "triggerAnswer": "no"
               },
               "scope": "notes",
-              "valueReference": {
+              "valueReferences": [{
                 "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
                 "triggerAnswer": "yes"
-              },
+              }],
               "documentReference": null,
               "noteOptions": [
                 {
@@ -1548,7 +1548,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": {
@@ -1584,7 +1584,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1622,7 +1622,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1678,7 +1678,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1705,7 +1705,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1759,7 +1759,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1781,7 +1781,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1808,7 +1808,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1846,7 +1846,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1889,7 +1889,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1931,7 +1931,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1958,7 +1958,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -1980,7 +1980,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -2034,7 +2034,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -2094,7 +2094,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -2156,7 +2156,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -2194,7 +2194,7 @@
                 "triggerAnswer": "yes"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -2221,7 +2221,7 @@
                 "triggerAnswer": "no"
               },
               "scope": "accounts",
-              "valueReference": null,
+              "valueReferences": null,
               "documentReference": null,
               "noteOptions": [],
               "answer": null
@@ -2291,7 +2291,7 @@
             "triggerAnswer": "no"
           },
           "scope": "accounts",
-          "valueReference": null,
+          "valueReferences": null,
           "documentReference": null,
           "noteOptions": [],
           "answer": null
@@ -2342,7 +2342,7 @@
             "triggerAnswer": "no"
           },
           "scope": "accounts",
-          "valueReference": null,
+          "valueReferences": null,
           "documentReference": null,
           "noteOptions": [],
           "answer": null
@@ -2364,7 +2364,7 @@
             "triggerAnswer": "no"
           },
           "scope": "accounts",
-          "valueReference": null,
+          "valueReferences": null,
           "documentReference": null,
           "noteOptions": [],
           "answer": null
@@ -2389,10 +2389,10 @@
           "scope": "tax",
           "externalLinks": [],
           "dependsOnQuestions": [],
-          "valueReference": {
+          "valueReferences": [{
             "cellId": "particularSalaryTax.otherPensionCommitments.otherPensionInsurancesSum",
             "triggerAnswer": "yes"
-          },
+          }],
           "accounts": {
             "title": "Ange det belopp på totala pensionskostnader (detta belopp kommer användas för att beräkna hur mycket skatt som ska betalas)",
             "creditDescription": "",
