@@ -65,7 +65,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleQuestionTypeChange = (
-    newType: "boolean" | "voucher" | "freeText"
+    newType: Question["type"]
   ) => {
     setCurrentQuestion({ ...currentQuestion, type: newType });
     onQuestionUpdate({
@@ -102,30 +102,17 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
-  const handleOnUpdateValueReference = (
-    newValueReference: ValueReference | null
+  const handleOnUpdateValueReferences = (
+    newValueReferences: ValueReference[] | null
   ) => {
-    if (newValueReference == null) {
-      onQuestionUpdate({
-        ...currentQuestion,
-        valueReference: undefined,
-      });
-
-      setCurrentQuestion({
-        ...currentQuestion,
-        valueReference: undefined,
-      });
-    } else {
-      onQuestionUpdate({
-        ...currentQuestion,
-        valueReference: newValueReference,
-      });
-
-      setCurrentQuestion({
-        ...currentQuestion,
-        valueReference: newValueReference,
-      });
-    }
+    onQuestionUpdate({
+      ...currentQuestion,
+      valueReferences: newValueReferences ?? [],
+    });
+    setCurrentQuestion({
+      ...currentQuestion,
+      valueReferences: newValueReferences ?? [],
+    });
   };
 
   const handleOnDocumentReferenceChanged = (
@@ -359,7 +346,7 @@ export function QuestionEditMode(props: Props) {
         currentQuestion.scope !== "accounts" && (
           <ValueReferenceSelector
             question={currentQuestion}
-            onQuestionValueReferenceChanged={handleOnUpdateValueReference}
+            onQuestionValueReferencesChanged={handleOnUpdateValueReferences}
           />
         )}
 
