@@ -192,6 +192,7 @@ export function addQuestionToCategory(
         scope: "accounts",
         externalLinks: [],
         dependsOnQuestions: [],
+        valueReferences: [],
       };
 
       category.questions.push(newQuestion);
