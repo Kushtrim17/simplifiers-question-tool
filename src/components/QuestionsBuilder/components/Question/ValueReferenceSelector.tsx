@@ -152,7 +152,7 @@ export function ValueReferenceSelector(props: Props) {
     ];
     return (
       <div>
-        <div className="font-semibold mb-2">Tax document</div>
+        <div className="font-semibold mb-2">{openSection || 'Tax document'}</div>
         <div className="flex flex-col gap-1">
           {openSection == null ? (
             sections.map((section) => (
