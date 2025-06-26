@@ -1,4 +1,5 @@
 import AgoyTaxDocumentValues from './agoyTaxDocumentValues.json';
+import AgoyINK2DocumentValues from './agoyINK2DocumentValues.json';
 
 type ValueReference = {
   id: string;
@@ -723,7 +724,12 @@ export const INCOME_STATEMENT_REFERENCES: ValueReferences = {
 // Representation of the endpoint specifically for tax document /agoy-document/{clientId}/{documentId}/values/
 export const TAX_DOCUMENT_REFERENCES: ValueReferences = {
   values: AgoyTaxDocumentValues,
-}
+};
+
+// Representation of the endpoint specifically for the INK2 (SKV-2002) document /agoy-document/{clientId}/{documentId}/values/
+export const INK2_DOCUMENT_REFERENCES: ValueReferences = {
+  values: AgoyINK2DocumentValues,
+};
 
 export const MANAGEMENT_REPORT_REFERENCES: ValueReferences = {
   "Resultatdisposition Disposal": [
@@ -792,4 +798,4 @@ export const MANAGEMENT_REPORT_REFERENCES: ValueReferences = {
       label: "Utdelning Balanserat resultat",
     },
   ],
-}
+};

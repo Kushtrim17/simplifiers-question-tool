@@ -1,0 +1,654 @@
+[
+    {
+      "id": "INK2.fields.orgNr",
+      "label": "INK2.fields.orgNr"
+    },
+    {
+      "id": "INK2.fields.date",
+      "label": "INK2.fields.date"
+    },
+    {
+      "id": "INK2.fields.companyName",
+      "label": "INK2.fields.companyName"
+    },
+    {
+      "id": "INK2.fields.companyAddress1",
+      "label": "INK2.fields.companyAddress1"
+    },
+    {
+      "id": "INK2.fields.companyAddress2",
+      "label": "INK2.fields.companyAddress2"
+    },
+    {
+      "id": "INK2.fields.1_1",
+      "label": "INK2.fields.1_1"
+    },
+    {
+      "id": "INK2.fields.1_2",
+      "label": "INK2.fields.1_2"
+    },
+    {
+      "id": "INK2.fields.1_3",
+      "label": "INK2.fields.1_3"
+    },
+    {
+      "id": "INK2.fields.1_4",
+      "label": "INK2.fields.1_4"
+    },
+    {
+      "id": "INK2.fields.1_5",
+      "label": "INK2.fields.1_5"
+    },
+    {
+      "id": "INK2.fields.1_6_a",
+      "label": "INK2.fields.1_6_a"
+    },
+    {
+      "id": "INK2.fields.1_6_b",
+      "label": "INK2.fields.1_6_b"
+    },
+    {
+      "id": "INK2.fields.1_7_a",
+      "label": "INK2.fields.1_7_a"
+    },
+    {
+      "id": "INK2.fields.1_7_b",
+      "label": "INK2.fields.1_7_b"
+    },
+    {
+      "id": "INK2.fields.1_8",
+      "label": "INK2.fields.1_8"
+    },
+    {
+      "id": "INK2.fields.1_9",
+      "label": "INK2.fields.1_9"
+    },
+    {
+      "id": "INK2.fields.1_10",
+      "label": "INK2.fields.1_10"
+    },
+    {
+      "id": "INK2.fields.1_11",
+      "label": "INK2.fields.1_11"
+    },
+    {
+      "id": "INK2.fields.1_12",
+      "label": "INK2.fields.1_12"
+    },
+    {
+      "id": "INK2.fields.1_13",
+      "label": "INK2.fields.1_13"
+    },
+    {
+      "id": "INK2.fields.1_14",
+      "label": "INK2.fields.1_14"
+    },
+    {
+      "id": "INK2.fields.1_15",
+      "label": "INK2.fields.1_15"
+    },
+    {
+      "id": "INK2.fields.1_16",
+      "label": "INK2.fields.1_16"
+    },
+    {
+      "id": "INK2.fields.signature",
+      "label": "INK2.fields.signature"
+    },
+    {
+      "id": "INK2.fields.name",
+      "label": "INK2.fields.name"
+    },
+    {
+      "id": "INK2.fields.phoneNr",
+      "label": "INK2.fields.phoneNr"
+    },
+    {
+      "id": "INK2.fields.otherInfo",
+      "label": "INK2.fields.otherInfo"
+    },
+    {
+      "id": "INK2R.fields.orgNr",
+      "label": "INK2R.fields.orgNr"
+    },
+    {
+      "id": "INK2R.fields.date",
+      "label": "INK2R.fields.date"
+    },
+    {
+      "id": "INK2R.fields.2_1",
+      "label": "INK2R.fields.2_1"
+    },
+    {
+      "id": "INK2R.fields.2_2",
+      "label": "INK2R.fields.2_2"
+    },
+    {
+      "id": "INK2R.fields.2_3",
+      "label": "INK2R.fields.2_3"
+    },
+    {
+      "id": "INK2R.fields.2_4",
+      "label": "INK2R.fields.2_4"
+    },
+    {
+      "id": "INK2R.fields.2_5",
+      "label": "INK2R.fields.2_5"
+    },
+    {
+      "id": "INK2R.fields.2_6",
+      "label": "INK2R.fields.2_6"
+    },
+    {
+      "id": "INK2R.fields.2_7",
+      "label": "INK2R.fields.2_7"
+    },
+    {
+      "id": "INK2R.fields.2_8",
+      "label": "INK2R.fields.2_8"
+    },
+    {
+      "id": "INK2R.fields.2_9",
+      "label": "INK2R.fields.2_9"
+    },
+    {
+      "id": "INK2R.fields.2_10",
+      "label": "INK2R.fields.2_10"
+    },
+    {
+      "id": "INK2R.fields.2_11",
+      "label": "INK2R.fields.2_11"
+    },
+    {
+      "id": "INK2R.fields.2_12",
+      "label": "INK2R.fields.2_12"
+    },
+    {
+      "id": "INK2R.fields.2_13",
+      "label": "INK2R.fields.2_13"
+    },
+    {
+      "id": "INK2R.fields.2_14",
+      "label": "INK2R.fields.2_14"
+    },
+    {
+      "id": "INK2R.fields.2_15",
+      "label": "INK2R.fields.2_15"
+    },
+    {
+      "id": "INK2R.fields.2_16",
+      "label": "INK2R.fields.2_16"
+    },
+    {
+      "id": "INK2R.fields.2_17",
+      "label": "INK2R.fields.2_17"
+    },
+    {
+      "id": "INK2R.fields.2_18",
+      "label": "INK2R.fields.2_18"
+    },
+    {
+      "id": "INK2R.fields.2_19",
+      "label": "INK2R.fields.2_19"
+    },
+    {
+      "id": "INK2R.fields.2_20",
+      "label": "INK2R.fields.2_20"
+    },
+    {
+      "id": "INK2R.fields.2_21",
+      "label": "INK2R.fields.2_21"
+    },
+    {
+      "id": "INK2R.fields.2_22",
+      "label": "INK2R.fields.2_22"
+    },
+    {
+      "id": "INK2R.fields.2_23",
+      "label": "INK2R.fields.2_23"
+    },
+    {
+      "id": "INK2R.fields.2_24",
+      "label": "INK2R.fields.2_24"
+    },
+    {
+      "id": "INK2R.fields.2_25",
+      "label": "INK2R.fields.2_25"
+    },
+    {
+      "id": "INK2R.fields.2_26",
+      "label": "INK2R.fields.2_26"
+    },
+    {
+      "id": "INK2R.fields.2_27",
+      "label": "INK2R.fields.2_27"
+    },
+    {
+      "id": "INK2R.fields.2_28",
+      "label": "INK2R.fields.2_28"
+    },
+    {
+      "id": "INK2R.fields.2_29",
+      "label": "INK2R.fields.2_29"
+    },
+    {
+      "id": "INK2R.fields.2_30",
+      "label": "INK2R.fields.2_30"
+    },
+    {
+      "id": "INK2R.fields.2_31",
+      "label": "INK2R.fields.2_31"
+    },
+    {
+      "id": "INK2R.fields.2_32",
+      "label": "INK2R.fields.2_32"
+    },
+    {
+      "id": "INK2R.fields.2_33",
+      "label": "INK2R.fields.2_33"
+    },
+    {
+      "id": "INK2R.fields.2_34",
+      "label": "INK2R.fields.2_34"
+    },
+    {
+      "id": "INK2R.fields.2_35",
+      "label": "INK2R.fields.2_35"
+    },
+    {
+      "id": "INK2R.fields.2_36",
+      "label": "INK2R.fields.2_36"
+    },
+    {
+      "id": "INK2R.fields.2_37",
+      "label": "INK2R.fields.2_37"
+    },
+    {
+      "id": "INK2R.fields.2_38",
+      "label": "INK2R.fields.2_38"
+    },
+    {
+      "id": "INK2R.fields.2_39",
+      "label": "INK2R.fields.2_39"
+    },
+    {
+      "id": "INK2R.fields.2_40",
+      "label": "INK2R.fields.2_40"
+    },
+    {
+      "id": "INK2R.fields.2_41",
+      "label": "INK2R.fields.2_41"
+    },
+    {
+      "id": "INK2R.fields.2_42",
+      "label": "INK2R.fields.2_42"
+    },
+    {
+      "id": "INK2R.fields.2_43",
+      "label": "INK2R.fields.2_43"
+    },
+    {
+      "id": "INK2R.fields.2_44",
+      "label": "INK2R.fields.2_44"
+    },
+    {
+      "id": "INK2R.fields.2_45",
+      "label": "INK2R.fields.2_45"
+    },
+    {
+      "id": "INK2R.fields.2_46",
+      "label": "INK2R.fields.2_46"
+    },
+    {
+      "id": "INK2R.fields.2_47",
+      "label": "INK2R.fields.2_47"
+    },
+    {
+      "id": "INK2R.fields.2_48",
+      "label": "INK2R.fields.2_48"
+    },
+    {
+      "id": "INK2R.fields.2_49",
+      "label": "INK2R.fields.2_49"
+    },
+    {
+      "id": "INK2R.fields.2_50",
+      "label": "INK2R.fields.2_50"
+    },
+    {
+      "id": "INK2R.fields.3_1_pos",
+      "label": "INK2R.fields.3_1_pos"
+    },
+    {
+      "id": "INK2R.fields.3_2_pos",
+      "label": "INK2R.fields.3_2_pos"
+    },
+    {
+      "id": "INK2R.fields.3_2_neg",
+      "label": "INK2R.fields.3_2_neg"
+    },
+    {
+      "id": "INK2R.fields.3_3_pos",
+      "label": "INK2R.fields.3_3_pos"
+    },
+    {
+      "id": "INK2R.fields.3_4_pos",
+      "label": "INK2R.fields.3_4_pos"
+    },
+    {
+      "id": "INK2R.fields.3_5_neg",
+      "label": "INK2R.fields.3_5_neg"
+    },
+    {
+      "id": "INK2R.fields.3_6_neg",
+      "label": "INK2R.fields.3_6_neg"
+    },
+    {
+      "id": "INK2R.fields.3_7_neg",
+      "label": "INK2R.fields.3_7_neg"
+    },
+    {
+      "id": "INK2R.fields.3_8_neg",
+      "label": "INK2R.fields.3_8_neg"
+    },
+    {
+      "id": "INK2R.fields.3_9_neg",
+      "label": "INK2R.fields.3_9_neg"
+    },
+    {
+      "id": "INK2R.fields.3_10_neg",
+      "label": "INK2R.fields.3_10_neg"
+    },
+    {
+      "id": "INK2R.fields.3_11_neg",
+      "label": "INK2R.fields.3_11_neg"
+    },
+    {
+      "id": "INK2R.fields.3_12_pos",
+      "label": "INK2R.fields.3_12_pos"
+    },
+    {
+      "id": "INK2R.fields.3_12_neg",
+      "label": "INK2R.fields.3_12_neg"
+    },
+    {
+      "id": "INK2R.fields.3_13_pos",
+      "label": "INK2R.fields.3_13_pos"
+    },
+    {
+      "id": "INK2R.fields.3_13_neg",
+      "label": "INK2R.fields.3_13_neg"
+    },
+    {
+      "id": "INK2R.fields.3_14_pos",
+      "label": "INK2R.fields.3_14_pos"
+    },
+    {
+      "id": "INK2R.fields.3_14_neg",
+      "label": "INK2R.fields.3_14_neg"
+    },
+    {
+      "id": "INK2R.fields.3_15_pos",
+      "label": "INK2R.fields.3_15_pos"
+    },
+    {
+      "id": "INK2R.fields.3_15_neg",
+      "label": "INK2R.fields.3_15_neg"
+    },
+    {
+      "id": "INK2R.fields.3_16_pos",
+      "label": "INK2R.fields.3_16_pos"
+    },
+    {
+      "id": "INK2R.fields.3_17_neg",
+      "label": "INK2R.fields.3_17_neg"
+    },
+    {
+      "id": "INK2R.fields.3_18_neg",
+      "label": "INK2R.fields.3_18_neg"
+    },
+    {
+      "id": "INK2R.fields.3_19_neg",
+      "label": "INK2R.fields.3_19_neg"
+    },
+    {
+      "id": "INK2R.fields.3_20_pos",
+      "label": "INK2R.fields.3_20_pos"
+    },
+    {
+      "id": "INK2R.fields.3_21_pos",
+      "label": "INK2R.fields.3_21_pos"
+    },
+    {
+      "id": "INK2R.fields.3_22_neg",
+      "label": "INK2R.fields.3_22_neg"
+    },
+    {
+      "id": "INK2R.fields.3_23_pos",
+      "label": "INK2R.fields.3_23_pos"
+    },
+    {
+      "id": "INK2R.fields.3_23_neg",
+      "label": "INK2R.fields.3_23_neg"
+    },
+    {
+      "id": "INK2R.fields.3_24_pos",
+      "label": "INK2R.fields.3_24_pos"
+    },
+    {
+      "id": "INK2R.fields.3_24_neg",
+      "label": "INK2R.fields.3_24_neg"
+    },
+    {
+      "id": "INK2R.fields.3_25_neg",
+      "label": "INK2R.fields.3_25_neg"
+    },
+    {
+      "id": "INK2R.fields.3_26",
+      "label": "INK2R.fields.3_26"
+    },
+    {
+      "id": "INK2R.fields.3_27",
+      "label": "INK2R.fields.3_27"
+    },
+    {
+      "id": "INK2S.fields.orgNr",
+      "label": "INK2S.fields.orgNr"
+    },
+    {
+      "id": "INK2S.fields.date",
+      "label": "INK2S.fields.date"
+    },
+    {
+      "id": "INK2S.fields.4_1_pos",
+      "label": "INK2S.fields.4_1_pos"
+    },
+    {
+      "id": "INK2S.fields.4_2_neg",
+      "label": "INK2S.fields.4_2_neg"
+    },
+    {
+      "id": "INK2S.fields.4_3_a_pos",
+      "label": "INK2S.fields.4_3_a_pos"
+    },
+    {
+      "id": "INK2S.fields.4_3_b_pos",
+      "label": "INK2S.fields.4_3_b_pos"
+    },
+    {
+      "id": "INK2S.fields.4_3_c_pos",
+      "label": "INK2S.fields.4_3_c_pos"
+    },
+    {
+      "id": "INK2S.fields.4_4_a_neg",
+      "label": "INK2S.fields.4_4_a_neg"
+    },
+    {
+      "id": "INK2S.fields.4_4_b_neg",
+      "label": "INK2S.fields.4_4_b_neg"
+    },
+    {
+      "id": "INK2S.fields.4_5_a_neg",
+      "label": "INK2S.fields.4_5_a_neg"
+    },
+    {
+      "id": "INK2S.fields.4_5_b_neg",
+      "label": "INK2S.fields.4_5_b_neg"
+    },
+    {
+      "id": "INK2S.fields.4_5_c_neg",
+      "label": "INK2S.fields.4_5_c_neg"
+    },
+    {
+      "id": "INK2S.fields.4_6_a_pos",
+      "label": "INK2S.fields.4_6_a_pos"
+    },
+    {
+      "id": "INK2S.fields.4_6_b_pos",
+      "label": "INK2S.fields.4_6_b_pos"
+    },
+    {
+      "id": "INK2S.fields.4_6_c_pos",
+      "label": "INK2S.fields.4_6_c_pos"
+    },
+    {
+      "id": "INK2S.fields.4_6_d_pos",
+      "label": "INK2S.fields.4_6_d_pos"
+    },
+    {
+      "id": "INK2S.fields.4_6_e_pos",
+      "label": "INK2S.fields.4_6_e_pos"
+    },
+    {
+      "id": "INK2S.fields.4_7_a_neg",
+      "label": "INK2S.fields.4_7_a_neg"
+    },
+    {
+      "id": "INK2S.fields.4_7_b_pos",
+      "label": "INK2S.fields.4_7_b_pos"
+    },
+    {
+      "id": "INK2S.fields.4_7_c_neg",
+      "label": "INK2S.fields.4_7_c_neg"
+    },
+    {
+      "id": "INK2S.fields.4_7_d_pos",
+      "label": "INK2S.fields.4_7_d_pos"
+    },
+    {
+      "id": "INK2S.fields.4_7_e_pos",
+      "label": "INK2S.fields.4_7_e_pos"
+    },
+    {
+      "id": "INK2S.fields.4_7_f_neg",
+      "label": "INK2S.fields.4_7_f_neg"
+    },
+    {
+      "id": "INK2S.fields.4_8_a_neg",
+      "label": "INK2S.fields.4_8_a_neg"
+    },
+    {
+      "id": "INK2S.fields.4_8_b_pos",
+      "label": "INK2S.fields.4_8_b_pos"
+    },
+    {
+      "id": "INK2S.fields.4_8_c_pos",
+      "label": "INK2S.fields.4_8_c_pos"
+    },
+    {
+      "id": "INK2S.fields.4_8_d_neg",
+      "label": "INK2S.fields.4_8_d_neg"
+    },
+    {
+      "id": "INK2S.fields.4_9_pos",
+      "label": "INK2S.fields.4_9_pos"
+    },
+    {
+      "id": "INK2S.fields.4_9_neg",
+      "label": "INK2S.fields.4_9_neg"
+    },
+    {
+      "id": "INK2S.fields.4_10_pos",
+      "label": "INK2S.fields.4_10_pos"
+    },
+    {
+      "id": "INK2S.fields.4_10_neg",
+      "label": "INK2S.fields.4_10_neg"
+    },
+    {
+      "id": "INK2S.fields.4_11_neg",
+      "label": "INK2S.fields.4_11_neg"
+    },
+    {
+      "id": "INK2S.fields.4_12_pos",
+      "label": "INK2S.fields.4_12_pos"
+    },
+    {
+      "id": "INK2S.fields.4_13_pos",
+      "label": "INK2S.fields.4_13_pos"
+    },
+    {
+      "id": "INK2S.fields.4_13_neg",
+      "label": "INK2S.fields.4_13_neg"
+    },
+    {
+      "id": "INK2S.fields.4_14_a_neg",
+      "label": "INK2S.fields.4_14_a_neg"
+    },
+    {
+      "id": "INK2S.fields.4_14_b_pos",
+      "label": "INK2S.fields.4_14_b_pos"
+    },
+    {
+      "id": "INK2S.fields.4_14_c_pos",
+      "label": "INK2S.fields.4_14_c_pos"
+    },
+    {
+      "id": "INK2S.fields.4_15",
+      "label": "INK2S.fields.4_15"
+    },
+    {
+      "id": "INK2S.fields.4_16",
+      "label": "INK2S.fields.4_16"
+    },
+    {
+      "id": "INK2S.fields.4_17",
+      "label": "INK2S.fields.4_17"
+    },
+    {
+      "id": "INK2S.fields.4_18",
+      "label": "INK2S.fields.4_18"
+    },
+    {
+      "id": "INK2S.fields.4_19",
+      "label": "INK2S.fields.4_19"
+    },
+    {
+      "id": "INK2S.fields.4_20",
+      "label": "INK2S.fields.4_20"
+    },
+    {
+      "id": "INK2S.fields.4_21",
+      "label": "INK2S.fields.4_21"
+    },
+    {
+      "id": "INK2S.fields.4_22",
+      "label": "INK2S.fields.4_22"
+    },
+    {
+      "id": "INK2S.fields.contractorAssisted_yes",
+      "label": "INK2S.fields.contractorAssisted_yes"
+    },
+    {
+      "id": "INK2S.fields.contractorAssisted_no",
+      "label": "INK2S.fields.contractorAssisted_no"
+    },
+    {
+      "id": "INK2S.fields.annualReportAudit_yes",
+      "label": "INK2S.fields.annualReportAudit_yes"
+    },
+    {
+      "id": "INK2S.fields.annualReportAudit_no",
+      "label": "INK2S.fields.annualReportAudit_no"
+    }
+  ]
