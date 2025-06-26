@@ -8,6 +8,7 @@ import {
   BALANCE_SHEET_REFERENCES,
   INCOME_STATEMENT_REFERENCES,
   TAX_DOCUMENT_REFERENCES,
+  INK2_DOCUMENT_REFERENCES,
 } from "./constants/valueReferenceConstants";
 import {
   Select,
@@ -141,19 +142,25 @@ export function ValueReferenceSelector(props: Props) {
   };
 
   const renderTaxDocumentReferencesWithSection = () => {
-    const section = 'Agoy tax document';
+    const sections = [
+      { key: 'Agoy tax document', values: TAX_DOCUMENT_REFERENCES.values },
+      { key: 'INK2 (SKV-2002)', values: INK2_DOCUMENT_REFERENCES.values },
+    ];
     return (
       <div>
         <div className="font-semibold mb-2">Tax document</div>
         <div className="flex flex-col gap-1">
           {openSection == null ? (
-            <button
-              className="text-left px-2 py-1 rounded hover:bg-gray-100 font-medium"
-              onClick={() => setOpenSection(section)}
-              type="button"
-            >
-              {section}
-            </button>
+            sections.map((section) => (
+              <button
+                key={section.key}
+                className="text-left px-2 py-1 rounded hover:bg-gray-100 font-medium"
+                onClick={() => setOpenSection(section.key)}
+                type="button"
+              >
+                {section.key}
+              </button>
+            ))
           ) : (
             <>
               <button
@@ -164,7 +171,7 @@ export function ValueReferenceSelector(props: Props) {
                 ← Back to sections
               </button>
               <div className="flex flex-col gap-1">
-                {TAX_DOCUMENT_REFERENCES.values.map((part) => (
+                {sections.find((s) => s.key === openSection)?.values.map((part) => (
                   <label key={part.id} className="flex items-center gap-2 cursor-pointer">
                     <Checkbox
                       checked={isChecked(part.id)}
