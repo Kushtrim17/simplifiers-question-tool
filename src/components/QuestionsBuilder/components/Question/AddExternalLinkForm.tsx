@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Small } from "@/components/ui/Typography";
+import { Medium } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -34,7 +34,7 @@ export function AddExternalLinkForm(props: Props) {
 
   return (
     <>
-      <Small className="font-extrabold">External links</Small>
+      <Medium className="font-extrabold">External links</Medium>
       <div className="mt-4 flex flex-row">
         {question.externalLinks.map((link) => (
           <div key={link.url} className="flex flex-row mr-4 group">
@@ -57,7 +57,7 @@ export function AddExternalLinkForm(props: Props) {
       </div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline" className="mt-5 mb-5">
+          <Button variant="secondary" className="mt-5 mb-5">
             Add external link
           </Button>
         </DialogTrigger>
