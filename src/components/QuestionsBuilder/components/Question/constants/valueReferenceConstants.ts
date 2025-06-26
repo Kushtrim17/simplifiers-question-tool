@@ -724,9 +724,78 @@ export const INCOME_STATEMENT_REFERENCES: ValueReferences = {
 // Representation of the endpoint specifically for tax document /agoy-document/{clientId}/{documentId}/values/
 export const TAX_DOCUMENT_REFERENCES: ValueReferences = {
   values: AgoyTaxDocumentValues,
-}
+};
 
 // Representation of the endpoint specifically for the INK2 (SKV-2002) document /agoy-document/{clientId}/{documentId}/values/
 export const INK2_DOCUMENT_REFERENCES: ValueReferences = {
   values: AgoyINK2DocumentValues,
-}
+};
+
+export const MANAGEMENT_REPORT_REFERENCES: ValueReferences = {
+  "Resultatdisposition Disposal": [
+    {
+      id: "managementReport.resultsDisposition.toDispose.3.value",
+      label: "Fri överkusfond",
+    },
+    {
+      id: "managementReport.resultsDisposition.toDispose.1.value",
+      label: "Balanserat resultat",
+    },
+    {
+      id: "managementReport.resultsDisposition.toDispose.2.value",
+      label: "Årets resultat",
+    },
+    {
+      id: "managementReport.resultsDisposition.total",
+      label: "Summa",
+    },
+  ],
+  "Resultatdisposition Proposal": [
+    {
+      id: "managementReport.resultsDisposition.proposal.repaymentOfConditionalShareholderContribution.value",
+      label: "Återbetalning av villkorat aktieägartillskott",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.otherDividend.value",
+      label: "Annan utdelning",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.1.value",
+      label: "Utdelning",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.2.value",
+      label: "Fondemission",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.3.value",
+      label: "Avsättning till reservfond",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.4.value",
+      label: "Ianspråktagande av reservfond",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.5.value",
+      label: "Ianspråktagande av bunden överkursfond",
+    },
+    {
+      id: "managementReport.resultsDisposition.proposal.6.value",
+      label: "Ianspråkstagande av uppskrivningsfond",
+    },
+    {
+      id: "managementReport.resultsDisposition.toTransfer.value",
+      label: "Balanseras i ny räkning",
+    },
+    {
+      id: "managementReport.resultsDisposition.inTotal.value",
+      label: "Summa",
+    },
+  ],
+  "Förändringar i eget kapital": [
+    {
+      id: "managementReport.changesInEquity.table.main.content.dividendToShareHolders.balanseratResultat.value",
+      label: "Utdelning Balanserat resultat",
+    },
+  ],
+};

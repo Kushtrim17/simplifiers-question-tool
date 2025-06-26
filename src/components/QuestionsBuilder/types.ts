@@ -25,7 +25,7 @@ export type Accounts = {
   triggerAnswer?: string | null;
 };
 
-type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
+export type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
 
 export type NoteOption = {
   id: string;
@@ -58,7 +58,7 @@ export type Question = {
   accounts?: Accounts;
   valueReferences?: ValueReference[];
   noteOptions?: NoteOption[];
-  documentReference?: DocumentReference;
+  documentReferences?: DocumentReference[];
   taxForm?: {
     title?: string;
     description?: string;

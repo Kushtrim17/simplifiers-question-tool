@@ -17,6 +17,7 @@ import { NoteSelector } from "./NoteSelector";
 import { ValueReferenceSelector } from "./ValueReferenceSelector";
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
 import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm.tsx";
+import { Grid } from "@/components/ui/grid.tsx";
 
 type Props = {
   question: Question;
@@ -116,11 +117,11 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleOnDocumentReferenceChanged = (
-    updatedDocumentReference: DocumentReference
+    updatedDocumentReferences: DocumentReference[]
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
-      documentReference: updatedDocumentReference,
+      documentReferences: updatedDocumentReferences,
     });
   };
 
@@ -325,15 +326,18 @@ export function QuestionEditMode(props: Props) {
         handleSave={handleUpdate}
       />
 
-      <QuestionTypeSelector
-        question={currentQuestion}
-        onQuestionTypeChange={handleQuestionTypeChange}
-      />
+      <Grid columns={2}>
+        <QuestionTypeSelector
+          question={currentQuestion}
+          onQuestionTypeChange={handleQuestionTypeChange}
+        />
+        <QuestionScopeSelector
+          question={currentQuestion}
+          onQuestionScopeChange={handleQuestionScopeChange}
+        />
+      </Grid>
 
-      <QuestionScopeSelector
-        question={currentQuestion}
-        onQuestionScopeChange={handleQuestionScopeChange}
-      />
+      <Separator className="mt-5 mb-5" />
 
       {currentQuestion.scope === "notes" && (
         <NoteSelector
@@ -368,6 +372,8 @@ export function QuestionEditMode(props: Props) {
         onAdd={handleOnAddExternalLink}
         onRemove={handleOnRemoveExternalLink}
       />
+
+      <Separator className="mt-5 mb-5" />
 
       <QuestionDependencySelector
         question={question}
