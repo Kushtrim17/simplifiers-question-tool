@@ -1,4 +1,4 @@
-import { Small } from "@/components/ui/Typography";
+import { Small, Medium } from "@/components/ui/Typography";
 import {
   Select,
   SelectContent,
@@ -67,6 +67,7 @@ export function QuestionDependencySelector(props: Props) {
 
   return (
     <>
+      <Medium className="mb-2">Dependency</Medium>
       <Small className="font-extrabold">Depends on question</Small>
       <Select
         defaultValue={getQuestionDependency()}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Small } from "@/components/ui/Typography";
+import { Small, Medium } from "@/components/ui/Typography";
 import { Question, ValueReference } from "../../types";
 import { badgeVariants } from "@/components/ui/badge";
 import { IoClose } from "react-icons/io5";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import {
   BALANCE_SHEET_REFERENCES,
   INCOME_STATEMENT_REFERENCES,
+  MANAGEMENT_REPORT_REFERENCES,
   TAX_DOCUMENT_REFERENCES,
 } from "./constants/valueReferenceConstants";
 import {
@@ -16,8 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import * as Popover from '@radix-ui/react-popover';
-import { Checkbox } from '@/components/ui/checkbox';
+import * as Popover from "@radix-ui/react-popover";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {
   question: Question;
@@ -25,6 +26,12 @@ type Props = {
     newValueReferences: ValueReference[] | null
   ) => void;
 };
+
+const titleMap: Record<string, string> = {
+  "tax": "Which value in Tax document should this question refer to?",
+  "managementReport": "Which value in Management Report this question refers to?",
+  "notes": "Which value in Annual Report this question refers to?",
+}
 
 // Helper to map a constant ValueReference (id, label) to the main ValueReference (cellId, triggerAnswer)
 const toMainValueReference = (ref: { id: string; label: string }, triggerAnswer: string): ValueReference => {
@@ -83,10 +90,7 @@ export function ValueReferenceSelector(props: Props) {
     return [];
   };
 
-  const title =
-    question.scope === "tax"
-      ? "Which value in Tax document should this question refer to?"
-      : "Which value in Annual Report this question refers to?";
+  const title = titleMap[question.scope];
 
   // Helper to render a group of checkboxes with a section selector
   const renderReferenceGroupWithSection = (
@@ -187,7 +191,7 @@ export function ValueReferenceSelector(props: Props) {
 
   return (
     <>
-      <Small className="font-extrabold">{title}</Small>
+      <Medium className="font-extrabold">{title}</Medium>
       <div className="mt-4 flex flex-row flex-wrap gap-x-4 gap-y-2">
         {valueReferences.length > 0 ? (
           valueReferences.map((ref) => (
@@ -195,15 +199,16 @@ export function ValueReferenceSelector(props: Props) {
               <a
                 href={ref.cellId}
                 target="_blank"
-                className={`${badgeVariants({ variant: "outline" })} h-[40px] min-w-[100px] justify-center items-center`}
+                className={`${badgeVariants({ variant: "outline" })} text-lg font-mono h-[40px] min-w-[100px] justify-center items-center flex`}
               >
                 {ref.cellId}
+
+                <IoClose
+                  size={20}
+                  className="ml-2 cursor-pointer"
+                  onClick={() => handleOnRemoveNoteOption(ref.cellId)}
+                />
               </a>
-              <IoClose
-                size={20}
-                className="mt-2 cursor-pointer"
-                onClick={() => handleOnRemoveNoteOption(ref.cellId)}
-              />
             </div>
           ))
         ) : (
@@ -211,33 +216,35 @@ export function ValueReferenceSelector(props: Props) {
         )}
       </div>
       <br />
+
       <Popover.Root>
         <Popover.Trigger asChild>
-          <Button variant="outline">Add reference</Button>
+          <Button variant="secondary">Add reference</Button>
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content className="bg-white border rounded shadow-lg p-4 w-80 max-h-96 overflow-y-auto z-50">
             <div className="font-bold mb-2">Available references</div>
-            {question.scope === "tax"
-              ? renderTaxDocumentReferencesWithSection()
-              : (
-                <>
-                  {renderReferenceGroupWithSection(BALANCE_SHEET_REFERENCES, 'Balance sheet')}
-                  {renderReferenceGroupWithSection(INCOME_STATEMENT_REFERENCES, 'Income statement')}
-                </>
-              )}
+            {question.scope === "tax" && renderTaxDocumentReferencesWithSection()}
+            {question.scope === "managementReport" && renderReferenceGroupWithSection(MANAGEMENT_REPORT_REFERENCES, 'Management report')}
+            {question.scope === "notes" && (
+              <>
+                {renderReferenceGroupWithSection(BALANCE_SHEET_REFERENCES, 'Balance sheet')}
+                {renderReferenceGroupWithSection(INCOME_STATEMENT_REFERENCES, 'Income statement')}
+              </>
+            )}
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
+
       <br />
       {valueReferences.length > 0 && (
         <>
-          <Small className="font-extrabold mb-2">
+          <Medium className="font-extrabold mb-2">
             Which question answer should enable each reference?
-          </Small>
+          </Medium>
           {valueReferences.map((ref) => (
             <div key={ref.cellId} className="mb-2">
-              <span className="mr-2 font-semibold">{ref.cellId}</span>
+              <span className="text-sm mr-2 font-mono">{ref.cellId}</span>
               <Select
                 defaultValue={getDefaultValue(ref.cellId)}
                 onValueChange={(newValue: string) =>
