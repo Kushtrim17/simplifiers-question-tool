@@ -15,8 +15,9 @@ import { AccountingHelp } from "./AccountingHelp";
 import { QuestionScopeSelector } from "./QuestionScopeSelector";
 import { NoteSelector } from "./NoteSelector";
 import { ValueReferenceSelector } from "./ValueReferenceSelector";
+import { ManagementReportValueReferenceSelector } from "./ManagementReportValueReferenceSelector";
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
-import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm.tsx";
+import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm";
 import { Grid } from "@/components/ui/grid.tsx";
 
 type Props = {
@@ -116,7 +117,7 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
-  const handleOnDocumentReferenceChanged = (
+  const handleOnDocumentReferencesChanged = (
     updatedDocumentReferences: DocumentReference[]
   ) => {
     onQuestionUpdate({
@@ -347,11 +348,22 @@ export function QuestionEditMode(props: Props) {
       )}
 
       {currentQuestion.scope != null &&
-        currentQuestion.scope !== "accounts" && (
+        ["notes", "tax"].includes(currentQuestion.scope)&& (
           <ValueReferenceSelector
             question={currentQuestion}
             onQuestionValueReferencesChanged={handleOnUpdateValueReferences}
           />
+        )}
+
+      {currentQuestion.scope != null &&
+        currentQuestion.scope === "managementReport" && (
+          <>
+            <ManagementReportValueReferenceSelector
+              question={currentQuestion}
+              onQuestionValueReferencesChanged={handleOnUpdateValueReferences}
+            />
+            <Separator className="mt-5 mb-5" />
+          </>
         )}
 
       <Separator className="mt-5 mb-5" />
@@ -361,7 +373,7 @@ export function QuestionEditMode(props: Props) {
           <>
             <DocumentReferenceSelector
               question={currentQuestion}
-              onDocumentReferenceChanged={handleOnDocumentReferenceChanged}
+              onDocumentReferencesChanged={handleOnDocumentReferencesChanged}
             />
             <Separator className="mt-5 mb-5" />
           </>

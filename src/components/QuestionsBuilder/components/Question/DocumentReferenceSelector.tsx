@@ -15,10 +15,10 @@ import { IoTrashBinOutline } from "react-icons/io5";
 
 type Props = {
   question: Question;
-  onDocumentReferenceChanged: (newDocumentReference: DocumentReference[]) => void;
+  onDocumentReferencesChanged: (newDocumentReferences: DocumentReference[]) => void;
 };
 
-const emptyDocumentReference = {
+const emptyDocumentReference: DocumentReference = {
   tableId: "",
   type: "",
   id: "",
@@ -27,7 +27,7 @@ const emptyDocumentReference = {
 
 export const DocumentReferenceSelector = (props: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { question, onDocumentReferenceChanged } = props;
+  const { question, onDocumentReferencesChanged } = props;
 
   const [documentReferences, setDocumentReferences] = useState<DocumentReference[]>(question.documentReferences || []);
 
@@ -39,25 +39,25 @@ export const DocumentReferenceSelector = (props: Props) => {
 
   const handleSave = (i: number, updatedDocumentReference: DocumentReference) => {
     const newRefs = getNewReferences(i, updatedDocumentReference)
-    onDocumentReferenceChanged(newRefs);
+    onDocumentReferencesChanged(newRefs);
 
     updateDocumentReference(i, updatedDocumentReference);
   };
 
   const handleAdd = () => {
     const updated = [...documentReferences, emptyDocumentReference] as DocumentReference[];
-    onDocumentReferenceChanged(updated);
+    onDocumentReferencesChanged(updated);
     setDocumentReferences(updated);
   }
 
   const handleDelete = (i: number) => {
     const updated = documentReferences.filter((_, index) => index !== i);
-    onDocumentReferenceChanged(updated);
+    onDocumentReferencesChanged(updated);
     setDocumentReferences(updated);
   }
 
   const handleSaveInput = () => {
-    onDocumentReferenceChanged(documentReferences);
+    onDocumentReferencesChanged(documentReferences);
   };
 
   return (
@@ -72,7 +72,7 @@ export const DocumentReferenceSelector = (props: Props) => {
 
           <Grid columns={2} key={i}>
             <div>
-              <Small className="font-extrabold">Document table id reference</Small>
+              <Small className="font-extrabold">Table id</Small>
               {/* Maybe we can have this as a dropdown instead  */}
               <Input
                 ref={inputRef}
@@ -90,7 +90,7 @@ export const DocumentReferenceSelector = (props: Props) => {
             </div>
 
             <div>
-              <Small className="font-extrabold">Document id reference</Small>
+              <Small className="font-extrabold">Id </Small>
               <Input
                 ref={inputRef}
                 value={documentReference.id}
@@ -107,7 +107,7 @@ export const DocumentReferenceSelector = (props: Props) => {
             </div>
 
             <div>
-              <Small className="font-extrabold">Document type reference</Small>
+              <Small className="font-extrabold">Type</Small>
               <Select
                 defaultValue={documentReference.type}
                 onValueChange={(newValue: string) => {
@@ -134,7 +134,7 @@ export const DocumentReferenceSelector = (props: Props) => {
 
             <div>
               <Small className="font-extrabold">
-                Document trigger answer reference
+                Trigger answer
               </Small>
               <Select
                 defaultValue={documentReference.triggerAnswer}
