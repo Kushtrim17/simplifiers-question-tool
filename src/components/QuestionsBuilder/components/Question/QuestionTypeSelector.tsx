@@ -17,7 +17,7 @@ export function QuestionTypeSelector(props: Props) {
   const { question, onQuestionTypeChange } = props;
 
   return (
-    <>
+    <div>
       <Small className="font-extrabold">Question Type</Small>
       <Select
         defaultValue={question.type}
@@ -29,10 +29,9 @@ export function QuestionTypeSelector(props: Props) {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="boolean">Yes or No</SelectItem>
-          <SelectItem value="voucher">Voucher</SelectItem>
           <SelectItem value="freeText">Free text</SelectItem>
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 }

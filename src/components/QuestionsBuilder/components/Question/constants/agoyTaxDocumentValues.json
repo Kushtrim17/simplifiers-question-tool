@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "U16",
+    "label": "U16"
+  },
+  {
+    "id": "result",
+    "label": "result"
+  },
+  {
+    "id": "taxToBook",
+    "label": "taxToBook"
+  },
+  {
+    "id": "companyTax",
+    "label": "companyTax"
+  },
+  {
+    "id": "resultToBook",
+    "label": "resultToBook"
+  },
+  {
+    "id": "taxToBook.to",
+    "label": "taxToBook.to"
+  },
+  {
+    "id": "accrualFund-1",
+    "label": "accrualFund-1"
+  },
+  {
+    "id": "accrualFund-2",
+    "label": "accrualFund-2"
+  },
+  {
+    "id": "accrualFund-3",
+    "label": "accrualFund-3"
+  },
+  {
+    "id": "accrualFund-5",
+    "label": "accrualFund-5"
+  },
+  {
+    "id": "accrualFund-6",
+    "label": "accrualFund-6"
+  },
+  {
+    "id": "adjustmentsSum",
+    "label": "adjustmentsSum"
+  },
+  {
+    "id": "taxToBook.from",
+    "label": "taxToBook.from"
+  },
+  {
+    "id": "templateIncome",
+    "label": "templateIncome"
+  },
+  {
+    "id": "accrualFundsSum",
+    "label": "accrualFundsSum"
+  },
+  {
+    "id": "resultToBook.to",
+    "label": "resultToBook.to"
+  },
+  {
+    "id": "bookedCompanyTax",
+    "label": "bookedCompanyTax"
+  },
+  {
+    "id": "propertyTaxTotal",
+    "label": "propertyTaxTotal"
+  },
+  {
+    "id": "sentCompensation",
+    "label": "sentCompensation"
+  },
+  {
+    "id": "bookedAccrualFund",
+    "label": "bookedAccrualFund"
+  },
+  {
+    "id": "nonTaxableIncomes",
+    "label": "nonTaxableIncomes"
+  },
+  {
+    "id": "resultBeforeTaxes",
+    "label": "resultBeforeTaxes"
+  },
+  {
+    "id": "resultToBook.from",
+    "label": "resultToBook.from"
+  },
+  {
+    "id": "taxCalculationSum",
+    "label": "taxCalculationSum"
+  },
+  {
+    "id": "totalAccrualFunds",
+    "label": "totalAccrualFunds"
+  },
+  {
+    "id": "calculationAccrual",
+    "label": "calculationAccrual"
+  },
+  {
+    "id": "yearEndPlanningSum",
+    "label": "yearEndPlanningSum"
+  },
+  {
+    "id": "yearsTaxableResult",
+    "label": "yearsTaxableResult"
+  },
+  {
+    "id": "alreadyBookedResult",
+    "label": "alreadyBookedResult"
+  },
+  {
+    "id": "nonTaxableIncomesSum",
+    "label": "nonTaxableIncomesSum"
+  },
+  {
+    "id": "accrualFund-1.account",
+    "label": "accrualFund-1.account"
+  },
+  {
+    "id": "accrualFund-2.account",
+    "label": "accrualFund-2.account"
+  },
+  {
+    "id": "accrualFund-3.account",
+    "label": "accrualFund-3.account"
+  },
+  {
+    "id": "accrualFund-4.account",
+    "label": "accrualFund-4.account"
+  },
+  {
+    "id": "accrualFund-5.account",
+    "label": "accrualFund-5.account"
+  },
+  {
+    "id": "accrualFund-6.account",
+    "label": "accrualFund-6.account"
+  },
+  {
+    "id": "nonDeductibleExpenses",
+    "label": "nonDeductibleExpenses"
+  },
+  {
+    "id": "accrualFundsCompanyTax",
+    "label": "accrualFundsCompanyTax"
+  },
+  {
+    "id": "chosenOtherAdjustment1",
+    "label": "chosenOtherAdjustment1"
+  },
+  {
+    "id": "chosenOtherAdjustment2",
+    "label": "chosenOtherAdjustment2"
+  },
+  {
+    "id": "particularSalaryTaxSum",
+    "label": "particularSalaryTaxSum"
+  },
+  {
+    "id": "changeOfReplacementFund",
+    "label": "changeOfReplacementFund"
+  },
+  {
+    "id": "expandedVouchers.yearTax",
+    "label": "expandedVouchers.yearTax"
+  },
+  {
+    "id": "nonDeductibleExpensesSum",
+    "label": "nonDeductibleExpensesSum"
+  },
+  {
+    "id": "chosenOtherAdjustment1.to",
+    "label": "chosenOtherAdjustment1.to"
+  },
+  {
+    "id": "chosenOtherAdjustment2.to",
+    "label": "chosenOtherAdjustment2.to"
+  },
+  {
+    "id": "particularSalaryTaxToBook",
+    "label": "particularSalaryTaxToBook"
+  },
+  {
+    "id": "templateIncomeAccrualFund",
+    "label": "templateIncomeAccrualFund"
+  },
+  {
+    "id": "particularSalaryTaxFromSum",
+    "label": "particularSalaryTaxFromSum"
+  },
+  {
+    "id": "resultBeforeFrom3000to8799",
+    "label": "resultBeforeFrom3000to8799"
+  },
+  {
+    "id": "chosenOtherAdjustment1.from",
+    "label": "chosenOtherAdjustment1.from"
+  },
+  {
+    "id": "chosenOtherAdjustment2.from",
+    "label": "chosenOtherAdjustment2.from"
+  },
+  {
+    "id": "chosenReversalOfAccrualFund",
+    "label": "chosenReversalOfAccrualFund"
+  },
+  {
+    "id": "expandedVouchers.yearResult",
+    "label": "expandedVouchers.yearResult"
+  },
+  {
+    "id": "forcedReversalOfAccrualFund",
+    "label": "forcedReversalOfAccrualFund"
+  },
+  {
+    "id": "accrualFundsAccountNumberSum",
+    "label": "accrualFundsAccountNumberSum"
+  },
+  {
+    "id": "bookedSentGroupContributions",
+    "label": "bookedSentGroupContributions"
+  },
+  {
+    "id": "chosenSentGroupContributions",
+    "label": "chosenSentGroupContributions"
+  },
+  {
+    "id": "expandedVouchers.propertyTax",
+    "label": "expandedVouchers.propertyTax"
+  },
+  {
+    "id": "firstBookedOtherDispositions",
+    "label": "firstBookedOtherDispositions"
+  },
+  {
+    "id": "overdepreciation.totalAmount",
+    "label": "overdepreciation.totalAmount"
+  },
+  {
+    "id": "particularSalaryTaxToBook.to",
+    "label": "particularSalaryTaxToBook.to"
+  },
+  {
+    "id": "chosenDepositionToAccrualFund",
+    "label": "chosenDepositionToAccrualFund"
+  },
+  {
+    "id": "expandedVouchers.accrualFunds",
+    "label": "expandedVouchers.accrualFunds"
+  },
+  {
+    "id": "secondBookedOtherDispositions",
+    "label": "secondBookedOtherDispositions"
+  },
+  {
+    "id": "notYetBookedParticualSalaryTax",
+    "label": "notYetBookedParticualSalaryTax"
+  },
+  {
+    "id": "particularSalaryTaxToBook.from",
+    "label": "particularSalaryTaxToBook.from"
+  },
+  {
+    "id": "chosenSentGroupContributions.to",
+    "label": "chosenSentGroupContributions.to"
+  },
+  {
+    "id": "alreadyBookedParticularSalaryTax",
+    "label": "alreadyBookedParticularSalaryTax"
+  },
+  {
+    "id": "bookedReceivedGroupContributions",
+    "label": "bookedReceivedGroupContributions"
+  },
+  {
+    "id": "chosenDecreaseOfOverdepreciation",
+    "label": "chosenDecreaseOfOverdepreciation"
+  },
+  {
+    "id": "chosenIncreaseOfOverdepreciation",
+    "label": "chosenIncreaseOfOverdepreciation"
+  },
+  {
+    "id": "chosenReceivedGroupContributions",
+    "label": "chosenReceivedGroupContributions"
+  },
+  {
+    "id": "chosenSentGroupContributions.from",
+    "label": "chosenSentGroupContributions.from"
+  },
+  {
+    "id": "expandedVouchers.intangibleAssets",
+    "label": "expandedVouchers.intangibleAssets"
+  },
+  {
+    "id": "particularSalaryTax.itp.unpaidITP",
+    "label": "particularSalaryTax.itp.unpaidITP"
+  },
+  {
+    "id": "yearTaxVoucher.taxToBook_to.label",
+    "label": "yearTaxVoucher.taxToBook_to.label"
+  },
+  {
+    "id": "yearTaxVoucher.taxToBook_to.value",
+    "label": "yearTaxVoucher.taxToBook_to.value"
+  },
+  {
+    "id": "maxPossibleDepositionToAccrualFund",
+    "label": "maxPossibleDepositionToAccrualFund"
+  },
+  {
+    "id": "particularSalaryTax.itp.unpaidITPK",
+    "label": "particularSalaryTax.itp.unpaidITPK"
+  },
+  {
+    "id": "chosenAndBookedDepositToAccrualFund",
+    "label": "chosenAndBookedDepositToAccrualFund"
+  },
+  {
+    "id": "chosenDecreaseOfOverdepreciation.to",
+    "label": "chosenDecreaseOfOverdepreciation.to"
+  },
+  {
+    "id": "chosenIncreaseOfOverdepreciation.to",
+    "label": "chosenIncreaseOfOverdepreciation.to"
+  },
+  {
+    "id": "chosenReceivedGroupContributions.to",
+    "label": "chosenReceivedGroupContributions.to"
+  },
+  {
+    "id": "particularSalaryTax.fora.salaryBase",
+    "label": "particularSalaryTax.fora.salaryBase"
+  },
+  {
+    "id": "particularSalaryTax.fora.unpaidFORA",
+    "label": "particularSalaryTax.fora.unpaidFORA"
+  },
+  {
+    "id": "particularSalaryTax.itp.itpPremiums",
+    "label": "particularSalaryTax.itp.itpPremiums"
+  },
+  {
+    "id": "yearTaxVoucher.taxToBook_from.label",
+    "label": "yearTaxVoucher.taxToBook_from.label"
+  },
+  {
+    "id": "yearTaxVoucher.taxToBook_from.value",
+    "label": "yearTaxVoucher.taxToBook_from.value"
+  },
+  {
+    "id": "yearTaxVoucher.taxToBook_to.account",
+    "label": "yearTaxVoucher.taxToBook_to.account"
+  },
+  {
+    "id": "expandedVouchers.particularSalaryTax",
+    "label": "expandedVouchers.particularSalaryTax"
+  },
+  {
+    "id": "particularSalaryTax.fora.accountsSum",
+    "label": "particularSalaryTax.fora.accountsSum"
+  },
+  {
+    "id": "chosenDecreaseOfOverdepreciation.from",
+    "label": "chosenDecreaseOfOverdepreciation.from"
+  },
+  {
+    "id": "chosenIncreaseOfOverdepreciation.from",
+    "label": "chosenIncreaseOfOverdepreciation.from"
+  },
+  {
+    "id": "chosenReceivedGroupContributions.from",
+    "label": "chosenReceivedGroupContributions.from"
+  },
+  {
+    "id": "expandedVouchers.machinesAndInventory",
+    "label": "expandedVouchers.machinesAndInventory"
+  },
+  {
+    "id": "maxPossibleDepositionToAccrualFundU12",
+    "label": "maxPossibleDepositionToAccrualFundU12"
+  },
+  {
+    "id": "resultAfterYearEndPlanningBeforeTaxes",
+    "label": "resultAfterYearEndPlanningBeforeTaxes"
+  },
+  {
+    "id": "yearTaxVoucher.taxToBook_from.account",
+    "label": "yearTaxVoucher.taxToBook_from.account"
+  },
+  {
+    "id": "forcedReversalOfAccrualFundMinusBooked",
+    "label": "forcedReversalOfAccrualFundMinusBooked"
+  },
+  {
+    "id": "furtherPossibleDepositionToAccrualFund",
+    "label": "furtherPossibleDepositionToAccrualFund"
+  },
+  {
+    "id": "particularSalaryTax.itp.unpaidITPKNote",
+    "label": "particularSalaryTax.itp.unpaidITPKNote"
+  },
+  {
+    "id": "accrualFundsForcedReversalOfAccrualFund",
+    "label": "accrualFundsForcedReversalOfAccrualFund"
+  },
+  {
+    "id": "maxPossibleDepositionToAccrualFundLabel",
+    "label": "maxPossibleDepositionToAccrualFundLabel"
+  },
+  {
+    "id": "particularSalaryTax.itp.ITPKPremiumsSum",
+    "label": "particularSalaryTax.itp.ITPKPremiumsSum"
+  },
+  {
+    "id": "yearResultVoucher.resultToBook_to.label",
+    "label": "yearResultVoucher.resultToBook_to.label"
+  },
+  {
+    "id": "yearResultVoucher.resultToBook_to.value",
+    "label": "yearResultVoucher.resultToBook_to.value"
+  },
+  {
+    "id": "expandedVouchers.otherAdjustmentsVoucher",
+    "label": "expandedVouchers.otherAdjustmentsVoucher"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.active",
+    "label": "overdepreciation.intangibleAssets.active"
+  },
+  {
+    "id": "particularSalaryTax.fora.accruedDebtNote",
+    "label": "particularSalaryTax.fora.accruedDebtNote"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.1.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.1.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.1.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.1.ub"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.2.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.2.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.2.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.2.ub"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.3.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.3.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.3.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.3.ub"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.4.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.4.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.4.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.4.ub"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.5.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.5.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.5.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.5.ub"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.6.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.6.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.6.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.6.ub"
+  },
+  {
+    "id": "expandedVouchers.groupContributionVoucher",
+    "label": "expandedVouchers.groupContributionVoucher"
+  },
+  {
+    "id": "maxPossibleFurtherDepositionToAccrualFund",
+    "label": "maxPossibleFurtherDepositionToAccrualFund"
+  },
+  {
+    "id": "maxPossibleReversalOfAccrualFundNotForced",
+    "label": "maxPossibleReversalOfAccrualFundNotForced"
+  },
+  {
+    "id": "particularSalaryTax.fora.accounts.1.label",
+    "label": "particularSalaryTax.fora.accounts.1.label"
+  },
+  {
+    "id": "particularSalaryTax.fora.accounts.1.value",
+    "label": "particularSalaryTax.fora.accounts.1.value"
+  },
+  {
+    "id": "yearResultVoucher.resultToBook_from.label",
+    "label": "yearResultVoucher.resultToBook_from.label"
+  },
+  {
+    "id": "yearResultVoucher.resultToBook_from.value",
+    "label": "yearResultVoucher.resultToBook_from.value"
+  },
+  {
+    "id": "yearResultVoucher.resultToBook_to.account",
+    "label": "yearResultVoucher.resultToBook_to.account"
+  },
+  {
+    "id": "particularSalaryTax.fora.accruedDebtToFORA",
+    "label": "particularSalaryTax.fora.accruedDebtToFORA"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.1.date",
+    "label": "accrualFunds.depositionOfAccrualFund.1.date"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.2.date",
+    "label": "accrualFunds.depositionOfAccrualFund.2.date"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.3.date",
+    "label": "accrualFunds.depositionOfAccrualFund.3.date"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.4.date",
+    "label": "accrualFunds.depositionOfAccrualFund.4.date"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.5.date",
+    "label": "accrualFunds.depositionOfAccrualFund.5.date"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.6.date",
+    "label": "accrualFunds.depositionOfAccrualFund.6.date"
+  },
+  {
+    "id": "particularSalaryTax.isDetailedSpecification",
+    "label": "particularSalaryTax.isDetailedSpecification"
+  },
+  {
+    "id": "particularSalaryTax.summarize.taxToBeBooked",
+    "label": "particularSalaryTax.summarize.taxToBeBooked"
+  },
+  {
+    "id": "particularSalaryTax.summarize.taxationBasis",
+    "label": "particularSalaryTax.summarize.taxationBasis"
+  },
+  {
+    "id": "yearResultVoucher.resultToBook_from.account",
+    "label": "yearResultVoucher.resultToBook_from.account"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.active",
+    "label": "overdepreciation.machinesAndInventory.active"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.1.change",
+    "label": "accrualFunds.depositionOfAccrualFund.1.change"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.2.change",
+    "label": "accrualFunds.depositionOfAccrualFund.2.change"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.3.change",
+    "label": "accrualFunds.depositionOfAccrualFund.3.change"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.4.change",
+    "label": "accrualFunds.depositionOfAccrualFund.4.change"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.5.change",
+    "label": "accrualFunds.depositionOfAccrualFund.5.change"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.6.change",
+    "label": "accrualFunds.depositionOfAccrualFund.6.change"
+  },
+  {
+    "id": "chosenAndReversalOfAccrualFundIncludingForced",
+    "label": "chosenAndReversalOfAccrualFundIncludingForced"
+  },
+  {
+    "id": "expandedVouchers.buildingsAndGroundFacilities",
+    "label": "expandedVouchers.buildingsAndGroundFacilities"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.useMainRule",
+    "label": "overdepreciation.intangibleAssets.useMainRule"
+  },
+  {
+    "id": "furtherPossibleDepositionToAccrualFundWithChosen",
+    "label": "furtherPossibleDepositionToAccrualFundWithChosen"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.useMainRule",
+    "label": "overdepreciation.machinesAndInventory.useMainRule"
+  },
+  {
+    "id": "particularSalaryTax.fora.accounts.1.accountNumber",
+    "label": "particularSalaryTax.fora.accounts.1.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.fora.paidPremiumsPreviousYear",
+    "label": "particularSalaryTax.fora.paidPremiumsPreviousYear"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.sum.value",
+    "label": "particularSalaryTax.itp.helper.premiums.sum.value"
+  },
+  {
+    "id": "particularSalaryTax.summarize.particularSalaryTax",
+    "label": "particularSalaryTax.summarize.particularSalaryTax"
+  },
+  {
+    "id": "particularSalaryTax.notYetBookedParticualSalaryTax",
+    "label": "particularSalaryTax.notYetBookedParticualSalaryTax"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.disposal",
+    "label": "overdepreciation.intangibleAssets.mainRule.disposal"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayRollTaxSum",
+    "label": "particularSalaryTax.summarize.recordedPayRollTaxSum"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.1.accountNumber",
+    "label": "accrualFunds.depositionOfAccrualFund.1.accountNumber"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.2.accountNumber",
+    "label": "accrualFunds.depositionOfAccrualFund.2.accountNumber"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.3.accountNumber",
+    "label": "accrualFunds.depositionOfAccrualFund.3.accountNumber"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.4.accountNumber",
+    "label": "accrualFunds.depositionOfAccrualFund.4.accountNumber"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.5.accountNumber",
+    "label": "accrualFunds.depositionOfAccrualFund.5.accountNumber"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.6.accountNumber",
+    "label": "accrualFunds.depositionOfAccrualFund.6.accountNumber"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.1.ub",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.1.ub"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.2.ub",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.2.ub"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.3.ub",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.3.ub"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.4.ub",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.4.ub"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.5.ub",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.5.ub"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.6.ub",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.6.ub"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.active",
+    "label": "overdepreciation.buildingsAndGroundFacilities.active"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.deduction",
+    "label": "overdepreciation.intangibleAssets.mainRule.deduction"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.other.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.other.sum"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.sum.label",
+    "label": "particularSalaryTax.fora.helper.salaryBase.sum.label"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.sum.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.sum.value"
+  },
+  {
+    "id": "particularSalaryTax.itp.ITPKPremiums.1.accountNumber",
+    "label": "particularSalaryTax.itp.ITPKPremiums.1.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.other.note",
+    "label": "particularSalaryTax.fora.helper.salaryBase.other.note"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.other.label",
+    "label": "particularSalaryTax.fora.helper.salaryBase.other.label"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.other.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.other.value"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment1_to.label",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment1_to.label"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment1_to.value",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment1_to.value"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment2_to.label",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment2_to.label"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment2_to.value",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment2_to.value"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.disposal",
+    "label": "overdepreciation.machinesAndInventory.mainRule.disposal"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.tglPremiums.sum",
+    "label": "particularSalaryTax.itp.helper.premiums.tglPremiums.sum"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.deduction",
+    "label": "overdepreciation.machinesAndInventory.mainRule.deduction"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.1.label",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.1.label"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.1.value",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.1.value"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.2.label",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.2.label"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.2.value",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.2.value"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.3.label",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.3.label"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.3.value",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.3.value"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.4.label",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.4.label"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.4.value",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.4.value"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment1_from.label",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment1_from.label"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment1_from.value",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment1_from.value"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment1_to.account",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment1_to.account"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment2_from.label",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment2_from.label"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment2_from.value",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment2_from.value"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment2_to.account",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment2_to.account"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.useMainRule",
+    "label": "overdepreciation.buildingsAndGroundFacilities.useMainRule"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.totalSum.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.totalSum.value"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.tglPremiums.value",
+    "label": "particularSalaryTax.itp.helper.premiums.tglPremiums.value"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.tglPremiums.value2",
+    "label": "particularSalaryTax.itp.helper.premiums.tglPremiums.value2"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment1_from.account",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment1_from.account"
+  },
+  {
+    "id": "otherAdjustmentsVoucher.chosenOtherAdjustment2_from.account",
+    "label": "otherAdjustmentsVoucher.chosenOtherAdjustment2_from.account"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.other.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.other.percentage"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.1.percentage",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.1.percentage"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.2.percentage",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.2.percentage"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.3.percentage",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.3.percentage"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.4.percentage",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.4.percentage"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.5.percentage",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.5.percentage"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.6.percentage",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.6.percentage"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.mainRule.depreciationBasis"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.bookedPremiums.value",
+    "label": "particularSalaryTax.itp.helper.premiums.bookedPremiums.value"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.pensionProvisions",
+    "label": "particularSalaryTax.otherPensionCommitments.pensionProvisions"
+  },
+  {
+    "id": "groupContributionVoucher.chosenSentGroupContributions_to.label",
+    "label": "groupContributionVoucher.chosenSentGroupContributions_to.label"
+  },
+  {
+    "id": "groupContributionVoucher.chosenSentGroupContributions_to.value",
+    "label": "groupContributionVoucher.chosenSentGroupContributions_to.value"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.annualSalaryUpTo75.sum",
+    "label": "particularSalaryTax.itp.helper.premiums.annualSalaryUpTo75.sum"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.tglPremiums.percentage",
+    "label": "particularSalaryTax.itp.helper.premiums.tglPremiums.percentage"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenDepositionToAccrualFund_to.label",
+    "label": "accrualFunds.adjustments.chosenDepositionToAccrualFund_to.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenDepositionToAccrualFund_to.value",
+    "label": "accrualFunds.adjustments.chosenDepositionToAccrualFund_to.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_from.label",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_from.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_from.value",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_from.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_1.label",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_1.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_1.value",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_1.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_2.label",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_2.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_2.value",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_2.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_3.label",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_3.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_3.value",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_3.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_4.label",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_4.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_4.value",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_4.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_5.label",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_5.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_5.value",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_5.value"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.1.accountNumber",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.1.accountNumber"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.2.accountNumber",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.2.accountNumber"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.3.accountNumber",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.3.accountNumber"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.4.accountNumber",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.4.accountNumber"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.5.accountNumber",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.5.accountNumber"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.6.accountNumber",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.6.accountNumber"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.disposal",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.disposal"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.annualSalaryAbove75.sum",
+    "label": "particularSalaryTax.itp.helper.premiums.annualSalaryAbove75.sum"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.1.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.1.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.1.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.1.reversalAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.2.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.2.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.2.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.2.reversalAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.3.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.3.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.3.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.3.reversalAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.4.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.4.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.4.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.4.reversalAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.5.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.5.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.5.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.5.reversalAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.6.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.6.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.6.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.6.reversalAmount"
+  },
+  {
+    "id": "groupContributionVoucher.chosenSentGroupContributions_from.label",
+    "label": "groupContributionVoucher.chosenSentGroupContributions_from.label"
+  },
+  {
+    "id": "groupContributionVoucher.chosenSentGroupContributions_from.value",
+    "label": "groupContributionVoucher.chosenSentGroupContributions_from.value"
+  },
+  {
+    "id": "groupContributionVoucher.chosenSentGroupContributions_to.account",
+    "label": "groupContributionVoucher.chosenSentGroupContributions_to.account"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.deduction",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.deduction"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.insuranceCompensation",
+    "label": "overdepreciation.intangibleAssets.mainRule.insuranceCompensation"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.mainRule.depreciationBasis"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearSum.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearSum.value"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.annualSalaryUpTo75.value",
+    "label": "particularSalaryTax.itp.helper.premiums.annualSalaryUpTo75.value"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.1.accountNumber",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.1.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.2.accountNumber",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.2.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.3.accountNumber",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.3.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.summarize.recordedPayrollTax.4.accountNumber",
+    "label": "particularSalaryTax.summarize.recordedPayrollTax.4.accountNumber"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenDepositionToAccrualFund_from.label",
+    "label": "accrualFunds.adjustments.chosenDepositionToAccrualFund_from.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenDepositionToAccrualFund_from.value",
+    "label": "accrualFunds.adjustments.chosenDepositionToAccrualFund_from.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenDepositionToAccrualFund_to.account",
+    "label": "accrualFunds.adjustments.chosenDepositionToAccrualFund_to.account"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_from.account",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_from.account"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_1.account",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_1.account"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_2.account",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_2.account"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_3.account",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_3.account"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_4.account",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_4.account"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_5.account",
+    "label": "accrualFunds.adjustments.chosenReversalOfAccrualFund_to_5.account"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearDiff.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearDiff.value"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.annualSalaryAbove75.value",
+    "label": "particularSalaryTax.itp.helper.premiums.annualSalaryAbove75.value"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.pensionProvisionsNote",
+    "label": "particularSalaryTax.otherPensionCommitments.pensionProvisionsNote"
+  },
+  {
+    "id": "groupContributionVoucher.chosenReceivedGroupContributions_to.label",
+    "label": "groupContributionVoucher.chosenReceivedGroupContributions_to.label"
+  },
+  {
+    "id": "groupContributionVoucher.chosenReceivedGroupContributions_to.value",
+    "label": "groupContributionVoucher.chosenReceivedGroupContributions_to.value"
+  },
+  {
+    "id": "groupContributionVoucher.chosenSentGroupContributions_from.account",
+    "label": "groupContributionVoucher.chosenSentGroupContributions_from.account"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.depreciationBasis"
+  },
+  {
+    "id": "accrualFunds.adjustments.chosenDepositionToAccrualFund_from.account",
+    "label": "accrualFunds.adjustments.chosenDepositionToAccrualFund_from.account"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.totalDepositionOfAccrualFund.ib",
+    "label": "accrualFunds.depositionOfAccrualFund.totalDepositionOfAccrualFund.ib"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.totalDepositionOfAccrualFund.ub",
+    "label": "accrualFunds.depositionOfAccrualFund.totalDepositionOfAccrualFund.ub"
+  },
+  {
+    "id": "groupContributionVoucher.chosenReceivedGroupContributions_from.label",
+    "label": "groupContributionVoucher.chosenReceivedGroupContributions_from.label"
+  },
+  {
+    "id": "groupContributionVoucher.chosenReceivedGroupContributions_from.value",
+    "label": "groupContributionVoucher.chosenReceivedGroupContributions_from.value"
+  },
+  {
+    "id": "groupContributionVoucher.chosenReceivedGroupContributions_to.account",
+    "label": "groupContributionVoucher.chosenReceivedGroupContributions_to.account"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.insuranceCompensation",
+    "label": "overdepreciation.machinesAndInventory.mainRule.insuranceCompensation"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.paymentPensionFoundation",
+    "label": "particularSalaryTax.otherPensionCommitments.paymentPensionFoundation"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.premiumWaiverInsurance.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.premiumWaiverInsurance.sum"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.annualSalaryUpTo75.percentage",
+    "label": "particularSalaryTax.itp.helper.premiums.annualSalaryUpTo75.percentage"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.otherPensionInsurancesSum",
+    "label": "particularSalaryTax.otherPensionCommitments.otherPensionInsurancesSum"
+  },
+  {
+    "id": "groupContributionVoucher.chosenReceivedGroupContributions_from.account",
+    "label": "groupContributionVoucher.chosenReceivedGroupContributions_from.account"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.particularlyHighExpenditure",
+    "label": "overdepreciation.intangibleAssets.mainRule.particularlyHighExpenditure"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.depreciationBasis"
+  },
+  {
+    "id": "particularSalaryTax.finacialStatementVerification.transactions.1.debit",
+    "label": "particularSalaryTax.finacialStatementVerification.transactions.1.debit"
+  },
+  {
+    "id": "particularSalaryTax.finacialStatementVerification.transactions.2.debit",
+    "label": "particularSalaryTax.finacialStatementVerification.transactions.2.debit"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.sum"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.sum"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.annualSalaryAbove75.percentage",
+    "label": "particularSalaryTax.itp.helper.premiums.annualSalaryAbove75.percentage"
+  },
+  {
+    "id": "particularSalaryTax.finacialStatementVerification.transactions.1.credit",
+    "label": "particularSalaryTax.finacialStatementVerification.transactions.1.credit"
+  },
+  {
+    "id": "particularSalaryTax.finacialStatementVerification.transactions.2.credit",
+    "label": "particularSalaryTax.finacialStatementVerification.transactions.2.credit"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.note",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.note"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.note",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.note"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.sum"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.premiumWaiverInsurance.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.premiumWaiverInsurance.value"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurancesSum",
+    "label": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurancesSum"
+  },
+  {
+    "id": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_to.label",
+    "label": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_to.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_to.value",
+    "label": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_to.value"
+  },
+  {
+    "id": "accrualFunds.depositionOfAccrualFund.totalDepositionOfAccrualFund.change",
+    "label": "accrualFunds.depositionOfAccrualFund.totalDepositionOfAccrualFund.change"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.depreciationBasis"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.value"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.value"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.sum"
+  },
+  {
+    "id": "particularSalaryTax.itp.helper.premiums.invoicesForPensionPremiums.value",
+    "label": "particularSalaryTax.itp.helper.premiums.invoicesForPensionPremiums.value"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.paymentPensionFoundationNote",
+    "label": "particularSalaryTax.otherPensionCommitments.paymentPensionFoundationNote"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_from.label",
+    "label": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_from.label"
+  },
+  {
+    "id": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_from.value",
+    "label": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_from.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_to.account",
+    "label": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_to.account"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.particularlyHighExpenditure",
+    "label": "overdepreciation.machinesAndInventory.mainRule.particularlyHighExpenditure"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.title",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.title"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.value"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.compensationPensionCommitments",
+    "label": "particularSalaryTax.otherPensionCommitments.compensationPensionCommitments"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.otherPensionInsurances.1.label",
+    "label": "particularSalaryTax.otherPensionCommitments.otherPensionInsurances.1.label"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.otherPensionInsurances.1.value",
+    "label": "particularSalaryTax.otherPensionCommitments.otherPensionInsurances.1.value"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.date",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.date"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.date",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.date"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.date",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.date"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.date",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.date"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.date",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.date"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.1.label",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.1.label"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.1.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.1.value"
+  },
+  {
+    "id": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_from.account",
+    "label": "accrualFunds.adjustments.forcedReversalOfAccrualFundMinusBooked_from.account"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.insuranceCompensation",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.insuranceCompensation"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.basis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.basis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.basis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.basis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.basis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.basis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.basis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.basis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.basis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.basis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.excessDepreciation.closingPlannedBookValue",
+    "label": "overdepreciation.intangibleAssets.excessDepreciation.closingPlannedBookValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.excessDepreciation.depositionOrDissolution",
+    "label": "overdepreciation.intangibleAssets.excessDepreciation.depositionOrDissolution"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.1.label",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.1.label"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.1.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.1.value"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.premiumWaiverInsurance.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.premiumWaiverInsurance.percentage"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.severanceSupplementaryPension.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.severanceSupplementaryPension.sum"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurances.1.label",
+    "label": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurances.1.label"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurances.1.value",
+    "label": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurances.1.value"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase1.percentage"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.adjustmentOfSalaryBase2.percentage"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.closingTaxValueOfThePreviousTaxYear",
+    "label": "overdepreciation.intangibleAssets.mainRule.closingTaxValueOfThePreviousTaxYear"
+  },
+  {
+    "id": "particularSalaryTax.finacialStatementVerification.transactions.1.accountNumber",
+    "label": "particularSalaryTax.finacialStatementVerification.transactions.1.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.finacialStatementVerification.transactions.2.accountNumber",
+    "label": "particularSalaryTax.finacialStatementVerification.transactions.2.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.percentage"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.severanceSupplementaryPension.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.severanceSupplementaryPension.value"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.compensationPensionCommitmentsNote",
+    "label": "particularSalaryTax.otherPensionCommitments.compensationPensionCommitmentsNote"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.date",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.date"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.date",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.date"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.date",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.date"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.date",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.date"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.date",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.date"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.percentage"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.deduction",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.deduction"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.deduction",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.deduction"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.deduction",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.deduction"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.deduction",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.deduction"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.deduction",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.deduction"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.basis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.basis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.basis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.basis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.basis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.basis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.basis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.basis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.basis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.basis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.excessDepreciation.closingPlannedBookValue",
+    "label": "overdepreciation.machinesAndInventory.excessDepreciation.closingPlannedBookValue"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.excessDepreciation.depositionOrDissolution",
+    "label": "overdepreciation.machinesAndInventory.excessDepreciation.depositionOrDissolution"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearPremiumWaiverInsurance.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearPremiumWaiverInsurance.sum"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.particularlyHighExpenditure",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.particularlyHighExpenditure"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.closingTaxValueOfThePreviousTaxYear",
+    "label": "overdepreciation.machinesAndInventory.mainRule.closingTaxValueOfThePreviousTaxYear"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.otherPensionInsurances.1.accountNumber",
+    "label": "particularSalaryTax.otherPensionCommitments.otherPensionInsurances.1.accountNumber"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_to.label",
+    "label": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_to.label"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_to.value",
+    "label": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_to.value"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.1.accountNumber",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionOver75.1.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionOver75.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionOver75.sum"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearPremiumWaiverInsurance.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearPremiumWaiverInsurance.value"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.severanceSupplementaryPension.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.severanceSupplementaryPension.percentage"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.deduction",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.deduction"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.deduction",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.deduction"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.deduction",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.deduction"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.deduction",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.deduction"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.deduction",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.deduction"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.1.accountNumber",
+    "label": "particularSalaryTax.fora.helper.salaryBase.contractualPensionBelow75.1.accountNumber"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionBelow75.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionBelow75.sum"
+  },
+  {
+    "id": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurances.1.accountNumber",
+    "label": "particularSalaryTax.otherPensionCommitments.foreignPensionInsurances.1.accountNumber"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_from.label",
+    "label": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_from.label"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_from.value",
+    "label": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_from.value"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_to.account",
+    "label": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_to.account"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionOver75.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionOver75.value"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.yearAcquisitionsThatRemainAtTheEndOfTheYear",
+    "label": "overdepreciation.intangibleAssets.mainRule.yearAcquisitionsThatRemainAtTheEndOfTheYear"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionBelow75.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionBelow75.value"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.date",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.date"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.date",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.date"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.date",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.date"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.date",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.date"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.date",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.date"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.mainRule.minimumAllowedTaxValueAccordingToTheMainRule",
+    "label": "overdepreciation.intangibleAssets.mainRule.minimumAllowedTaxValueAccordingToTheMainRule"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_from.account",
+    "label": "overdepreciation.intangibleAssets.overDepreciationVoucher.overDepreciation_from.account"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_to.label",
+    "label": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_to.label"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_to.value",
+    "label": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_to.value"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.basis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.basis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.basis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.basis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.basis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.basis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.basis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.basis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.basis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.basis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.closingPlannedBookValue",
+    "label": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.closingPlannedBookValue"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.depositionOrDissolution",
+    "label": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.depositionOrDissolution"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.depreciationBasis"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearPremiumWaiverInsurance.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearPremiumWaiverInsurance.percentage"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearSeveranceSupplementaryPension.sum",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearSeveranceSupplementaryPension.sum"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.totalAccrualInterestAmount.interestAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.totalAccrualInterestAmount.interestAmount"
+  },
+  {
+    "id": "accrualFunds.specificationReversalOfAccrualFund.totalAccrualInterestAmount.reversalAmount",
+    "label": "accrualFunds.specificationReversalOfAccrualFund.totalAccrualInterestAmount.reversalAmount"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.excessDepreciation.openingAccumulatedExcessDepreciation",
+    "label": "overdepreciation.intangibleAssets.excessDepreciation.openingAccumulatedExcessDepreciation"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_from.label",
+    "label": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_from.label"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_from.value",
+    "label": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_from.value"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_to.account",
+    "label": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_to.account"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.closingTaxValueOfThePreviousTaxYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.closingTaxValueOfThePreviousTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.yearAcquisitionsThatRemainAtTheEndOfTheYear",
+    "label": "overdepreciation.machinesAndInventory.mainRule.yearAcquisitionsThatRemainAtTheEndOfTheYear"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionOver75.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionOver75.percentage"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearSeveranceSupplementaryPension.value",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearSeveranceSupplementaryPension.value"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.excessDepreciation.totalSelectedRuleForExcessDepreciation",
+    "label": "overdepreciation.intangibleAssets.excessDepreciation.totalSelectedRuleForExcessDepreciation"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.mainRule.minimumAllowedTaxValueAccordingToTheMainRule",
+    "label": "overdepreciation.machinesAndInventory.mainRule.minimumAllowedTaxValueAccordingToTheMainRule"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_from.account",
+    "label": "overdepreciation.machinesAndInventory.overDepreciationVoucher.overDepreciation_from.account"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionBelow75.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearContractualPensionBelow75.percentage"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.deduction",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.deduction"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.deduction",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.deduction"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.deduction",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.deduction"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.deduction",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.deduction"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.deduction",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.deduction"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.excessDepreciation.openingAccumulatedExcessDepreciation",
+    "label": "overdepreciation.machinesAndInventory.excessDepreciation.openingAccumulatedExcessDepreciation"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_to.label",
+    "label": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_to.label"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_to.value",
+    "label": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_to.value"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.excessDepreciation.totalSelectedRuleForExcessDepreciation",
+    "label": "overdepreciation.machinesAndInventory.excessDepreciation.totalSelectedRuleForExcessDepreciation"
+  },
+  {
+    "id": "particularSalaryTax.fora.helper.salaryBase.previousYearSeveranceSupplementaryPension.percentage",
+    "label": "particularSalaryTax.fora.helper.salaryBase.previousYearSeveranceSupplementaryPension.percentage"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_from.label",
+    "label": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_from.label"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_from.value",
+    "label": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_from.value"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_to.account",
+    "label": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_to.account"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.yearAcquisitionsThatRemainAtTheEndOfTheYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.yearAcquisitionsThatRemainAtTheEndOfTheYear"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.mainRule.minimumAllowedTaxValueAccordingToTheMainRule",
+    "label": "overdepreciation.buildingsAndGroundFacilities.mainRule.minimumAllowedTaxValueAccordingToTheMainRule"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_from.account",
+    "label": "overdepreciation.buildingsAndGroundFacilities.overDepreciationVoucher.overDepreciation_from.account"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.openingAccumulatedExcessDepreciation",
+    "label": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.openingAccumulatedExcessDepreciation"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.totalSelectedRuleForExcessDepreciation",
+    "label": "overdepreciation.buildingsAndGroundFacilities.excessDepreciation.totalSelectedRuleForExcessDepreciation"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.0.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.1.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.2.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.3.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.4.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.0.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.1.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.2.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.3.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.4.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.lowestShareOfTheAcquisitionValue",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.lowestShareOfTheAcquisitionValue"
+  },
+  {
+    "id": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.totalDepositionOfAccrualFund.depreciationBasis",
+    "label": "overdepreciation.intangibleAssets.additionalRule.completionRuleTable.totalDepositionOfAccrualFund.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.0.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.1.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.2.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.3.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.acquisitionValueAtTheEndOfTheTaxYear",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.4.acquisitionValueAtTheEndOfTheTaxYear"
+  },
+  {
+    "id": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.totalDepositionOfAccrualFund.depreciationBasis",
+    "label": "overdepreciation.machinesAndInventory.additionalRule.completionRuleTable.totalDepositionOfAccrualFund.depreciationBasis"
+  },
+  {
+    "id": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.totalDepositionOfAccrualFund.depreciationBasis",
+    "label": "overdepreciation.buildingsAndGroundFacilities.additionalRule.completionRuleTable.totalDepositionOfAccrualFund.depreciationBasis"
+  }
+]

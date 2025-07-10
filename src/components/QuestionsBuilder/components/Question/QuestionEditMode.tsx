@@ -15,7 +15,10 @@ import { AccountingHelp } from "./AccountingHelp";
 import { QuestionScopeSelector } from "./QuestionScopeSelector";
 import { NoteSelector } from "./NoteSelector";
 import { ValueReferenceSelector } from "./ValueReferenceSelector";
+import { ManagementReportValueReferenceSelector } from "./ManagementReportValueReferenceSelector";
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
+import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm";
+import { Grid } from "@/components/ui/grid.tsx";
 
 type Props = {
   question: Question;
@@ -64,7 +67,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleQuestionTypeChange = (
-    newType: "boolean" | "voucher" | "freeText"
+    newType: Question["type"]
   ) => {
     setCurrentQuestion({ ...currentQuestion, type: newType });
     onQuestionUpdate({
@@ -101,38 +104,25 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
-  const handleOnUpdateValueReference = (
-    newValueReference: ValueReference | null
-  ) => {
-    if (newValueReference == null) {
-      onQuestionUpdate({
-        ...currentQuestion,
-        valueReference: undefined,
-      });
-
-      setCurrentQuestion({
-        ...currentQuestion,
-        valueReference: undefined,
-      });
-    } else {
-      onQuestionUpdate({
-        ...currentQuestion,
-        valueReference: newValueReference,
-      });
-
-      setCurrentQuestion({
-        ...currentQuestion,
-        valueReference: newValueReference,
-      });
-    }
-  };
-
-  const handleOnDocumentReferenceChanged = (
-    updatedDocumentReference: DocumentReference
+  const handleOnUpdateValueReferences = (
+    newValueReferences: ValueReference[] | null
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
-      documentReference: updatedDocumentReference,
+      valueReferences: newValueReferences ?? [],
+    });
+    setCurrentQuestion({
+      ...currentQuestion,
+      valueReferences: newValueReferences ?? [],
+    });
+  };
+
+  const handleOnDocumentReferencesChanged = (
+    updatedDocumentReferences: DocumentReference[]
+  ) => {
+    onQuestionUpdate({
+      ...currentQuestion,
+      documentReferences: updatedDocumentReferences,
     });
   };
 
@@ -337,15 +327,18 @@ export function QuestionEditMode(props: Props) {
         handleSave={handleUpdate}
       />
 
-      <QuestionTypeSelector
-        question={currentQuestion}
-        onQuestionTypeChange={handleQuestionTypeChange}
-      />
+      <Grid columns={2}>
+        <QuestionTypeSelector
+          question={currentQuestion}
+          onQuestionTypeChange={handleQuestionTypeChange}
+        />
+        <QuestionScopeSelector
+          question={currentQuestion}
+          onQuestionScopeChange={handleQuestionScopeChange}
+        />
+      </Grid>
 
-      <QuestionScopeSelector
-        question={currentQuestion}
-        onQuestionScopeChange={handleQuestionScopeChange}
-      />
+      <Separator className="mt-5 mb-5" />
 
       {currentQuestion.scope === "notes" && (
         <NoteSelector
@@ -355,11 +348,22 @@ export function QuestionEditMode(props: Props) {
       )}
 
       {currentQuestion.scope != null &&
-        currentQuestion.scope !== "accounts" && (
+        ["notes", "tax"].includes(currentQuestion.scope)&& (
           <ValueReferenceSelector
             question={currentQuestion}
-            onQuestionValueReferenceChanged={handleOnUpdateValueReference}
+            onQuestionValueReferencesChanged={handleOnUpdateValueReferences}
           />
+        )}
+
+      {currentQuestion.scope != null &&
+        currentQuestion.scope === "managementReport" && (
+          <>
+            <ManagementReportValueReferenceSelector
+              question={currentQuestion}
+              onQuestionValueReferencesChanged={handleOnUpdateValueReferences}
+            />
+            <Separator className="mt-5 mb-5" />
+          </>
         )}
 
       <Separator className="mt-5 mb-5" />
@@ -369,7 +373,7 @@ export function QuestionEditMode(props: Props) {
           <>
             <DocumentReferenceSelector
               question={currentQuestion}
-              onDocumentReferenceChanged={handleOnDocumentReferenceChanged}
+              onDocumentReferencesChanged={handleOnDocumentReferencesChanged}
             />
             <Separator className="mt-5 mb-5" />
           </>
@@ -381,6 +385,8 @@ export function QuestionEditMode(props: Props) {
         onRemove={handleOnRemoveExternalLink}
       />
 
+      <Separator className="mt-5 mb-5" />
+
       <QuestionDependencySelector
         question={question}
         allQuestions={allQuestions}
@@ -389,16 +395,27 @@ export function QuestionEditMode(props: Props) {
 
       <Separator className="mt-5 mb-5" />
 
-      <AccountingHelp
-        question={question}
-        onQuestionUpdate={onQuestionUpdate}
-        onCreditRangeChange={handleCreditRangeChange}
-        onCreditRangeRemove={handleCreditChangeRemove}
-        onCreditRangeAdd={handleAddCreditRange}
-        onDebitRangeChange={handleDebitRangeChange}
-        onDebitRangeRemove={handleDebitChangeRemove}
-        onDebitRangeAdd={handleAddDebitRange}
-      />
+      {question.scope === 'accounts' && (
+        <AccountingHelp
+          question={question}
+          onQuestionUpdate={onQuestionUpdate}
+          onCreditRangeChange={handleCreditRangeChange}
+          onCreditRangeRemove={handleCreditChangeRemove}
+          onCreditRangeAdd={handleAddCreditRange}
+          onDebitRangeChange={handleDebitRangeChange}
+          onDebitRangeRemove={handleDebitChangeRemove}
+          onDebitRangeAdd={handleAddDebitRange}
+        />
+      )}
+
+      {question.scope === 'tax' && (
+         <TaxForm
+            question={currentQuestion}
+            onQuestionUpdate={setCurrentQuestion}
+            handleSave={handleUpdate}
+         />
+      )}
+
     </div>
   );
 }

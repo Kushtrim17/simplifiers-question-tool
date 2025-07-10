@@ -25,7 +25,7 @@ export type Accounts = {
   triggerAnswer?: string | null;
 };
 
-type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
+export type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
 
 export type NoteOption = {
   id: string;
@@ -56,9 +56,13 @@ export type Question = {
   // an array of question ids that this question depends on
   dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;
-  valueReference?: ValueReference;
+  valueReferences?: ValueReference[];
   noteOptions?: NoteOption[];
-  documentReference?: DocumentReference;
+  documentReferences?: DocumentReference[];
+  taxForm?: {
+    title?: string;
+    description?: string;
+  }
 };
 
 export type Category = {
@@ -68,8 +72,6 @@ export type Category = {
   level: number;
   name: string;
   subCategories?: Category[];
-  // an array of category ids that this category depends on
-  dependsOnCategories: string[];
   questions: Question[];
   accounts?: Accounts;
 };

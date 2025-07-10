@@ -36,7 +36,7 @@ export function QuestionScopeSelector(props: Props) {
   const { question, onQuestionScopeChange } = props;
 
   return (
-    <>
+    <div>
       <Small className="font-extrabold">Question Scope</Small>
       <Select
         defaultValue={question.scope}
@@ -54,6 +54,6 @@ export function QuestionScopeSelector(props: Props) {
           ))}
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 }

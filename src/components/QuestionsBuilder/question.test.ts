@@ -21,7 +21,6 @@ describe("Add Category", () => {
           level: 1,
           name: "First Category",
           questions: [],
-          dependsOnCategories: [],
         },
       ];
 
@@ -42,7 +41,6 @@ describe("Add Category", () => {
           level: 1,
           name: "First Category",
           questions: [],
-          dependsOnCategories: [],
           subCategories: [
             {
               id: "2",
@@ -51,7 +49,6 @@ describe("Add Category", () => {
               level: 2,
               name: "Sub Category 1",
               questions: [],
-              dependsOnCategories: [],
             },
           ],
         },
@@ -74,7 +71,6 @@ describe("Add Category", () => {
           level: 1,
           name: "First Category",
           questions: [],
-          dependsOnCategories: [],
           subCategories: [
             {
               id: "2",
@@ -83,7 +79,6 @@ describe("Add Category", () => {
               level: 2,
               name: "Sub Category 1",
               questions: [],
-              dependsOnCategories: [],
             },
           ],
         },
@@ -114,7 +109,7 @@ describe("Add Category", () => {
           level: 1,
           name: "First Category",
           questions: [],
-          dependsOnCategories: [],
+          
           subCategories: [
             {
               id: "2",
@@ -123,7 +118,7 @@ describe("Add Category", () => {
               level: 2,
               name: "Sub Category 1",
               questions: [],
-              dependsOnCategories: [],
+              
               subCategories: [
                 {
                   id: "3",
@@ -132,7 +127,6 @@ describe("Add Category", () => {
                   level: 3,
                   name: "Sub Category 1",
                   questions: [],
-                  dependsOnCategories: [],
                 },
               ],
             },
@@ -196,7 +190,6 @@ describe("Add Category", () => {
           level: 1,
           name: "First Category",
           questions: [],
-          dependsOnCategories: [],
           subCategories: [
             {
               id: "2",
@@ -205,7 +198,6 @@ describe("Add Category", () => {
               level: 2,
               name: "Sub Category 1",
               questions: [],
-              dependsOnCategories: [],
             },
           ],
         },
@@ -230,7 +222,6 @@ describe("Update a category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
         subCategories: [
           {
             id: "2",
@@ -239,7 +230,6 @@ describe("Update a category", () => {
             level: 2,
             name: "Sub Category 1",
             questions: [],
-            dependsOnCategories: [],
           },
         ],
       },
@@ -251,7 +241,7 @@ describe("Update a category", () => {
       orderNumber: 1,
       level: 1,
       questions: [],
-      dependsOnCategories: [],
+      
     });
     expect(updatedCategory[0].name).toBe("Updated Category");
     expect(updatedCategory[0].subCategories?.length).toBe(1);
@@ -267,7 +257,7 @@ describe("Delete a category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
+        
         subCategories: [
           {
             id: "2",
@@ -276,7 +266,7 @@ describe("Delete a category", () => {
             level: 2,
             name: "Sub Category 1",
             questions: [],
-            dependsOnCategories: [],
+            
           },
         ],
       },
@@ -294,7 +284,7 @@ describe("Delete a category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
+        
         subCategories: [
           {
             id: "2",
@@ -303,7 +293,7 @@ describe("Delete a category", () => {
             level: 2,
             name: "Sub Category 1",
             questions: [],
-            dependsOnCategories: [],
+            
             subCategories: [
               {
                 id: "3",
@@ -312,7 +302,7 @@ describe("Delete a category", () => {
                 level: 3,
                 name: "Sub Category 1",
                 questions: [],
-                dependsOnCategories: [],
+                
               },
             ],
           },
@@ -333,7 +323,7 @@ describe("Delete a category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
+        
         subCategories: [
           {
             id: "2",
@@ -342,7 +332,7 @@ describe("Delete a category", () => {
             level: 2,
             name: "Sub Category 1",
             questions: [],
-            dependsOnCategories: [],
+            
           },
         ],
       },
@@ -362,7 +352,7 @@ describe("Add question to category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
+        
         subCategories: [
           {
             id: "2",
@@ -371,7 +361,7 @@ describe("Add question to category", () => {
             level: 2,
             name: "Sub Category 1",
             questions: [],
-            dependsOnCategories: [],
+            
             subCategories: [
               {
                 id: "3",
@@ -380,7 +370,7 @@ describe("Add question to category", () => {
                 level: 3,
                 name: "Sub Category 1",
                 questions: [],
-                dependsOnCategories: [],
+                
               },
             ],
           },
@@ -401,7 +391,7 @@ describe("Add question to category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
+        
         subCategories: [
           {
             id: "2",
@@ -410,7 +400,7 @@ describe("Add question to category", () => {
             level: 2,
             name: "Sub Category 1",
             questions: [],
-            dependsOnCategories: [],
+            
             subCategories: [
               {
                 id: "3",
@@ -419,7 +409,7 @@ describe("Add question to category", () => {
                 level: 3,
                 name: "Sub Category 1",
                 questions: [],
-                dependsOnCategories: [],
+                
               },
             ],
           },
@@ -441,7 +431,7 @@ describe("Add question to category", () => {
         level: 1,
         name: "First Category",
         questions: [],
-        dependsOnCategories: [],
+        
         subCategories: [
           {
             id: "2",
@@ -449,7 +439,7 @@ describe("Add question to category", () => {
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
-            dependsOnCategories: [],
+            
             subCategories: [
               {
                 id: "3",
@@ -458,7 +448,7 @@ describe("Add question to category", () => {
                 level: 3,
                 name: "Sub Category 1",
                 questions: [],
-                dependsOnCategories: [],
+                
               },
             ],
             questions: [
@@ -505,7 +495,7 @@ describe("Change question order", () => {
       level: 1,
       name: "First Category",
       questions: [],
-      dependsOnCategories: [],
+      
       subCategories: [
         {
           id: "2",
@@ -513,7 +503,7 @@ describe("Change question order", () => {
           orderNumber: 1,
           level: 2,
           name: "Sub Category 1",
-          dependsOnCategories: [],
+          
           subCategories: [
             {
               id: "3",
@@ -522,7 +512,7 @@ describe("Change question order", () => {
               level: 3,
               name: "Sub Category 1",
               questions: [],
-              dependsOnCategories: [],
+              
             },
           ],
           questions: [

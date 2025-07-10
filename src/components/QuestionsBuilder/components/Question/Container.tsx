@@ -93,8 +93,8 @@ export function Container(props: Props) {
           className="flex-2 flex w-[50px] pt-2 pl-1"
           onClick={onToggleEditMode}
         >
-          <When isTrue={isEditMode} fallback={<IoChevronUpSharp size={24} />}>
-            <IoChevronDownSharp size={24} />
+          <When isTrue={isEditMode} fallback={<IoChevronDownSharp size={24} />}>
+            <IoChevronUpSharp size={24} />
           </When>
         </div>
         <div className="flex-2 flex w-[50px] pl-1 max-h-[40px]">
