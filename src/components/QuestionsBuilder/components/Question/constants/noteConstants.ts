@@ -5,7 +5,7 @@ export const FIRST_NOTE = {
 
 export const INCOME_STATEMENT_NOTES = [
   {
-    id: "notes.note2.number",
+    id: "notes.note10.number",
     name: "Medelantalet anställda",
   },
   {
