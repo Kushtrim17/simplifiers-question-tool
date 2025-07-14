@@ -68,6 +68,10 @@
     "label": "bookedCompanyTax"
   },
   {
+    "id": "deficitDeduction",
+    "label": "deficitDeduction"
+  },
+  {
     "id": "propertyTaxTotal",
     "label": "propertyTaxTotal"
   },
