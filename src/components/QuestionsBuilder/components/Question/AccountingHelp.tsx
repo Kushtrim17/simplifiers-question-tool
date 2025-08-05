@@ -1,3 +1,4 @@
+import React from "react";
 import { Medium, Small } from "@/components/ui/Typography";
 import { Input } from "@/components/ui/input";
 import {
@@ -165,7 +166,7 @@ export function AccountingHelp(props: Props) {
       return "null";
     }
 
-    return question.accounts?.triggerAnswer ? "yes" : "no";
+    return question.accounts?.triggerAnswer;
   };
 
   const handleOnAnswerTriggerChange = (answer: string) => {
@@ -173,10 +174,6 @@ export function AccountingHelp(props: Props) {
       if (answer === "null") {
         return null;
       }
-
-      console.log({
-        theTest: answer,
-      });
 
       return answer.toLowerCase();
     };
@@ -322,7 +319,7 @@ export function AccountingHelp(props: Props) {
         Accounting helper descriptions
       </Medium>
       {question.accounts?.helperDescriptions?.map((helper, index) => (
-        <>
+        <React.Fragment key={index}>
           <Input
             key={`${index}-subTitle`}
             type="text"
@@ -369,7 +366,7 @@ export function AccountingHelp(props: Props) {
             question.accounts?.helperDescriptions?.length - 1 !== index && (
               <Separator className="mb-2" />
             )}
-        </>
+        </React.Fragment>
       ))}
 
       <Button
