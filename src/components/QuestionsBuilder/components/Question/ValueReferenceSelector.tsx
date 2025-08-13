@@ -211,7 +211,7 @@ export function ValueReferenceSelector(props: Props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={ref.cellId}
-                className={`${badgeVariants({ variant: "outline" })} font-mono h-[40px] min-w-[100px] max-w-full md:max-w-[480px] px-2 items-center inline-flex gap-2 overflow-hidden whitespace-nowrap min-w-0`}
+                className={`${badgeVariants({ variant: "outline" })} inline-flex items-center h-[40px] font-mono px-2 gap-2 overflow-hidden whitespace-nowrap max-w-full md:max-w-[480px] min-w-0`}
               >
                 <span className="truncate">{ref.cellId}</span>
                 <IoClose
