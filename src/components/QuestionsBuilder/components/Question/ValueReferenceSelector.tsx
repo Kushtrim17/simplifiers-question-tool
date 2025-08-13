@@ -99,11 +99,12 @@ export function ValueReferenceSelector(props: Props) {
     groupLabel: string
   ) => {
     const sections = Object.keys(group);
+    const isSectionInGroup = openSection != null && sections.includes(openSection);
     return (
       <div>
         <div className="font-semibold mb-2">{groupLabel}</div>
         <div className="flex flex-col gap-1">
-          {openSection == null ? (
+          {!isSectionInGroup ? (
             sections.map((section) => (
               <button
                 key={section}
@@ -124,7 +125,7 @@ export function ValueReferenceSelector(props: Props) {
                 ← Back to sections
               </button>
               <div className="flex flex-col gap-1">
-                {group[openSection].map((part) => (
+                {group[openSection as string].map((part) => (
                   <label key={part.id} className="flex items-center gap-2 cursor-pointer">
                     <Checkbox
                       checked={isChecked(part.id)}
@@ -150,6 +151,8 @@ export function ValueReferenceSelector(props: Props) {
       { key: 'Agoy tax document', values: TAX_DOCUMENT_REFERENCES.values },
       { key: 'INK2 (SKV-2002)', values: INK2_DOCUMENT_REFERENCES.values },
     ];
+    const selectedSection = sections.find((s) => s.key === openSection);
+    const selectedValues = selectedSection?.values ?? [];
     return (
       <div>
         <div className="font-semibold mb-2">{openSection || 'Tax document'}</div>
@@ -175,7 +178,7 @@ export function ValueReferenceSelector(props: Props) {
                 ← Back to sections
               </button>
               <div className="flex flex-col gap-1">
-                {sections.find((s) => s.key === openSection)?.values.map((part) => (
+                {selectedValues.map((part) => (
                   <label key={part.id} className="flex items-center gap-2 cursor-pointer">
                     <Checkbox
                       checked={isChecked(part.id)}
@@ -202,18 +205,19 @@ export function ValueReferenceSelector(props: Props) {
       <div className="mt-4 flex flex-row flex-wrap gap-x-4 gap-y-2">
         {valueReferences.length > 0 ? (
           valueReferences.map((ref) => (
-            <div className="flex flex-row mr-4 group" key={ref.cellId}>
+            <div className="flex flex-row group min-w-0 max-w-full" key={ref.cellId}>
               <a
                 href={ref.cellId}
                 target="_blank"
-                className={`${badgeVariants({ variant: "outline" })} text-lg font-mono h-[40px] min-w-[100px] justify-center items-center flex`}
+                rel="noopener noreferrer"
+                title={ref.cellId}
+                className={`${badgeVariants({ variant: "outline" })} font-mono h-[40px] min-w-[100px] max-w-full md:max-w-[480px] px-2 items-center inline-flex gap-2 overflow-hidden whitespace-nowrap min-w-0`}
               >
-                {ref.cellId}
-
+                <span className="truncate">{ref.cellId}</span>
                 <IoClose
-                  size={20}
-                  className="ml-2 cursor-pointer"
-                  onClick={() => handleOnRemoveNoteOption(ref.cellId)}
+                  size={18}
+                  className="ml-1 cursor-pointer shrink-0"
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleOnRemoveNoteOption(ref.cellId); }}
                 />
               </a>
             </div>
@@ -250,8 +254,10 @@ export function ValueReferenceSelector(props: Props) {
             Which question answer should enable each reference?
           </Medium>
           {valueReferences.map((ref) => (
-            <div key={ref.cellId} className="mb-2">
-              <span className="text-sm mr-2 font-mono">{ref.cellId}</span>
+            <div key={ref.cellId} className="mb-2 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 w-full">
+              <span title={ref.cellId} className="text-sm font-mono truncate min-w-0 flex-1">
+                {ref.cellId}
+              </span>
               <Select
                 defaultValue={getDefaultValue(ref.cellId)}
                 onValueChange={(newValue: string) =>
@@ -259,7 +265,7 @@ export function ValueReferenceSelector(props: Props) {
                 }
                 onOpenChange={(isOpen) => !isOpen}
               >
-                <SelectTrigger className="mt-2 mb-2">
+                <SelectTrigger className="mt-2 mb-2 w-[160px] shrink-0">
                   <SelectValue placeholder="Select answer trigger" />
                 </SelectTrigger>
                 <SelectContent>

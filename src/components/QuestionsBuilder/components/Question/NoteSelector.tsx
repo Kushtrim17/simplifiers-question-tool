@@ -116,6 +116,7 @@ export function NoteSelector(props: Props) {
               <DropdownMenuSubContent>
                 {BALANCE_SHEET_NOTES.map((note) => (
                   <DropdownMenuCheckboxItem
+                    key={note.id}
                     checked={isChecked(note.id)}
                     onCheckedChange={() =>
                       isChecked(note.id)
@@ -137,6 +138,7 @@ export function NoteSelector(props: Props) {
               <DropdownMenuSubContent>
                 {INCOME_STATEMENT_NOTES.map((note) => (
                   <DropdownMenuCheckboxItem
+                    key={note.id}
                     checked={isChecked(note.id)}
                     onCheckedChange={() =>
                       isChecked(note.id)
@@ -158,6 +160,7 @@ export function NoteSelector(props: Props) {
               <DropdownMenuSubContent>
                 {OTHER_NOTES.map((note) => (
                   <DropdownMenuCheckboxItem
+                    key={note.id}
                     checked={isChecked(note.id)}
                     onCheckedChange={() =>
                       isChecked(note.id)
