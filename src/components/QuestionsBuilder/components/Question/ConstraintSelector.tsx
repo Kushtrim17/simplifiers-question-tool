@@ -19,8 +19,10 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
     if (!constraints[constraintName]) {
       const updatedConstraints = {
         ...constraints,
-        [constraintName]:
-          constraintName === "requireStop" ? { description: "" } : {},
+        [constraintName]: {
+          description: "",
+          onAnswer: "no", // default
+        },
       };
       onConstraintsChanged(updatedConstraints);
     }
@@ -39,7 +41,20 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
     setConstraintDescription(newDescription);
     onConstraintsChanged({
       ...constraints,
-      requireStop: { description: newDescription },
+      requireStop: {
+        ...constraints["requireStop"],
+        description: newDescription,
+      },
+    });
+  };
+
+  const handleAnswerChange = (constraintName: string, newAnswer: string) => {
+    onConstraintsChanged({
+      ...constraints,
+      [constraintName]: {
+        ...constraints[constraintName],
+        onAnswer: newAnswer,
+      },
     });
   };
 
@@ -75,6 +90,19 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
             value={constraintDescription}
             onChange={handleRequireStopDescriptionChange}
           />
+          <div className="mt-2">
+            <label className="font-bold mr-2">Answer:</label>
+            <select
+              className="p-2 border rounded"
+              value={constraints["requireStop"].onAnswer}
+              onChange={(e) =>
+                handleAnswerChange("requireStop", e.target.value)
+              }
+            >
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
         </div>
       )}
 
