@@ -59,6 +59,7 @@ export type Question = {
   valueReferences?: ValueReference[];
   noteOptions?: NoteOption[];
   documentReferences?: DocumentReference[];
+  constraints?: Record<string, unknown>; // Generic field for constraints
   taxForm?: {
     title?: string;
     description?: string;

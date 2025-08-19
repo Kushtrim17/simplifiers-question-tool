@@ -193,6 +193,7 @@ export function addQuestionToCategory(
         externalLinks: [],
         dependsOnQuestions: [],
         valueReferences: [],
+        constraints: [],
       };
 
       category.questions.push(newQuestion);
@@ -202,6 +203,33 @@ export function addQuestionToCategory(
       category.subCategories = addQuestionToCategory(
         category.subCategories,
         categoryId
+      );
+    }
+
+    return category;
+  });
+}
+
+export function updateQuestionConstraints(
+  allCategories: Category[],
+  questionId: string,
+  constraints: string[]
+) {
+  return allCategories.map((category) => {
+    if (category.questions) {
+      category.questions = category.questions.map((question) => {
+        if (question.id === questionId) {
+          return { ...question, constraints };
+        }
+        return question;
+      });
+    }
+
+    if (category.subCategories) {
+      category.subCategories = updateQuestionConstraints(
+        category.subCategories,
+        questionId,
+        constraints
       );
     }
 

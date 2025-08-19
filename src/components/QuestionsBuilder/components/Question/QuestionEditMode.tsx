@@ -19,6 +19,7 @@ import { ManagementReportValueReferenceSelector } from "./ManagementReportValueR
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
 import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm";
 import { Grid } from "@/components/ui/grid.tsx";
+import {ConstraintSelector} from "@/components/QuestionsBuilder/components/Question/ConstraintSelector.tsx";
 
 type Props = {
   question: Question;
@@ -275,6 +276,8 @@ export function QuestionEditMode(props: Props) {
     onQuestionUpdate({ ...question, accounts });
   };
 
+
+
   const handleDebitChangeRemove = (index: number) => {
     if (question?.accounts?.debitRange == null) {
       return;
@@ -307,6 +310,17 @@ export function QuestionEditMode(props: Props) {
     }
 
     onQuestionUpdate({ ...question, accounts });
+  };
+
+  const handleConstraintChange = (newConstraints: Record<string, unknown>) => {
+    onQuestionUpdate({
+      ...currentQuestion,
+      constraints: newConstraints,
+    });
+    setCurrentQuestion({
+      ...currentQuestion,
+      constraints: newConstraints,
+    });
   };
 
   useEffect(() => {
@@ -346,6 +360,8 @@ export function QuestionEditMode(props: Props) {
           onQuestionNoteOptionsChanged={handleUpdateNoteOptions}
         />
       )}
+
+      <ConstraintSelector question={question} onConstraintsChanged={handleConstraintChange} />
 
       {currentQuestion.scope != null &&
         ["notes", "tax"].includes(currentQuestion.scope)&& (
