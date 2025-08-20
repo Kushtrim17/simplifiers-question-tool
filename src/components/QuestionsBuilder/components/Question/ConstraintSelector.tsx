@@ -21,7 +21,7 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
         ...constraints,
         [constraintName]: {
           description: "",
-          onAnswer: "no", // default
+          triggerAnswer: "no", // default
         },
       };
       onConstraintsChanged(updatedConstraints);
@@ -53,7 +53,7 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
       ...constraints,
       [constraintName]: {
         ...constraints[constraintName],
-        onAnswer: newAnswer,
+        triggerAnswer: newAnswer,
       },
     });
   };
@@ -78,33 +78,37 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
         ))}
       </div>
 
-      {constraints["requireStop"] && (
-        <div className="mt-4">
-          <Small className="font-extrabold">
-            Require Stop - User needs to answer yes as a result of the previous
-            question's answer (for example)
-          </Small>
-          <textarea
-            className="w-full mt-2 p-2 border rounded"
-            placeholder="Enter description for the 'requireStop' constraint"
-            value={constraintDescription}
-            onChange={handleRequireStopDescriptionChange}
-          />
-          <div className="mt-2">
-            <label className="font-bold mr-2">Answer:</label>
-            <select
-              className="p-2 border rounded"
-              value={constraints["requireStop"].onAnswer}
-              onChange={(e) =>
-                handleAnswerChange("requireStop", e.target.value)
-              }
-            >
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
+      {typeof constraints["requireStop"] === "object" &&
+        constraints["requireStop"] !== null && (
+          <div className="mt-4">
+            <Small className="font-extrabold">
+              Require Stop - User needs to answer yes as a result of the
+              previous question's answer (for example)
+            </Small>
+            <textarea
+              className="w-full mt-2 p-2 border rounded"
+              placeholder="Enter description for the 'requireStop' constraint"
+              value={constraintDescription}
+              onChange={handleRequireStopDescriptionChange}
+            />
+            <div className="mt-2">
+              <label className="font-bold mr-2">Answer:</label>
+              <select
+                className="p-2 border rounded"
+                value={
+                  (constraints["requireStop"] as { triggerAnswer: string })
+                    .triggerAnswer
+                }
+                onChange={(e) =>
+                  handleAnswerChange("requireStop", e.target.value)
+                }
+              >
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
       {Object.keys(constraints).length === 0 && (
         <Small className="opacity-65 mt-4">No constraints selected</Small>
