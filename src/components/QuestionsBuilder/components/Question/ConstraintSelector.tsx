@@ -42,7 +42,7 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
     onConstraintsChanged({
       ...constraints,
       requireStop: {
-        ...constraints["requireStop"],
+        ...constraints["requireStop"] as { triggerAnswer: string; description?: string },
         description: newDescription,
       },
     });
@@ -52,7 +52,7 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
     onConstraintsChanged({
       ...constraints,
       [constraintName]: {
-        ...constraints[constraintName],
+        ...constraints[constraintName] as { triggerAnswer: string; description?: string },
         triggerAnswer: newAnswer,
       },
     });

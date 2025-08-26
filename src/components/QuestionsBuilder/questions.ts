@@ -193,7 +193,7 @@ export function addQuestionToCategory(
         externalLinks: [],
         dependsOnQuestions: [],
         valueReferences: [],
-        constraints: [],
+        constraints: {},
       };
 
       category.questions.push(newQuestion);
@@ -213,7 +213,7 @@ export function addQuestionToCategory(
 export function updateQuestionConstraints(
   allCategories: Category[],
   questionId: string,
-  constraints: string[]
+  constraints: Record<string, unknown>
 ) {
   return allCategories.map((category) => {
     if (category.questions) {
