@@ -19,7 +19,7 @@ import { ManagementReportValueReferenceSelector } from "./ManagementReportValueR
 import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
 import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm";
 import { Grid } from "@/components/ui/grid.tsx";
-import { ConstraintSelector } from "@/components/QuestionsBuilder/components/Question/ConstraintSelector.tsx";
+import { ConstraintSelector } from "@/components/QuestionsBuilder/components/Question/ConstraintSelector";
 
 type Props = {
   question: Question;
