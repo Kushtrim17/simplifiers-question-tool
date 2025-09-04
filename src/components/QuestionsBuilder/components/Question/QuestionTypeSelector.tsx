@@ -30,6 +30,7 @@ export function QuestionTypeSelector(props: Props) {
         <SelectContent>
           <SelectItem value="boolean">Yes or No</SelectItem>
           <SelectItem value="freeText">Free text</SelectItem>
+          <SelectItem value="table">Table</SelectItem>
         </SelectContent>
       </Select>
     </div>

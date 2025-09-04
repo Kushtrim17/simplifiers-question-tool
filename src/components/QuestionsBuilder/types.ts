@@ -1,6 +1,6 @@
 export type ExternalLink = { label: string; url: string };
 
-export type QuestionType = "boolean" | "voucher" | "freeText";
+export type QuestionType = "boolean" | "freeText" | "table";
 
 export type AccountsHelper = {
   description?: string;
