@@ -113,7 +113,7 @@ export const DocumentReferenceSelector = (props: Props) => {
                 onValueChange={(newValue: string) => {
                   handleSave(i, {
                     ...documentReference,
-                    type: newValue as "row" | "column",
+                    type: newValue as "row" | "column" | "section",
                   });
                 }}
                 onOpenChange={(isOpen) => !isOpen}
@@ -123,7 +123,7 @@ export const DocumentReferenceSelector = (props: Props) => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="null">No type reference</SelectItem>
-                  {["row", "column"].map((d) => (
+                  {["row", "column", "section"].map((d) => (
                     <SelectItem key={d.toString()} value={d.toString()}>
                       {d.charAt(0).toUpperCase() + d.slice(1)}
                     </SelectItem>
