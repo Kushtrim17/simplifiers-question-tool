@@ -19,6 +19,7 @@ import {
   ALL_NOTES,
   BALANCE_SHEET_NOTES,
   FIRST_NOTE,
+  FIRST_NOTE_OPTIONS,
   INCOME_STATEMENT_NOTES,
   OTHER_NOTES,
 } from "./constants/noteConstants";
@@ -27,6 +28,110 @@ type Props = {
   question: Question;
   onQuestionNoteOptionsChanged: (newNoteOptions: NoteOption[]) => void;
 };
+
+// Component for individual note items in the dropdown
+function NoteDropdownItem({
+  note,
+  isChecked,
+  onToggle,
+}: {
+  note: NoteOption;
+  isChecked: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <DropdownMenuCheckboxItem checked={isChecked} onCheckedChange={onToggle}>
+      {note.name}
+    </DropdownMenuCheckboxItem>
+  );
+}
+
+// Component for a category of notes (e.g., Balance Sheet, Income Statement)
+function NoteCategory({
+  title,
+  notes,
+  isChecked,
+  onToggle,
+}: {
+  title: string;
+  notes: NoteOption[];
+  isChecked: (noteId: string) => boolean;
+  onToggle: (noteId: string) => void;
+}) {
+  return (
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>
+        <span>{title}</span>
+      </DropdownMenuSubTrigger>
+      <DropdownMenuPortal>
+        <DropdownMenuSubContent>
+          {/* Direct notes in this category */}
+          {notes.map((note) => (
+            <NoteDropdownItem
+              key={note.id}
+              note={note}
+              isChecked={isChecked(note.id)}
+              onToggle={() => onToggle(note.id)}
+            />
+          ))}
+        </DropdownMenuSubContent>
+      </DropdownMenuPortal>
+    </DropdownMenuSub>
+  );
+}
+
+// Component for the main dropdown menu
+function NoteDropdownMenu({
+  isChecked,
+  onToggle,
+}: {
+  isChecked: (noteId: string) => boolean;
+  onToggle: (noteId: string) => void;
+}) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Add a note</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Available notes</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        {/* First Note */}
+        <NoteCategory
+          title={FIRST_NOTE.name}
+          notes={FIRST_NOTE_OPTIONS}
+          isChecked={isChecked}
+          onToggle={onToggle}
+        />
+
+        {/* Balance Sheet Notes */}
+        <NoteCategory
+          title="Balance sheet"
+          notes={BALANCE_SHEET_NOTES}
+          isChecked={isChecked}
+          onToggle={onToggle}
+        />
+
+        {/* Income Statement Notes */}
+        <NoteCategory
+          title="Income statement"
+          notes={INCOME_STATEMENT_NOTES}
+          isChecked={isChecked}
+          onToggle={onToggle}
+        />
+
+        {/* Other Notes */}
+        <NoteCategory
+          title="Other"
+          notes={OTHER_NOTES}
+          isChecked={isChecked}
+          onToggle={onToggle}
+        />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
 
 export function NoteSelector(props: Props) {
   const { question } = props;
@@ -48,6 +153,16 @@ export function NoteSelector(props: Props) {
   const isChecked = (noteId: string) => {
     const options = question.noteOptions || [];
     return options.some((note) => note.id === noteId);
+  };
+
+  const handleToggleNote = (noteId: string) => {
+    console.log({ noteId, isChecked: isChecked(noteId) });
+
+    if (isChecked(noteId)) {
+      handleOnRemoveNoteOption(noteId);
+    } else {
+      handleOnAddNoteOption(noteId);
+    }
   };
 
   return (
@@ -81,101 +196,8 @@ export function NoteSelector(props: Props) {
         )}
       </div>
       <br />
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline">Add a note</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>Available notes</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <span>First note</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuCheckboxItem
-                  checked={isChecked(FIRST_NOTE.id)}
-                  onCheckedChange={() =>
-                    isChecked(FIRST_NOTE.id)
-                      ? handleOnRemoveNoteOption(FIRST_NOTE.id)
-                      : handleOnAddNoteOption(FIRST_NOTE.id)
-                  }
-                >
-                  {FIRST_NOTE.name}
-                </DropdownMenuCheckboxItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
 
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <span>Balance sheet</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                {BALANCE_SHEET_NOTES.map((note) => (
-                  <DropdownMenuCheckboxItem
-                    key={note.id}
-                    checked={isChecked(note.id)}
-                    onCheckedChange={() =>
-                      isChecked(note.id)
-                        ? handleOnRemoveNoteOption(note.id)
-                        : handleOnAddNoteOption(note.id)
-                    }
-                  >
-                    {note.name}
-                  </DropdownMenuCheckboxItem>
-                ))}
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <span>Income statement</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                {INCOME_STATEMENT_NOTES.map((note) => (
-                  <DropdownMenuCheckboxItem
-                    key={note.id}
-                    checked={isChecked(note.id)}
-                    onCheckedChange={() =>
-                      isChecked(note.id)
-                        ? handleOnRemoveNoteOption(note.id)
-                        : handleOnAddNoteOption(note.id)
-                    }
-                  >
-                    {note.name}
-                  </DropdownMenuCheckboxItem>
-                ))}
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <span>Other</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                {OTHER_NOTES.map((note) => (
-                  <DropdownMenuCheckboxItem
-                    key={note.id}
-                    checked={isChecked(note.id)}
-                    onCheckedChange={() =>
-                      isChecked(note.id)
-                        ? handleOnRemoveNoteOption(note.id)
-                        : handleOnAddNoteOption(note.id)
-                    }
-                  >
-                    {note.name}
-                  </DropdownMenuCheckboxItem>
-                ))}
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <NoteDropdownMenu isChecked={isChecked} onToggle={handleToggleNote} />
       <br />
     </>
   );

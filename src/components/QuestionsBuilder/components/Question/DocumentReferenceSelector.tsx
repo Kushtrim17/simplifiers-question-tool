@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { DocumentReference, Question } from "../../types";
+import { DocumentReference, Question, TriggerAnswer } from "../../types";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -12,49 +12,72 @@ import { Grid } from "@/components/ui/grid.tsx";
 import { Small, Medium } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button.tsx";
 import { IoTrashBinOutline } from "react-icons/io5";
+import {
+  TRIGGER_ANSWER,
+  TRIGGER_ANSWER_OPTIONS,
+} from "./constants/triggerAnswer";
 
 type Props = {
   question: Question;
-  onDocumentReferencesChanged: (newDocumentReferences: DocumentReference[]) => void;
+  onDocumentReferencesChanged: (
+    newDocumentReferences: DocumentReference[]
+  ) => void;
 };
 
 const emptyDocumentReference: DocumentReference = {
   tableId: "",
   type: "",
   id: "",
-  triggerAnswer: ""
-}
+  triggerAnswer: TRIGGER_ANSWER.NULL,
+};
 
 export const DocumentReferenceSelector = (props: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { question, onDocumentReferencesChanged } = props;
 
-  const [documentReferences, setDocumentReferences] = useState<DocumentReference[]>(question.documentReferences || []);
+  const [documentReferences, setDocumentReferences] = useState<
+    DocumentReference[]
+  >(question.documentReferences || []);
 
-  const getNewReferences = (i: number, updatedDocumentReference: DocumentReference) => documentReferences.map((documentReference, index) => (i === index ? updatedDocumentReference : documentReference))
+  const getNewReferences = (
+    i: number,
+    updatedDocumentReference: DocumentReference
+  ) =>
+    documentReferences.map((documentReference, index) =>
+      i === index ? updatedDocumentReference : documentReference
+    );
 
-  const updateDocumentReference = (i: number, updatedDocumentReference: DocumentReference) => {
+  const updateDocumentReference = (
+    i: number,
+    updatedDocumentReference: DocumentReference
+  ) => {
     setDocumentReferences(getNewReferences(i, updatedDocumentReference));
-  }
+  };
 
-  const handleSave = (i: number, updatedDocumentReference: DocumentReference) => {
-    const newRefs = getNewReferences(i, updatedDocumentReference)
+  const handleSave = (
+    i: number,
+    updatedDocumentReference: DocumentReference
+  ) => {
+    const newRefs = getNewReferences(i, updatedDocumentReference);
     onDocumentReferencesChanged(newRefs);
 
     updateDocumentReference(i, updatedDocumentReference);
   };
 
   const handleAdd = () => {
-    const updated = [...documentReferences, emptyDocumentReference] as DocumentReference[];
+    const updated = [
+      ...documentReferences,
+      emptyDocumentReference,
+    ] as DocumentReference[];
     onDocumentReferencesChanged(updated);
     setDocumentReferences(updated);
-  }
+  };
 
   const handleDelete = (i: number) => {
     const updated = documentReferences.filter((_, index) => index !== i);
     onDocumentReferencesChanged(updated);
     setDocumentReferences(updated);
-  }
+  };
 
   const handleSaveInput = () => {
     onDocumentReferencesChanged(documentReferences);
@@ -62,12 +85,18 @@ export const DocumentReferenceSelector = (props: Props) => {
 
   return (
     <>
-      <Medium className="pb-4">Which part of the Management Report Document this question refers to?</Medium>
+      <Medium className="pb-4">
+        Which part of the Management Report Document this question refers to?
+      </Medium>
       {documentReferences.map((documentReference, i) => (
         <div className="border border-gray-200 rounded-lg p-4 mb-4">
           <div className="flex align-center justify-between mb-2">
             <Medium>Document Reference {i + 1}</Medium>
-            <IoTrashBinOutline size={24} onClick={() => handleDelete(i)} className="cursor-pointer" />
+            <IoTrashBinOutline
+              size={24}
+              onClick={() => handleDelete(i)}
+              className="cursor-pointer"
+            />
           </div>
 
           <Grid columns={2} key={i}>
@@ -119,7 +148,7 @@ export const DocumentReferenceSelector = (props: Props) => {
                 onOpenChange={(isOpen) => !isOpen}
               >
                 <SelectTrigger className="mt-5 mb-5">
-                  <SelectValue placeholder="Select type reference"/>
+                  <SelectValue placeholder="Select type reference" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="null">No type reference</SelectItem>
@@ -133,25 +162,32 @@ export const DocumentReferenceSelector = (props: Props) => {
             </div>
 
             <div>
-              <Small className="font-extrabold">
-                Trigger answer
-              </Small>
+              <Small className="font-extrabold">Trigger answer</Small>
               <Select
-                defaultValue={documentReference.triggerAnswer}
+                // Select cannot take an empty string as a value that's why we convert empty string to null
+                // and back to empty string when we store the value
+                defaultValue={
+                  documentReference.triggerAnswer === ""
+                    ? "null"
+                    : documentReference.triggerAnswer
+                }
                 onValueChange={(newValue: string) => {
                   handleSave(i, {
                     ...documentReference,
-                    triggerAnswer: newValue as "yes" | "no",
+                    triggerAnswer:
+                      newValue === "null" ? "" : (newValue as TriggerAnswer),
                   });
                 }}
                 onOpenChange={(isOpen) => !isOpen}
               >
                 <SelectTrigger className="mt-5 mb-5">
-                  <SelectValue placeholder="Select answer trigger"/>
+                  <SelectValue placeholder="Select answer trigger" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="null">No trigger</SelectItem>
-                  {["yes", "no"].map((d) => (
+                  {TRIGGER_ANSWER_OPTIONS.filter(
+                    (d) => d !== TRIGGER_ANSWER.NULL
+                  ).map((d) => (
                     <SelectItem key={d.toString()} value={d.toString()}>
                       {d.charAt(0).toUpperCase() + d.slice(1)}
                     </SelectItem>
@@ -163,7 +199,9 @@ export const DocumentReferenceSelector = (props: Props) => {
         </div>
       ))}
 
-      <Button variant="secondary" onClick={handleAdd}>Add document reference</Button>
+      <Button variant="secondary" onClick={handleAdd}>
+        Add document reference
+      </Button>
     </>
   );
 };

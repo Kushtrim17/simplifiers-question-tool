@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Medium, Small } from "@/components/ui/Typography";
-import { Question } from "../../types";
+import { Question, TriggerAnswer } from "../../types";
+import { TRIGGER_ANSWER } from "./constants/triggerAnswer";
 
 type Props = {
   question: Question;
@@ -10,7 +11,7 @@ type Props = {
 export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
   const constraints = question.constraints || {};
   const [constraintDescription, setConstraintDescription] = useState<string>(
-    (constraints["requireStop"] as { description?: string })?.description || "",
+    (constraints["requireStop"] as { description?: string })?.description || ""
   );
 
   const constraintOptions = [{ value: "requireStop", label: "Require Stop" }];
@@ -21,7 +22,7 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
         ...constraints,
         [constraintName]: {
           description: "",
-          triggerAnswer: "no", // default
+          triggerAnswer: TRIGGER_ANSWER.NO, // default
         },
       };
       onConstraintsChanged(updatedConstraints);
@@ -35,24 +36,33 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
   };
 
   const handleRequireStopDescriptionChange = (
-    e: ChangeEvent<HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLTextAreaElement>
   ) => {
     const newDescription = e.target.value;
     setConstraintDescription(newDescription);
     onConstraintsChanged({
       ...constraints,
       requireStop: {
-        ...constraints["requireStop"] as { triggerAnswer: string; description?: string },
+        ...(constraints["requireStop"] as {
+          triggerAnswer: TriggerAnswer;
+          description?: string;
+        }),
         description: newDescription,
       },
     });
   };
 
-  const handleAnswerChange = (constraintName: string, newAnswer: string) => {
+  const handleAnswerChange = (
+    constraintName: string,
+    newAnswer: TriggerAnswer
+  ) => {
     onConstraintsChanged({
       ...constraints,
       [constraintName]: {
-        ...constraints[constraintName] as { triggerAnswer: string; description?: string },
+        ...(constraints[constraintName] as {
+          triggerAnswer: TriggerAnswer;
+          description?: string;
+        }),
         triggerAnswer: newAnswer,
       },
     });
@@ -96,15 +106,21 @@ export function ConstraintSelector({ question, onConstraintsChanged }: Props) {
               <select
                 className="p-2 border rounded"
                 value={
-                  (constraints["requireStop"] as { triggerAnswer: string })
-                    .triggerAnswer
+                  (
+                    constraints["requireStop"] as {
+                      triggerAnswer: TriggerAnswer;
+                    }
+                  ).triggerAnswer
                 }
                 onChange={(e) =>
-                  handleAnswerChange("requireStop", e.target.value)
+                  handleAnswerChange(
+                    "requireStop",
+                    e.target.value as TriggerAnswer
+                  )
                 }
               >
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value={TRIGGER_ANSWER.YES}>Yes</option>
+                <option value={TRIGGER_ANSWER.NO}>No</option>
               </select>
             </div>
           </div>

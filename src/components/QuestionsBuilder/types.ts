@@ -1,3 +1,5 @@
+import { TRIGGER_ANSWER_OPTIONS } from "./components/Question/constants/triggerAnswer";
+
 export type ExternalLink = { label: string; url: string };
 
 export type QuestionType = "boolean" | "freeText" | "table";
@@ -13,6 +15,8 @@ export type DependsOnQuestion = {
   answer: boolean | string;
 };
 
+export type TriggerAnswer = (typeof TRIGGER_ANSWER_OPTIONS)[number];
+
 export type Accounts = {
   title: string;
   //TODO: remove this
@@ -22,7 +26,7 @@ export type Accounts = {
   helperDescriptions: AccountsHelper[];
   creditRange: (number[] | null[])[];
   debitRange: (number[] | null[])[];
-  triggerAnswer?: string | null;
+  triggerAnswer?: TriggerAnswer;
 };
 
 export type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
@@ -34,14 +38,18 @@ export type NoteOption = {
 
 export type ValueReference = {
   cellId: string; // 'managementReport.resultsDisposition.toDispose.3.value'
-  triggerAnswer: string; // 'yes'
+  triggerAnswer: TriggerAnswer;
 };
 
 export type DocumentReference = {
   tableId: string; // 'managementReport'
   type: "row" | "column" | "";
   id: string; // '3'
-  triggerAnswer: "yes" | "no" | ""; // 'yes'
+  triggerAnswer: TriggerAnswer;
+};
+
+export type NoteConnection = {
+  triggerAnswer: TriggerAnswer;
 };
 
 export type Question = {
@@ -57,13 +65,14 @@ export type Question = {
   dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;
   valueReferences?: ValueReference[];
+  noteConnection?: NoteConnection;
   noteOptions?: NoteOption[];
   documentReferences?: DocumentReference[];
   constraints?: Record<string, unknown>; // Generic field for constraints
   taxForm?: {
     title?: string;
     description?: string;
-  }
+  };
 };
 
 export type Category = {

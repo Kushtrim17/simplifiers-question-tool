@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Small, Medium } from "@/components/ui/Typography";
-import { Question, ValueReference } from "../../types";
+import { Question, TriggerAnswer, ValueReference } from "../../types";
 import { badgeVariants } from "@/components/ui/badge";
 import { IoClose } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,10 @@ import {
 } from "@/components/ui/select";
 import * as Popover from "@radix-ui/react-popover";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  TRIGGER_ANSWER,
+  TRIGGER_ANSWER_OPTIONS,
+} from "./constants/triggerAnswer";
 
 type Props = {
   question: Question;
@@ -29,15 +33,18 @@ type Props = {
 };
 
 const titleMap: Record<string, string> = {
-  "tax": "Which value in Tax document should this question refer to?",
-  "managementReport": "Which value in Management Report this question refers to?",
-  "notes": "Which value in Annual Report this question refers to?",
-}
+  tax: "Which value in Tax document should this question refer to?",
+  managementReport: "Which value in Management Report this question refers to?",
+  notes: "Which value in Annual Report this question refers to?",
+};
 
 // Helper to map a constant ValueReference (id, label) to the main ValueReference (cellId, triggerAnswer)
-const toMainValueReference = (ref: { id: string; label: string }, triggerAnswer: string): ValueReference => {
+const toMainValueReference = (
+  ref: { id: string; label: string },
+  triggerAnswer: TriggerAnswer
+): ValueReference => {
   return { cellId: ref.id, triggerAnswer };
-}
+};
 
 export function ValueReferenceSelector(props: Props) {
   const { question } = props;
@@ -57,7 +64,7 @@ export function ValueReferenceSelector(props: Props) {
 
   const handleOnValueReferenceTriggerChange = (
     cellId: string,
-    triggerAnswer: string
+    triggerAnswer: TriggerAnswer
   ) => {
     props.onQuestionValueReferencesChanged(
       valueReferences.map((ref) =>
@@ -76,17 +83,9 @@ export function ValueReferenceSelector(props: Props) {
     return valueReferences.some((ref) => ref.cellId === id);
   };
 
-  const getDefaultValue = (cellId: string) => {
-    const ref = valueReferences.find((r) => r.cellId === cellId);
-    if (!ref || !ref.triggerAnswer) {
-      return "null";
-    }
-    return ref.triggerAnswer ? ref.triggerAnswer : "null";
-  };
-
   const getAnswerOptions = () => {
     if (["boolean", "numberField"].includes(question.type)) {
-      return ["yes", "no"];
+      return TRIGGER_ANSWER_OPTIONS;
     }
     return [];
   };
@@ -99,7 +98,8 @@ export function ValueReferenceSelector(props: Props) {
     groupLabel: string
   ) => {
     const sections = Object.keys(group);
-    const isSectionInGroup = openSection != null && sections.includes(openSection);
+    const isSectionInGroup =
+      openSection != null && sections.includes(openSection);
     return (
       <div>
         <div className="font-semibold mb-2">{groupLabel}</div>
@@ -126,7 +126,10 @@ export function ValueReferenceSelector(props: Props) {
               </button>
               <div className="flex flex-col gap-1">
                 {group[openSection as string].map((part) => (
-                  <label key={part.id} className="flex items-center gap-2 cursor-pointer">
+                  <label
+                    key={part.id}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
                     <Checkbox
                       checked={isChecked(part.id)}
                       onCheckedChange={() =>
@@ -148,14 +151,16 @@ export function ValueReferenceSelector(props: Props) {
 
   const renderTaxDocumentReferencesWithSection = () => {
     const sections = [
-      { key: 'Agoy tax document', values: TAX_DOCUMENT_REFERENCES.values },
-      { key: 'INK2 (SKV-2002)', values: INK2_DOCUMENT_REFERENCES.values },
+      { key: "Agoy tax document", values: TAX_DOCUMENT_REFERENCES.values },
+      { key: "INK2 (SKV-2002)", values: INK2_DOCUMENT_REFERENCES.values },
     ];
     const selectedSection = sections.find((s) => s.key === openSection);
     const selectedValues = selectedSection?.values ?? [];
     return (
       <div>
-        <div className="font-semibold mb-2">{openSection || 'Tax document'}</div>
+        <div className="font-semibold mb-2">
+          {openSection || "Tax document"}
+        </div>
         <div className="flex flex-col gap-1">
           {openSection == null ? (
             sections.map((section) => (
@@ -179,7 +184,10 @@ export function ValueReferenceSelector(props: Props) {
               </button>
               <div className="flex flex-col gap-1">
                 {selectedValues.map((part) => (
-                  <label key={part.id} className="flex items-center gap-2 cursor-pointer">
+                  <label
+                    key={part.id}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
                     <Checkbox
                       checked={isChecked(part.id)}
                       onCheckedChange={() =>
@@ -205,7 +213,10 @@ export function ValueReferenceSelector(props: Props) {
       <div className="mt-4 flex flex-row flex-wrap gap-x-4 gap-y-2">
         {valueReferences.length > 0 ? (
           valueReferences.map((ref) => (
-            <div className="flex flex-row group min-w-0 max-w-full" key={ref.cellId}>
+            <div
+              className="flex flex-row group min-w-0 max-w-full"
+              key={ref.cellId}
+            >
               <a
                 href={ref.cellId}
                 target="_blank"
@@ -217,13 +228,19 @@ export function ValueReferenceSelector(props: Props) {
                 <IoClose
                   size={18}
                   className="ml-1 cursor-pointer shrink-0"
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleOnRemoveNoteOption(ref.cellId); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleOnRemoveNoteOption(ref.cellId);
+                  }}
                 />
               </a>
             </div>
           ))
         ) : (
-          <Small className="font-extrabold opacity-65">No reference selected</Small>
+          <Small className="font-extrabold opacity-65">
+            No reference selected
+          </Small>
         )}
       </div>
       <br />
@@ -235,12 +252,23 @@ export function ValueReferenceSelector(props: Props) {
         <Popover.Portal>
           <Popover.Content className="bg-white border rounded shadow-lg p-4 w-80 max-h-96 overflow-y-auto z-50">
             <div className="font-bold mb-2">Available references</div>
-            {question.scope === "tax" && renderTaxDocumentReferencesWithSection()}
-            {question.scope === "managementReport" && renderReferenceGroupWithSection(MANAGEMENT_REPORT_REFERENCES, 'Management report')}
+            {question.scope === "tax" &&
+              renderTaxDocumentReferencesWithSection()}
+            {question.scope === "managementReport" &&
+              renderReferenceGroupWithSection(
+                MANAGEMENT_REPORT_REFERENCES,
+                "Management report"
+              )}
             {question.scope === "notes" && (
               <>
-                {renderReferenceGroupWithSection(BALANCE_SHEET_REFERENCES, 'Balance sheet')}
-                {renderReferenceGroupWithSection(INCOME_STATEMENT_REFERENCES, 'Income statement')}
+                {renderReferenceGroupWithSection(
+                  BALANCE_SHEET_REFERENCES,
+                  "Balance sheet"
+                )}
+                {renderReferenceGroupWithSection(
+                  INCOME_STATEMENT_REFERENCES,
+                  "Income statement"
+                )}
               </>
             )}
           </Popover.Content>
@@ -254,14 +282,27 @@ export function ValueReferenceSelector(props: Props) {
             Which question answer should enable each reference?
           </Medium>
           {valueReferences.map((ref) => (
-            <div key={ref.cellId} className="mb-2 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 w-full">
-              <span title={ref.cellId} className="text-sm font-mono truncate min-w-0 flex-1">
+            <div
+              key={ref.cellId}
+              className="mb-2 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 w-full"
+            >
+              <span
+                title={ref.cellId}
+                className="text-sm font-mono truncate min-w-0 flex-1"
+              >
                 {ref.cellId}
               </span>
               <Select
-                defaultValue={getDefaultValue(ref.cellId)}
+                // Select cannot take an empty string as a value that's why we convert empty string to null
+                // and back to empty string when we store the value
+                defaultValue={
+                  ref.triggerAnswer === "" ? "null" : ref.triggerAnswer
+                }
                 onValueChange={(newValue: string) =>
-                  handleOnValueReferenceTriggerChange(ref.cellId, newValue)
+                  handleOnValueReferenceTriggerChange(
+                    ref.cellId,
+                    newValue === "null" ? "" : (newValue as TriggerAnswer)
+                  )
                 }
                 onOpenChange={(isOpen) => !isOpen}
               >
@@ -270,11 +311,13 @@ export function ValueReferenceSelector(props: Props) {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="null">No trigger</SelectItem>
-                  {getAnswerOptions().map((d) => (
-                    <SelectItem key={d.toString()} value={d.toString()}>
-                      {d.charAt(0).toUpperCase() + d.slice(1)}
-                    </SelectItem>
-                  ))}
+                  {getAnswerOptions()
+                    .filter((d) => d !== TRIGGER_ANSWER.NULL)
+                    .map((d) => (
+                      <SelectItem key={d.toString()} value={d.toString()}>
+                        {d.charAt(0).toUpperCase() + d.slice(1)}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>

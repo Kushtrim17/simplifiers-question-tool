@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/input-otp";
 // import { Textarea } from "@/components/ui/textarea";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
-import { AccountsHelper, Question } from "../../types";
+import { AccountsHelper, Question, TriggerAnswer } from "../../types";
 import {
   Select,
   SelectContent,
@@ -21,6 +21,10 @@ import { Button } from "@/components/ui/button";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { Separator } from "@/components/ui/separator";
 import { RichTextEditor } from "./components/RichTextEditor";
+import {
+  TRIGGER_ANSWER,
+  TRIGGER_ANSWER_OPTIONS,
+} from "./constants/triggerAnswer";
 // import { RichTextEditor } from "./components/RichTextEditor";
 
 type RangeInputProps = {
@@ -153,31 +157,17 @@ export function AccountingHelp(props: Props) {
     onQuestionUpdate({ ...question, accounts });
   };
 
-  const getAnswerOptions = () => {
-    if (question.type === "boolean") {
-      return ["yes", "no"];
-    }
-
-    return [];
-  };
-
   const getDefaultValue = () => {
-    if (!question.accounts?.triggerAnswer) {
+    if (question.accounts?.triggerAnswer == "") {
       return "null";
     }
 
     return question.accounts?.triggerAnswer;
   };
 
-  const handleOnAnswerTriggerChange = (answer: string) => {
-    const getAnswer = () => {
-      if (answer === "null") {
-        return null;
-      }
-
-      return answer.toLowerCase();
-    };
-
+  const handleOnAnswerTriggerChange = (
+    triggerAnswer: TriggerAnswer | "null"
+  ) => {
     const accounts =
       question?.accounts == null
         ? {
@@ -187,11 +177,11 @@ export function AccountingHelp(props: Props) {
             helperDescriptions: [],
             creditRange: [],
             debitRange: [],
-            triggerAnswer: getAnswer(),
+            triggerAnswer: triggerAnswer === "null" ? "" : triggerAnswer,
           }
         : {
             ...question.accounts,
-            triggerAnswer: getAnswer(),
+            triggerAnswer: triggerAnswer === "null" ? "" : triggerAnswer,
           };
 
     onQuestionUpdate({ ...question, accounts });
@@ -297,11 +287,13 @@ export function AccountingHelp(props: Props) {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="null">No trigger</SelectItem>
-          {getAnswerOptions().map((d) => (
-            <SelectItem key={d.toString()} value={d.toString()}>
-              {d.charAt(0).toUpperCase() + d.slice(1)}
-            </SelectItem>
-          ))}
+          {TRIGGER_ANSWER_OPTIONS.filter((d) => d !== TRIGGER_ANSWER.NULL).map(
+            (d) => (
+              <SelectItem key={d.toString()} value={d.toString()}>
+                {d.charAt(0).toUpperCase() + d.slice(1)}
+              </SelectItem>
+            )
+          )}
         </SelectContent>
       </Select>
 

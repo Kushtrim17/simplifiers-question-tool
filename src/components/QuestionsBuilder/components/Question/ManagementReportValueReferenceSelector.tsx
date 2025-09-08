@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Question, ValueReference } from '../../types';
+import { Question, TriggerAnswer, ValueReference } from "../../types";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -12,47 +12,64 @@ import { Grid } from "@/components/ui/grid.tsx";
 import { Small, Medium } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button.tsx";
 import { IoTrashBinOutline } from "react-icons/io5";
+import {
+  TRIGGER_ANSWER,
+  TRIGGER_ANSWER_OPTIONS,
+} from "./constants/triggerAnswer";
 
 type Props = {
   question: Question;
-  onQuestionValueReferencesChanged: (newValueReferences: ValueReference[]) => void;
+  onQuestionValueReferencesChanged: (
+    newValueReferences: ValueReference[]
+  ) => void;
 };
 
 const emptyValueReference: ValueReference = {
   cellId: "",
-  triggerAnswer: ""
-}
+  triggerAnswer: TRIGGER_ANSWER.NULL,
+};
 
 export const ManagementReportValueReferenceSelector = (props: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { question, onQuestionValueReferencesChanged } = props;
 
-  const [valueReferences, setValueReferences] = useState<ValueReference[]>(question.valueReferences || []);
+  const [valueReferences, setValueReferences] = useState<ValueReference[]>(
+    question.valueReferences || []
+  );
 
-  const getNewReferences = (i: number, updatedValueReference: ValueReference) => valueReferences.map((valueReference, index) => (i === index ? updatedValueReference : valueReference))
+  const getNewReferences = (i: number, updatedValueReference: ValueReference) =>
+    valueReferences.map((valueReference, index) =>
+      i === index ? updatedValueReference : valueReference
+    );
 
-  const updateValueReference = (i: number, updatedValueReference: ValueReference) => {
+  const updateValueReference = (
+    i: number,
+    updatedValueReference: ValueReference
+  ) => {
     setValueReferences(getNewReferences(i, updatedValueReference));
-  }
+  };
 
   const handleSave = (i: number, updatedValueReference: ValueReference) => {
-    const newRefs = getNewReferences(i, updatedValueReference)
+    const newRefs = getNewReferences(i, updatedValueReference);
     onQuestionValueReferencesChanged(newRefs);
 
     updateValueReference(i, updatedValueReference);
   };
 
   const handleAdd = () => {
-    const updated = [...valueReferences, emptyValueReference] as ValueReference[];
+    const updated = [
+      ...valueReferences,
+      emptyValueReference,
+    ] as ValueReference[];
     onQuestionValueReferencesChanged(updated);
     setValueReferences(updated);
-  }
+  };
 
   const handleDelete = (i: number) => {
     const updated = valueReferences.filter((_, index) => index !== i);
     onQuestionValueReferencesChanged(updated);
     setValueReferences(updated);
-  }
+  };
 
   const handleSaveInput = () => {
     onQuestionValueReferencesChanged(valueReferences);
@@ -60,12 +77,18 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
 
   return (
     <>
-      <Medium className="pb-4">Which value in Management Report this question refers to?</Medium>
+      <Medium className="pb-4">
+        Which value in Management Report this question refers to?
+      </Medium>
       {valueReferences.map((valueReference, i) => (
         <div className="border border-gray-200 rounded-lg p-4 mb-4">
           <div className="flex align-center justify-between mb-2">
             <Medium>Value Reference {i + 1}</Medium>
-            <IoTrashBinOutline size={24} onClick={() => handleDelete(i)} className="cursor-pointer" />
+            <IoTrashBinOutline
+              size={24}
+              onClick={() => handleDelete(i)}
+              className="cursor-pointer"
+            />
           </div>
 
           <Grid columns={2} key={i}>
@@ -88,25 +111,32 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
             </div>
 
             <div>
-              <Small className="font-extrabold">
-                Trigger answer
-              </Small>
+              <Small className="font-extrabold">Trigger answer</Small>
               <Select
-                defaultValue={valueReference.triggerAnswer}
+                // Select cannot take an empty string as a value that's why we convert empty string to null
+                // and back to empty string when we store the value
+                defaultValue={
+                  valueReference.triggerAnswer === ""
+                    ? "null"
+                    : valueReference.triggerAnswer
+                }
                 onValueChange={(newValue: string) => {
                   handleSave(i, {
                     ...valueReference,
-                    triggerAnswer: newValue as "yes" | "no",
+                    triggerAnswer:
+                      newValue === "null" ? "" : (newValue as TriggerAnswer),
                   });
                 }}
                 onOpenChange={(isOpen) => !isOpen}
               >
                 <SelectTrigger className="mt-5 mb-5">
-                  <SelectValue placeholder="Select answer trigger"/>
+                  <SelectValue placeholder="Select answer trigger" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="null">No trigger</SelectItem>
-                  {["yes", "no"].map((d) => (
+                  {TRIGGER_ANSWER_OPTIONS.filter(
+                    (d) => d !== TRIGGER_ANSWER.NULL
+                  ).map((d) => (
                     <SelectItem key={d.toString()} value={d.toString()}>
                       {d.charAt(0).toUpperCase() + d.slice(1)}
                     </SelectItem>
@@ -114,12 +144,13 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
                 </SelectContent>
               </Select>
             </div>
-            
           </Grid>
         </div>
       ))}
 
-      <Button variant="secondary" onClick={handleAdd}>Add value reference</Button>
+      <Button variant="secondary" onClick={handleAdd}>
+        Add value reference
+      </Button>
     </>
   );
 };

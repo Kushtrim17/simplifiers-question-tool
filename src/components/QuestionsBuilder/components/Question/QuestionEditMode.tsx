@@ -1,6 +1,7 @@
 import { Medium } from "@/components/ui/Typography";
 import {
   DocumentReference,
+  NoteConnection,
   NoteOption,
   Question,
   ValueReference,
@@ -20,6 +21,7 @@ import { DocumentReferenceSelector } from "./DocumentReferenceSelector";
 import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxForm";
 import { Grid } from "@/components/ui/grid.tsx";
 import { ConstraintSelector } from "@/components/QuestionsBuilder/components/Question/ConstraintSelector";
+import { QuestionNoteConnectionTrigger } from "./QuestionNoteConnectionTrigger";
 
 type Props = {
   question: Question;
@@ -28,11 +30,11 @@ type Props = {
   onAddQuestionDependency: (
     questionId: string,
     dependencyId: string,
-    answer: boolean | string,
+    answer: boolean | string
   ) => void;
   onRemoveQuestionDependency: (
     questionId: string,
-    dependencyId: string,
+    dependencyId: string
   ) => void;
 };
 
@@ -58,7 +60,7 @@ export function QuestionEditMode(props: Props) {
     onQuestionUpdate({
       ...question,
       externalLinks: question.externalLinks.filter(
-        (link) => link.label !== label && link.url !== url,
+        (link) => link.label !== label && link.url !== url
       ),
     });
   };
@@ -76,7 +78,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleQuestionScopeChange = (
-    newScope: "accounts" | "notes" | "tax" | "managementReport",
+    newScope: "accounts" | "notes" | "tax" | "managementReport"
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
@@ -104,7 +106,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleOnUpdateValueReferences = (
-    newValueReferences: ValueReference[] | null,
+    newValueReferences: ValueReference[] | null
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
@@ -117,11 +119,20 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleOnDocumentReferencesChanged = (
-    updatedDocumentReferences: DocumentReference[],
+    updatedDocumentReferences: DocumentReference[]
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
       documentReferences: updatedDocumentReferences,
+    });
+  };
+
+  const handleOnNoteConnectionChanged = (
+    updatedNoteConnection: NoteConnection
+  ) => {
+    onQuestionUpdate({
+      ...currentQuestion,
+      noteConnection: updatedNoteConnection,
     });
   };
 
@@ -138,7 +149,7 @@ export function QuestionEditMode(props: Props) {
 
   const handleOnDependencyChange = (
     dependencyId: string,
-    answer: boolean | string,
+    answer: boolean | string
   ) => {
     removePreviousDependencies();
 
@@ -181,7 +192,7 @@ export function QuestionEditMode(props: Props) {
   const updateRange = (
     allRanges: (number[] | null[])[],
     index: number,
-    newRange: number[],
+    newRange: number[]
   ) => {
     const ranges = [...allRanges];
     ranges[index] = newRange;
@@ -208,7 +219,7 @@ export function QuestionEditMode(props: Props) {
             creditRange: updateRange(
               question.accounts.creditRange,
               index,
-              range,
+              range
             ),
           };
 
@@ -223,7 +234,7 @@ export function QuestionEditMode(props: Props) {
     const accounts = {
       ...question.accounts,
       creditRange: question?.accounts?.creditRange.filter(
-        (_, i) => i !== index,
+        (_, i) => i !== index
       ),
     };
 
@@ -346,6 +357,15 @@ export function QuestionEditMode(props: Props) {
           question={currentQuestion}
           onQuestionScopeChange={handleQuestionScopeChange}
         />
+
+        {currentQuestion.scope === "notes" && (
+          <>
+            <QuestionNoteConnectionTrigger
+              question={currentQuestion}
+              onNoteConnectionChanged={handleOnNoteConnectionChanged}
+            />
+          </>
+        )}
       </Grid>
 
       <Separator className="mt-5 mb-5" />

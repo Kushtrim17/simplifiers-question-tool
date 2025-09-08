@@ -3,6 +3,49 @@ export const FIRST_NOTE = {
   name: "Redovisningsprinciper",
 };
 
+export const FIRST_NOTE_OPTIONS = [
+  {
+    id: "notes.note1.data.RedovisningsVarderingsprinciper.value",
+    name: "Redovisningsprinciper",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar.value",
+    name: "Immateriella anläggningstillgångar",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningImmateriellaAnlaggningstillgangar.value",
+    name: "Avskrivning",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningImmateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningImmateriellaAnlaggningstillgangar.table",
+    name: "Avskrivningsprinciper",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar.value",
+    name: "Materiella anläggningstillgångar",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningMateriellaAnlaggningstillgangar.value",
+    name: "Avskrivning",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningMateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningMateriellaAnlaggningstillgangar.table",
+    name: "Avskrivningsprinciper",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperTjansteOchEntreprenaduppdrag.value",
+    name: "Tjänste- och entreprenaduppdrag",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperAnskaffningsvardeEgentillverkadevaror.value",
+    name: "Anskaffningsvärde för egentillverkade varor",
+  },
+  {
+    id: "notes.note1.data.RedovisningsprinciperBristandeJamforbarhetAndradePrinciper.value",
+    name: "Bristande jämförbarhet vid ändrade principer",
+  },
+];
+
 export const INCOME_STATEMENT_NOTES = [
   {
     id: "notes.note10.number",
@@ -122,6 +165,7 @@ export const OTHER_NOTES = [
 
 export const ALL_NOTES = [
   FIRST_NOTE,
+  ...FIRST_NOTE_OPTIONS,
   ...INCOME_STATEMENT_NOTES,
   ...BALANCE_SHEET_NOTES,
   ...OTHER_NOTES,

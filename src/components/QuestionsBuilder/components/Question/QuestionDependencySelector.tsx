@@ -98,7 +98,6 @@ export function QuestionDependencySelector(props: Props) {
             <SelectValue placeholder="Select question type" />
           </SelectTrigger>
           <SelectContent>
-            {/* <SelectItem value="no">No dependency</SelectItem> */}
             {getDependencyQuestionAnswerOptions().map((d) => (
               <SelectItem key={d.toString()} value={d.toString().toLowerCase()}>
                 {d.charAt(0).toUpperCase() + d.slice(1)}
