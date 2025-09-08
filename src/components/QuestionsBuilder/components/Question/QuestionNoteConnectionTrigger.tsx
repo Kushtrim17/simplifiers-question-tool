@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/select";
 import { Small } from "@/components/ui/Typography";
 import { NoteConnection, Question, TriggerAnswer } from "../../types";
-import { Separator } from "@/components/ui/separator";
 import {
   TRIGGER_ANSWER,
   TRIGGER_ANSWER_OPTIONS,
