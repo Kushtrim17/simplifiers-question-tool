@@ -43,7 +43,7 @@ export type ValueReference = {
 
 export type DocumentReference = {
   tableId: string; // 'managementReport'
-  type: "row" | "column" | "section" | "";
+  type: "row" | "column" | "section" | "field" | "";
   id: string; // '3'
   triggerAnswer: TriggerAnswer;
 };

@@ -152,7 +152,7 @@ export const DocumentReferenceSelector = (props: Props) => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="null">No type reference</SelectItem>
-                  {["row", "column", "section"].map((d) => (
+                  {["row", "column", "section", "field"].map((d) => (
                     <SelectItem key={d.toString()} value={d.toString()}>
                       {d.charAt(0).toUpperCase() + d.slice(1)}
                     </SelectItem>
