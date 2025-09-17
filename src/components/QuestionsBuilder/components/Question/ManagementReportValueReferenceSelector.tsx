@@ -8,9 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Grid } from "@/components/ui/grid.tsx";
+import { Grid } from "@/components/ui/grid";
 import { Small, Medium } from "@/components/ui/Typography";
-import { Button } from "@/components/ui/button.tsx";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from '@/components/ui/checkbox';
 import { IoTrashBinOutline } from "react-icons/io5";
 import {
   TRIGGER_ANSWER,
@@ -24,13 +25,18 @@ type Props = {
   ) => void;
 };
 
+const TYPE_OPTIONS = ["", "number", "string"];
+
 const emptyValueReference: ValueReference = {
   cellId: "",
   triggerAnswer: TRIGGER_ANSWER.NULL,
+  label: "",
+  type: "",
 };
 
 export const ManagementReportValueReferenceSelector = (props: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const labelInputRef = useRef<HTMLInputElement>(null);
   const { question, onQuestionValueReferencesChanged } = props;
 
   const [valueReferences, setValueReferences] = useState<ValueReference[]>(
@@ -81,7 +87,7 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
         Which value in Management Report this question refers to?
       </Medium>
       {valueReferences.map((valueReference, i) => (
-        <div className="border border-gray-200 rounded-lg p-4 mb-4">
+        <div className="border border-gray-200 rounded-lg p-4 mb-4" key={i}>
           <div className="flex align-center justify-between mb-2">
             <Medium>Value Reference {i + 1}</Medium>
             <IoTrashBinOutline
@@ -144,6 +150,74 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
                 </SelectContent>
               </Select>
             </div>
+
+            <div>
+              <Small className="font-extrabold">Label</Small>
+              <Input
+                ref={labelInputRef}
+                value={valueReference.label}
+                placeholder="Enter value reference label"
+                onChange={(e) =>
+                  updateValueReference(i, {
+                    ...valueReference,
+                    label: e.currentTarget.value,
+                  })
+                }
+                onBlur={handleSaveInput}
+                className="mt-2 mb-5"
+              />
+            </div>
+
+            <div>
+              <Small className="font-extrabold">Type</Small>
+              <Select
+                // Select cannot take an empty string as a value that's why we convert empty string to null
+                // and back to empty string when we store the value
+                defaultValue={!valueReference.type ? "null" : valueReference.type}
+                onValueChange={(newValue: string) => {
+
+                  handleSave(i, {
+                    ...valueReference,
+                    // reset multiline value if type changes from "string" to another
+                    multiline: valueReference.type === "string" ? undefined : valueReference.multiline,
+                    type: newValue === "null" ? "" : (newValue as "number" | "string"),
+                  });
+                }}
+                onOpenChange={(isOpen) => !isOpen}
+              >
+                <SelectTrigger className="mt-5 mb-5">
+                  <SelectValue placeholder="Select value reference type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="null">-</SelectItem>
+                  {TYPE_OPTIONS.filter(
+                    (d) => d !== ""
+                  ).map((d) => (
+                    <SelectItem key={d.toString()} value={d.toString()}>
+                      {d.charAt(0).toUpperCase() + d.slice(1)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {
+              valueReference.type === "string" && (
+                <div className="flex items-center">
+                  <Checkbox
+                    checked={!!valueReference.multiline}
+                    onCheckedChange={(checked: boolean) => {
+                      handleSave(i, {
+                        ...valueReference,
+                        multiline: checked,
+                      });
+                    }}
+                  />
+                  <Small className="font-extrabold ml-2">Multiline</Small>
+                </div>
+              )
+            }
+
           </Grid>
         </div>
       ))}

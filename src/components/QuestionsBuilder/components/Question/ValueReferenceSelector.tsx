@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import {
   BALANCE_SHEET_REFERENCES,
   INCOME_STATEMENT_REFERENCES,
-  MANAGEMENT_REPORT_REFERENCES,
   TAX_DOCUMENT_REFERENCES,
   INK2_DOCUMENT_REFERENCES,
 } from "./constants/valueReferenceConstants";
@@ -254,11 +253,6 @@ export function ValueReferenceSelector(props: Props) {
             <div className="font-bold mb-2">Available references</div>
             {question.scope === "tax" &&
               renderTaxDocumentReferencesWithSection()}
-            {question.scope === "managementReport" &&
-              renderReferenceGroupWithSection(
-                MANAGEMENT_REPORT_REFERENCES,
-                "Management report"
-              )}
             {question.scope === "notes" && (
               <>
                 {renderReferenceGroupWithSection(
