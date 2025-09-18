@@ -39,6 +39,9 @@ export type NoteOption = {
 export type ValueReference = {
   cellId: string; // 'managementReport.resultsDisposition.toDispose.3.value'
   triggerAnswer: TriggerAnswer;
+  label?: string;
+  type?: "" | "number" | "string";
+  multiline?: boolean;
 };
 
 export type DocumentReference = {
