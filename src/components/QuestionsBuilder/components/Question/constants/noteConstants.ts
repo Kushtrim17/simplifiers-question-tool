@@ -48,15 +48,15 @@ export const FIRST_NOTE_OPTIONS = [
 
 export const INCOME_STATEMENT_NOTES = [
   {
-    id: "notes.note10.number",
+    id: "id(notes.note10.number)",
     name: "Medelantalet anställda",
   },
   {
-    id: "notes.note49.number",
+    id: "id(notes.note49.number)",
     name: "Exceptionella intäkter och kostnader",
   },
   {
-    id: "notes.note60.number",
+    id: "id(notes.note60.number)",
     name: "Övriga upplysningar till resultaträkningen",
   },
 ];
