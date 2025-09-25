@@ -5,43 +5,27 @@ export const FIRST_NOTE = {
 
 export const FIRST_NOTE_OPTIONS = [
   {
-    id: "notes.note1.data.RedovisningsVarderingsprinciper.value",
+    id: "notes.note1.data.RedovisningsVarderingsprinciper",
     name: "Redovisningsprinciper",
   },
   {
-    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar.value",
+    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar",
     name: "Immateriella anläggningstillgångar",
   },
   {
-    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningImmateriellaAnlaggningstillgangar.value",
-    name: "Avskrivning",
-  },
-  {
-    id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningImmateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningImmateriellaAnlaggningstillgangar.table",
-    name: "Avskrivningsprinciper",
-  },
-  {
-    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar.value",
+    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar",
     name: "Materiella anläggningstillgångar",
   },
   {
-    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningMateriellaAnlaggningstillgangar.value",
-    name: "Avskrivning",
-  },
-  {
-    id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningMateriellaAnlaggningstillgangar.RedovisningsprinciperAvskrivningMateriellaAnlaggningstillgangar.table",
-    name: "Avskrivningsprinciper",
-  },
-  {
-    id: "notes.note1.data.RedovisningsprinciperTjansteOchEntreprenaduppdrag.value",
+    id: "notes.note1.data.RedovisningsprinciperTjansteOchEntreprenaduppdrag",
     name: "Tjänste- och entreprenaduppdrag",
   },
   {
-    id: "notes.note1.data.RedovisningsprinciperAnskaffningsvardeEgentillverkadevaror.value",
+    id: "notes.note1.data.RedovisningsprinciperAnskaffningsvardeEgentillverkadevaror",
     name: "Anskaffningsvärde för egentillverkade varor",
   },
   {
-    id: "notes.note1.data.RedovisningsprinciperBristandeJamforbarhetAndradePrinciper.value",
+    id: "notes.note1.data.RedovisningsprinciperBristandeJamforbarhetAndradePrinciper",
     name: "Bristande jämförbarhet vid ändrade principer",
   },
 ];
