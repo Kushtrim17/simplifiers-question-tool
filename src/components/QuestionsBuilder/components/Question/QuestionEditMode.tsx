@@ -358,14 +358,15 @@ export function QuestionEditMode(props: Props) {
           onQuestionScopeChange={handleQuestionScopeChange}
         />
 
-        {currentQuestion.scope === "notes" && (
-          <>
-            <QuestionNoteConnectionTrigger
-              question={currentQuestion}
-              onNoteConnectionChanged={handleOnNoteConnectionChanged}
-            />
-          </>
-        )}
+        {currentQuestion.scope === "notes" &&
+          currentQuestion.type === "boolean" && (
+            <>
+              <QuestionNoteConnectionTrigger
+                question={currentQuestion}
+                onNoteConnectionChanged={handleOnNoteConnectionChanged}
+              />
+            </>
+          )}
       </Grid>
 
       <Separator className="mt-5 mb-5" />
