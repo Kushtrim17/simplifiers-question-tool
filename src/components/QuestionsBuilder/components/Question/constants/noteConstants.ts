@@ -134,6 +134,10 @@ export const BALANCE_SHEET_NOTES = [
 
 export const OTHER_NOTES = [
   {
+    id: "id(notes.note83.number)",
+    name: "Eventualförpliktelser",
+  },
+  {
     id: "id(notes.note95.number)",
     name: "Väsentliga händelser efter räkenskapsårets slut",
   },
