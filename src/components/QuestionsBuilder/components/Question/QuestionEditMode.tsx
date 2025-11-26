@@ -431,18 +431,19 @@ export function QuestionEditMode(props: Props) {
 
       <Separator className="mt-5 mb-5" />
 
-      {question.scope === "accounts" && (
-        <AccountingHelp
-          question={question}
-          onQuestionUpdate={onQuestionUpdate}
-          onCreditRangeChange={handleCreditRangeChange}
-          onCreditRangeRemove={handleCreditChangeRemove}
-          onCreditRangeAdd={handleAddCreditRange}
-          onDebitRangeChange={handleDebitRangeChange}
-          onDebitRangeRemove={handleDebitChangeRemove}
-          onDebitRangeAdd={handleAddDebitRange}
-        />
-      )}
+      {question.scope === "accounts" ||
+        (question.scope === "tax" && (
+          <AccountingHelp
+            question={question}
+            onQuestionUpdate={onQuestionUpdate}
+            onCreditRangeChange={handleCreditRangeChange}
+            onCreditRangeRemove={handleCreditChangeRemove}
+            onCreditRangeAdd={handleAddCreditRange}
+            onDebitRangeChange={handleDebitRangeChange}
+            onDebitRangeRemove={handleDebitChangeRemove}
+            onDebitRangeAdd={handleAddDebitRange}
+          />
+        ))}
 
       {question.scope === "tax" && (
         <TaxForm
