@@ -174,7 +174,7 @@ export function NoteSelector(props: Props) {
       <div className="mt-4 flex flex-row flex-wrap gap-x-4 gap-y-2">
         {question.noteOptions && question.noteOptions.length > 0 ? (
           question.noteOptions.map((note) => (
-            <div key={note.id} className="flex flex-row mr-4 group">
+            <div key={note.id} className="flex flex-row items-center group">
               <a
                 href={note.id}
                 target="_blank"
@@ -186,7 +186,7 @@ export function NoteSelector(props: Props) {
               </a>
               <IoClose
                 size={20}
-                className="mt-2"
+                className="cursor-pointer ml-1"
                 onClick={() => handleOnRemoveNoteOption(note.id)}
               />
             </div>
@@ -195,10 +195,10 @@ export function NoteSelector(props: Props) {
           <Small className="font-extrabold opacity-65">No notes selected</Small>
         )}
       </div>
-      <br />
 
-      <NoteDropdownMenu isChecked={isChecked} onToggle={handleToggleNote} />
-      <br />
+      <div className="mt-4 mb-4 w-full">
+        <NoteDropdownMenu isChecked={isChecked} onToggle={handleToggleNote} />
+      </div>
     </>
   );
 }
