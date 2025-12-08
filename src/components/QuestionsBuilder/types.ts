@@ -76,8 +76,8 @@ export type Question = {
     title?: string;
     description?: string;
   };
+  noteHelper?: string;
 };
-
 export type Category = {
   id: string;
   parentId?: string;
