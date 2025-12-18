@@ -22,6 +22,7 @@ import { TaxForm } from "@/components/QuestionsBuilder/components/Question/TaxFo
 import { Grid } from "@/components/ui/grid.tsx";
 import { ConstraintSelector } from "@/components/QuestionsBuilder/components/Question/ConstraintSelector";
 import { QuestionNoteConnectionTrigger } from "./QuestionNoteConnectionTrigger";
+import { NoteHelper } from "./NoteHelper";
 
 type Props = {
   question: Question;
@@ -370,14 +371,23 @@ export function QuestionEditMode(props: Props) {
             </>
           )}
       </Grid>
-
       <Separator className="mt-5 mb-5" />
 
       {currentQuestion.scope === "notes" && (
-        <NoteSelector
-          question={currentQuestion}
-          onQuestionNoteOptionsChanged={handleUpdateNoteOptions}
-        />
+        <>
+          <NoteSelector
+            question={currentQuestion}
+            onQuestionNoteOptionsChanged={handleUpdateNoteOptions}
+          />
+          <Separator className="mt-5 mb-5" />
+          <NoteHelper
+            question={currentQuestion}
+            onQuestionUpdate={(updatedQuestion) => {
+              setCurrentQuestion(updatedQuestion);
+              onQuestionUpdate(updatedQuestion);
+            }}
+          />
+        </>
       )}
 
       <ConstraintSelector
