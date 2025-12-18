@@ -336,6 +336,8 @@ export function QuestionEditMode(props: Props) {
     }
   }, []);
 
+  console.log({ question });
+
   return (
     <div className="w-full flex flex-col mr-40">
       <Medium className="font-extrabold">
@@ -431,8 +433,8 @@ export function QuestionEditMode(props: Props) {
 
       <Separator className="mt-5 mb-5" />
 
-      {question.scope === "accounts" ||
-        (question.scope === "tax" && (
+      {(question.scope === "accounts" || question.scope === "tax") && (
+        <>
           <AccountingHelp
             question={question}
             onQuestionUpdate={onQuestionUpdate}
@@ -443,7 +445,8 @@ export function QuestionEditMode(props: Props) {
             onDebitRangeRemove={handleDebitChangeRemove}
             onDebitRangeAdd={handleAddDebitRange}
           />
-        ))}
+        </>
+      )}
 
       {question.scope === "tax" && (
         <TaxForm

@@ -168,7 +168,7 @@ export function NoteSelector(props: Props) {
   return (
     <>
       <Small className="font-extrabold">
-        Which note options should be available
+        Which annual report account should the note connect to?
       </Small>
 
       <div className="mt-4 flex flex-row flex-wrap gap-x-4 gap-y-2">
