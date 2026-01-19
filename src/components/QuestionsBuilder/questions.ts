@@ -13,17 +13,17 @@ export function addRootCategory(allCategories: Category[]) {
   return [...allCategories, category];
 }
 
-export function addChildCategory(allCategories: Category[], parentId: string) {
+export function addChildCategory(allCategories: Category[], parentCategoryId: string) {
   const categories = [...allCategories];
 
   categories.forEach((category) => {
-    if (category.id === parentId) {
+    if (category.id === parentCategoryId) {
       const orderNumber = category.subCategories
         ? category.subCategories.length + 1
         : 1;
       const newCategory: Category = {
         id: uuIdv4(),
-        parentId,
+        parentCategoryId,
         level: category.level + 1,
         orderNumber,
         name: `Child ${orderNumber} category level ${category.level + 1}`,
@@ -39,7 +39,7 @@ export function addChildCategory(allCategories: Category[], parentId: string) {
       if (category.subCategories) {
         category.subCategories = addChildCategory(
           category.subCategories,
-          parentId
+          parentCategoryId
         );
       }
     }
@@ -60,12 +60,12 @@ export function addSiblingCategory(
     throw Error("Sibling category not found");
   }
 
-  const parentId = siblingCategory.parentId || "";
-  if (!parentId) {
+  const parentCategoryId = siblingCategory.parentCategoryId || "";
+  if (!parentCategoryId) {
     return addRootCategory(allCategories);
   }
 
-  return addChildCategory(allCategories, parentId);
+  return addChildCategory(allCategories, parentCategoryId);
 }
 
 export function deleteCategory(allCategories: Category[], categoryId: string) {
@@ -117,12 +117,12 @@ export function updateCategoryOrder(
 ) {
   return allSubCategories.map((category: Category) => {
     if (category.id === categoryId) {
-      if (category?.parentId == null) {
+      if (category?.parentCategoryId == null) {
         // it is a root category we should update the order number of all root categories
         return category;
       }
 
-      const parentCategory = getCategory(allCategories, category.parentId);
+      const parentCategory = getCategory(allCategories, category.parentCategoryId);
       if (parentCategory == null) {
         return category;
       }

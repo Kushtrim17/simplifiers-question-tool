@@ -28,7 +28,7 @@ describe("Add Category", () => {
       expect(updatedCategory.length).toBe(2);
       expect(updatedCategory[1].level).toBe(1);
       expect(updatedCategory[1].orderNumber).toBe(2);
-      expect(updatedCategory[1]?.parentId).toBe(undefined);
+      expect(updatedCategory[1]?.parentCategoryId).toBe(undefined);
     });
   });
 
@@ -44,7 +44,7 @@ describe("Add Category", () => {
           subCategories: [
             {
               id: "2",
-              parentId: "1",
+              parentCategoryId: "1",
               orderNumber: 1,
               level: 2,
               name: "Sub Category 1",
@@ -60,7 +60,7 @@ describe("Add Category", () => {
       const subcategorySecond = subCategories[1];
       expect(subcategorySecond.level).toBe(2);
       expect(subcategorySecond.orderNumber).toBe(2);
-      expect(subcategorySecond.parentId).toBe("1");
+      expect(subcategorySecond.parentCategoryId).toBe("1");
     });
 
     test("add a sub category - 3rd level", () => {
@@ -74,7 +74,7 @@ describe("Add Category", () => {
           subCategories: [
             {
               id: "2",
-              parentId: "1",
+              parentCategoryId: "1",
               orderNumber: 1,
               level: 2,
               name: "Sub Category 1",
@@ -89,14 +89,14 @@ describe("Add Category", () => {
       if (updatedCategory[0].subCategories?.length != null) {
         const level2 = updatedCategory[0].subCategories[0] || [];
         expect(level2.subCategories?.length).toBe(1);
-        expect(level2.parentId).toBe("1");
+        expect(level2.parentCategoryId).toBe("1");
 
         expect(level2.subCategories?.length).toBe(1);
         if (level2.subCategories?.length != null) {
           const level3 = level2.subCategories?.[0] || [];
           expect(level3.level).toBe(3);
           expect(level3.orderNumber).toBe(1);
-          expect(level3.parentId).toBe("2");
+          expect(level3.parentCategoryId).toBe("2");
         }
       }
     });
@@ -114,7 +114,7 @@ describe("Add Category", () => {
             {
               id: "2",
               orderNumber: 1,
-              parentId: "1",
+              parentCategoryId: "1",
               level: 2,
               name: "Sub Category 1",
               questions: [],
@@ -122,7 +122,7 @@ describe("Add Category", () => {
               subCategories: [
                 {
                   id: "3",
-                  parentId: "2",
+                  parentCategoryId: "2",
                   orderNumber: 1,
                   level: 3,
                   name: "Sub Category 1",
@@ -146,7 +146,7 @@ describe("Add Category", () => {
             const level4 = level3.subCategories?.[1] || [];
             expect(level4.level).toBe(4);
             expect(level4.orderNumber).toBe(2);
-            expect(level4.parentId).toBe("3");
+            expect(level4.parentCategoryId).toBe("3");
           }
         }
       }
@@ -160,7 +160,7 @@ describe("Add Category", () => {
       expect(updatedCategory.length).toBe(1);
       expect(root.level).toBe(1);
       expect(root.orderNumber).toBe(1);
-      expect(root?.parentId).toBe(undefined);
+      expect(root?.parentCategoryId).toBe(undefined);
 
       const updatedCategory2 = addChildCategory(updatedCategory, root.id);
       const levelTwo = updatedCategory2[0].subCategories?.[0];
@@ -173,7 +173,7 @@ describe("Add Category", () => {
         updatedCategory3[0].subCategories?.[0]?.subCategories?.[0];
       expect(levelThree?.level).toBe(3);
       expect(levelThree?.orderNumber).toBe(1);
-      expect(levelThree?.parentId).toBe(levelTwo?.id);
+      expect(levelThree?.parentCategoryId).toBe(levelTwo?.id);
       const updatedLevel2 = updatedCategory3[0].subCategories?.[0];
       expect(updatedLevel2?.subCategories?.length).toBe(1);
       expect(updatedLevel2?.id).toBe(levelTwo?.id);
@@ -193,7 +193,7 @@ describe("Add Category", () => {
           subCategories: [
             {
               id: "2",
-              parentId: "1",
+              parentCategoryId: "1",
               orderNumber: 1,
               level: 2,
               name: "Sub Category 1",
@@ -225,7 +225,7 @@ describe("Update a category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -261,7 +261,7 @@ describe("Delete a category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -288,7 +288,7 @@ describe("Delete a category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -297,7 +297,7 @@ describe("Delete a category", () => {
             subCategories: [
               {
                 id: "3",
-                parentId: "2",
+                parentCategoryId: "2",
                 orderNumber: 1,
                 level: 3,
                 name: "Sub Category 1",
@@ -327,7 +327,7 @@ describe("Delete a category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -356,7 +356,7 @@ describe("Add question to category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -365,7 +365,7 @@ describe("Add question to category", () => {
             subCategories: [
               {
                 id: "3",
-                parentId: "2",
+                parentCategoryId: "2",
                 orderNumber: 1,
                 level: 3,
                 name: "Sub Category 1",
@@ -395,7 +395,7 @@ describe("Add question to category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -404,7 +404,7 @@ describe("Add question to category", () => {
             subCategories: [
               {
                 id: "3",
-                parentId: "2",
+                parentCategoryId: "2",
                 orderNumber: 1,
                 level: 3,
                 name: "Sub Category 1",
@@ -435,7 +435,7 @@ describe("Add question to category", () => {
         subCategories: [
           {
             id: "2",
-            parentId: "1",
+            parentCategoryId: "1",
             orderNumber: 1,
             level: 2,
             name: "Sub Category 1",
@@ -443,7 +443,7 @@ describe("Add question to category", () => {
             subCategories: [
               {
                 id: "3",
-                parentId: "2",
+                parentCategoryId: "2",
                 orderNumber: 1,
                 level: 3,
                 name: "Sub Category 1",
@@ -499,7 +499,7 @@ describe("Change question order", () => {
       subCategories: [
         {
           id: "2",
-          parentId: "1",
+          parentCategoryId: "1",
           orderNumber: 1,
           level: 2,
           name: "Sub Category 1",
@@ -507,7 +507,7 @@ describe("Change question order", () => {
           subCategories: [
             {
               id: "3",
-              parentId: "2",
+              parentCategoryId: "2",
               orderNumber: 1,
               level: 3,
               name: "Sub Category 1",

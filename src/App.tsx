@@ -69,8 +69,8 @@ function App() {
     saveUpdatedStructure({ ...structure, categories });
   };
 
-  const handleOnAddChildCategory = (parentId: string) => {
-    const categories = addChildCategory(structure.categories, parentId);
+  const handleOnAddChildCategory = (parentCategoryId: string) => {
+    const categories = addChildCategory(structure.categories, parentCategoryId);
     saveUpdatedStructure({ ...structure, categories });
   };
 
