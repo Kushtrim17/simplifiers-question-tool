@@ -129,7 +129,7 @@ type Props = {
   isLastChild: boolean;
   onEdit: (updatedCategory: Category) => void;
   onAddSibling: (siblingId: string) => void;
-  onAddChild: (parentId: string) => void;
+  onAddChild: (parentCategoryId: string) => void;
   onDelete: () => void;
   onChangeCategoryOrder: (newOrderNumber: number) => void;
   onAddQuestion: () => void;

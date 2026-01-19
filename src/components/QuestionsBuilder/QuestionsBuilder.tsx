@@ -5,7 +5,7 @@ import { marginClasses } from "@/constants";
 type Props = {
   categories: Category[];
   onEditCategory: (category: Category) => void;
-  onAddChildCategory: (parentId: string) => void;
+  onAddChildCategory: (parentCategoryId: string) => void;
   onAddSiblingCategory: (siblingId: string) => void;
   onDeleteCategory: (categoryId: string) => void;
   onChangeCategoryOrder: (categoryId: string, newOrderNumber: number) => void;
