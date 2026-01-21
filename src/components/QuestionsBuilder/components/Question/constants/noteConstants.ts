@@ -6,32 +6,32 @@ export const FIRST_NOTE = {
 export const FIRST_NOTE_OPTIONS = [
   {
     id: "notes.note1.data.RedovisningsVarderingsprinciper",
-    cellId: "",
+    agoyCellId: "",
     name: "Redovisningsprinciper",
   },
   {
     id: "notes.note1.data.RedovisningsprinciperImmateriellaAnlaggningstillgangar",
-    cellId: "",
+    agoyCellId: "",
     name: "Immateriella anläggningstillgångar",
   },
   {
     id: "notes.note1.data.RedovisningsprinciperMateriellaAnlaggningstillgangar",
-    cellId: "",
+    agoyCellId: "",
     name: "Materiella anläggningstillgångar",
   },
   {
     id: "notes.note1.data.RedovisningsprinciperTjansteOchEntreprenaduppdrag",
-    cellId: "",
+    agoyCellId: "",
     name: "Tjänste- och entreprenaduppdrag",
   },
   {
     id: "notes.note1.data.RedovisningsprinciperAnskaffningsvardeEgentillverkadevaror",
-    cellId: "",
+    agoyCellId: "",
     name: "Anskaffningsvärde för egentillverkade varor",
   },
   {
     id: "notes.note1.data.RedovisningsprinciperBristandeJamforbarhetAndradePrinciper",
-    cellId: "",
+    agoyCellId: "",
     name: "Bristande jämförbarhet vid ändrade principer",
   },
 ];
@@ -44,12 +44,12 @@ export const INCOME_STATEMENT_NOTES = [
   },
   {
     id: "id(notes.note49.number)",
-    cellId: "",
+    agoyCellId: "",
     name: "Exceptionella intäkter och kostnader",
   },
   {
     id: "id(notes.note60.number)",
-    cellId: "",
+    agoyCellId: "",
     name: "Övriga upplysningar till resultaträkningen",
   },
 ];
@@ -165,22 +165,22 @@ export const BALANCE_SHEET_NOTES = [
 export const OTHER_NOTES = [
   {
     id: "id(notes.note83.number)",
-    cellId: "",
+    agoyCellId: "",
     name: "Eventualförpliktelser",
   },
   {
     id: "id(notes.note95.number)",
-    cellId: "",
+    agoyCellId: "",
     name: "Väsentliga händelser efter räkenskapsårets slut",
   },
   {
     id: "id(notes.note96.number)",
-    cellId: "",
+    agoyCellId: "",
     name: "Ekonomiska arrangemang som inte redovisas i balansräkningen",
   },
   {
     id: "id(notes.note100.number)",
-    cellId: "",
+    agoyCellId: "",
     name: "Andra övriga upplysningar",
   },
 ];
