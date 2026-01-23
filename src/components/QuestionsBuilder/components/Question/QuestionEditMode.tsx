@@ -382,7 +382,6 @@ export function QuestionEditMode(props: Props) {
         </>
       )}
 
-      <Separator className="mt-5 mb-5" />
       <InfoBanner
         question={currentQuestion}
         onQuestionUpdate={(updatedQuestion) => {
@@ -390,6 +389,8 @@ export function QuestionEditMode(props: Props) {
           onQuestionUpdate(updatedQuestion);
         }}
       />
+
+      <Separator className="mt-5 mb-5" />
 
       <ConstraintSelector
         question={question}
