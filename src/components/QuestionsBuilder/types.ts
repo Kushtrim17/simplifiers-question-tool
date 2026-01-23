@@ -55,6 +55,12 @@ export type NoteConnection = {
   triggerAnswer: TriggerAnswer;
 };
 
+export type QuestionInfo = {
+  title?: string;
+  body?: string;
+  footnote?: string;
+}
+
 export type Question = {
   id: string;
   title: string;
@@ -76,7 +82,7 @@ export type Question = {
     title?: string;
     description?: string;
   };
-  noteHelper?: string;
+  info?: QuestionInfo;
 };
 export type Category = {
   id: string;

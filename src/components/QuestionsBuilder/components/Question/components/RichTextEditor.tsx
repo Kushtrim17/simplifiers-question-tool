@@ -15,6 +15,7 @@ export function RichTextEditor(props: Props) {
 
   const [isBold, setIsBold] = useState(false);
   const [isItalic, setIsItalic] = useState(false);
+  const [isUnorderedList, setIsUnorderedList] = useState(false);
 
   const handleBoldClick = () => {
     document.execCommand("bold", false, "");
@@ -27,6 +28,14 @@ export function RichTextEditor(props: Props) {
   const handleItalicClick = () => {
     document.execCommand("italic", false, "");
     setIsItalic(!isItalic);
+    if (editorRef.current) {
+      editorRef.current.focus();
+    }
+  };
+
+  const handleUnorderedListClick = () => {
+    document.execCommand("insertUnorderedList", false, "");
+    setIsUnorderedList(!isUnorderedList);
     if (editorRef.current) {
       editorRef.current.focus();
     }
@@ -46,9 +55,11 @@ export function RichTextEditor(props: Props) {
       // If the selection is inside this editor, update the formatting state
       const isTextBold = document.queryCommandState("bold");
       const isTextItalic = document.queryCommandState("italic");
+      const isTextUnorderedList = document.queryCommandState("insertUnorderedList");
 
       setIsBold(isTextBold);
       setIsItalic(isTextItalic);
+      setIsUnorderedList(isTextUnorderedList);
     }
   };
 
@@ -85,11 +96,18 @@ export function RichTextEditor(props: Props) {
         >
           I
         </Button>
+        <Button
+          className="mr-1 w-[40px]"
+          variant={isUnorderedList ? "default" : "outline"}
+          onClick={handleUnorderedListClick}
+        >
+          •
+        </Button>
       </div>
       <div
         ref={editorRef}
         contentEditable="true"
-        className="mt-2 mb-5 min-h-[100px] border p-2"
+        className="mt-2 mb-5 min-h-[100px] border p-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
         onInput={(e) => onChange(e.currentTarget.innerHTML)}
         dangerouslySetInnerHTML={{ __html: defaultValue.current }}
       />
