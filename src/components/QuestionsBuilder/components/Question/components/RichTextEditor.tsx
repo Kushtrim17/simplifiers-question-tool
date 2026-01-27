@@ -41,6 +41,12 @@ export function RichTextEditor(props: Props) {
     }
   };
 
+  const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const text = event.clipboardData.getData("text/plain");
+    document.execCommand("insertText", false, text);
+  };
+
   // Function to check and update the formatting state
   const updateFormattingState = () => {
     // Only update the formatting state if the selection is inside the current editor
@@ -109,6 +115,7 @@ export function RichTextEditor(props: Props) {
         contentEditable="true"
         className="mt-2 mb-5 min-h-[100px] border p-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
         onInput={(e) => onChange(e.currentTarget.innerHTML)}
+        onPaste={handlePaste}
         dangerouslySetInnerHTML={{ __html: defaultValue.current }}
       />
     </>

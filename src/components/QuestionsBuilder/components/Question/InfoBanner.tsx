@@ -21,12 +21,14 @@ export const InfoBanner = ({ question, onQuestionUpdate }: Props) => {
   return (
     <div className="mb-5">
       <Medium className="font-extrabold mb-2 block">Banner information</Medium>
-      <small className="mb-2 block">This is the blue banner that appears in the simplifiers app.</small>
+      <small className="mb-2 block">
+        This is the blue banner that appears in the simplifiers app.
+      </small>
       <Small className="font-extrabold mb-2 block">Enter banner title</Small>
       <Input
         placeholder="Banner title"
-        value={info.title ?? ""}
-        onChange={(e) => updateInfo({ title: e.target.value || undefined })}
+        value={info.header ?? ""}
+        onChange={(e) => updateInfo({ header: e.target.value || undefined })}
         className="mt-2 mb-5"
       />
 
@@ -43,8 +45,8 @@ export const InfoBanner = ({ question, onQuestionUpdate }: Props) => {
       <Small className="font-extrabold mb-2 block">Enter banner footnote</Small>
       <Input
         placeholder="Information footnote"
-        value={info.footnote ?? ""}
-        onChange={(e) => updateInfo({ footnote: e.target.value || undefined })}
+        value={info.footer ?? ""}
+        onChange={(e) => updateInfo({ footer: e.target.value || undefined })}
         className="mt-2 mb-5"
       />
     </div>

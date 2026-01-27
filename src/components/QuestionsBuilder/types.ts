@@ -56,10 +56,10 @@ export type NoteConnection = {
 };
 
 export type QuestionInfo = {
-  title?: string;
+  header?: string;
   body?: string;
-  footnote?: string;
-}
+  footer?: string;
+};
 
 export type Question = {
   id: string;
