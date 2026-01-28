@@ -39,11 +39,12 @@ export const FIRST_NOTE_OPTIONS = [
 export const INCOME_STATEMENT_NOTES = [
   {
     id: "id(notes.note10.number)",
-    agoyCellId: "incomeStatement.section.table.RorelseresultatAbstract.RorelsekostnaderAbstract.Personalkostnader.notes",
+    agoyCellId:
+      "incomeStatement.section.table.RorelseresultatAbstract.RorelsekostnaderAbstract.Personalkostnader.notes",
     name: "Medelantalet anställda",
   },
   {
-    id: "id(notes.note49.number)",
+    id: "id(notes.note29.number)",
     agoyCellId: "",
     name: "Exceptionella intäkter och kostnader",
   },
@@ -57,62 +58,74 @@ export const INCOME_STATEMENT_NOTES = [
 export const BALANCE_SHEET_NOTES = [
   {
     id: "id(notes.note34.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.KoncessionerPatentLicenserVarumarkenLiknandeRattigheter.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.KoncessionerPatentLicenserVarumarkenLiknandeRattigheter.notes",
     name: "Koncessioner, patent, licenser, varumärken samt liknande rättigheter",
   },
   {
     id: "id(notes.note35.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.HyresratterLiknandeRattigheter.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.HyresratterLiknandeRattigheter.notes",
     name: "Hyresrätter och liknande rättigheter",
   },
   {
     id: "id(notes.note36.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.Goodwill.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.Goodwill.notes",
     name: "Goodwill",
   },
   {
     id: "id(notes.note37.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.ForskottImmateriellaAnlaggningstillgangar.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.ImmateriellaAnlaggningstillgangarAbstract.ForskottImmateriellaAnlaggningstillgangar.notes",
     name: "Förskott avseende immateriella anläggningstillgångar",
   },
   {
     id: "id(notes.note38.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.ByggnaderMark.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.ByggnaderMark.notes",
     name: "Byggnader och mark",
   },
   {
     id: "id(notes.note40.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.MaskinerAndraTekniskaAnlaggningar.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.MaskinerAndraTekniskaAnlaggningar.notes",
     name: "Maskiner och andra tekniska anläggningar",
   },
   {
     id: "id(notes.note41.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.InventarierVerktygInstallationer.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.InventarierVerktygInstallationer.notes",
     name: "Inventarier, verktyg och installationer",
   },
   {
     id: "id(notes.note42.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.ForbattringsutgifterAnnansFastighet.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.ForbattringsutgifterAnnansFastighet.notes",
     name: "Förbättringsutgifter på annans fastighet",
   },
   {
     id: "id(notes.note44.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.OvrigaMateriellaAnlaggningstillgangar.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.OvrigaMateriellaAnlaggningstillgangar.notes",
     name: "Övriga materiella anläggningstillgångar",
   },
   {
     id: "id(notes.note43.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.PagaendeNyanlaggningarForskottMateriellaAnlaggningstillgangar.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.MateriellaAnlaggningstillgangarAbstract.PagaendeNyanlaggningarForskottMateriellaAnlaggningstillgangar.notes",
     name: "Pågående nyanläggningar och förskott avseende materiella anläggningstillgångar",
   },
   {
     id: "id(notes.note59.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.FinansiellaAnlaggningstillgangarAbstract.LanDelagareNarstaende.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.FinansiellaAnlaggningstillgangarAbstract.LanDelagareNarstaende.notes",
     name: "Lån till delägare eller närstående",
   },
   {
     id: "id(notes.note61.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.FinansiellaAnlaggningstillgangarAbstract.AndraLangfristigaFordringar.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.AnlaggningstillgangarAbstract.FinansiellaAnlaggningstillgangarAbstract.AndraLangfristigaFordringar.notes",
     name: "Andra långfristiga fordringar",
   },
   {
@@ -122,22 +135,26 @@ export const BALANCE_SHEET_NOTES = [
   },
   {
     id: "id(notes.note63.number)",
-    agoyCellId: "balanceSheet.section.assets.TillgangarAbstract.OmsattningstillgangarAbstract.VarulagerMmAbstract.PagaendeArbetenAnnansRakningOmsattningstillgangar.notes",
+    agoyCellId:
+      "balanceSheet.section.assets.TillgangarAbstract.OmsattningstillgangarAbstract.VarulagerMmAbstract.PagaendeArbetenAnnansRakningOmsattningstillgangar.notes",
     name: "Pågående arbete för annans räkning",
   },
   {
     id: "id(notes.note67.number)",
-    agoyCellId: "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Uppskrivningsfond.notes",
+    agoyCellId:
+      "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Uppskrivningsfond.notes",
     name: "Uppskrivningsfond",
   },
   {
     id: "id(notes.note75.number)",
-    agoyCellId: "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.LangfristigaSkulderAbstract.notes",
+    agoyCellId:
+      "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.LangfristigaSkulderAbstract.notes",
     name: "Långfristiga skulder",
   },
   {
     id: "id(notes.note77.number)",
-    agoyCellId: "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.LangfristigaSkulderAbstract.CheckrakningskreditLangfristig.notes",
+    agoyCellId:
+      "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.LangfristigaSkulderAbstract.CheckrakningskreditLangfristig.notes",
     name: "Checkräkningskredit",
   },
   {
