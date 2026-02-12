@@ -19,10 +19,6 @@ export type TriggerAnswer = (typeof TRIGGER_ANSWER_OPTIONS)[number];
 
 export type Accounts = {
   title: string;
-  //TODO: remove this
-  creditDescription: string;
-  //TODO: remove this
-  debitDescription: string;
   helperDescriptions: AccountsHelper[];
   creditRange: (number[] | null[])[];
   debitRange: (number[] | null[])[];

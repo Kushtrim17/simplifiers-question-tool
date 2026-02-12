@@ -146,8 +146,6 @@ export function AccountingHelp(props: Props) {
       question?.accounts == null
         ? {
             title: e.currentTarget.value,
-            creditDescription: "",
-            debitDescription: "",
             helperDescriptions: [],
             creditRange: [],
             debitRange: [],
@@ -166,14 +164,12 @@ export function AccountingHelp(props: Props) {
   };
 
   const handleOnAnswerTriggerChange = (
-    triggerAnswer: TriggerAnswer | "null"
+    triggerAnswer: TriggerAnswer | "null",
   ) => {
     const accounts =
       question?.accounts == null
         ? {
             title: "",
-            creditDescription: "",
-            debitDescription: "",
             helperDescriptions: [],
             creditRange: [],
             debitRange: [],
@@ -198,8 +194,6 @@ export function AccountingHelp(props: Props) {
       question?.accounts == null
         ? {
             title: "",
-            creditDescription: "",
-            debitDescription: "",
             helperDescriptions: [newHelperDescription],
             creditRange: [],
             debitRange: [],
@@ -218,7 +212,7 @@ export function AccountingHelp(props: Props) {
   const handleUpdateHelperDescription = (
     index: number,
     key: keyof AccountsHelper,
-    newValue: string
+    newValue: string,
   ) => {
     if (question.accounts?.helperDescriptions == null) {
       return;
@@ -239,7 +233,7 @@ export function AccountingHelp(props: Props) {
         }
 
         return description;
-      }
+      },
     );
 
     onQuestionUpdate({
@@ -257,7 +251,7 @@ export function AccountingHelp(props: Props) {
     }
 
     const descriptionsUpdated = question.accounts.helperDescriptions.filter(
-      (_, i) => i !== index
+      (_, i) => i !== index,
     );
 
     onQuestionUpdate({
@@ -292,7 +286,7 @@ export function AccountingHelp(props: Props) {
               <SelectItem key={d.toString()} value={d.toString()}>
                 {d.charAt(0).toUpperCase() + d.slice(1)}
               </SelectItem>
-            )
+            ),
           )}
         </SelectContent>
       </Select>
@@ -323,7 +317,7 @@ export function AccountingHelp(props: Props) {
               handleUpdateHelperDescription(
                 index,
                 "description",
-                e.target.value
+                e.target.value,
               )
             }
           />

@@ -74,18 +74,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid utrangering av immateriell tillgång (görs som en avskrivning): ",
-                "creditRange": [
-                  [
-                    1028,
-                    1070
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7810,
-                    7810
-                  ]
-                ],
+                "creditRange": [[1028, 1070]],
+                "debitRange": [[7810, 7810]],
                 "helperDescriptions": [
                   {
                     "description": "Bokföringsförslag vid utrangering av immateriell tillgång (görs som en avskrivning): ",
@@ -130,18 +120,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid nedskrivning av immateriell tillgång ",
-                "creditRange": [
-                  [
-                    1028,
-                    1070
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7710,
-                    7710
-                  ]
-                ],
+                "creditRange": [[1028, 1070]],
+                "debitRange": [[7710, 7710]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -181,18 +161,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid avskrivning av immateriell tillgång",
-                "creditRange": [
-                  [
-                    1028,
-                    1070
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7810,
-                    7810
-                  ]
-                ],
+                "creditRange": [[1028, 1070]],
+                "debitRange": [[7810, 7810]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -292,18 +262,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid utrangering av materiell tillgång (görs som en avskrivning): ",
-                "creditRange": [
-                  [
-                    1219,
-                    1259
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7830,
-                    7839
-                  ]
-                ],
+                "creditRange": [[1219, 1259]],
+                "debitRange": [[7830, 7839]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -340,18 +300,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid nedskrivning av materiell tillgång",
-                "creditRange": [
-                  [
-                    1218,
-                    1259
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7730,
-                    7730
-                  ]
-                ],
+                "creditRange": [[1218, 1259]],
+                "debitRange": [[7730, 7730]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -388,18 +338,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid avskrivning av materiell tillgång",
-                "creditRange": [
-                  [
-                    1219,
-                    1259
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7830,
-                    7839
-                  ]
-                ],
+                "creditRange": [[1219, 1259]],
+                "debitRange": [[7830, 7839]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -469,21 +409,10 @@
               "accounts": {
                 "title": "Bokföringsförslag vid flytt från förbrukningsinventarier till tillgång",
                 "creditRange": [
-                  [
-                    5400,
-                    5412
-                  ],
-                  [
-                    5490,
-                    5493
-                  ]
+                  [5400, 5412],
+                  [5490, 5493]
                 ],
-                "debitRange": [
-                  [
-                    1100,
-                    1299
-                  ]
-                ],
+                "debitRange": [[1100, 1299]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -521,21 +450,10 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag vid lån till närstående eller dylikt",
-                "creditRange": [
-                  [
-                    1930,
-                    1930
-                  ]
-                ],
+                "creditRange": [[1930, 1930]],
                 "debitRange": [
-                  [
-                    1685,
-                    1685
-                  ],
-                  [
-                    1360,
-                    1360
-                  ]
+                  [1685, 1685],
+                  [1360, 1360]
                 ],
                 "helperDescriptions": [
                   {
@@ -673,24 +591,12 @@
               "accounts": {
                 "title": "Bokföringsförslag för resultat efter inventering",
                 "creditRange": [
-                  [
-                    1410,
-                    1410
-                  ],
-                  [
-                    4910,
-                    4910
-                  ]
+                  [1410, 1410],
+                  [4910, 4910]
                 ],
                 "debitRange": [
-                  [
-                    4910,
-                    4910
-                  ],
-                  [
-                    1410,
-                    1410
-                  ]
+                  [4910, 4910],
+                  [1410, 1410]
                 ],
                 "helperDescriptions": [
                   {
@@ -737,18 +643,8 @@
               ],
               "accounts": {
                 "title": "Bokföringsförslag vid inkuransavdrag",
-                "creditRange": [
-                  [
-                    1410,
-                    1410
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    4910,
-                    4910
-                  ]
-                ],
+                "creditRange": [[1410, 1410]],
+                "debitRange": [[4910, 4910]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -818,21 +714,10 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag vid nedskrivning av kundfordringar",
-                "creditRange": [
-                  [
-                    1519,
-                    1519
-                  ]
-                ],
+                "creditRange": [[1519, 1519]],
                 "debitRange": [
-                  [
-                    6351,
-                    6351
-                  ],
-                  [
-                    6352,
-                    6352
-                  ]
+                  [6351, 6351],
+                  [6352, 6352]
                 ],
                 "helperDescriptions": [
                   {
@@ -894,24 +779,12 @@
               "accounts": {
                 "title": "Bokföringsförslag vid omräkning av annan valuta",
                 "creditRange": [
-                  [
-                    1500,
-                    1699
-                  ],
-                  [
-                    3960,
-                    3960
-                  ]
+                  [1500, 1699],
+                  [3960, 3960]
                 ],
                 "debitRange": [
-                  [
-                    7960,
-                    7960
-                  ],
-                  [
-                    1500,
-                    1699
-                  ]
+                  [7960, 7960],
+                  [1500, 1699]
                 ],
                 "helperDescriptions": [
                   {
@@ -944,18 +817,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag när kortfristig fordran ska bokas om till långfristig",
-                "creditRange": [
-                  [
-                    1600,
-                    1699
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    1380,
-                    1380
-                  ]
-                ],
+                "creditRange": [[1600, 1699]],
+                "debitRange": [[1380, 1380]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -987,18 +850,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag när fordran ska skrivas ner",
-                "creditRange": [
-                  [
-                    1610,
-                    1610
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    5000,
-                    7999
-                  ]
-                ],
+                "creditRange": [[1610, 1610]],
+                "debitRange": [[5000, 7999]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -1304,21 +1157,10 @@
               "accounts": {
                 "title": "Bokföringsförslag vid utnyttjad checkräkningskredit",
                 "creditRange": [
-                  [
-                    2330,
-                    2330
-                  ],
-                  [
-                    2480,
-                    2480
-                  ]
+                  [2330, 2330],
+                  [2480, 2480]
                 ],
-                "debitRange": [
-                  [
-                    1940,
-                    1940
-                  ]
-                ],
+                "debitRange": [[1940, 1940]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -1345,18 +1187,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag om företaget har tagit emot pengar för annans räkning",
-                "creditRange": [
-                  [
-                    2830,
-                    2830
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    1990,
-                    1990
-                  ]
-                ],
+                "creditRange": [[2830, 2830]],
+                "debitRange": [[1990, 1990]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -1411,10 +1243,12 @@
                 "triggerAnswer": "no"
               },
               "scope": "notes",
-              "valueReferences": [{
-                "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
-                "triggerAnswer": "yes"
-              }],
+              "valueReferences": [
+                {
+                  "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
+                  "triggerAnswer": "yes"
+                }
+              ],
               "documentReference": null,
               "noteOptions": [
                 {
@@ -1452,10 +1286,12 @@
                 "triggerAnswer": "no"
               },
               "scope": "notes",
-              "valueReferences": [{
-                "cellId": "incomeStatement.section.table.RorelseresultatAbstract.RorelsensIntakterLagerforandringarMmAbstract.Nettoomsattning.3042",
-                "triggerAnswer": "yes"
-              }],
+              "valueReferences": [
+                {
+                  "cellId": "incomeStatement.section.table.RorelseresultatAbstract.RorelsensIntakterLagerforandringarMmAbstract.Nettoomsattning.3042",
+                  "triggerAnswer": "yes"
+                }
+              ],
               "documentReference": null,
               "noteOptions": [
                 {
@@ -1489,10 +1325,12 @@
                 "triggerAnswer": "no"
               },
               "scope": "notes",
-              "valueReferences": [{
-                "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
-                "triggerAnswer": "yes"
-              }],
+              "valueReferences": [
+                {
+                  "cellId": "balanceSheet.section.equityAndLiabilities.EgetKapitalSkulderAbstract.EgetKapitalAbstract.BundetEgetKapitalAbstract.Aktiekapital.2081",
+                  "triggerAnswer": "yes"
+                }
+              ],
               "documentReference": null,
               "noteOptions": [
                 {
@@ -1600,18 +1438,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag om den kortfristiga delen av lånet ska bokas bort i bokslutet",
-                "creditRange": [
-                  [
-                    2417,
-                    2417
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    2350,
-                    2350
-                  ]
-                ],
+                "creditRange": [[2417, 2417]],
+                "debitRange": [[2350, 2350]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -1644,24 +1472,12 @@
               "accounts": {
                 "title": "Bokföringsförslag vid valutakursförlust/-vinst",
                 "creditRange": [
-                  [
-                    2300,
-                    2499
-                  ],
-                  [
-                    3960,
-                    3960
-                  ]
+                  [2300, 2499],
+                  [3960, 3960]
                 ],
                 "debitRange": [
-                  [
-                    7960,
-                    7960
-                  ],
-                  [
-                    2300,
-                    2499
-                  ]
+                  [7960, 7960],
+                  [2300, 2499]
                 ],
                 "helperDescriptions": [
                   {
@@ -1737,18 +1553,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag om bolaget har en skatteskuld",
-                "creditRange": [
-                  [
-                    2510,
-                    2510
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    8910,
-                    8910
-                  ]
-                ],
+                "creditRange": [[2510, 2510]],
+                "debitRange": [[8910, 8910]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -1824,18 +1630,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag vid fastighetsskatt",
-                "creditRange": [
-                  [
-                    2513,
-                    2513
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    5191,
-                    5191
-                  ]
-                ],
+                "creditRange": [[2513, 2513]],
+                "debitRange": [[5191, 5191]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -1867,18 +1663,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag vid särskild löneskatt",
-                "creditRange": [
-                  [
-                    2514,
-                    2514
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    7530,
-                    7530
-                  ]
-                ],
+                "creditRange": [[2514, 2514]],
+                "debitRange": [[7530, 7530]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -2012,18 +1798,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag vid upplupna kostnader",
-                "creditRange": [
-                  [
-                    2990,
-                    2990
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    6550,
-                    6550
-                  ]
-                ],
+                "creditRange": [[2990, 2990]],
+                "debitRange": [[6550, 6550]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -2056,28 +1832,13 @@
               "accounts": {
                 "title": "Bokföringsförslag vid upplupna löner ",
                 "creditRange": [
-                  [
-                    2910,
-                    2910
-                  ],
-                  [
-                    2941,
-                    2941
-                  ]
+                  [2910, 2910],
+                  [2941, 2941]
                 ],
                 "debitRange": [
-                  [
-                    7010,
-                    7010
-                  ],
-                  [
-                    7210,
-                    7210
-                  ],
-                  [
-                    7510,
-                    7510
-                  ]
+                  [7010, 7010],
+                  [7210, 7210],
+                  [7510, 7510]
                 ],
                 "helperDescriptions": [
                   {
@@ -2111,40 +1872,16 @@
               "accounts": {
                 "title": "Bokföringsförslag ",
                 "creditRange": [
-                  [
-                    2920,
-                    2920
-                  ],
-                  [
-                    7090,
-                    7090
-                  ],
-                  [
-                    2941,
-                    2941
-                  ],
-                  [
-                    7519,
-                    7519
-                  ]
+                  [2920, 2920],
+                  [7090, 7090],
+                  [2941, 2941],
+                  [7519, 7519]
                 ],
                 "debitRange": [
-                  [
-                    2920,
-                    2920
-                  ],
-                  [
-                    7090,
-                    7090
-                  ],
-                  [
-                    2941,
-                    2941
-                  ],
-                  [
-                    7519,
-                    7519
-                  ]
+                  [2920, 2920],
+                  [7090, 7090],
+                  [2941, 2941],
+                  [7519, 7519]
                 ],
                 "helperDescriptions": [
                   {
@@ -2172,18 +1909,8 @@
               "dependsOnQuestions": [],
               "accounts": {
                 "title": "Bokföringsförslag vid förutbetald intäkt",
-                "creditRange": [
-                  [
-                    2970,
-                    2970
-                  ]
-                ],
-                "debitRange": [
-                  [
-                    3911,
-                    3911
-                  ]
-                ],
+                "creditRange": [[2970, 2970]],
+                "debitRange": [[3911, 3911]],
                 "helperDescriptions": [
                   {
                     "description": "",
@@ -2211,12 +1938,7 @@
               "accounts": {
                 "title": "",
                 "creditRange": [],
-                "debitRange": [
-                  [
-                    null,
-                    null
-                  ]
-                ],
+                "debitRange": [[null, null]],
                 "helperDescriptions": [],
                 "triggerAnswer": "no"
               },
@@ -2257,24 +1979,12 @@
           "accounts": {
             "title": "Bokföringsförslag vid omföring av föregående års resultat",
             "creditRange": [
-              [
-                2091,
-                2091
-              ],
-              [
-                2099,
-                2099
-              ]
+              [2091, 2091],
+              [2099, 2099]
             ],
             "debitRange": [
-              [
-                2099,
-                2099
-              ],
-              [
-                2091,
-                2091
-              ]
+              [2099, 2099],
+              [2091, 2091]
             ],
             "helperDescriptions": [
               {
@@ -2308,24 +2018,12 @@
           "accounts": {
             "title": "Bokföringsförslag vid omföring av av årets resultat",
             "creditRange": [
-              [
-                2099,
-                2099
-              ],
-              [
-                8999,
-                8999
-              ]
+              [2099, 2099],
+              [8999, 8999]
             ],
             "debitRange": [
-              [
-                8999,
-                8999
-              ],
-              [
-                2099,
-                2099
-              ]
+              [8999, 8999],
+              [2099, 2099]
             ],
             "helperDescriptions": [
               {
@@ -2389,14 +2087,14 @@
           "scope": "tax",
           "externalLinks": [],
           "dependsOnQuestions": [],
-          "valueReferences": [{
-            "cellId": "particularSalaryTax.otherPensionCommitments.otherPensionInsurancesSum",
-            "triggerAnswer": "yes"
-          }],
+          "valueReferences": [
+            {
+              "cellId": "particularSalaryTax.otherPensionCommitments.otherPensionInsurancesSum",
+              "triggerAnswer": "yes"
+            }
+          ],
           "accounts": {
             "title": "Ange det belopp på totala pensionskostnader (detta belopp kommer användas för att beräkna hur mycket skatt som ska betalas)",
-            "creditDescription": "",
-            "debitDescription": "",
             "helperDescriptions": [],
             "creditRange": [],
             "debitRange": [],
@@ -2430,21 +2128,9 @@
           "dependsOnQuestions": [],
           "accounts": {
             "title": "Bokföringsförslag för återföring",
-            "creditDescription": "",
-            "debitDescription": "",
             "helperDescriptions": [],
-            "creditRange": [
-              [
-                2110,
-                2110
-              ]
-            ],
-            "debitRange": [
-              [
-                8819,
-                8819
-              ]
-            ],
+            "creditRange": [[2110, 2110]],
+            "debitRange": [[8819, 8819]],
             "triggerAnswer": "yes"
           }
         },
@@ -2460,21 +2146,9 @@
           "dependsOnQuestions": [],
           "accounts": {
             "title": "Bokföringsförslag frivillig återföring",
-            "creditDescription": "",
-            "debitDescription": "",
             "helperDescriptions": [],
-            "creditRange": [
-              [
-                2110,
-                2110
-              ]
-            ],
-            "debitRange": [
-              [
-                8819,
-                8819
-              ]
-            ],
+            "creditRange": [[2110, 2110]],
+            "debitRange": [[8819, 8819]],
             "triggerAnswer": "yes"
           }
         },

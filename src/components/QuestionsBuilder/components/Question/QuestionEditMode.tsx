@@ -31,11 +31,11 @@ type Props = {
   onAddQuestionDependency: (
     questionId: string,
     dependencyId: string,
-    answer: boolean | string
+    answer: boolean | string,
   ) => void;
   onRemoveQuestionDependency: (
     questionId: string,
-    dependencyId: string
+    dependencyId: string,
   ) => void;
 };
 
@@ -61,7 +61,7 @@ export function QuestionEditMode(props: Props) {
     onQuestionUpdate({
       ...question,
       externalLinks: question.externalLinks.filter(
-        (link) => link.label !== label && link.url !== url
+        (link) => link.label !== label && link.url !== url,
       ),
     });
   };
@@ -79,7 +79,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleQuestionScopeChange = (
-    newScope: "accounts" | "notes" | "tax" | "managementReport"
+    newScope: "accounts" | "notes" | "tax" | "managementReport",
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
@@ -107,7 +107,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleOnUpdateValueReferences = (
-    newValueReferences: ValueReference[] | null
+    newValueReferences: ValueReference[] | null,
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
@@ -120,7 +120,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleOnDocumentReferencesChanged = (
-    updatedDocumentReferences: DocumentReference[]
+    updatedDocumentReferences: DocumentReference[],
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
@@ -129,7 +129,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleOnNoteConnectionChanged = (
-    updatedNoteConnection: NoteConnection
+    updatedNoteConnection: NoteConnection,
   ) => {
     onQuestionUpdate({
       ...currentQuestion,
@@ -150,7 +150,7 @@ export function QuestionEditMode(props: Props) {
 
   const handleOnDependencyChange = (
     dependencyId: string,
-    answer: boolean | string
+    answer: boolean | string,
   ) => {
     removePreviousDependencies();
 
@@ -193,7 +193,7 @@ export function QuestionEditMode(props: Props) {
   const updateRange = (
     allRanges: (number[] | null[])[],
     index: number,
-    newRange: number[]
+    newRange: number[],
   ) => {
     const ranges = [...allRanges];
     ranges[index] = newRange;
@@ -204,8 +204,6 @@ export function QuestionEditMode(props: Props) {
     const range = getRangeFromValue(newValue);
     const initialAccount = {
       title: "",
-      creditDescription: "",
-      debitDescription: "",
       description: "",
       helperDescriptions: [],
       creditRange: [range],
@@ -220,7 +218,7 @@ export function QuestionEditMode(props: Props) {
             creditRange: updateRange(
               question.accounts.creditRange,
               index,
-              range
+              range,
             ),
           };
 
@@ -235,7 +233,7 @@ export function QuestionEditMode(props: Props) {
     const accounts = {
       ...question.accounts,
       creditRange: question?.accounts?.creditRange.filter(
-        (_, i) => i !== index
+        (_, i) => i !== index,
       ),
     };
 
@@ -247,8 +245,6 @@ export function QuestionEditMode(props: Props) {
     if (question?.accounts == null) {
       accounts = {
         title: "",
-        creditDescription: "",
-        debitDescription: "",
         helperDescriptions: [],
         creditRange: [[null, null]],
         debitRange: [],
@@ -267,8 +263,6 @@ export function QuestionEditMode(props: Props) {
     const range = getRangeFromValue(newValue);
     const initialAccount = {
       title: "",
-      creditDescription: "",
-      debitDescription: "",
       description: "",
       helperDescriptions: [],
       creditRange: [],
@@ -304,8 +298,6 @@ export function QuestionEditMode(props: Props) {
     if (question?.accounts == null) {
       accounts = {
         title: "",
-        creditDescription: "",
-        debitDescription: "",
         helperDescriptions: [],
         creditRange: [],
         debitRange: [[null, null]],
