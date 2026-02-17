@@ -301,6 +301,21 @@ export function AccountingHelp(props: Props) {
         onChange={handleUpdateTitle}
       />
 
+      <Small className="font-extrabold mb-2">Voucher description (optional)</Small>
+      <Input
+        type="text"
+        placeholder="Enter voucher description"
+        className="mb-10"
+        width={300}
+        value={question.voucherDescription ?? ""}
+        onChange={(e) =>
+          onQuestionUpdate({
+            ...question,
+            voucherDescription: e.currentTarget.value || undefined,
+          })
+        }
+      />
+
       <Medium className="font-extrabold mb-4">
         Accounting helper descriptions
       </Medium>
