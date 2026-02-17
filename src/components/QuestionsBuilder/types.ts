@@ -79,7 +79,6 @@ export type Question = {
     description?: string;
   };
   info?: QuestionInfo;
-  voucherDescription?: string;
 };
 export type Category = {
   id: string;
