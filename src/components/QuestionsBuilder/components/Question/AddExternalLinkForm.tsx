@@ -15,17 +15,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { badgeVariants } from "@/components/ui/badge";
 import { IoClose } from "react-icons/io5";
-import { Question } from "../../types";
+import { ExternalLink } from "../../types";
 
 type Props = {
-  question: Question;
+  externalLinks: ExternalLink[];
   onAdd: (label: string, url: string) => void;
   onRemove: (label: string, url: string) => void;
 };
 
 export function AddExternalLinkForm(props: Props) {
   const [link, setLink] = useState({ label: "", url: "" });
-  const { onAdd, onRemove, question } = props;
+  const { onAdd, onRemove, externalLinks } = props;
 
   const handleAddLink = () => {
     onAdd(link.label, link.url);
@@ -36,7 +36,7 @@ export function AddExternalLinkForm(props: Props) {
     <>
       <Medium className="font-extrabold">External links</Medium>
       <div className="mt-4 flex flex-row">
-        {question.externalLinks.map((link) => (
+        {externalLinks.map((link) => (
           <div key={link.url} className="flex flex-row mr-4 group">
             <a
               href={link.url}

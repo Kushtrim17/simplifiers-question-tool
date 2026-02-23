@@ -7,7 +7,6 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-// import { Textarea } from "@/components/ui/textarea";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { AccountsHelper, Question, TriggerAnswer } from "../../types";
 import {
@@ -25,7 +24,7 @@ import {
   TRIGGER_ANSWER,
   TRIGGER_ANSWER_OPTIONS,
 } from "./constants/triggerAnswer";
-// import { RichTextEditor } from "./components/RichTextEditor";
+import { AddExternalLinkForm } from "./AddExternalLinkForm";
 
 type RangeInputProps = {
   range: string | undefined;
@@ -263,6 +262,42 @@ export function AccountingHelp(props: Props) {
     });
   };
 
+  const handleOnAddExternalLink = (label: string, url: string) => {
+    const accounts = question.accounts ?? {
+      title: "",
+      helperDescriptions: [],
+      creditRange: [],
+      debitRange: [],
+    };
+
+    onQuestionUpdate({
+      ...question,
+      accounts: {
+        ...accounts,
+        externalLinks: [...(accounts.externalLinks || []), { label, url }],
+      },
+    });
+  };
+
+  const handleOnRemoveExternalLink = (label: string, url: string) => {
+    const accounts = question.accounts ?? {
+      title: "",
+      helperDescriptions: [],
+      creditRange: [],
+      debitRange: [],
+    };
+
+    onQuestionUpdate({
+      ...question,
+      accounts: {
+        ...accounts,
+        externalLinks: accounts.externalLinks?.filter(
+          (link) => link.label !== label && link.url !== url,
+        ),
+      },
+    });
+  };
+
   return (
     <>
       <Medium className="font-extrabold mb-4">Accounting help</Medium>
@@ -425,11 +460,17 @@ export function AccountingHelp(props: Props) {
       ))}
       <Button
         variant="secondary"
-        className="mt-2 w-[120px]"
+        className="mt-2 mb-4 w-[120px]"
         onClick={onCreditRangeAdd}
       >
         Add new range
       </Button>
+
+      <AddExternalLinkForm
+        externalLinks={question.accounts?.externalLinks || []}
+        onAdd={handleOnAddExternalLink}
+        onRemove={handleOnRemoveExternalLink}
+      />
     </>
   );
 }

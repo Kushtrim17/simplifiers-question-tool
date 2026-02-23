@@ -422,7 +422,7 @@ export function QuestionEditMode(props: Props) {
         )}
 
       <AddExternalLinkForm
-        question={question}
+        externalLinks={question.externalLinks}
         onAdd={handleOnAddExternalLink}
         onRemove={handleOnRemoveExternalLink}
       />

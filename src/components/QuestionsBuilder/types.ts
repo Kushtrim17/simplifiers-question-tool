@@ -23,6 +23,7 @@ export type Accounts = {
   creditRange: (number[] | null[])[];
   debitRange: (number[] | null[])[];
   triggerAnswer?: TriggerAnswer;
+  externalLinks?: ExternalLink[];
 };
 
 export type QuestionScope = "accounts" | "notes" | "tax" | "managementReport";
