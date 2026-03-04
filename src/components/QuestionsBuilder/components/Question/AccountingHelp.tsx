@@ -344,7 +344,7 @@ export function AccountingHelp(props: Props) {
         placeholder="Enter voucher description"
         className="mb-10"
         width={300}
-        maxLength={200}
+        maxLength={400}
         value={question.voucherDescription ?? ""}
         onChange={(e) =>
           onQuestionUpdate({
