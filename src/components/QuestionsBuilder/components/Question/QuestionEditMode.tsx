@@ -1,6 +1,7 @@
 import { Medium } from "@/components/ui/Typography";
 import {
   DocumentReference,
+  ExternalResources,
   NoteConnection,
   NoteOption,
   Question,
@@ -8,6 +9,7 @@ import {
 } from "../../types";
 import { useEffect, useRef, useState } from "react";
 import { AddExternalLinkForm } from "./AddExternalLinkForm";
+import { ExternalResourcesForm } from "./ExternalResourcesForm";
 import { Separator } from "@/components/ui/separator";
 import { QuestionTypeSelector } from "./QuestionTypeSelector";
 import { QuestionDependencySelector } from "./QuestionDependencySelector";
@@ -63,6 +65,13 @@ export function QuestionEditMode(props: Props) {
       externalLinks: question.externalLinks.filter(
         (link) => link.label !== label && link.url !== url,
       ),
+    });
+  };
+
+  const handleExternalResourcesUpdate = (updated: ExternalResources) => {
+    onQuestionUpdate({
+      ...question,
+      externalResources: updated,
     });
   };
 
@@ -425,6 +434,18 @@ export function QuestionEditMode(props: Props) {
         externalLinks={question.externalLinks}
         onAdd={handleOnAddExternalLink}
         onRemove={handleOnRemoveExternalLink}
+      />
+
+      <Separator className="mt-5 mb-5" />
+
+      <ExternalResourcesForm
+        externalResources={
+          question.externalResources ?? {
+            reportLinks: [],
+            readMoreLinks: [],
+          }
+        }
+        onUpdate={handleExternalResourcesUpdate}
       />
 
       <Separator className="mt-5 mb-5" />
