@@ -81,6 +81,8 @@ export function QuestionEditMode(props: Props) {
       ),
     });
   };
+    });
+  };
 
   const handleUpdate = () => {
     onQuestionUpdate(currentQuestion);
@@ -451,6 +453,7 @@ export function QuestionEditMode(props: Props) {
         links={question.reportLinks ?? []}
         onAdd={handleOnAddReportLink}
         onRemove={handleOnRemoveReportLink}
+      />
       />
 
       <Separator className="mt-5 mb-5" />

@@ -2,6 +2,11 @@ import { TRIGGER_ANSWER_OPTIONS } from "./components/Question/constants/triggerA
 
 export type ExternalLink = { label: string; url: string };
 
+export type ExternalResources = {
+  reportLinks: ExternalLink[];
+  readMoreLinks: ExternalLink[];
+};
+
 export type QuestionType = "boolean" | "freeText" | "table";
 
 export type AccountsHelper = {
