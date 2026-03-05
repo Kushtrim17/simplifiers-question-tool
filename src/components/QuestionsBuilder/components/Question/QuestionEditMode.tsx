@@ -1,15 +1,13 @@
 import { Medium } from "@/components/ui/Typography";
 import {
   DocumentReference,
-  ExternalResources,
   NoteConnection,
   NoteOption,
   Question,
   ValueReference,
 } from "../../types";
 import { useEffect, useRef, useState } from "react";
-import { AddExternalLinkForm } from "./AddExternalLinkForm";
-import { ExternalResourcesForm } from "./ExternalResourcesForm";
+import { ExternalLinksForm } from "./ExternalLinksForm";
 import { Separator } from "@/components/ui/separator";
 import { QuestionTypeSelector } from "./QuestionTypeSelector";
 import { QuestionDependencySelector } from "./QuestionDependencySelector";
@@ -68,10 +66,19 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
-  const handleExternalResourcesUpdate = (updated: ExternalResources) => {
+  const handleOnAddReportLink = (label: string, url: string) => {
     onQuestionUpdate({
       ...question,
-      externalResources: updated,
+      reportLinks: [...(question.reportLinks ?? []), { label, url }],
+    });
+  };
+
+  const handleOnRemoveReportLink = (label: string, url: string) => {
+    onQuestionUpdate({
+      ...question,
+      reportLinks: (question.reportLinks ?? []).filter(
+        (link) => link.label !== label && link.url !== url,
+      ),
     });
   };
 
@@ -430,22 +437,20 @@ export function QuestionEditMode(props: Props) {
           </>
         )}
 
-      <AddExternalLinkForm
-        externalLinks={question.externalLinks}
+      <ExternalLinksForm
+        title="External links"
+        links={question.externalLinks}
         onAdd={handleOnAddExternalLink}
         onRemove={handleOnRemoveExternalLink}
       />
 
       <Separator className="mt-5 mb-5" />
 
-      <ExternalResourcesForm
-        externalResources={
-          question.externalResources ?? {
-            reportLinks: [],
-            readMoreLinks: [],
-          }
-        }
-        onUpdate={handleExternalResourcesUpdate}
+      <ExternalLinksForm
+        title="Report links"
+        links={question.reportLinks ?? []}
+        onAdd={handleOnAddReportLink}
+        onRemove={handleOnRemoveReportLink}
       />
 
       <Separator className="mt-5 mb-5" />

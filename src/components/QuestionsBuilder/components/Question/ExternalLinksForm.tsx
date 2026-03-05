@@ -15,18 +15,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { badgeVariants } from "@/components/ui/badge";
 import { IoClose } from "react-icons/io5";
-import { ExternalLink, ExternalResources } from "../../types";
-
-type LinkCategory = "reportLinks" | "readMoreLinks";
-
-const CATEGORY_LABELS: Record<LinkCategory, string> = {
-  reportLinks: "Report links",
-  readMoreLinks: "Read more links",
-};
+import { ExternalLink } from "../../types";
 
 type Props = {
-  externalResources: ExternalResources;
-  onUpdate: (updated: ExternalResources) => void;
+  title: string;
+  links: ExternalLink[];
+  onAdd: (label: string, url: string) => void;
+  onRemove: (label: string, url: string) => void;
 };
 
 const LinkList = ({
@@ -61,13 +56,13 @@ const LinkList = ({
       ))}
     </div>
   );
-}
+};
 
 const AddLinkDialog = ({
-  category,
+  title,
   onAdd,
 }: {
-  category: LinkCategory;
+  title: string;
   onAdd: (label: string, url: string) => void;
 }) => {
   const [link, setLink] = useState({ label: "", url: "" });
@@ -81,34 +76,34 @@ const AddLinkDialog = ({
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="secondary" className="mt-3 mb-3" size="sm">
-          Add {CATEGORY_LABELS[category].toLowerCase().replace(" links", "")} link
+          Add link
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{CATEGORY_LABELS[category]}</DialogTitle>
+          <DialogTitle>{title}</DialogTitle>
           <DialogDescription>
             Add a title and URL to be displayed in the question
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor={`${category}-label`} className="text-right">
+            <Label htmlFor="link-label" className="text-right">
               Title
             </Label>
             <Input
-              id={`${category}-label`}
+              id="link-label"
               value={link.label}
               onChange={(e) => setLink({ ...link, label: e.target.value })}
               className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor={`${category}-url`} className="text-right">
+            <Label htmlFor="link-url" className="text-right">
               URL
             </Label>
             <Input
-              id={`${category}-url`}
+              id="link-url"
               value={link.url}
               onChange={(e) => setLink({ ...link, url: e.target.value })}
               className="col-span-3"
@@ -125,48 +120,14 @@ const AddLinkDialog = ({
       </DialogContent>
     </Dialog>
   );
-}
+};
 
-export const ExternalResourcesForm = ({ externalResources, onUpdate }: Props) => {
-  const handleAdd = (category: LinkCategory, label: string, url: string) => {
-    onUpdate({
-      ...externalResources,
-      [category]: [...externalResources[category], { label, url }],
-    });
-  };
-
-  const handleRemove = (
-    category: LinkCategory,
-    label: string,
-    url: string
-  ) => {
-    onUpdate({
-      ...externalResources,
-      [category]: externalResources[category].filter(
-        (link) => link.label !== label || link.url !== url
-      ),
-    });
-  };
-
+export const ExternalLinksForm = ({ title, links, onAdd, onRemove }: Props) => {
   return (
     <>
-      <Medium className="font-extrabold">External resources</Medium>
-
-      {(["reportLinks", "readMoreLinks"] as const).map((category) => (
-        <div key={category} className="mt-3">
-          <p className="text-sm font-semibold text-slate-600">
-            {CATEGORY_LABELS[category]}
-          </p>
-          <LinkList
-            links={externalResources[category]}
-            onRemove={(label, url) => handleRemove(category, label, url)}
-          />
-          <AddLinkDialog
-            category={category}
-            onAdd={(label, url) => handleAdd(category, label, url)}
-          />
-        </div>
-      ))}
+      <Medium className="font-extrabold">{title}</Medium>
+      <LinkList links={links} onRemove={onRemove} />
+      <AddLinkDialog title={title} onAdd={onAdd} />
     </>
   );
-}
+};
