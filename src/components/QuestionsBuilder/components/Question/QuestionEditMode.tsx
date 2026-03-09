@@ -7,7 +7,7 @@ import {
   ValueReference,
 } from "../../types";
 import { useEffect, useRef, useState } from "react";
-import { AddExternalLinkForm } from "./AddExternalLinkForm";
+import { ExternalLinksForm } from "./ExternalLinksForm";
 import { Separator } from "@/components/ui/separator";
 import { QuestionTypeSelector } from "./QuestionTypeSelector";
 import { QuestionDependencySelector } from "./QuestionDependencySelector";
@@ -61,6 +61,22 @@ export function QuestionEditMode(props: Props) {
     onQuestionUpdate({
       ...question,
       externalLinks: question.externalLinks.filter(
+        (link) => link.label !== label && link.url !== url,
+      ),
+    });
+  };
+
+  const handleOnAddReportLink = (label: string, url: string) => {
+    onQuestionUpdate({
+      ...question,
+      reportLinks: [...(question.reportLinks ?? []), { label, url }],
+    });
+  };
+
+  const handleOnRemoveReportLink = (label: string, url: string) => {
+    onQuestionUpdate({
+      ...question,
+      reportLinks: (question.reportLinks ?? []).filter(
         (link) => link.label !== label && link.url !== url,
       ),
     });
@@ -421,10 +437,20 @@ export function QuestionEditMode(props: Props) {
           </>
         )}
 
-      <AddExternalLinkForm
-        externalLinks={question.externalLinks}
+      <ExternalLinksForm
+        title="External links"
+        links={question.externalLinks}
         onAdd={handleOnAddExternalLink}
         onRemove={handleOnRemoveExternalLink}
+      />
+
+      <Separator className="mt-5 mb-5" />
+
+      <ExternalLinksForm
+        title="Report links"
+        links={question.reportLinks ?? []}
+        onAdd={handleOnAddReportLink}
+        onRemove={handleOnRemoveReportLink}
       />
 
       <Separator className="mt-5 mb-5" />

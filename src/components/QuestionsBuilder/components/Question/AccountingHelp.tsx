@@ -24,7 +24,7 @@ import {
   TRIGGER_ANSWER,
   TRIGGER_ANSWER_OPTIONS,
 } from "./constants/triggerAnswer";
-import { AddExternalLinkForm } from "./AddExternalLinkForm";
+import { ExternalLinksForm } from "./ExternalLinksForm";
 
 type RangeInputProps = {
   range: string | undefined;
@@ -466,8 +466,9 @@ export function AccountingHelp(props: Props) {
         Add new range
       </Button>
 
-      <AddExternalLinkForm
-        externalLinks={question.accounts?.externalLinks || []}
+      <ExternalLinksForm
+        title="External links"
+        links={question.accounts?.externalLinks || []}
         onAdd={handleOnAddExternalLink}
         onRemove={handleOnRemoveExternalLink}
       />

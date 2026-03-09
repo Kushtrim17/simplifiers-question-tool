@@ -67,6 +67,7 @@ export type Question = {
   type: QuestionType;
   scope: QuestionScope;
   externalLinks: ExternalLink[];
+  reportLinks: ExternalLink[];
   // an array of question ids that this question depends on
   dependsOnQuestions: DependsOnQuestion[];
   accounts?: Accounts;

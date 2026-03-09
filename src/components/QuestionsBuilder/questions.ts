@@ -191,6 +191,7 @@ export function addQuestionToCategory(
         type: "boolean",
         scope: "accounts",
         externalLinks: [],
+        reportLinks: [],
         dependsOnQuestions: [],
         valueReferences: [],
         constraints: {},
