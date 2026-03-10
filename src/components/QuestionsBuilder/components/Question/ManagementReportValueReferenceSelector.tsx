@@ -17,6 +17,7 @@ import {
   TRIGGER_ANSWER,
   TRIGGER_ANSWER_OPTIONS,
 } from "./constants/triggerAnswer";
+import { ValidationRules } from "./ValidationRules";
 
 type Props = {
   question: Question;
@@ -180,6 +181,8 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
                     ...valueReference,
                     // reset multiline value if type changes from "string" to another
                     multiline: valueReference.type === "string" ? undefined : valueReference.multiline,
+                    // reset validation rules if type changes from "number" to another
+                    validation: valueReference.type === "number" ? undefined : valueReference.validation,
                     type: newValue === "null" ? "" : (newValue as "number" | "string"),
                   });
                 }}
@@ -217,6 +220,18 @@ export const ManagementReportValueReferenceSelector = (props: Props) => {
                 </div>
               )
             }
+
+            {valueReference.type === "number" && (
+              <ValidationRules
+                valueReference={valueReference}
+                onValidationChange={(updatedValidation) => {
+                  handleSave(i, {
+                    ...valueReference,
+                    validation: updatedValidation,
+                  });
+                }}
+              />
+            )}
 
           </Grid>
         </div>

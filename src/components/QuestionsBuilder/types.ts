@@ -39,6 +39,10 @@ export type ValueReference = {
   label?: string;
   type?: "" | "number" | "string";
   multiline?: boolean;
+  validation?: {
+    min: { value: number, message: string },
+    max: { value: number, message: string },
+  }
 };
 
 export type DocumentReference = {
