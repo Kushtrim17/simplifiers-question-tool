@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Small, Medium } from "@/components/ui/Typography";
+import { Grid } from "@/components/ui/grid";
 import { Question, TriggerAnswer, ValueReference } from "../../types";
 import { badgeVariants } from "@/components/ui/badge";
 import { IoClose } from "react-icons/io5";
@@ -23,6 +24,7 @@ import {
   TRIGGER_ANSWER,
   TRIGGER_ANSWER_OPTIONS,
 } from "./constants/triggerAnswer";
+import { ValidationRules } from "./ValidationRules";
 
 type Props = {
   question: Question;
@@ -36,6 +38,8 @@ const titleMap: Record<string, string> = {
   managementReport: "Which value in Management Report this question refers to?",
   notes: "Which value in Annual Report this question refers to?",
 };
+
+const TYPE_OPTIONS = ["", "number", "string"];
 
 // Helper to map a constant ValueReference (id, label) to the main ValueReference (cellId, triggerAnswer)
 const toMainValueReference = (
@@ -68,6 +72,17 @@ export function ValueReferenceSelector(props: Props) {
     props.onQuestionValueReferencesChanged(
       valueReferences.map((ref) =>
         ref.cellId === cellId ? { ...ref, triggerAnswer } : ref
+      )
+    );
+  };
+
+  const handleOnValueReferenceUpdate = (
+    cellId: string,
+    updates: Partial<ValueReference>
+  ) => {
+    props.onQuestionValueReferencesChanged(
+      valueReferences.map((ref) =>
+        ref.cellId === cellId ? { ...ref, ...updates } : ref
       )
     );
   };
@@ -273,47 +288,90 @@ export function ValueReferenceSelector(props: Props) {
       {valueReferences.length > 0 && (
         <>
           <Medium className="font-extrabold mb-2">
-            Which question answer should enable each reference?
+            Set trigger answer(required), type and validation rules (optional) for each value reference.
           </Medium>
           {valueReferences.map((ref) => (
             <div
               key={ref.cellId}
-              className="mb-2 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 w-full"
+              className="mb-4 border border-gray-200 rounded-lg p-4"
             >
-              <span
+              <h5
                 title={ref.cellId}
-                className="text-sm font-mono truncate min-w-0 flex-1"
+                className="text-md font-bold mb-2 font-mono truncate min-w-0 flex-1"
               >
-                {ref.cellId}
-              </span>
-              <Select
-                // Select cannot take an empty string as a value that's why we convert empty string to null
-                // and back to empty string when we store the value
-                defaultValue={
-                  ref.triggerAnswer === "" ? "null" : ref.triggerAnswer
-                }
-                onValueChange={(newValue: string) =>
-                  handleOnValueReferenceTriggerChange(
-                    ref.cellId,
-                    newValue === "null" ? "" : (newValue as TriggerAnswer)
-                  )
-                }
-                onOpenChange={(isOpen) => !isOpen}
-              >
-                <SelectTrigger className="mt-2 mb-2 w-[160px] shrink-0">
-                  <SelectValue placeholder="Select answer trigger" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="null">No trigger</SelectItem>
-                  {getAnswerOptions()
-                    .filter((d) => d !== TRIGGER_ANSWER.NULL)
-                    .map((d) => (
-                      <SelectItem key={d.toString()} value={d.toString()}>
-                        {d.charAt(0).toUpperCase() + d.slice(1)}
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
+                  {ref.cellId}
+                </h5>
+              <Grid columns={2}>
+                <div>
+                  <Small className="font-extrabold">Trigger answer</Small>
+                  <Select
+                    // Select cannot take an empty string as a value that's why we convert empty string to null
+                    // and back to empty string when we store the value
+                    defaultValue={
+                      ref.triggerAnswer === "" ? "null" : ref.triggerAnswer
+                    }
+                    onValueChange={(newValue: string) =>
+                      handleOnValueReferenceTriggerChange(
+                        ref.cellId,
+                        newValue === "null" ? "" : (newValue as TriggerAnswer)
+                      )
+                    }
+                    onOpenChange={(isOpen) => !isOpen}
+                  >
+                    <SelectTrigger className="mt-2 mb-2 shrink-0">
+                      <SelectValue placeholder="Select answer trigger" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="null">No trigger</SelectItem>
+                      {getAnswerOptions()
+                        .filter((d) => d !== TRIGGER_ANSWER.NULL)
+                        .map((d) => (
+                          <SelectItem key={d.toString()} value={d.toString()}>
+                            {d.charAt(0).toUpperCase() + d.slice(1)}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Small className="font-extrabold">Type</Small>
+                  <Select
+                    defaultValue={!ref.type ? "null" : ref.type}
+                    onValueChange={(newValue: string) => {
+                      handleOnValueReferenceUpdate(ref.cellId, {
+                        // reset validation rules if type changes from "number" to another
+                        validation: ref.type === "number" ? undefined : ref.validation,
+                        type: newValue === "null" ? "" : (newValue as "number" | "string"),
+                      });
+                    }}
+                    onOpenChange={(isOpen) => !isOpen}
+                  >
+                    <SelectTrigger className="mt-2">
+                      <SelectValue placeholder="Select type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="null">-</SelectItem>
+                      {TYPE_OPTIONS.filter((d) => d !== "").map((d) => (
+                        <SelectItem key={d.toString()} value={d.toString()}>
+                          {d.charAt(0).toUpperCase() + d.slice(1)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </Grid>
+
+              {ref.type === "number" && (
+                <ValidationRules
+                  valueReference={ref}
+                  onValidationChange={(updatedValidation) => {
+                    handleOnValueReferenceUpdate(ref.cellId, {
+                      validation: updatedValidation,
+                    });
+                  }}
+                />
+              )}
             </div>
           ))}
         </>
