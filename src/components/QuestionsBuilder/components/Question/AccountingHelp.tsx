@@ -1,13 +1,6 @@
 import React from "react";
 import { Medium, Small } from "@/components/ui/Typography";
 import { Input } from "@/components/ui/input";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@/components/ui/input-otp";
-import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { AccountsHelper, Question, TriggerAnswer } from "../../types";
 import {
   Select,
@@ -25,37 +18,7 @@ import {
   TRIGGER_ANSWER_OPTIONS,
 } from "./constants/triggerAnswer";
 import { ExternalLinksForm } from "./ExternalLinksForm";
-
-type RangeInputProps = {
-  range: string | undefined;
-  onRangeChange: (newValue: string) => void;
-};
-const RangeInput = (props: RangeInputProps) => {
-  const { range, onRangeChange } = props;
-
-  return (
-    <InputOTP
-      maxLength={8}
-      pattern={REGEXP_ONLY_DIGITS}
-      value={range}
-      onChange={onRangeChange}
-    >
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-        <InputOTPSlot index={6} />
-        <InputOTPSlot index={7} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
+import { RangeInput } from "./components/RangeInput";
 
 type Props = {
   question: Question;
