@@ -62,6 +62,29 @@ export type QuestionInfo = {
   footer?: string;
 };
 
+// Automation Rules Types
+export type RuleType = "IB" | "UB" | "IBUB" | "voucher" | "-";
+
+export type MatchMode = "all" | "any" | "-";
+
+export type ConditionRule = {
+  answer: TriggerAnswer;
+  accountMatchMode: MatchMode;
+};
+
+export type Condition = {
+  positive?: ConditionRule;
+  zero?: ConditionRule;
+  negative?: ConditionRule;
+};
+
+export type AutomationRule = {
+  ruleType: RuleType;
+  accountRanges: (number[] | null[])[];
+  conditions: Condition;
+};
+
+
 export type Question = {
   id: string;
   title: string;
@@ -86,6 +109,7 @@ export type Question = {
   };
   info?: QuestionInfo;
   voucherDescription?: string;
+  automationRule?: AutomationRule;
 };
 export type Category = {
   id: string;
