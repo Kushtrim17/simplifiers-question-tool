@@ -1,9 +1,13 @@
 import { Medium } from "@/components/ui/Typography";
 import {
+  AutomationRule,
   DocumentReference,
+  MatchMode,
   NoteConnection,
   NoteOption,
   Question,
+  DataSourceOption,
+  TriggerAnswer,
   ValueReference,
 } from "../../types";
 import { useEffect, useRef, useState } from "react";
@@ -23,6 +27,7 @@ import { Grid } from "@/components/ui/grid.tsx";
 import { ConstraintSelector } from "@/components/QuestionsBuilder/components/Question/ConstraintSelector";
 import { QuestionNoteConnectionTrigger } from "./QuestionNoteConnectionTrigger";
 import { InfoBanner } from "./InfoBanner";
+import { AutomationRulesSelector } from "./AutomationRulesSelector";
 
 type Props = {
   question: Question;
@@ -339,6 +344,124 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
+  // Automation Rule Handlers
+  const handleAddAutomationRule = () => {
+    const newRule: AutomationRule = {
+      dataSources: [],
+      accountRanges: [],
+      conditions: {},
+    };
+    onQuestionUpdate({ ...question, automationRule: newRule });
+  };
+
+  const handleDeleteAutomationRule = () => {
+    onQuestionUpdate({ ...question, automationRule: undefined });
+  };
+
+  const handleAutomationRuleDataSourceToggle = (dataSource: DataSourceOption, checked: boolean) => {
+    if (!question.automationRule) return;
+
+    const currentDataSources = question.automationRule.dataSources;
+    let newDataSources: DataSourceOption[];
+
+    if (checked) {
+      newDataSources = [...currentDataSources, dataSource];
+    } else {
+      newDataSources = currentDataSources.filter((ds) => ds !== dataSource);
+    }
+
+    onQuestionUpdate({
+      ...question,
+      automationRule: { ...question.automationRule, dataSources: newDataSources },
+    });
+  };
+
+  const handleAutomationRuleRangeChange = (index: number, newValue: string) => {
+    const range = getRangeFromValue(newValue);
+    if (!question.automationRule) return;
+
+    const accountRanges = [...question.automationRule.accountRanges];
+    accountRanges[index] = range;
+
+    onQuestionUpdate({
+      ...question,
+      automationRule: { ...question.automationRule, accountRanges },
+    });
+  };
+
+  const handleAutomationRuleRangeRemove = (index: number) => {
+    if (!question.automationRule) return;
+
+    const accountRanges = question.automationRule.accountRanges.filter(
+      (_, i) => i !== index
+    );
+
+    onQuestionUpdate({
+      ...question,
+      automationRule: { ...question.automationRule, accountRanges },
+    });
+  };
+
+  const handleAutomationRuleRangeAdd = () => {
+    if (!question.automationRule) return;
+
+    const accountRanges = [
+      ...question.automationRule.accountRanges,
+      [null, null],
+    ];
+
+    onQuestionUpdate({
+      ...question,
+      automationRule: { ...question.automationRule, accountRanges },
+    });
+  };
+
+  const handleAutomationRuleConditionToggle = (
+    conditionType: "positive" | "zero" | "negative",
+    enabled: boolean
+  ) => {
+    if (!question.automationRule) return;
+
+    const conditions = { ...question.automationRule.conditions };
+
+    if (enabled) {
+      conditions[conditionType] = {
+        answer: "-" as TriggerAnswer,
+        matchMode: "-" as MatchMode,
+      };
+    } else {
+      delete conditions[conditionType];
+    }
+
+    onQuestionUpdate({
+      ...question,
+      automationRule: { ...question.automationRule, conditions },
+    });
+  };
+
+  const handleAutomationRuleConditionChange = (
+    conditionType: "positive" | "zero" | "negative",
+    field: "answer" | "matchMode",
+    value: TriggerAnswer | MatchMode
+  ) => {
+    if (!question.automationRule) return;
+
+    const conditions = { ...question.automationRule.conditions };
+    const condition = conditions[conditionType];
+
+    if (condition) {
+      conditions[conditionType] = {
+        ...condition,
+        [field]: value,
+      };
+
+      onQuestionUpdate({
+        ...question,
+        automationRule: { ...question.automationRule, conditions },
+      });
+    }
+  };
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -485,6 +608,20 @@ export function QuestionEditMode(props: Props) {
           handleSave={handleUpdate}
         />
       )}
+
+      <Separator className="mt-5 mb-5" />
+
+      <AutomationRulesSelector
+        question={question}
+        onAddRule={handleAddAutomationRule}
+        onDeleteRule={handleDeleteAutomationRule}
+        onDataSourceToggle={handleAutomationRuleDataSourceToggle}
+        onAccountRangeChange={handleAutomationRuleRangeChange}
+        onAccountRangeRemove={handleAutomationRuleRangeRemove}
+        onAccountRangeAdd={handleAutomationRuleRangeAdd}
+        onConditionToggle={handleAutomationRuleConditionToggle}
+        onConditionChange={handleAutomationRuleConditionChange}
+      />
     </div>
   );
 }

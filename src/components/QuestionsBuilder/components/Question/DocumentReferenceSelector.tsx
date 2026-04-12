@@ -89,7 +89,7 @@ export const DocumentReferenceSelector = (props: Props) => {
         Which part of the Management Report Document this question refers to?
       </Medium>
       {documentReferences.map((documentReference, i) => (
-        <div className="border border-gray-200 rounded-lg p-4 mb-4">
+        <div key={`${documentReference.tableId}.${documentReference.id}`} className="border border-gray-200 rounded-lg p-4 mb-4">
           <div className="flex align-center justify-between mb-2">
             <Medium>Document Reference {i + 1}</Medium>
             <IoTrashBinOutline

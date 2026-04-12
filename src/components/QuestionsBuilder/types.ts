@@ -62,6 +62,29 @@ export type QuestionInfo = {
   footer?: string;
 };
 
+// Automation Rules Types
+export type DataSourceOption = "ingoing_balance" | "outgoing_balance" | "vouchers";
+
+export type MatchMode = "all" | "any" | "-";
+
+export type ConditionRule = {
+  answer: TriggerAnswer;
+  matchMode: MatchMode;
+};
+
+export type Condition = {
+  positive?: ConditionRule;
+  zero?: ConditionRule;
+  negative?: ConditionRule;
+};
+
+export type AutomationRule = {
+  dataSources: DataSourceOption[];
+  accountRanges: (number[] | null[])[];
+  conditions: Condition;
+};
+
+
 export type Question = {
   id: string;
   title: string;
@@ -86,6 +109,7 @@ export type Question = {
   };
   info?: QuestionInfo;
   voucherDescription?: string;
+  automationRule?: AutomationRule;
 };
 export type Category = {
   id: string;
