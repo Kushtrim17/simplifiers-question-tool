@@ -18,7 +18,7 @@ import {
 import { RangeInput } from "./components/RangeInput";
 import { Grid } from "@/components/ui/grid.tsx";
 
-type ConditionType = "positive" | "zero" | "negative";
+type ConditionType = "more" | "equals" | "less";
 
 type Props = {
   question: Question;
@@ -28,6 +28,7 @@ type Props = {
   onAccountRangeChange: (index: number, newValue: string) => void;
   onAccountRangeRemove: (index: number) => void;
   onAccountRangeAdd: () => void;
+  onValueChange: (value: number) => void;
   onConditionToggle: (conditionType: ConditionType, enabled: boolean) => void;
   onConditionChange: (
     conditionType: ConditionType,
@@ -40,6 +41,10 @@ const DATA_SOURCE_OPTIONS: { value: DataSourceOption; label: string }[] = [
   { value: "ingoing_balance", label: "Ingoing Balance (IB)" },
   { value: "outgoing_balance", label: "Outgoing Balance (UB)" },
   { value: "vouchers", label: "Vouchers" },
+  { value: "net_sales", label: "Net Sales" },
+  { value: "ceo_count", label: "CEO Count" },
+  { value: "oldest_accrual_fund", label: "Oldest Accrual Fund" },
+  { value: "taxable_result", label: "Taxable Result" },
 ];
 
 const MATCH_MODE_OPTIONS: { value: string; label: string }[] = [
@@ -54,7 +59,7 @@ const ANSWER_OPTIONS: { value: string; label: string }[] = [
   { value: "no", label: "No" },
 ];
 
-const CONDITION_TYPES: ConditionType[] = ["positive", "zero", "negative"];
+const CONDITION_TYPES: ConditionType[] = ["more", "equals", "less"];
 
 export function AutomationRulesSelector({
   question,
@@ -64,6 +69,7 @@ export function AutomationRulesSelector({
   onAccountRangeChange,
   onAccountRangeRemove,
   onAccountRangeAdd,
+  onValueChange,
   onConditionToggle,
   onConditionChange,
 }: Props) {
@@ -143,6 +149,21 @@ export function AutomationRulesSelector({
                 Add new range
               </Button>
             </div>
+          </div>
+
+          <Separator className="my-4" />
+
+          <div className="mb-4">
+            <Small className="block font-semibold mb-2">Value</Small>
+            <Small className="block mb-2 opacity-70">
+              (compared against conditions: more, equals, less)
+            </Small>
+            <input
+              type="number"
+              className="w-full p-2 border rounded"
+              value={rule.value}
+              onChange={(e) => onValueChange(Number(e.target.value))}
+            />
           </div>
 
           <Separator className="my-4" />
