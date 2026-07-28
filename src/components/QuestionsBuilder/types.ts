@@ -63,7 +63,14 @@ export type QuestionInfo = {
 };
 
 // Automation Rules Types
-export type DataSourceOption = "ingoing_balance" | "outgoing_balance" | "vouchers";
+export type DataSourceOption =
+  | "ingoing_balance"
+  | "outgoing_balance"
+  | "vouchers"
+  | "net_sales"
+  | "ceo_count"
+  | "oldest_accrual_fund"
+  | "taxable_result";
 
 export type MatchMode = "all" | "any" | "-";
 
@@ -73,14 +80,15 @@ export type ConditionRule = {
 };
 
 export type Condition = {
-  positive?: ConditionRule;
-  zero?: ConditionRule;
-  negative?: ConditionRule;
+  more?: ConditionRule;
+  equals?: ConditionRule;
+  less?: ConditionRule;
 };
 
 export type AutomationRule = {
   dataSources: DataSourceOption[];
   accountRanges: (number[] | null[])[];
+  value: number;
   conditions: Condition;
 };
 

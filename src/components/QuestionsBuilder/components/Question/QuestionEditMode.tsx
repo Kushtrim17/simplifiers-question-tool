@@ -349,6 +349,7 @@ export function QuestionEditMode(props: Props) {
     const newRule: AutomationRule = {
       dataSources: [],
       accountRanges: [],
+      value: 0,
       conditions: {},
     };
     onQuestionUpdate({ ...question, automationRule: newRule });
@@ -416,8 +417,17 @@ export function QuestionEditMode(props: Props) {
     });
   };
 
+  const handleAutomationRuleValueChange = (value: number) => {
+    if (!question.automationRule) return;
+
+    onQuestionUpdate({
+      ...question,
+      automationRule: { ...question.automationRule, value },
+    });
+  };
+
   const handleAutomationRuleConditionToggle = (
-    conditionType: "positive" | "zero" | "negative",
+    conditionType: "more" | "equals" | "less",
     enabled: boolean
   ) => {
     if (!question.automationRule) return;
@@ -440,7 +450,7 @@ export function QuestionEditMode(props: Props) {
   };
 
   const handleAutomationRuleConditionChange = (
-    conditionType: "positive" | "zero" | "negative",
+    conditionType: "more" | "equals" | "less",
     field: "answer" | "matchMode",
     value: TriggerAnswer | MatchMode
   ) => {
@@ -619,6 +629,7 @@ export function QuestionEditMode(props: Props) {
         onAccountRangeChange={handleAutomationRuleRangeChange}
         onAccountRangeRemove={handleAutomationRuleRangeRemove}
         onAccountRangeAdd={handleAutomationRuleRangeAdd}
+        onValueChange={handleAutomationRuleValueChange}
         onConditionToggle={handleAutomationRuleConditionToggle}
         onConditionChange={handleAutomationRuleConditionChange}
       />
